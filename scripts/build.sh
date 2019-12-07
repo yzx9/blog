@@ -1,7 +1,5 @@
 #! /bin/bash
 
-npm install
-
 build_paths=(
   learn-data-structure
 )
