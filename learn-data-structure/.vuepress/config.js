@@ -1,7 +1,7 @@
 module.exports = {
-  base: "/notebook/learn-internet/",
-  title: "Great internet",
-  dest: "dist/learn-internet",
+  base: "/notebook/learn-data-structure/",
+  title: "Oh my data structure",
+  dest: "dist/learn-data-structure",
   plugins: [
     [
       "vuepress-plugin-mathjax",
@@ -15,6 +15,14 @@ module.exports = {
   ],
   themeConfig: {
     lastUpdated: "Last Updated",
-    sidebar: []
+    sidebar: [
+      "/linear-list.md",
+      "/binaryTree.md",
+      "/forest.md",
+      "/string.md",
+      "/graph.md",
+      "/hash.md",
+      "/sort.md"
+    ]
   }
 };
