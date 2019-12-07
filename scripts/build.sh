@@ -1,6 +1,6 @@
 #! /bin/bash
 
-yarn install
+npm install
 
 build_paths=(
   learn-data-structure
@@ -8,5 +8,5 @@ build_paths=(
 
 for path in ${build_paths[@]}; do
   echo "build ${path}"
-  yarn docs:build "${path}"
+  npm run docs:build "${path}"
 done
