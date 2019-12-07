@@ -6,5 +6,5 @@ build_paths=(
 
 for path in ${build_paths[@]}; do
   echo "build ${path}"
-  npm run docs:build "${path}"
+  npm run docs:build ${path}
 done
