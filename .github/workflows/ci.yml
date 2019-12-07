@@ -17,4 +17,4 @@ jobs:
           BASE_BRANCH: master
           BRANCH: gh-pages
           FOLDER: dist
-          BUILD_SCRIPT: chmod +x ./scripts/build.sh
+          BUILD_SCRIPT: chmod +x ./scripts/build.sh && ./scripts/build.sh
