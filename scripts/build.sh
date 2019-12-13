@@ -1,12 +1,24 @@
 #! /bin/bash
 
-npm install
+yarn install
 
-build_paths=(
-  learn-data-structure
+ignore_dirs=(
+  .git
+  .github
+  node_modules
+  scripts
 )
 
-for path in ${build_paths[@]}; do
-  echo "build ${path}"
-  npm run build ${path}
+echo "Work in $(pwd)"
+current_dirs=$(ls -l | awk '/^d/ {print $NF}')
+
+for path in ${current_dirs[@]}
+do
+  if echo "${ignore_dirs[@]}" | grep -w "${path}" &> /dev/null
+  then
+    echo "skip path ${path}"
+  else
+    echo "build ${path}"
+    yarn run build ${path}
+  fi
 done
