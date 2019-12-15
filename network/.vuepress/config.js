@@ -1,6 +1,7 @@
 module.exports = {
   base: "/notebook/network/",
   title: "Great internet",
+  dest: "dist/network",
   plugins: [
     [
       "vuepress-plugin-mathjax",
