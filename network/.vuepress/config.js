@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/network/",
+  base: "/notebook/network/",
   title: "Great internet",
   plugins: [
     [
