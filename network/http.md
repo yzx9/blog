@@ -119,6 +119,10 @@ HTTP1.1 为目前使用最广泛的 HTTP 协议
 HTTP1.1 Pipelining, 若干个请求排队串行化单线程请求, 后面请求需要等待前面请求返回, 可能存在线头阻塞
 :::
 
+![Roundup on Parallel Connections](./img/http-parallel-connect.jpg)
+
+来源: [Roundup on Parallel Connections](http://www.stevesouders.com/blog/2008/03/20/roundup-on-parallel-connections/)
+
 ## HTTPS
 
 1. HTTPS 协议协议需要到 CA 申请证书
@@ -152,7 +156,7 @@ HTTP 基于 TCP, 浏览器最快也需要在第三次握手才能捎带 HTTP 报
 
 ## HTTP2.0
 
-![HTTP History](./img/http-history.webp)
+![HTTP History](./img/http-history.jpg)
 
 ### SPDY
 
@@ -177,6 +181,14 @@ HTTP 基于 TCP, 浏览器最快也需要在第三次握手才能捎带 HTTP 报
 3. **header 压缩** 通讯双方各自 cache 一份 header fields 表
 4. **服务器端推送 (Server Push)**
 
+:::tip Binary Format
+在不改动 HTTP/1.x 的语义、方法、状态码、URI 以及首部字段….. 的情况下, HTTP/2 是如何做到「突破 HTTP1.1 的性能限制，改进传输性能，实现低延迟和高吞吐量」的 ? 关键之一就是在 应用层(HTTP/2)和传输层(TCP or UDP)之间增加一个二进制分帧层。
+
+![HTTP/2 Binary Framing](./img/http2.0-binary-framing.jpg)
+
+在不改动 HTTP/1.x 的语义、方法、状态码、URI 以及首部字段….. 的情况下, HTTP/2 是如何做到「突破 HTTP1.1 的性能限制，改进传输性能，实现低延迟和高吞吐量」的 ?
+:::
+
 ### MultiPlexing 与 Pipelining 区别?
 
-![Different between MultiPlexing and Pipelining](./img/MultiPlexing-and-Pipelining.webp)
+![Different between MultiPlexing and Pipelining](./img/MultiPlexing-and-Pipelining.jpg)
