@@ -1,7 +1,7 @@
 module.exports = {
-  base: "/notebook/learn-data-structure/",
+  base: "/notebook/data-structure/",
   title: "Oh my data structure",
-  dest: "dist/learn-data-structure",
+  dest: "dist/data-structure",
   plugins: [
     [
       "vuepress-plugin-mathjax",
