@@ -15,6 +15,6 @@ module.exports = {
   ],
   themeConfig: {
     lastUpdated: "Last Updated",
-    sidebar: ["/http.md"]
+    sidebar: ["/http.md", "/tcp.md"]
   }
 };
