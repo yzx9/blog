@@ -1,17 +1,19 @@
 {
   "name": "notebook",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "author": "Celeste <yuan.zx@outlook.com>",
+  "keywords": [],
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev",
-    "build": "vuepress build"
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "serve": "vuepress serve docs"
   },
   "devDependencies": {
-    "vuepress": "^1.2.0"
-  },
-  "dependencies": {
+    "vuepress": "^1.7.1",
     "vuepress-plugin-mathjax": "^1.2.8"
-  }
+  },
+  "dependencies": {}
 }
