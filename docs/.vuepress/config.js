@@ -61,17 +61,15 @@ function getCSSidebar() {
     ...getNetworkSideber(),
     ...getComputerOrganizationSidebar(),
     ...getDataStructureSidebar(),
-    [
-      {
-        title: "杂谈",
-        children: [
-          {
-            title: "Git Angular 规范",
-            path: "/cs/others/angularjs-git-commit-message-conventions",
-          },
-        ],
-      },
-    ],
+    {
+      title: "杂谈",
+      children: [
+        {
+          title: "Git Angular 规范",
+          path: "/cs/others/angularjs-git-commit-message-conventions",
+        },
+      ],
+    },
   ]
 }
 

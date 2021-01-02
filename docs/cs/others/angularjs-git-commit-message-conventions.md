@@ -50,11 +50,11 @@ Header 只有一行，由 type、scope（optional）和 subject 组成。
 
 - revert：撤销以前的 commit，后面跟着被撤销 Commit 的 Header。
 
-> ```bash
-> revert: feat(pencil): add 'graphiteWidth' option
-> 
-> This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
-> ```
+```
+revert: feat(pencil): add 'graphiteWidth' option
+
+This reverts commit 667ecc1654a317a13331b17617d973392f415f02.
+```
 
 Body部分的格式是固定的，必须写成`This reverts commit <hash>.`
 
