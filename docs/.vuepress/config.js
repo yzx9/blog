@@ -61,6 +61,17 @@ function getCSSidebar() {
     ...getNetworkSideber(),
     ...getComputerOrganizationSidebar(),
     ...getDataStructureSidebar(),
+    [
+      {
+        title: "杂谈",
+        children: [
+          {
+            title: "Git Angular 规范",
+            path: "/cs/others/angularjs-git-commit-message-conventions",
+          },
+        ],
+      },
+    ],
   ]
 }
 
@@ -68,7 +79,7 @@ function getNetworkSideber() {
   const url = (url) => `/cs/network/${url}`
   return [
     {
-      title: "Network",
+      title: "计算机网络",
       path: "/cs/network/",
       children: [
         { title: "TCP", path: url("tcp") },
@@ -80,7 +91,10 @@ function getNetworkSideber() {
 
 function getComputerOrganizationSidebar() {
   return [
-    { title: "Computer Organization", path: "/cs/computer-organization/" },
+    {
+      title: "计算机组成原理",
+      path: "/cs/computer-organization/",
+    },
   ]
 }
 
@@ -88,7 +102,7 @@ function getDataStructureSidebar() {
   const url = (url) => `/cs/data-structure/${url}`
   return [
     {
-      title: "Data Structure",
+      title: "数据结构",
       path: "/cs/data-structure/",
       children: [
         { title: "线性表", path: url("linear-list") },
