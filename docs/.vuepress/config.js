@@ -88,10 +88,17 @@ function getNetworkSideber() {
 }
 
 function getComputerOrganizationSidebar() {
+  const url = (url) => `/cs/computer-organization/${url}`
   return [
     {
       title: "计算机组成原理",
       path: "/cs/computer-organization/",
+      children: [
+        {
+          title: "取指周期",
+          path: url("instruction-fetch"),
+        },
+      ],
     },
   ]
 }
