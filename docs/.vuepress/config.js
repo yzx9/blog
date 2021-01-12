@@ -38,7 +38,7 @@ module.exports = {
     sidebar: {
       "/cs/computer-organization/": getComputerOrganizationSidebar(),
       "/cs/data-structure/": getDataStructureSidebar(),
-      "/cs/network/": getNetworkSideber(),
+      "/cs/network/": getNetworkSidebar(),
       "/cs/": getCSSidebar(),
       "/": getHomepageSidebar(),
     },
@@ -49,7 +49,7 @@ function getHomepageSidebar() {
   return [
     {
       collapsable: false,
-      title: "Computer Science",
+      title: "计算机科学与技术",
       path: "/cs/",
       children: getCSSidebar(),
     },
@@ -58,7 +58,7 @@ function getHomepageSidebar() {
 
 function getCSSidebar() {
   return [
-    ...getNetworkSideber(),
+    ...getNetworkSidebar(),
     ...getComputerOrganizationSidebar(),
     ...getDataStructureSidebar(),
     {
@@ -73,7 +73,7 @@ function getCSSidebar() {
   ]
 }
 
-function getNetworkSideber() {
+function getNetworkSidebar() {
   const url = (url) => `/cs/network/${url}`
   return [
     {
