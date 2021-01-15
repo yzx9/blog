@@ -17,7 +17,6 @@ module.exports = {
     ],
   ],
 
-  nav: [],
   themeConfig: {
     search: true,
 
@@ -34,7 +33,7 @@ module.exports = {
 
     smoothScroll: true,
 
-    sidebarDepth: 1,
+    nav: [],
     sidebar: {
       "/cs/computer-organization/": getComputerOrganizationSidebar(),
       "/cs/data-structure/": getDataStructureSidebar(),
@@ -48,9 +47,10 @@ module.exports = {
 function getHomepageSidebar() {
   return [
     {
-      collapsable: false,
       title: "计算机科学与技术",
       path: "/cs/",
+
+      sidebarDepth: 2,
       children: getCSSidebar(),
     },
   ]
@@ -58,17 +58,13 @@ function getHomepageSidebar() {
 
 function getCSSidebar() {
   return [
-    ...getNetworkSidebar(),
     ...getComputerOrganizationSidebar(),
     ...getDataStructureSidebar(),
+    ...getNetworkSidebar(),
     {
       title: "杂谈",
-      children: [
-        {
-          title: "Git Angular 规范",
-          path: "/cs/others/angularjs-git-commit-message-conventions",
-        },
-      ],
+      sidebarDepth: 2,
+      children: ["/cs/others/angularjs-git-commit-message-conventions"],
     },
   ]
 }
@@ -79,10 +75,9 @@ function getNetworkSidebar() {
     {
       title: "计算机网络",
       path: "/cs/network/",
-      children: [
-        { title: "TCP", path: url("tcp") },
-        { title: "HTTP", path: url("http") },
-      ],
+
+      sidebarDepth: 2,
+      children: [url("tcp"), url("http")],
     },
   ]
 }
@@ -93,40 +88,36 @@ function getComputerOrganizationSidebar() {
     {
       title: "计算机组成原理",
       path: "/cs/computer-organization/",
-      children: [
-        {
-          title: "取指周期",
-          path: url("instruction-fetch"),
-        },
-      ],
+      sidebarDepth: 2,
+      children: [url("instruction-fetch")],
     },
   ]
 }
 
 function getDataStructureSidebar() {
   const url = (url) => `/cs/data-structure/${url}`
-  const tree = (url) => `/cs/data-structure/tree-and-forest/${url}`
+  const tree = (name) => url(`tree-and-forest/${name}`)
   return [
     {
       title: "数据结构",
       path: "/cs/data-structure/",
       sidebarDepth: 2,
       children: [
-        { title: "线性表", path: url("linear-list") },
+        url("linear-list"),
         {
           title: "树和森林",
           path: url("tree-and-forest"),
           children: [
-            { title: "二叉排序树", path: tree("binary-sort-tree") },
-            { title: "二叉平衡树", path: tree("avl-tree") },
-            { title: "哈夫曼树与哈夫曼编码", path: tree("huffman-tree") },
-            // { title: "B树", path: tree("b-tree") },
+            tree("binary-sort-tree"),
+            tree("avl-tree"),
+            tree("huffman-tree"),
+            // tree("b-tree")
           ],
         },
-        { title: "串", path: url("string") },
-        { title: "图", path: url("graph") },
-        { title: "哈希", path: url("hash") },
-        { title: "排序", path: url("sort") },
+        url("string"),
+        url("graph"),
+        url("hash"),
+        url("sort"),
       ],
     },
   ]

@@ -1,3 +1,7 @@
+---
+title: Git Angular 规范
+---
+
 # AngularJS Git Commit Message Conventions
 
 > via: [Git Commit Message Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.uyo6cb12dt6w)

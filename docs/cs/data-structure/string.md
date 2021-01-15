@@ -1,3 +1,7 @@
+---
+title: 串
+---
+
 # String
 
 [[toc]]
