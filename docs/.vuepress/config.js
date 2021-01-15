@@ -18,8 +18,6 @@ module.exports = {
   ],
 
   themeConfig: {
-    search: true,
-
     repo: "nsznsznjsz/notebook",
     docsDir: "docs",
     docsBranch: "master",
@@ -33,7 +31,20 @@ module.exports = {
 
     smoothScroll: true,
 
-    nav: [],
+    search: true,
+    nav: [
+      {
+        text: "计算机科学与技术",
+        link: "/cs/",
+        items: [
+          { text: "计算机组成原理", link: "/cs/computer-organization/" },
+          { text: "数据结构", link: "/cs/data-structure/" },
+          { text: "计算机网络", link: "/cs/network/" },
+          { text: "杂谈", link: "/cs/others/" },
+        ],
+      },
+    ],
+
     sidebar: {
       "/cs/computer-organization/": getComputerOrganizationSidebar(),
       "/cs/data-structure/": getDataStructureSidebar(),
@@ -63,6 +74,7 @@ function getCSSidebar() {
     ...getNetworkSidebar(),
     {
       title: "杂谈",
+      path: "/cs/others/",
       sidebarDepth: 2,
       children: ["/cs/others/angularjs-git-commit-message-conventions"],
     },
@@ -75,7 +87,6 @@ function getNetworkSidebar() {
     {
       title: "计算机网络",
       path: "/cs/network/",
-
       sidebarDepth: 2,
       children: [url("tcp"), url("http")],
     },
