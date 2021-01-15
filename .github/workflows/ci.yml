@@ -2,13 +2,13 @@ name: GitHub Pages Deploy
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@main
 
       - name: Install and Build
         run: |
@@ -19,7 +19,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@master
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          BASE_BRANCH: master
+          BASE_BRANCH: main
           BRANCH: gh-pages
           FOLDER: docs/.vuepress/dist
           CLEAN: true
