@@ -34,7 +34,7 @@ module.exports = {
 
     smoothScroll: true,
 
-    sidebarDepth: 2,
+    sidebarDepth: 1,
     sidebar: {
       "/cs/computer-organization/": getComputerOrganizationSidebar(),
       "/cs/data-structure/": getDataStructureSidebar(),
@@ -105,14 +105,24 @@ function getComputerOrganizationSidebar() {
 
 function getDataStructureSidebar() {
   const url = (url) => `/cs/data-structure/${url}`
+  const tree = (url) => `/cs/data-structure/tree-and-forest/${url}`
   return [
     {
       title: "数据结构",
       path: "/cs/data-structure/",
+      sidebarDepth: 2,
       children: [
         { title: "线性表", path: url("linear-list") },
-        { title: "二叉树", path: url("binary-tree") },
-        { title: "森林", path: url("forest") },
+        {
+          title: "树和森林",
+          path: url("tree-and-forest"),
+          children: [
+            { title: "二叉排序树", path: tree("binary-sort-tree") },
+            { title: "二叉平衡树", path: tree("avl-tree") },
+            { title: "哈夫曼树与哈夫曼编码", path: tree("huffman-tree") },
+            // { title: "B树", path: tree("b-tree") },
+          ],
+        },
         { title: "串", path: url("string") },
         { title: "图", path: url("graph") },
         { title: "哈希", path: url("hash") },
