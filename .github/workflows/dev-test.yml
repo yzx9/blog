@@ -1,0 +1,16 @@
+name: Dev Test
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Install and Build
+        run: |
+          npm install
+          npm run build
