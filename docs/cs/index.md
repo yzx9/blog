@@ -1,7 +1,8 @@
 ---
 title: 计算机科学与技术
+publish: false
 ---
 
-# Computer Science
+# 计算机科学与技术
 
-Don't stay hear, Jump next.
+<LatestArticles />

@@ -1,7 +1,8 @@
 ---
 title: 数据结构
+publish: false
 ---
 
-# HI!
+# 数据结构笔记
 
-Hi, this is my data-structure-learning docs
+<LatestArticles />

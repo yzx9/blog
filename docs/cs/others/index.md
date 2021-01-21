@@ -1,7 +1,8 @@
 ---
 title: 计算机杂谈
+publish: false
 ---
 
-# HI!
+# 笔记
 
-Hi, this is my cs docs
+<LatestArticles />

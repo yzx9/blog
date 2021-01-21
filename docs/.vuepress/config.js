@@ -6,8 +6,9 @@ module.exports = {
     "A notebook - one day it might be cover everything in one area or the world.",
 
   plugins: [
+    [require("../../plugins/vuepress-plugin-latest-articles")],
     [
-      "vuepress-plugin-mathjax",
+      "mathjax",
       {
         target: "svg",
         macros: {
