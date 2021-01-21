@@ -35,7 +35,17 @@ export default {
               },
             },
             [
-              h("a", a.title),
+              h(
+                "a",
+                {
+                  attrs: {
+                    href: a.regularPath.startsWith("/")
+                      ? a.regularPath.replace("/", this.$site.base)
+                      : a.regularPath,
+                  },
+                },
+                a.title
+              ),
               h(
                 "div",
                 {
