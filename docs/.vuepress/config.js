@@ -43,6 +43,11 @@ module.exports = {
           { text: "杂谈", link: "/cs/others/" },
         ],
       },
+      {
+        text: "杂谈",
+        link: "/others/",
+        items: [{ text: "咖啡", link: "/others/coffee/" }],
+      },
     ],
 
     sidebar: {
@@ -50,6 +55,7 @@ module.exports = {
       "/cs/data-structure/": getDataStructureSidebar(),
       "/cs/network/": getNetworkSidebar(),
       "/cs/": getCSSidebar(),
+      "/others/coffee/": getCoffeeSidebar(),
       "/": getHomepageSidebar(),
     },
   },
@@ -60,9 +66,12 @@ function getHomepageSidebar() {
     {
       title: "计算机科学与技术",
       path: "/cs/",
-
-      sidebarDepth: 2,
       children: getCSSidebar(),
+    },
+    {
+      title: "杂谈",
+      path: "/others/",
+      children: getOthersSidebar(),
     },
   ]
 }
@@ -132,4 +141,19 @@ function getDataStructureSidebar() {
       ],
     },
   ]
+}
+
+function getOthersSidebar() {
+  return [
+    {
+      title: "咖啡",
+      path: "/others/coffee/",
+      children: getCoffeeSidebar(),
+    },
+  ]
+}
+
+function getCoffeeSidebar() {
+  const url = (url) => `/others/coffee/${url}`
+  return []
 }
