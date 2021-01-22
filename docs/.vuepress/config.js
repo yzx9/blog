@@ -1,6 +1,6 @@
 module.exports = {
   base: "/notebook/",
-  title: "Personal Notebook",
+  title: "My Notebook",
   description:
     "A notebook - one day it might be cover everything in one area or the world.",
 
@@ -31,9 +31,9 @@ module.exports = {
     nextLinks: true,
     prevLinks: true,
 
-    editLinks: false,
-    editLinkText: "Edit this page",
-    lastUpdated: "Last updated",
+    editLinks: true,
+    editLinkText: "编辑此页",
+    lastUpdated: "上次更新",
 
     smoothScroll: true,
 
