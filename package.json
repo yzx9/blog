@@ -15,5 +15,7 @@
     "vuepress": "^1.7.1",
     "vuepress-plugin-mathjax": "^1.2.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "vuepress-plugin-latest-articles": "^1.1.0"
+  }
 }

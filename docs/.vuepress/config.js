@@ -1,12 +1,11 @@
 module.exports = {
   base: "/notebook/",
-  lang: "zh-CN",
   title: "Personal Notebook",
   description:
     "A notebook - one day it might be cover everything in one area or the world.",
 
   plugins: [
-    [require("../../plugins/vuepress-plugin-latest-articles")],
+    "latest-articles",
     [
       "mathjax",
       {
@@ -17,6 +16,12 @@ module.exports = {
       },
     ],
   ],
+
+  locales: {
+    "/": {
+      lang: "zh-CN",
+    },
+  },
 
   themeConfig: {
     repo: "nsznsznjsz/notebook",
