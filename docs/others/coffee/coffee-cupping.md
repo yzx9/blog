@@ -1,6 +1,6 @@
 ---
 title: 杯测
-publish: false
+published: false
 ---
 
 # 杯测

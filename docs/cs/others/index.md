@@ -1,6 +1,6 @@
 ---
 title: 计算机杂谈
-publish: false
+published: false
 ---
 
 # 笔记

@@ -1,6 +1,6 @@
 ---
 title: 杂谈
-publish: false
+published: false
 ---
 
 # 杂谈

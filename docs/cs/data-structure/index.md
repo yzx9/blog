@@ -1,6 +1,6 @@
 ---
 title: 数据结构
-publish: false
+published: false
 ---
 
 # 数据结构笔记

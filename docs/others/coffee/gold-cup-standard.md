@@ -1,6 +1,6 @@
 ---
 title: 金杯准则
-publish: false
+published: false
 ---
 
 # 金杯准则

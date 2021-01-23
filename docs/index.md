@@ -1,6 +1,6 @@
 ---
 title: 学习笔记
-publish: false
+published: false
 ---
 
 # 学习笔记

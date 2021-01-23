@@ -1,6 +1,6 @@
 ---
 title: 咖啡处理法
-publish: false
+published: false
 ---
 
 # 咖啡处理法

@@ -1,6 +1,6 @@
 ---
 title: 计算机网络
-publish: false
+published: false
 ---
 
 # 计算机网络笔记
