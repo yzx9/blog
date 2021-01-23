@@ -21,5 +21,29 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           BASE_BRANCH: main
           BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
+          FOLDER: src/.vuepress/dist
           CLEAN: true
+
+      - name: Push root directory to repository nsznsznjsz/nsznsznjsz
+        uses: cpina/github-action-push-to-another-repository@v1.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: .
+          destination-github-username: nsznsznjsz
+          destination-repository-name: nsznsznjsz
+          target-branch: main
+          user-email: yuan.zx@outlook.com
+          commit-message: Update from github.com/nsznsznjsz/notebook/commit/${{ GITHUB_SHA }}, see it for detail
+
+      - name: Push dist directory to repository nsznsznjsz/nsznsznjsz.github.io
+        uses: cpina/github-action-push-to-another-repository@v1.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: src/.vuepress/dist
+          destination-github-username: nsznsznjsz
+          destination-repository-name: nsznsznjsz.github.io
+          target-branch: main
+          user-email: yuan.zx@outlook.com
+          commit-message: Update from github.com/nsznsznjsz/notebook/commit/${{ GITHUB_SHA }}, see it for detail
