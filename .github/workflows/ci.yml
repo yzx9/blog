@@ -4,6 +4,7 @@ on:
     branches:
       - main
 jobs:
+  # nsznsznjsz/blog
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
@@ -11,6 +12,8 @@ jobs:
         uses: actions/checkout@main
 
       - name: Install and Build
+        env:
+          BASE_PATH: /blog/
         run: |
           npm install
           npm run build
@@ -24,21 +27,19 @@ jobs:
           FOLDER: src/.vuepress/dist
           CLEAN: true
 
-      - name: Push root directory to repository nsznsznjsz/nsznsznjsz
-        uses: cpina/github-action-push-to-another-repository@v1.2
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
-        with:
-          source-directory: .
-          destination-github-username: nsznsznjsz
-          destination-repository-name: nsznsznjsz
-          target-branch: main
-          user-email: yuan.zx@outlook.com
-          commit-message: |
-            Update from another repo, see it for detail
+  # nsznsznjsz/nsznsznjsz.github.io
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
 
-            - repo: github.com/nsznsznjsz/notebook
-            - commit: github.com/nsznsznjsz/notebook/commit/$GITHUB_SHA
+      - name: Install and Build
+        env:
+          BASE_PATH: /
+        run: |
+          npm install
+          npm run build
 
       - name: Push dist directory to repository nsznsznjsz/nsznsznjsz.github.io
         uses: cpina/github-action-push-to-another-repository@v1.2
@@ -48,6 +49,29 @@ jobs:
           source-directory: src/.vuepress/dist
           destination-github-username: nsznsznjsz
           destination-repository-name: nsznsznjsz.github.io
+          target-branch: main
+          user-email: yuan.zx@outlook.com
+          commit-message: |
+            Update from another repo, see it for detail
+
+            - repo: github.com/nsznsznjsz/notebook
+            - commit: github.com/nsznsznjsz/notebook/commit/$GITHUB_SHA
+
+  # nsznsznjsz/nsznsznjsz
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Push root directory to repository nsznsznjsz/nsznsznjsz
+        uses: cpina/github-action-push-to-another-repository@v1.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: .
+          destination-github-username: nsznsznjsz
+          destination-repository-name: nsznsznjsz
           target-branch: main
           user-email: yuan.zx@outlook.com
           commit-message: |

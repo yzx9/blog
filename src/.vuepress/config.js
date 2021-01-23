@@ -1,5 +1,5 @@
 module.exports = {
-  base: "/notebook/",
+  base: process.env.BASE_PATH,
   title: "Celeste's blog",
   description: "Technique && Life",
 
@@ -23,9 +23,9 @@ module.exports = {
   },
 
   themeConfig: {
-    repo: "nsznsznjsz/notebook",
-    docsDir: "docs",
-    docsBranch: "master",
+    repo: "nsznsznjsz/blog",
+    docsDir: "src",
+    docsBranch: "main",
 
     nextLinks: true,
     prevLinks: true,
@@ -50,8 +50,8 @@ module.exports = {
       },
       {
         text: "杂谈",
-        link: "/others/",
-        items: [{ text: "咖啡", link: "/others/coffee/" }],
+        link: "/posts/",
+        items: [{ text: "咖啡", link: "/posts/coffee/" }],
       },
     ],
 
@@ -60,7 +60,7 @@ module.exports = {
       "/cs/data-structure/": getDataStructureSidebar(),
       "/cs/network/": getNetworkSidebar(),
       "/cs/": getCSSidebar(),
-      "/others/coffee/": getCoffeeSidebar(),
+      "/posts/coffee/": getCoffeeSidebar(),
       "/": getHomepageSidebar(),
     },
   },
@@ -75,8 +75,8 @@ function getHomepageSidebar() {
     },
     {
       title: "杂谈",
-      path: "/others/",
-      children: getOthersSidebar(),
+      path: "/posts/",
+      children: getPostsSidebar(),
     },
   ]
 }
@@ -148,11 +148,11 @@ function getDataStructureSidebar() {
   ]
 }
 
-function getOthersSidebar() {
+function getPostsSidebar() {
   return [
     {
       title: "咖啡",
-      path: "/others/coffee/",
+      path: "/posts/coffee/",
       children: getCoffeeSidebar(),
     },
   ]
