@@ -7,9 +7,9 @@
   "keywords": [],
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "serve": "vuepress serve docs"
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
+    "serve": "vuepress serve src"
   },
   "devDependencies": {
     "vuepress": "^1.7.1",
