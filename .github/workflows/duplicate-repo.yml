@@ -1,0 +1,33 @@
+name: Duplicate Repo to another repository
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Push directory to repository nsznsznjsz/nsznsznjsz
+        uses: cpina/github-action-push-to-another-repository@v1.2
+        with:
+          source-directory: .
+          destination-github-username: nsznsznjsz
+          destination-repository-name: nsznsznjsz.github.io
+          target-branch: main
+          user-email: yuan.zx@outlook.com
+          commit-message: Update from github.com/nsznsznjsz/notebook, see it for detail
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+
+      - name: Push directory to repository nsznsznjsz/nsznsznjsz.github.io
+        uses: cpina/github-action-push-to-another-repository@v1.2
+        with:
+          source-directory: .
+          destination-github-username: nsznsznjsz
+          destination-repository-name: nsznsznjsz
+          target-branch: main
+          user-email: yuan.zx@outlook.com
+          commit-message: Update from github.com/nsznsznjsz/notebook, see it for detail
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
