@@ -12,6 +12,8 @@ jobs:
 
       - name: Push directory to repository nsznsznjsz/nsznsznjsz
         uses: cpina/github-action-push-to-another-repository@v1.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: .
           destination-github-username: nsznsznjsz
@@ -19,10 +21,11 @@ jobs:
           target-branch: main
           user-email: yuan.zx@outlook.com
           commit-message: Update from github.com/nsznsznjsz/notebook, see it for detail
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
 
       - name: Push directory to repository nsznsznjsz/nsznsznjsz.github.io
         uses: cpina/github-action-push-to-another-repository@v1.2
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: .
           destination-github-username: nsznsznjsz
@@ -30,4 +33,3 @@ jobs:
           target-branch: main
           user-email: yuan.zx@outlook.com
           commit-message: Update from github.com/nsznsznjsz/notebook, see it for detail
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
