@@ -1,13 +1,16 @@
-# 学习笔记
+[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=nsznsznjsz&bg_color=30,373b44,4286f4&title_color=5bffff&text_color=b2ffff&show_icons=true&icon_color=b2ffff)](https://github.com/anuraghazra/github-readme-stats)
 
-![GitHub Pages Deploy](https://github.com/nsznsznjsz/notebook/workflows/GitHub%20Pages%20Deploy/badge.svg)
-![Dev Test](https://github.com/nsznsznjsz/notebook/workflows/Dev%20Test/badge.svg)
+<!--
+**nsznsznjsz/nsznsznjsz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-此仓库用于整理个人学习笔记，多是摘自书籍或网络，相较于原本必有许多不足，烦请谅解。
+Here are some ideas to get you started:
 
-如果存在问题，您可以提[Issue](https://github.com/nsznsznjsz/notebook/issues/new)或PR来指出错误，谢谢。
-
-## Web site
-
-[Click here!](https://nsznsznjsz.github.io/notebook/) Powered by [VuePress](https://github.com/vuejs/vuepress).
-
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->

@@ -1,7 +1,7 @@
 {
-  "name": "notebook",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "Celeste's personal website",
   "main": "index.js",
   "author": "Celeste <yuan.zx@outlook.com>",
   "keywords": [],

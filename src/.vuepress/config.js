@@ -1,8 +1,7 @@
 module.exports = {
   base: "/notebook/",
-  title: "My Notebook",
-  description:
-    "A notebook - one day it might be cover everything in one area or the world.",
+  title: "Celeste's blog",
+  description: "Technique && Life",
 
   plugins: [
     "latest-articles",
