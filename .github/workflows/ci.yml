@@ -34,7 +34,11 @@ jobs:
           destination-repository-name: nsznsznjsz
           target-branch: main
           user-email: yuan.zx@outlook.com
-          commit-message: Update from github.com/nsznsznjsz/notebook/commit/${{ GITHUB_SHA }}, see it for detail
+          commit-message: |
+            Update from another repo, see it for detail
+
+            - repo: github.com/nsznsznjsz/notebook
+            - commit: github.com/nsznsznjsz/notebook/commit/$GITHUB_SHA
 
       - name: Push dist directory to repository nsznsznjsz/nsznsznjsz.github.io
         uses: cpina/github-action-push-to-another-repository@v1.2
@@ -46,4 +50,8 @@ jobs:
           destination-repository-name: nsznsznjsz.github.io
           target-branch: main
           user-email: yuan.zx@outlook.com
-          commit-message: Update from github.com/nsznsznjsz/notebook/commit/${{ GITHUB_SHA }}, see it for detail
+          commit-message: |
+            Update from another repo, see it for detail
+
+            - repo: github.com/nsznsznjsz/notebook
+            - commit: github.com/nsznsznjsz/notebook/commit/$GITHUB_SHA
