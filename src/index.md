@@ -5,8 +5,8 @@ published: false
 
 # 学习笔记
 
-![GitHub Pages Deploy](https://github.com/nsznsznjsz/notebook/workflows/GitHub%20Pages%20Deploy/badge.svg)
-![Dev Test](https://github.com/nsznsznjsz/notebook/workflows/Dev%20Test/badge.svg)
+![GitHub Pages Deploy](https://github.com/nsznsznjsz/blog/workflows/GitHub%20Pages%20Deploy/badge.svg)
+![Dev Test](https://github.com/nsznsznjsz/blog/workflows/Dev%20Test/badge.svg)
 
 此仓库用于整理个人学习笔记，多是摘自书籍或网络，相较于原本必有许多不足，烦请谅解。
 
