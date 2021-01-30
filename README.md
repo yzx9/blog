@@ -1,4 +1,9 @@
-[![Anurag's github stats](https://github-readme-stats.vercel.app/api?username=nsznsznjsz&bg_color=30,373b44,4286f4&title_color=5bffff&text_color=b2ffff&show_icons=true&icon_color=b2ffff)](https://github.com/anuraghazra/github-readme-stats)
+### Hi there 👋
+
+- 🌱 I’m currently learning on SHNU
+
+![Celeste's github stats](https://github-readme-stats.vercel.app/api/?username=nsznsznjsz&show_icons=true&hide_title=true)
+![Celeste's most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username=nsznsznjsz&layout=compact)
 
 <!--
 **nsznsznjsz/nsznsznjsz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
