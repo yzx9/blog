@@ -8,6 +8,7 @@ const config: UserConfig<ThemeOptions> = {
 
   lang: "zh-CN",
   base: process.env.BASE_PATH ?? "/",
+  head: [["link", { rel: "icon", href: `/logo.png` }]],
 
   dest: "dist",
   temp: ".temp",
