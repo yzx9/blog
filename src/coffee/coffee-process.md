@@ -1,6 +1,11 @@
 ---
 title: 咖啡处理法
 published: false
+categories:
+  - Life
+  - Coffee
+tags:
+  - Coffee
 ---
 
 # 咖啡处理法

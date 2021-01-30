@@ -1,5 +1,12 @@
 ---
 title: 二叉排序树
+date: 2021-1-2 14:00:00
+categories:
+  - computer science
+  - data structure
+  - tree
+tags: 
+  - data structure
 ---
 
 ## 二叉排序树

@@ -1,6 +1,11 @@
 ---
 title: 咖啡潮流
 published: false
+categories:
+  - Life
+  - Coffee
+tags:
+  - Coffee
 ---
 
 # 咖啡潮流

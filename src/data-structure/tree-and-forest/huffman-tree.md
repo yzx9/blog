@@ -1,5 +1,12 @@
 ---
 title: 哈夫曼树（Huffman Tree）
+date: 2021-1-2 14:00:00
+categories:
+  - computer science
+  - data structure
+  - tree
+tags: 
+  - data structure
 ---
 
 # 哈夫曼树（Huffman Tree）

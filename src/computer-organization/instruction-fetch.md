@@ -1,5 +1,11 @@
 ---
 title: 取指周期
+date: 2021-1-1 00:00:00
+categories:
+  - Computer Science
+  - Computer Organization
+tags: 
+  - Computer Organization
 ---
 
 # 取指（Instruction Fetch）
@@ -94,9 +100,14 @@ BTFN预测，即对于向后跳转的指令预测为跳转，对于向前跳转�
 
 ##### 二比特饱和计数器（2-bit Saturating Counter）
 
-该策略采用二比特记录当前状态，共有四个状态，如下图所示：![2-bit Saturating Counter State Transition Diagram](./img/2-bit-saturating-counter.jpg)
+该策略采用二比特记录当前状态，共有四个状态，如下图所示：
+
+![2-bit Saturating Counter State Transition Diagram](./assets/2-bit-saturating-counter.jpg)
 
 图左边两个状态为不采纳(not token)，右边两个为采纳(token)。当不发生跳转时，状态向左移动一次；当不发生跳转时，状态向右移动一次。由红色到绿色需要连续两次分支选择。据评测，二比特饱和计数器的正确率可达到93.5%，预测期一般在分支指令解码前起作用。
 
 二比特饱和计数器在理论上达到了较高正确率，但是实际应用中，会受到其他因素干扰，例如不同分支指令的跳转概率不同，对此可以对每个指令分设不同的计数器。在这样一系列的考量下，我们发展出了两级自适应预测器，局部/全局分支预测器，融合分支预测器，Agree预测器，神经分支预测器等。
 
+## Reference
+
+- 《手把手教你设计CPU——RISC处理器篇》胡振波

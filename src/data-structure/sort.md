@@ -1,10 +1,15 @@
 ---
 title: 排序
+date: 2019-10-24 19:30:32
+categories:
+  - computer science
+  - data structure
+  - sort
+tags: 
+  - data structure
 ---
 
 # Sort
-
-[[toc]]
 
 # 插入排序
 

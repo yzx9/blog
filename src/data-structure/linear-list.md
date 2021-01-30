@@ -1,10 +1,15 @@
 ---
 title: 线性表
+date: 2019-10-24 19:30:32
+categories:
+  - computer science
+  - data structure
+  - linear list
+tags: 
+  - data structure
 ---
 
-# Linear List
-
-[[toc]]
+# 线性表
 
 **定义**: 在数据元素的非空有限集合中, 除第一个元素无直接前驱, 最后一个元素无直接后继节点外, 每个元素都有唯一的直接前驱和直接后继节点.
 

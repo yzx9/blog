@@ -1,5 +1,10 @@
 ---
 title: Git Angular 规范
+date: 2021-1-2 16:01:28
+categories:
+  - computer science
+tags:
+  - git
 ---
 
 # AngularJS Git Commit Message Conventions
@@ -234,7 +239,7 @@ commitizen init cz-conventional-changelog --save --save-exact
 
 最后，将`git commit`改为使用`git cz`即可。
 
-![commitizen](./imgs/commitizen.png)
+![commitizen](./assets/commitizen.png)
 
 ### validate-commit-msg
 

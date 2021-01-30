@@ -1,5 +1,12 @@
 ---
 title: 平衡二叉树（AVL树）
+date: 2021-1-2 14:00:00
+categories:
+  - computer science
+  - data structure
+  - tree
+tags: 
+  - data structure
 ---
 
 # 平衡二叉树
@@ -12,7 +19,7 @@ title: 平衡二叉树（AVL树）
 
 > 平衡二叉树并不一定是一个完全二叉树，例如高度为4且非叶子节点平衡因子均为1的AVL树
 >
-> ![image-20210115121840387](./img/avl-tree.png)
+> ![image-20210115121840387](./assets/avl-tree.png)
 >
 > 由上图我们还可以发现，高度为4的AVL树最少有7个节点，最多有15个节点
 
@@ -46,4 +53,4 @@ title: 平衡二叉树（AVL树）
 - **RR**：对失衡节点逆时针旋转
 - **RL**：对失衡节点左孩子节点顺时针旋转，对失衡节点逆时针旋转
 
-![AVL Tree Rebalancing](./img/avl-tree-rebalancing.png)
+![AVL Tree Rebalancing](./assets/avl-tree-rebalancing.png)

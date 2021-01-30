@@ -1,8 +1,15 @@
 ---
 title: 图
+date: 2019-10-24 19:30:32
+categories:
+  - computer science
+  - data structure
+  - graph
+tags: 
+  - data structure
 ---
 
-# Graph
+# 图
 
 [[toc]]
 

@@ -1,10 +1,15 @@
 ---
 title: 串
+date: 2019-10-24 19:30:32
+categories:
+  - computer science
+  - data structure
+  - string
+tags: 
+  - data structure
 ---
 
 # String
-
-[[toc]]
 
 ```C
 assign(chars)

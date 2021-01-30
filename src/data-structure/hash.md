@@ -1,10 +1,15 @@
 ---
 title: 哈希
+date: 2019-10-24 19:30:32
+categories:
+  - computer science
+  - data structure
+  - hash
+tags: 
+  - data structure
 ---
 
-# Hash
-
-[[toc]]
+# 哈希
 
 ## 哈希函数
 
