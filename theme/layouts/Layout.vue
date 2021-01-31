@@ -1,13 +1,20 @@
 <template>
+  <Navbar />
   <Page />
+  <Footer />
 </template>
 
 <script >
-import { reactive, ref } from "vue"
 import Page from "../components/Page.vue"
+import Navbar from "../components/Navbar.vue"
+import Footer from "../components/Footer.vue"
 
 export default {
-  components: { Page },
+  components: {
+    Page,
+    Navbar,
+    Footer,
+  },
   setup(props, ctx) {
     return {}
   },

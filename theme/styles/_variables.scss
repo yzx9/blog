@@ -1,20 +1,140 @@
-// 颜色
-$accentColor: #3eaf7c;
-$textColor: #2c3e50;
-$borderColor: #eaecef;
-$codeBgColor: #282c34;
-$arrowBgColor: #ccc;
-$badgeTipColor: #42b983;
-$badgeWarningColor: darken(#ffe564, 35%);
-$badgeErrorColor: #da5961;
+// Following refs: element-plus/theme-chalk
+// MIT License Copyright (c) 2020 Element Plus
 
-// 布局
-$navbarHeight: 3.6rem;
-$sidebarWidth: 20rem;
-$contentWidth: 740px;
-$homePageWidth: 960px;
+// Transition
+$all-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$fade-linear-transition: opacity 200ms linear !default;
+$md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1),
+  opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) !default;
+$border-transition-base: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
+$color-transition-base: color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1) !default;
 
-// 响应式变化点
-$MQNarrow: 959px;
-$MQMobile: 719px;
-$MQMobileNarrow: 419px;
+// Color
+$color-primary: #409eff !default;
+$color-white: #ffffff !default;
+$color-black: #000000 !default;
+
+$color-primary-light-1: mix($color-white, $color-primary, 10%) !default;
+$color-primary-light-2: mix($color-white, $color-primary, 20%) !default;
+$color-primary-light-3: mix($color-white, $color-primary, 30%) !default;
+$color-primary-light-4: mix($color-white, $color-primary, 40%) !default;
+$color-primary-light-5: mix($color-white, $color-primary, 50%) !default;
+$color-primary-light-6: mix($color-white, $color-primary, 60%) !default;
+$color-primary-light-7: mix($color-white, $color-primary, 70%) !default;
+$color-primary-light-8: mix($color-white, $color-primary, 80%) !default;
+$color-primary-light-9: mix($color-white, $color-primary, 90%) !default;
+
+$color-success: #67c23a !default;
+$color-warning: #e6a23c !default;
+$color-danger: #f56c6c !default;
+$color-info: #909399 !default;
+
+$color-success-light: mix($color-white, $color-success, 80%) !default;
+$color-warning-light: mix($color-white, $color-warning, 80%) !default;
+$color-danger-light: mix($color-white, $color-danger, 80%) !default;
+$color-info-light: mix($color-white, $color-info, 80%) !default;
+
+$color-success-lighter: mix($color-white, $color-success, 90%) !default;
+$color-warning-lighter: mix($color-white, $color-warning, 90%) !default;
+$color-danger-lighter: mix($color-white, $color-danger, 90%) !default;
+$color-info-lighter: mix($color-white, $color-info, 90%) !default;
+
+$color-text-primary: #303133 !default;
+$color-text-regular: #606266 !default;
+$color-text-secondary: #909399 !default;
+$color-text-placeholder: #c0c4cc !default;
+
+// Background
+$background-color-base: #f5f7fa !default;
+
+// Variants
+$heading-padding: 20px 0 !default;
+
+// Link
+$link-color: $color-primary-light-2 !default;
+$link-hover-color: $color-primary !default;
+
+// Border
+$border-color-base: #dcdfe6 !default;
+$border-color-light: #e4e7ed !default;
+$border-color-lighter: #ebeef5 !default;
+$border-color-extra-light: #f2f6fc !default;
+$border-color-hover: $color-text-placeholder !default;
+
+$border-width-base: 1px !default;
+$border-style-base: solid !default;
+$border-base: $border-width-base $border-style-base $border-color-base !default;
+
+$border-radius-base: 4px !default;
+$border-radius-small: 2px !default;
+$border-radius-circle: 100% !default;
+$border-radius-zero: 0 !default;
+
+// Box-shadow
+$box-shadow-base: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.04) !default;
+$box-shadow-dark: 0 2px 4px rgba(0, 0, 0, 0.12), 0 0 6px rgba(0, 0, 0, 0.12) !default;
+$box-shadow-light: 0 2px 12px 0 rgba(0, 0, 0, 0.1) !default;
+
+// Svg
+$svg-monochrome-grey: #dcdde0;
+
+// Fill
+$fill-base: $color-white !default;
+
+// Typography
+$font-path: "fonts" !default;
+$font-display: "auto" !default;
+$font-size-extra-large: 20px !default;
+$font-size-large: 18px !default;
+$font-size-medium: 16px !default;
+$font-size-base: 14px !default;
+$font-size-small: 13px !default;
+$font-size-extra-small: 12px !default;
+$font-weight-primary: 500 !default;
+$font-weight-secondary: 100 !default;
+$font-line-height-primary: 24px !default;
+$font-line-height-secondary: 16px !default;
+$font-color-disabled-base: #bbb !default;
+$size-base: 14px !default;
+
+// z-index
+$index-normal: 1 !default;
+$index-top: 1000 !default;
+$index-popper: 2000 !default;
+
+// Following refs: @Vuepress/theme-default
+// MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
+
+// colors
+$accentColor: $color-primary !default;
+$textColor: $color-text-primary !default;
+$borderColor: $border-color-base !default;
+$codeBgColor: #282c34 !default;
+$arrowBgColor: #ccc !default;
+$tipColor: $color-success !default;
+// $warningColor: #e7c000 !default;
+// $dangerColor: #cc0000 !default;
+// $badgeTipColor: $tipColor !default;
+// $badgeWarningColor: $warningColor !default;
+// $badgeDangerColor: $dangerColor !default;
+
+// layout
+$navbarHeight: 3.6rem !default;
+$sidebarWidth: 20rem !default;
+$contentWidth: 740px !default;
+$homePageWidth: 960px !default;
+
+// responsive breakpoints
+$MQNarrow: 959px !default;
+$MQMobile: 719px !default;
+$MQMobileNarrow: 419px !default;
+
+// code
+$lineNumbersWrapperWidth: 3.5rem !default;
+$codeLang: "c", "cpp", "cs", "css", "dart", "docker", "fs", "go", "html", "java",
+  "js", "json", "kt", "less", "makefile", "md", "php", "py", "rb", "rs", "sass",
+  "scss", "sh", "styl", "ts", "toml", "vue", "yml" !default;
+
+// other
+$contentClass: ".page" !default;

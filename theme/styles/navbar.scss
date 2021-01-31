@@ -1,0 +1,40 @@
+@import "./_variables";
+
+$navbar-border: 1px;
+$navbar-height: 64px;
+$navbar-sticky: $navbar-height + $navbar-border;
+
+.navbar {
+  display: flex;
+  justify-content: center;
+
+  height: $navbar-height;
+
+  position: sticky;
+  top: 0;
+
+  &--hide {
+    top: -$navbar-height;
+    border-bottom: 2px solid $color-primary;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+    margin: 0 2rem;
+    padding: 0.5rem 1rem;
+    min-width: 4rem;
+    border-bottom: 2px solid transparent;
+
+    transition: $color-transition-base;
+    transition: $border-transition-base;
+
+    &:hover {
+      color: $color-primary;
+      border-bottom: 2px solid $color-primary;
+      cursor: pointer;
+    }
+  }
+}

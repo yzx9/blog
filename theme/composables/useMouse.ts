@@ -10,7 +10,7 @@ const useMouse = () => {
   const listener = throttle((e: MouseEvent) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
-  }, 30)
+  }, 32)
 
   onMounted(() => document.addEventListener("mousemove", listener))
   onUnmounted(() => document.removeEventListener("mousemove", listener))

@@ -1,4 +1,4 @@
-@import "./variables";
+@import "./_variables";
 
 .not-found {
   display: flex;
@@ -21,19 +21,19 @@
 
   &__title {
     font-size: 6rem;
-    color: $accentColor;
+    color: $color-primary;
   }
 
   &__message {
-    color: #999;
-    border-left: 0.2rem solid #dfe2e5;
+    color: $color-text-secondary;
+    border-left: 0.2rem solid $border-color-lighter;
     margin: 1rem 0;
     padding: 0.25rem 0 0.25rem 1rem;
   }
 
   &__back-to-home {
     font-weight: 500;
-    color: $accentColor;
+    color: $color-primary;
     text-decoration: none;
 
     &:hover {

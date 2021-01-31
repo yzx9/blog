@@ -1,0 +1,10 @@
+// ref: @Vuepress/theme-default
+// MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
+
+@import "./_variables";
+
+.table-of-contents {
+  .badge {
+    vertical-align: middle;
+  }
+}

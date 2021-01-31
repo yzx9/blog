@@ -23,11 +23,11 @@
 </template>
 
 <script lang="ts">
-import { computed, reactive, ref, Ref, onMounted } from "vue"
+import { computed, ref, Ref } from "vue"
 import { useMouse } from "../composables"
 
 // 偏移半径
-const R = 1
+const R = 3
 
 // 声明左眼圆心(X1,Y1)、右眼圆心(X2,Y2)
 const X1 = 13
@@ -37,22 +37,24 @@ const Y2 = 11
 
 export default {
   setup(props, ctx) {
-    const ghost = ref(null) as Ref<HTMLElement>
-    const offset = reactive({
-      top: 0,
-      left: 0,
-    })
-
-    onMounted(() => {
-      offset.left = ghost.value?.offsetLeft ?? 0
-      offset.top = ghost.value?.offsetTop ?? 0
-    })
+    const ghost = (ref(null) as Ref<any>) as Ref<HTMLElement>
 
     const mouse = useMouse()
 
+    const offset = computed(() => ({
+      left: ghost.value?.offsetLeft || 0,
+      top: ghost.value?.offsetTop || 0,
+    }))
+
     const angle = computed(() => ({
-      left: Math.atan2(mouse.x - X1 - offset.left, mouse.y - Y1 - offset.top),
-      right: Math.atan2(mouse.x - X2 - offset.left, mouse.y - Y2 - offset.top),
+      left: Math.atan2(
+        mouse.x - X1 - offset.value.left,
+        mouse.y - Y1 - offset.value.top
+      ),
+      right: Math.atan2(
+        mouse.x - X2 - offset.value.left,
+        mouse.y - Y2 - offset.value.top
+      ),
     }))
 
     const eyes = computed(() => {
