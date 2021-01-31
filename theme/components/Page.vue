@@ -1,8 +1,10 @@
 <template>
-  <main class="page">
-    <h1>{{ title }}</h1>
+  <article class="page">
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
     <Content />
-  </main>
+  </article>
 </template>
 
 <script lang="ts">

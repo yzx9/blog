@@ -1,13 +1,15 @@
-// ref: @Vuepress/theme-default
+// Following refs: @Vuepress/theme-default
 // MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
 
 @import "./_variables";
+@import "./mixins/scrollbar";
 
 html,
 body {
+  @include scrollbar;
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  scroll-behavior: smooth;
 }
 
 body {

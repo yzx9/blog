@@ -1,9 +1,9 @@
 <template>
-  <footer class="footer">
+  <div class="footer">
     <div class="footer__copyright">
       © 2021 – {{ currentYear }} Celeste | Powered by Vuepress
     </div>
-  </footer>
+  </div>
 </template>
 
 <script lang="ts">
@@ -14,6 +14,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-</style>

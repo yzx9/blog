@@ -1,13 +1,40 @@
-@import "./_variables";
-@import "./mixins/scrollbar";
-@import "./mixins/wrapper";
+@import "../_variables";
+@import "../_common";
 
-// custom
+@import "../mixins/wrapper";
 
-body {
-  @include scrollbar;
-  margin: 0;
-  scroll-behavior: smooth;
+@import "./background";
+@import "./navbar";
+@import "./page";
+@import "./sidebar";
+
+.layout {
+  z-index: $index-normal;
+
+  &__navbar {
+    z-index: $index-top;
+    overflow: hidden;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: $navbar-height;
+    min-height: 70vh;
+  }
+
+  &__page {
+    max-width: 980px;
+  }
+
+  &__background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+  }
 }
 
 // Following refs: @Vuepress/theme-default

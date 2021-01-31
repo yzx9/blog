@@ -1,13 +1,10 @@
-@import "./_variables";
-
-$navbar-border: 2px;
-$navbar-height: 64px;
+@import "../_variables";
 
 .navbar {
   position: fixed;
   top: 0;
 
-  height: $navbar-height + $navbar-border;
+  height: $navbar-height;
   background: $color-white;
   z-index: $index-top;
   overflow: hidden;
@@ -18,7 +15,7 @@ $navbar-height: 64px;
   transition: $all-transition;
 
   &--hide:not(:hover) {
-    top: -$navbar-height;
+    top: -$navbar-height + $navbar-border;
     border-bottom: $navbar-border solid $color-primary;
   }
 

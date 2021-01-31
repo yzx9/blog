@@ -103,6 +103,10 @@ $index-normal: 1 !default;
 $index-top: 1000 !default;
 $index-popper: 2000 !default;
 
+// Layout
+$navbar-border: 2px;
+$navbar-height: 64px + $navbar-border;
+
 // Following refs: @Vuepress/theme-default
 // MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
 
@@ -113,14 +117,14 @@ $borderColor: $border-color-base !default;
 $codeBgColor: #282c34 !default;
 $arrowBgColor: #ccc !default;
 $tipColor: $color-success !default;
-// $warningColor: #e7c000 !default;
-// $dangerColor: #cc0000 !default;
-// $badgeTipColor: $tipColor !default;
-// $badgeWarningColor: $warningColor !default;
-// $badgeDangerColor: $dangerColor !default;
+$warningColor: $color-warning !default;
+$dangerColor: $color-danger !default;
+$badgeTipColor: $tipColor !default;
+$badgeWarningColor: $warningColor !default;
+$badgeDangerColor: $dangerColor !default;
 
 // layout
-$navbarHeight: 3.6rem !default;
+$navbarHeight: $navbar-height !default;
 $sidebarWidth: 20rem !default;
 $contentWidth: 740px !default;
 $homePageWidth: 960px !default;

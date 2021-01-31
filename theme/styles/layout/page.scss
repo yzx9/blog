@@ -1,8 +1,8 @@
 // ref: @Vuepress/theme-default
 // MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
 
-@import "./_variables";
-@import "./mixins/wrapper";
+@import "../_variables";
+@import "../mixins/wrapper";
 
 .page {
   padding-bottom: 2rem;
