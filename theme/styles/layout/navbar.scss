@@ -44,15 +44,21 @@
     min-width: 4rem;
     border-bottom: $navbar-border solid transparent;
 
-    color: $color-primary-light-5;
-    transition: $color-transition-base;
     transition: $border-transition-base;
+
+    a {
+      color: $color-primary-light-5;
+      transition: $color-transition-base;
+    }
 
     &:hover,
     &--active {
-      color: $color-primary;
-      border-bottom: $navbar-border solid $color-primary;
       cursor: pointer;
+      border-bottom: $navbar-border solid $color-primary;
+
+      a {
+        color: $color-primary;
+      }
     }
   }
 }
