@@ -14,7 +14,9 @@ export const theme: Theme = (themeConfig, ctx) => {
     clientAppSetupFiles: resolve(__dirname, "./clientAppSetup.ts"),
     extendsMarkdown,
     extendsPageData,
-    plugins: [],
+    plugins: [
+      ["@vuepress/plugin-debug"]
+    ],
   }
 }
 
