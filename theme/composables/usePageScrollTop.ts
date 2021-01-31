@@ -7,16 +7,18 @@ const getScrollTop = () =>
 const getScrollLeft = () =>
   document.documentElement.scrollLeft || document.body.scrollLeft || 0
 
-export const usePageScroll = () => {
+export const usePageScroll = (options = { allowTrottle: true }) => {
   const position = reactive({
     top: getScrollTop(),
     left: getScrollLeft(),
   })
 
-  const listener = throttle(function (this: any, e: Event) {
+  const raw = function (this: any, e: Event) {
     position.top = getScrollTop()
     position.left = getScrollLeft()
-  }, 30)
+  }
+
+  const listener = options.allowTrottle ? throttle(raw, 30) : raw
 
   onMounted(() => document.addEventListener("scroll", listener))
   onUnmounted(() => document.removeEventListener("scroll", listener))
