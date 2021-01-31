@@ -37,8 +37,7 @@ const Y2 = 11
 
 export default {
   setup(props, ctx) {
-    const ghost = (ref(null) as Ref<any>) as Ref<HTMLElement>
-
+    const ghost = ref<HTMLElement | null>(null)
     const mouse = useMouse()
 
     const offset = computed(() => ({
