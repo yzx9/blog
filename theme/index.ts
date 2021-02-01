@@ -1,4 +1,4 @@
-import { resolve } from "path"
+import { path } from "@vuepress/utils"
 import type { Theme } from "@vuepress/core"
 import { assignDefaultOptions } from "./node"
 import extendsMarkdown from "./extendsMarkdown"
@@ -9,14 +9,12 @@ export const theme: Theme = (themeConfig, ctx) => {
 
   return {
     name: "vuepress-theme-celesta",
-    layouts: resolve(__dirname, "./layouts"),
-    clientAppEnhanceFiles: resolve(__dirname, "./clientAppEnhance.ts"),
-    clientAppSetupFiles: resolve(__dirname, "./clientAppSetup.ts"),
+    layouts: path.resolve(__dirname, "./layouts"),
+    clientAppEnhanceFiles: path.resolve(__dirname, "./clientAppEnhance.ts"),
+    clientAppSetupFiles: path.resolve(__dirname, "./clientAppSetup.ts"),
     extendsMarkdown,
     extendsPageData,
-    plugins: [
-      ["@vuepress/plugin-debug"]
-    ],
+    plugins: [["@vuepress/plugin-debug"]],
   }
 }
 

@@ -1,4 +1,4 @@
-import path from "path"
+import { path } from "@vuepress/utils"
 import type { UserConfig } from "@vuepress/cli"
 import type { ThemeOptions } from "./theme/types"
 
@@ -24,7 +24,11 @@ const config: UserConfig<ThemeOptions> = {
   plugins: [],
 
   theme: path.resolve(__dirname, "./theme/index.ts"),
-  themeConfig: {},
+  themeConfig: {
+    categories: {
+      "Computer Science": "CS",
+    },
+  },
 }
 
 export default config

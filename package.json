@@ -22,8 +22,8 @@
   },
   "devDependencies": {
     "@vuepress/client": "2.0.0-alpha.19",
-    "@vuepress/core": "2.0.0-alpha.19",
     "@vuepress/plugin-debug": "^2.0.0-alpha.19",
+    "@vuepress/utils": "^2.0.0-alpha.19",
     "sass": "^1.32.5",
     "sass-loader": "^10.1.1",
     "vue": "^3.0.5",
