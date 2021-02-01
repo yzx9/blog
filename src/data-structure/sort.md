@@ -2,11 +2,11 @@
 title: 排序
 date: 2019-10-24 19:30:32
 categories:
-  - computer science
-  - data structure
-  - sort
+  - Computer Science
+  - Data Structure
+  - Sort
 tags: 
-  - data structure
+  - Data Structure
 ---
 
 # Sort

@@ -1,4 +1,6 @@
-<template>Sidebar</template>
+<template>
+  <div>sidebar</div>
+</template>
 
 <script lang="ts">
 import { reactive, ref } from "vue"

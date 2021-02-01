@@ -2,11 +2,11 @@
 title: 线性表
 date: 2019-10-24 19:30:32
 categories:
-  - computer science
-  - data structure
-  - linear list
+  - Computer Science
+  - Data Structure
+  - Linear List
 tags: 
-  - data structure
+  - Data Structure
 ---
 
 # 线性表

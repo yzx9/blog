@@ -1,72 +1,94 @@
-// ref: @Vuepress/theme-default
-// MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
-
 @import "../_variables";
 @import "../mixins/wrapper";
 
 .page {
-  padding-bottom: 2rem;
-  display: block;
-}
+  box-sizing: border-box;
+  background: $background-color-light;
+  box-shadow: $box-shadow-base;
 
-.page-meta {
-  @include wrapper;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  overflow: auto;
-
-  .meta-item {
-    cursor: default;
-    margin-top: 0.8rem;
-
-    .meta-item-label {
-      font-weight: 500;
-      color: lighten($textColor, 25%);
-    }
-
-    .meta-item-info {
-      font-weight: 400;
-      color: #767676;
-    }
+  &:hover {
+    box-shadow: $box-shadow-dark;
   }
 
-  .edit-link {
-    display: inline-block;
-    margin-right: 0.25rem;
+  &__header {
+    min-height: 15rem;
+    background: $background-color-dark;
   }
 
-  .last-updated {
-    float: right;
+  &__content {
+    padding: 2.5rem;
+    padding-top: 0;
+  }
+
+  &__footer {
+    min-height: 5rem;
   }
 }
 
-@media (max-width: $MQMobile) {
-  .page-meta {
-    .last-updated {
-      font-size: 0.8em;
-      float: none;
+.page-header {
+  $color-meta: mix($color-white, $color-black, 70%);
+  $arrow-size: 0.3rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: $color-white;
+  }
+
+  &__meta {
+    display: flex;
+  }
+
+  &__meta-item {
+    color: $color-meta;
+    padding: 0 1rem;
+    margin: 0.5rem 0;
+
+    &:not(:last-child) {
+      border-right: $color-meta solid 1px;
+    }
+  }
+
+  &__category {
+    text-decoration: underline;
+    color: $color-meta;
+    transition: $all-transition;
+
+    &:hover {
+      color: $color-primary;
     }
 
-    .contributors {
-      font-size: 0.8em;
+    &:not(:last-child) {
+      padding-right: 0.1rem;
+
+      &::after {
+        box-sizing: border-box;
+        display: inline-block;
+        width: $arrow-size;
+        height: $arrow-size;
+        content: "";
+
+        border: 1px solid $color-meta;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(45deg) scaleY(1);
+        transform-origin: center;
+
+        margin: 2px;
+      }
     }
   }
 }
 
-.page-nav {
-  @include wrapper;
-  padding-top: 1rem;
-  padding-bottom: 0;
+.page-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .inner {
-    min-height: 2rem;
-    margin-top: 0;
-    border-top: 1px solid $borderColor;
-    padding-top: 1rem;
-    overflow: auto;
-  }
-
-  .next {
-    float: right;
-  }
+  box-sizing: border-box;
+  padding: 1rem;
 }

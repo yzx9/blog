@@ -2,11 +2,11 @@
 title: 哈希
 date: 2019-10-24 19:30:32
 categories:
-  - computer science
-  - data structure
-  - hash
+  - Computer Science
+  - Data Structure
+  - Hash
 tags: 
-  - data structure
+  - Data Structure
 ---
 
 # 哈希

@@ -2,8 +2,8 @@
 title: HTTP协议
 date: 2019-12-15 10:45:02
 categories:
-  - computer science
-  - network
+  - Computer Science
+  - Network
 tags: 
   - http
 ---

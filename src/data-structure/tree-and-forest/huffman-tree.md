@@ -2,11 +2,11 @@
 title: 哈夫曼树（Huffman Tree）
 date: 2021-1-2 14:00:00
 categories:
-  - computer science
-  - data structure
-  - tree
+  - Computer Science
+  - Data Structure
+  - Tree
 tags: 
-  - data structure
+  - Data Structure
 ---
 
 # 哈夫曼树（Huffman Tree）
