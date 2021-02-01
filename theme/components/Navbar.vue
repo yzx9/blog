@@ -1,10 +1,18 @@
 <template>
   <div class="navbar" :class="isHideRef ? 'navbar--hide' : ''">
     <ul class="navbar__list">
-      <li class="navbar__item"><a href="/">主页</a></li>
-      <li class="navbar__item"><a href="/archives">归档</a></li>
-      <li class="navbar__item"><a href="/archives">分类</a></li>
-      <li class="navbar__item"><a href="/tags">标签</a></li>
+      <li class="navbar__item">
+        <RouterLink to="/">主页</RouterLink>
+      </li>
+      <li class="navbar__item">
+        <RouterLink to="/archives">归档</RouterLink>
+      </li>
+      <li class="navbar__item">
+        <RouterLink to="/categories">分类</RouterLink>
+      </li>
+      <li class="navbar__item">
+        <RouterLink to="/tags">标签</RouterLink>
+      </li>
     </ul>
   </div>
 </template>
