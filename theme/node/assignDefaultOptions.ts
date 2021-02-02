@@ -1,4 +1,7 @@
-import { ThemeOptions, ThemeLocaleOptions, LocaleSet } from "../types"
+import { ThemeOptions, LocaleSet } from "../types"
+import { resolveCategories } from "./resolveCategories"
+
+const defaultLang = "en-US"
 
 const defaultLocaleSet: LocaleSet<ThemeOptions> = {
   "en-US": {
@@ -14,6 +17,7 @@ const defaultLocaleSet: LocaleSet<ThemeOptions> = {
       "Oooops",
     ],
     backToHome: ["Take me home.", "Go Home", "Homepage", "HEAD ON HOME"],
+    categories: {},
   },
   "zh-CN": {
     // 404 page messages
@@ -29,17 +33,31 @@ const defaultLocaleSet: LocaleSet<ThemeOptions> = {
       "看起来我们进入了错误的链接",
     ],
     backToHome: ["返回首页"],
+    categories: {},
   },
 }
 
 /**
  * Assign default options to `themeConfig`
  */
-export const assignDefaultOptions = (options: ThemeOptions, lang = "en-US") => {
-  const defaultOptions = defaultLocaleSet[lang] ?? defaultLocaleSet["en-US"]
+export const assignDefaultOptions = (
+  options: ThemeOptions,
+  lang = defaultLang
+) => {
+  const defaultOptions = defaultLocaleSet[defaultLang]
+
+  if (!options.locales) options.locales = {}
+  if (!options.locales["/"]) options.locales["/"] = {}
 
   Object.assign(options, {
     ...defaultOptions,
     ...options,
   })
+
+  Object.assign(options.locales["/"], {
+    ...(defaultLocaleSet[lang] ?? defaultLocaleSet[defaultLang]),
+    ...options.locales["/"],
+  })
+
+  resolveCategories(options)
 }

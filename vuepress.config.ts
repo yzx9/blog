@@ -26,7 +26,9 @@ const config: UserConfig<ThemeOptions> = {
   theme: path.resolve(__dirname, "./theme/index.ts"),
   themeConfig: {
     categories: {
-      "Computer Science": "CS",
+      "Computer Science": "计科",
+      Network: "计算机网络",
+      Coffee: "咖啡",
     },
   },
 }

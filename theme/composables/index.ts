@@ -1,3 +1,4 @@
+export * from "./useLocaleCategory"
 export * from "./useMouse"
-export * from "./usePageScrollTop"
+export * from "./usePageScroll"
 export * from "./useResolveRouteWithRedirect"

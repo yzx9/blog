@@ -1,7 +1,11 @@
+@import "./_variables";
+
+.debug {
+  z-index: $index-popper !important;
+}
+
 // ref: @Vuepress/theme-default
 // MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
-
-@import "./_variables";
 
 .back-to-top {
   --back-to-top-color: $accentColor;

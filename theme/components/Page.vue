@@ -9,14 +9,14 @@
         </div>
         <div class="page-header__meta-item">
           分类于
-          <a
+          <RouterLink
             v-for="category in categories"
-            :key="`v-page-category-${category}`"
+            :key="category.key"
+            :to="category.to"
             class="page-header__category"
-            :href="$withBase(`/categories/${category}`)"
           >
-            {{ category }}
-          </a>
+            {{ category.name }}
+          </RouterLink>
         </div>
       </div>
     </header>
@@ -31,6 +31,8 @@
 
 <script lang="ts">
 import { usePageFrontmatter, usePageData } from "@vuepress/client"
+import { useLocaleCategory } from "../composables"
+import { normalizeCategory } from "../utils"
 
 const dateFormatter = (date: Date) =>
   `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
@@ -47,10 +49,21 @@ export default {
     const updated = dateFormatter(new Date(updatedDate))
     const showUpdate = created !== updated
 
-    // TODO categories locale, eject and url transform (remove %20 and UpperCase)
-    const categories = Array.isArray(frontmatter.value.categories)
+    // TODO categories eject
+    const categories = (Array.isArray(frontmatter.value.categories)
       ? (frontmatter.value.categories as string[]) || ["Default"]
       : ([frontmatter.value.categories] as string[])
+    ).map((raw) => {
+      const category = normalizeCategory(raw)
+      const name = useLocaleCategory(raw)
+
+      return {
+        raw,
+        name,
+        ket: `v-page-category-${category}`,
+        to: `/categories/${category}`,
+      }
+    })
 
     return {
       title,
