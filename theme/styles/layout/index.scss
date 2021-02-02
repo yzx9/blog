@@ -24,11 +24,23 @@
   }
 
   &__sidebar {
-    width: 240px;
+    // width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 1;
   }
 
   &__page {
     max-width: 980px;
+    margin: 0 1rem;
+  }
+
+  &__toolbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
   }
 
   &__background {

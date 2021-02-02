@@ -14,6 +14,8 @@
   border-bottom: $navbar-border solid $color-primary;
   transition: $all-transition;
 
+  box-shadow: $box-shadow-base;
+
   &--hide:not(:hover) {
     top: -$navbar-height + $navbar-border;
     border-bottom: $navbar-border solid $color-primary;
