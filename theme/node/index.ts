@@ -1,2 +1,3 @@
 export * from "./assignDefaultOptions"
-export * from "./resolveCategories"
+export * from "./extendsPageData"
+export * from "./resolveCategoriesAndTags"

@@ -10,12 +10,12 @@
         <div class="page-header__meta-item">
           分类于
           <RouterLink
-            v-for="category in categories"
-            :key="category.key"
-            :to="category.to"
+            v-for="{ raw, name, url } in categories"
+            :key="`v-page-category-${raw}`"
+            :to="url"
             class="page-header__category"
           >
-            {{ category.name }}
+            {{ name }}
           </RouterLink>
         </div>
       </div>
@@ -24,46 +24,34 @@
       <Content />
     </div>
     <div class="page__footer page-footer">
-      <span>TODO: page footer meta</span>
+      <RouterLink
+        v-for="{ raw, name, url } in tags"
+        :key="`v-page-tag-${raw}`"
+        :to="url"
+        class="page-header__tag"
+      >
+        {{ name }}
+      </RouterLink>
     </div>
   </article>
 </template>
 
 <script lang="ts">
 import { usePageFrontmatter, usePageData } from "@vuepress/client"
-import { useLocaleCategory } from "../composables"
-import { normalizeCategory } from "../utils"
-
-const dateFormatter = (date: Date) =>
-  `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+import type { ThemeFrontmatter, ThemePageData } from "../types"
+import { useLocaleCategories, useLocaleTags } from "../composables"
 
 export default {
   setup(props, ctx) {
-    const frontmatter = usePageFrontmatter()
-    const pagedata = usePageData()
+    const frontmatter = usePageFrontmatter<ThemeFrontmatter>()
+    const pageData = usePageData<ThemePageData>()
 
-    const title = frontmatter.value.title || pagedata.value.title
-    const createdDate = frontmatter.value.date || Date.now()
-    const updatedDate = (frontmatter.value?.updated as string) ?? createdDate
-    const created = dateFormatter(new Date(createdDate))
-    const updated = dateFormatter(new Date(updatedDate))
+    const title = frontmatter.value.title || pageData.value.title
+    const created = pageData.value.date
+    const updated = pageData.value.updated
     const showUpdate = created !== updated
-
-    // TODO categories eject
-    const categories = (Array.isArray(frontmatter.value.categories)
-      ? (frontmatter.value.categories as string[]) || ["Default"]
-      : ([frontmatter.value.categories] as string[])
-    ).map((raw) => {
-      const category = normalizeCategory(raw)
-      const name = useLocaleCategory(raw)
-
-      return {
-        raw,
-        name,
-        ket: `v-page-category-${category}`,
-        to: `/categories/${category}`,
-      }
-    })
+    const categories = useLocaleCategories()
+    const tags = useLocaleTags()
 
     return {
       title,
@@ -71,6 +59,7 @@ export default {
       updated,
       showUpdate,
       categories,
+      tags,
     }
   },
 }

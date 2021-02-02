@@ -1,11 +1,10 @@
-import { ThemeOptions, LocaleSet } from "../types"
-import { resolveCategories } from "./resolveCategories"
+import { ThemeLocaleOptions, ThemeOptions } from "../types"
+import { resolveCategories, resolveTags } from "./resolveCategoriesAndTags"
 
 const defaultLang = "en-US"
 
-const defaultLocaleSet: LocaleSet<ThemeOptions> = {
+const defaultLocaleSet: Record<string, ThemeLocaleOptions> = {
   "en-US": {
-    // 404 page messages
     notFound: [
       "There's nothing here.",
       "How did we get here?",
@@ -20,7 +19,6 @@ const defaultLocaleSet: LocaleSet<ThemeOptions> = {
     categories: {},
   },
   "zh-CN": {
-    // 404 page messages
     notFound: [
       "你来到了世界尽头",
       "你来到了洪荒之地",
@@ -60,4 +58,5 @@ export const assignDefaultOptions = (
   })
 
   resolveCategories(options)
+  resolveTags(options)
 }

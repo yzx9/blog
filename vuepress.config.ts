@@ -7,7 +7,7 @@ const config: UserConfig<ThemeOptions> = {
   description: "Technique && Life",
 
   lang: "zh-CN",
-  base: process.env.BASE_PATH ?? "/",
+  base: process.env.BASE_PATH || "/",
   head: [["link", { rel: "icon", href: `/logo.png` }]],
 
   dest: "dist",
@@ -29,6 +29,9 @@ const config: UserConfig<ThemeOptions> = {
       "Computer Science": "计科",
       Network: "计算机网络",
       Coffee: "咖啡",
+    },
+    tags: {
+      Network: "计算机网络",
     },
   },
 }
