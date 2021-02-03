@@ -5,7 +5,7 @@ on:
       - main
 jobs:
   # nsznsznjsz/nsznsznjsz
-  build-and-push:
+  readme-copy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
