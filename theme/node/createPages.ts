@@ -33,14 +33,7 @@ const pagesOptions = [
 
 export const createPages = async (app: App) => {
   const pages = await Promise.all(
-    pagesOptions.map((a) =>
-      createPage(app, {
-        path: "/categories.html",
-        frontmatter: {
-          layout: "Home",
-        },
-      })
-    )
+    pagesOptions.map((option) => createPage(app, option))
   )
 
   app.pages.push(...pages)
