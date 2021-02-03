@@ -10,6 +10,13 @@ import { tsParticles } from "tsparticles"
 import type { Container, ISourceOptions } from "tsparticles"
 import ParticlePresetNasa from "../assets/particles-preset-nasa.json"
 
+/**
+ * TODOs
+ * - BUG: cannot handle click event due to z-index
+ * - random preset when user open website
+ * - preset appoint by props
+ * - preset color -> support css variable (maybe we can support online palette)
+ */
 export default {
   setup(props, ctx) {
     const particlesOptions = ParticlePresetNasa as ISourceOptions
