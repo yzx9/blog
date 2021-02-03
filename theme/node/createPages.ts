@@ -1,13 +1,7 @@
 import type { App } from "@vuepress/core"
-import { createPage } from "@vuepress/core"
+import { createPage, PageOptions } from "@vuepress/core"
 
-const pagesOptions = [
-  {
-    path: "/",
-    frontmatter: {
-      layout: "Home",
-    },
-  },
+const pagesOptions: PageOptions[] = [
   {
     // TODO archives page
     path: "/archives.html",
@@ -33,7 +27,13 @@ const pagesOptions = [
 
 export const createPages = async (app: App) => {
   const pages = await Promise.all(
-    pagesOptions.map((option) => createPage(app, option))
+    pagesOptions
+      .filter((a) => app.pages.every((b) => a.path !== b.path))
+      .map((a) => ({
+        ...a,
+        frontmatter: { ...a.frontmatter, shadowPage: true },
+      }))
+      .map((option) => createPage(app, option))
   )
 
   app.pages.push(...pages)
