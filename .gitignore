@@ -1,4 +1,14 @@
+# Node modules
 node_modules
-dist
-.cache
-.temp
+
+# VuePress files
+dist/
+.cache/
+.temp/
+
+# MacOS Desktop Services Store
+.DS_Store
+
+# Local files
+Todos.md
+.log
