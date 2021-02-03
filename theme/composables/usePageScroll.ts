@@ -1,11 +1,17 @@
 import { onMounted, onUnmounted, reactive } from "vue"
 import { throttle } from "../utils"
 
+declare const __SSR__: boolean
+
 const getScrollTop = () =>
-  document.documentElement.scrollTop || document.body.scrollTop || 0
+  (!__SSR__ && document.documentElement.scrollTop) ||
+  (!__SSR__ && document.body.scrollTop) ||
+  0
 
 const getScrollLeft = () =>
-  document.documentElement.scrollLeft || document.body.scrollLeft || 0
+  (!__SSR__ && document.documentElement.scrollTop) ||
+  (!__SSR__ && document.body.scrollTop) ||
+  0
 
 export const usePageScroll = (options = { allowTrottle: true }) => {
   const position = reactive({
