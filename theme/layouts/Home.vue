@@ -1,4 +1,4 @@
-<template></template>
+<template>Home</template>
 
 <script lang="ts">
 import { reactive, ref } from "vue"

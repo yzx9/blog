@@ -1,6 +1,14 @@
 import type { ThemeOptions } from "../types"
 import { normalizeCategoryOrTag } from "../utils"
 
+const normalizeCategoriesOrTags = (source: Record<string, string> = {}) => {
+  const map: Record<string, string> = {}
+  for (let key in source) {
+    map[normalizeCategoryOrTag(key)] = source[key]
+  }
+  return map
+}
+
 const resolveCategoriesOrTags = (attr: "categories" | "tags") => (
   options: ThemeOptions
 ) => {
@@ -14,11 +22,3 @@ const resolveCategoriesOrTags = (attr: "categories" | "tags") => (
 
 export const resolveCategories = resolveCategoriesOrTags("categories")
 export const resolveTags = resolveCategoriesOrTags("tags")
-
-const normalizeCategoriesOrTags = (source: Record<string, string> = {}) => {
-  const map: Record<string, string> = {}
-  for (let key in source) {
-    map[normalizeCategoryOrTag(key)] = source[key]
-  }
-  return map
-}
