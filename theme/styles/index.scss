@@ -13,3 +13,8 @@
 @import "./compoments/custom-container";
 @import "./compoments/dropdown";
 @import "./compoments/toc";
+
+:root {
+  --particles-color-base: #2d2d2d;
+  --particles-color-bg: #f5f7fa;
+}
