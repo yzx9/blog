@@ -10,5 +10,5 @@ dist/
 .DS_Store
 
 # Local files
-Todos.md
+todos.md
 .log
