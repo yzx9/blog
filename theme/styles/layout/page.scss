@@ -3,17 +3,7 @@
 
 .page {
   box-sizing: border-box;
-  background: $background-color-light;
-  box-shadow: $box-shadow-base;
-
-  &:hover {
-    box-shadow: $box-shadow-dark;
-  }
-
-  &__header {
-    min-height: 15rem;
-    background: $background-color-dark;
-  }
+  overflow: hidden;
 
   &__content {
     padding: 2.5rem;
@@ -22,64 +12,6 @@
 
   &__footer {
     min-height: 5rem;
-  }
-}
-
-.page-header {
-  $color-meta: mix($color-white, $color-black, 70%);
-  $arrow-size: 0.3rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  &__title {
-    color: $color-white;
-  }
-
-  &__meta {
-    display: flex;
-  }
-
-  &__meta-item {
-    color: $color-meta;
-    padding: 0 1rem;
-    margin: 0.5rem 0;
-
-    &:not(:last-child) {
-      border-right: $color-meta solid 1px;
-    }
-  }
-
-  &__category {
-    text-decoration: underline;
-    color: $color-meta;
-    transition: $all-transition;
-
-    &:hover {
-      color: $color-primary;
-    }
-
-    &:not(:last-child) {
-      padding-right: 0.1rem;
-
-      &::after {
-        box-sizing: border-box;
-        display: inline-block;
-        width: $arrow-size;
-        height: $arrow-size;
-        content: "";
-
-        border: 1px solid $color-meta;
-        border-left: 0;
-        border-bottom: 0;
-        transform: rotate(45deg) scaleY(1);
-        transform-origin: center;
-
-        margin: 2px;
-      }
-    }
   }
 }
 

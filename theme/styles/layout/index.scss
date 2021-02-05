@@ -4,31 +4,28 @@
 @import "../mixins/wrapper";
 
 @import "./background";
+@import "./header";
 @import "./navbar";
 @import "./page";
 @import "./sidebar";
 
 .layout {
   z-index: $index-normal;
+  background: $background-color-light;
 
   &__navbar {
     z-index: $index-top;
     overflow: hidden;
   }
 
+  &__header {
+    height: $header-height;
+  }
+
   &__wrapper {
     display: flex;
     justify-content: center;
-    margin-top: $navbar-height;
     min-height: 70vh;
-  }
-
-  &__sidebar {
-    // width: 240px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    flex: 1;
   }
 
   &__page {
@@ -36,11 +33,19 @@
     margin: 0 1rem;
   }
 
-  &__toolbar {
+  &__sidebar,
+  &__catalog {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     flex: 1;
+  }
+
+  &__sidebar {
+    align-items: flex-end;
+  }
+
+  &__catalog {
+    align-items: flex-start;
   }
 
   &__background {

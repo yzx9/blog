@@ -1,65 +1,72 @@
 @import "../_variables";
 
 .navbar {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   top: 0;
 
+  box-sizing: border-box;
   height: $navbar-height;
-  background: $color-white;
+  width: 100%;
   z-index: $index-top;
   overflow: hidden;
 
-  box-sizing: border-box;
-  width: 100%;
-  border-bottom: $navbar-border solid $color-primary;
   transition: $all-transition;
 
-  box-shadow: $box-shadow-base;
-
   &--hide:not(:hover) {
-    top: -$navbar-height + $navbar-border;
-    border-bottom: $navbar-border solid $color-primary;
+    top: -$navbar-height;
+    box-shadow: none;
   }
 
-  &--transparent {
-    background: transparent;
-    border-bottom: transparent;
+  &--opaque {
+    background: rgba($background-color-base, 0.5);
+    box-shadow: $box-shadow-base;
+
+    .navbar__link a {
+      color: $color-primary-light-5;
+
+      &:hover,
+      &--active {
+        color: $color-primary;
+      }
+    }
   }
 
   &__list {
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     margin: 0;
-    padding: 0 2rem;
+
+    list-style: none;
   }
 
-  &__item {
+  &__link {
     display: flex;
     align-items: center;
 
     box-sizing: border-box;
-    margin: 0 2rem;
     padding: 0.5rem 1rem;
     min-width: 4rem;
-    border-bottom: $navbar-border solid transparent;
 
     transition: $border-transition-base;
 
     a {
-      color: $color-primary-light-5;
+      color: $color-white;
       transition: $color-transition-base;
     }
 
     &:hover,
     &--active {
-      cursor: pointer;
-      border-bottom: $navbar-border solid $color-primary;
+      color: $color-primary;
 
       a {
         color: $color-primary;
+        transition: $color-transition-base;
       }
     }
   }

@@ -6,6 +6,10 @@
   </teleport>
 
   <div class="layout">
+    <header class="layout__header">
+      <Header />
+    </header>
+
     <div class="layout__wrapper">
       <aside class="layout__sidebar">
         <Sidebar />
@@ -13,8 +17,8 @@
       <main class="layout__page">
         <Page />
       </main>
-      <aside class="layout__toolbar">
-        <Toolbar />
+      <aside class="layout__catalog">
+        <Catalog />
       </aside>
     </div>
 
@@ -22,33 +26,24 @@
       <Footer />
     </footer>
   </div>
-
-  <teleport to="body">
-    <div class="layout__background">
-      <Background />
-    </div>
-  </teleport>
 </template>
 
-<script >
+<script lang="ts">
 import Page from "../components/Page.vue"
 import Navbar from "../components/Navbar.vue"
-import Footer from "../components/Footer.vue"
+import Header from "../components/Header.vue"
 import Sidebar from "../components/Sidebar.vue"
-import Toolbar from "../components/Toolbar.vue"
-import Background from "../components/Background.vue"
+import Catalog from "../components/Catalog.vue"
+import Footer from "../components/Footer.vue"
 
 export default {
   components: {
     Page,
     Navbar,
-    Footer,
+    Header,
     Sidebar,
-    Toolbar,
-    Background,
-  },
-  setup(props, ctx) {
-    return {}
+    Catalog,
+    Footer,
   },
 }
 </script>

@@ -106,8 +106,12 @@ $index-top: 1000 !default;
 $index-popper: 2000 !default;
 
 // Layout
-$navbar-border: 2px;
-$navbar-height: 64px + $navbar-border;
+$navbar-height: 3rem;
+$header-height: 30rem;
+:root {
+  // expose to global
+  --header-height: 30rem; // Only support `rem` now
+}
 
 // Following refs: @Vuepress/theme-default
 // MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
