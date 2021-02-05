@@ -4,6 +4,8 @@
     "module": "CommonJS",
     "moduleResolution": "node",
     "newLine": "lf",
+    "declaration": true,
+    "declarationMap": true,
     "noEmitOnError": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,
