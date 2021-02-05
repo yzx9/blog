@@ -3,24 +3,31 @@ import { createPage, PageOptions } from "@vuepress/core"
 
 const pagesOptions: PageOptions[] = [
   {
+    // TODO about page
+    path: "/about.html",
+    frontmatter: {
+      layout: "About",
+    },
+  },
+  {
     // TODO archives page
     path: "/archives.html",
     frontmatter: {
-      layout: "Home",
+      layout: "Archives",
     },
   },
   {
     // TODO categories page
     path: "/categories.html",
     frontmatter: {
-      layout: "Home",
+      layout: "Categories",
     },
   },
   {
     // TODO tags page
     path: "/tags.html",
     frontmatter: {
-      layout: "Home",
+      layout: "Tags",
     },
   },
 ]

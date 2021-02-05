@@ -14,22 +14,22 @@
         class="navbar__link"
         :class="{ 'navbar__link--active': active.archives }"
       >
-        <RouterLink to="/archives">ARCHIVES</RouterLink>
+        <RouterLink to="/archives.html">ARCHIVES</RouterLink>
       </li>
       <li
         class="navbar__link"
         :class="{ 'navbar__link--active': active.categories }"
       >
-        <RouterLink to="/categories">CATEGORIES</RouterLink>
+        <RouterLink to="/categories.html">CATEGORIES</RouterLink>
       </li>
       <li class="navbar__link" :class="{ 'navbar__link--active': active.tags }">
-        <RouterLink to="/tags">TAGS</RouterLink>
+        <RouterLink to="/tags.html">TAGS</RouterLink>
       </li>
       <li
         class="navbar__link"
         :class="{ 'navbar__link--active': active.about }"
       >
-        <RouterLink to="/about">ABOUT</RouterLink>
+        <RouterLink to="/about.html">ABOUT</RouterLink>
       </li>
     </ul>
   </div>
