@@ -18,6 +18,8 @@
         </RouterLink>
       </div>
     </div>
+
+    <Particles class="header__background" />
   </div>
 </template>
 
@@ -25,8 +27,12 @@
 import { usePageFrontmatter, usePageData } from "@vuepress/client"
 import type { ThemeFrontmatter, ThemePageData } from "../types"
 import { useLocaleCategories } from "../composables"
+import Particles from "./Particles.vue"
 
 export default {
+  components: {
+    Particles,
+  },
   setup(props, ctx) {
     const frontmatter = usePageFrontmatter<ThemeFrontmatter>()
     const pageData = usePageData<ThemePageData>()

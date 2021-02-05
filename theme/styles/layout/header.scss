@@ -1,28 +1,34 @@
+$color-meta: $color-text-secondary;
+$arrow-size: 0.3rem;
+$index: $index-normal + 100;
+
 .header {
-  height: 100%;
-  background: $background-color-dark;
-
-  $color-meta: mix($color-white, $color-black, 70%);
-  $arrow-size: 0.3rem;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
+  height: 100%;
+  background: $background-color-dark;
+  overflow: hidden;
+  position: relative;
+
   &__title {
     color: $color-white;
     font-size: 5rem;
+    z-index: $index;
   }
 
   &__meta {
     display: flex;
+    z-index: $index;
   }
 
   &__meta-item {
     color: $color-meta;
     padding: 0 1rem;
     margin: 0.5rem 0;
+    z-index: $index;
 
     &:not(:last-child) {
       border-right: $color-meta solid 1px;
@@ -33,6 +39,7 @@
     text-decoration: underline;
     color: $color-meta;
     transition: $all-transition;
+    z-index: $index;
 
     &:hover {
       color: $color-primary;
@@ -48,14 +55,19 @@
         height: $arrow-size;
         content: "";
 
+        margin: 2px;
         border: 1px solid $color-meta;
         border-left: 0;
         border-bottom: 0;
         transform: rotate(45deg) scaleY(1);
         transform-origin: center;
-
-        margin: 2px;
       }
     }
+  }
+
+  &__background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
 }
