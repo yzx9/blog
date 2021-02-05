@@ -3,9 +3,11 @@
     class="navbar"
     :class="{ 'navbar--hide': status.hide, 'navbar--opaque': status.opaque }"
   >
-    <div class="navbar__link" :class="{ 'navbar__link--active': active.home }">
-      <RouterLink to="/">BLOG</RouterLink>
-    </div>
+    <ul class="navbar__list">
+      <li class="navbar__link" :class="{ 'navbar__link--active': active.blog }">
+        <RouterLink to="/">BLOG</RouterLink>
+      </li>
+    </ul>
 
     <ul class="navbar__list">
       <li

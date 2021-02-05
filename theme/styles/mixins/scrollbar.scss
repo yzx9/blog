@@ -20,7 +20,7 @@
     }
   }
   &::-webkit-scrollbar-track {
-    background-color: $background-color-base;
+    background-color: mix($background-color-base, $background-color-dark, 90%);
     border-radius: 0;
   }
 }
