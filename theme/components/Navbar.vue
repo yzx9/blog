@@ -39,6 +39,7 @@
 import { computed, onMounted, reactive, watch } from "vue"
 import { useRouter } from "vue-router"
 import { usePageScroll } from "../composables"
+import { isSSR } from "../utils"
 
 const threshold = 25
 const timespan = 500
@@ -51,12 +52,13 @@ export default {
     })
 
     // TODO only support `rem` unit now
-    const headerHeight =
-      Number.parseInt(
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--header-height"
-        )
-      ) * Number.parseInt(getComputedStyle(document.documentElement).fontSize)
+    const headerHeight = !isSSR()
+      ? Number.parseInt(
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--header-height"
+          )
+        ) * Number.parseInt(getComputedStyle(document.documentElement).fontSize)
+      : 0
 
     // onMounted(() => {
     let lastTime = Date.now()
