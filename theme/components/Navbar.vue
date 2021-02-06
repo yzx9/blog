@@ -1,11 +1,18 @@
 <template>
   <div
     class="navbar"
-    :class="{ 'navbar--hide': status.hide, 'navbar--opaque': status.opaque }"
+    :class="{
+      'navbar--hidden': status.hidden,
+      'navbar--opaque': status.opaque,
+      'navbar--instant': status.instant,
+    }"
   >
     <ul class="navbar__list">
-      <li class="navbar__link" :class="{ 'navbar__link--active': active.blog }">
-        <RouterLink to="/">BLOG</RouterLink>
+      <li
+        class="navbar__link navbar__link--homepage"
+        :class="{ 'navbar__link--active': active.blog }"
+      >
+        <RouterLink to="/">{{ title }}</RouterLink>
       </li>
     </ul>
 
@@ -36,8 +43,9 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, reactive, watch } from "vue"
+import { computed, reactive, ref, watch } from "vue"
 import { useRouter } from "vue-router"
+import { useSiteLocaleData } from "@vuepress/client"
 import { usePageScroll } from "../composables"
 import { isSSR } from "../utils"
 
@@ -46,9 +54,15 @@ const timespan = 500
 
 export default {
   setup(props, ctx) {
+    // title
+    const siteLocaleData = useSiteLocaleData()
+    const title = ref(siteLocaleData.value.title.toUpperCase())
+
+    // display
     const status = reactive({
-      hide: false,
+      hidden: false,
       opaque: false,
+      instant: false,
     })
 
     // TODO only support `rem` unit now
@@ -60,33 +74,41 @@ export default {
         ) * Number.parseInt(getComputedStyle(document.documentElement).fontSize)
       : 0
 
-    // onMounted(() => {
     let lastTime = Date.now()
     let lastTop = 0
 
     watch(usePageScroll(), ({ top }) => {
+      const now = Date.now()
+
       if (top <= headerHeight) {
         status.opaque = false
-        status.hide = false
+        status.hidden = false
+        status.instant = true
+        lastTime = now
+      } else if (lastTop <= headerHeight) {
+        status.opaque = true
+        status.hidden = true
+        status.instant = true
+        lastTime = now
       } else {
-        const now = Date.now()
         status.opaque = true
 
         if (now - lastTime > timespan) {
           const offset = top - lastTop
+          status.instant = false
 
           if (offset > threshold) {
-            status.hide = true
+            status.hidden = true
           } else if (offset < -threshold) {
-            status.hide = false
+            status.hidden = false
           }
 
           lastTime = now
-          lastTop = top
         }
       }
+
+      lastTop = top
     })
-    // })
 
     // Active link
     const { currentRoute } = useRouter()
@@ -102,6 +124,7 @@ export default {
     })
 
     return {
+      title,
       status,
       active,
     }

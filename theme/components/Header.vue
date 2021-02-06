@@ -26,8 +26,8 @@
 <script lang="ts">
 import { usePageFrontmatter, usePageData } from "@vuepress/client"
 import type { ThemeFrontmatter, ThemePageData } from "../types"
-import { useLocaleCategories } from "../composables"
 import Particles from "./Particles.vue"
+import { useLocaleCategories } from "../composables"
 
 export default {
   components: {

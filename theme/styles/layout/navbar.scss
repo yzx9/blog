@@ -16,9 +16,13 @@ $border-style: 2px solid;
 
   transition: $all-transition;
 
-  &--hide:not(:hover) {
+  &--hidden:not(:hover) {
     top: -$navbar-height;
     box-shadow: none;
+  }
+
+  &--instant {
+    transition: none;
   }
 
   &--opaque {
@@ -75,6 +79,10 @@ $border-style: 2px solid;
       border: $border-style transparent;
       color: $color-white;
       transition: $color-transition-base;
+    }
+
+    &--homepage a {
+      font-weight: 700;
     }
 
     &:hover,
