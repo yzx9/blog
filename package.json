@@ -21,16 +21,16 @@
     "serve": "vuepress serve src"
   },
   "devDependencies": {
-    "@vuepress/client": "2.0.0-alpha.19",
-    "@vuepress/core": "^2.0.0-alpha.19",
-    "@vuepress/plugin-debug": "^2.0.0-alpha.19",
-    "@vuepress/plugin-git": "^2.0.0-alpha.19",
-    "@vuepress/utils": "^2.0.0-alpha.19",
+    "@vuepress/client": "2.0.0-alpha.20",
+    "@vuepress/core": "2.0.0-alpha.20",
+    "@vuepress/plugin-debug": "2.0.0-alpha.20",
+    "@vuepress/plugin-git": "2.0.0-alpha.20",
+    "@vuepress/utils": "2.0.0-alpha.20",
     "sass": "^1.32.5",
     "sass-loader": "^10.1.1",
     "tsparticles": "^1.18.11",
     "vue": "^3.0.5",
     "vue-loader": "16.1.2",
-    "vuepress": "2.0.0-alpha.19"
+    "vuepress": "2.0.0-alpha.20"
   }
 }
