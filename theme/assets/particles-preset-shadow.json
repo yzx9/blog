@@ -2,7 +2,7 @@
   "autoPlay": true,
   "background": {
     "color": {
-      "value": "var(--particles-color-base)"
+      "value": "#0d47a1"
     },
     "image": "",
     "position": "50% 50%",
@@ -173,7 +173,7 @@
       "mode": "bounce"
     },
     "color": {
-      "value": "var(--particles-color-base)",
+      "value": "#ffffff",
       "animation": {
         "enable": false,
         "speed": 1,

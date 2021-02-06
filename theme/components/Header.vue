@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <Particles class="header__background" />
+    <Particles class="header__background" preset="starry" />
   </div>
 </template>
 
