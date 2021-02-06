@@ -1,14 +1,17 @@
 @import "../variables";
 
 @mixin scrollbar {
+  $color-tarck: mix($background-color-base, $background-color-dark, 90%);
+
   &::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
+
   &::-webkit-scrollbar-thumb {
     height: 50px;
     background-color: #999;
-    outline: 2px solid #fff;
+    outline: 2px solid $color-tarck;
     outline-offset: -2px;
     border: 2px solid #fff;
     border-radius: 4px;
@@ -19,8 +22,9 @@
       border-radius: 4px;
     }
   }
+
   &::-webkit-scrollbar-track {
-    background-color: mix($background-color-base, $background-color-dark, 90%);
+    background-color: $color-tarck;
     border-radius: 0;
   }
 }

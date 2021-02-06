@@ -78,6 +78,8 @@ $border-style: 2px solid;
       padding: 0.5rem 1rem;
       border: $border-style transparent;
       color: $color-white;
+      text-decoration: none;
+      font-weight: $font-weight-primary;
       transition: $color-transition-base;
     }
 

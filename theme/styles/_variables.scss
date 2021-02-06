@@ -87,12 +87,7 @@ $fill-base: $color-white !default;
 // Typography
 $font-path: "fonts" !default;
 $font-display: "auto" !default;
-$font-size-extra-large: 20px !default;
-$font-size-large: 18px !default;
-$font-size-medium: 16px !default;
-$font-size-base: 14px !default;
-$font-size-small: 13px !default;
-$font-size-extra-small: 12px !default;
+$font-size-base: 16px !default;
 $font-weight-primary: 500 !default;
 $font-weight-secondary: 100 !default;
 $font-line-height-primary: 24px !default;
@@ -113,38 +108,25 @@ $header-height: 30rem;
   --header-height: 30rem; // Only support `rem` now
 }
 
+// Markdown
+
+// code
+$line-numbers-wrapper-width: 3.5rem !default;
+$code-lang: "c", "cpp", "cs", "css", "dart", "docker", "fs", "go", "html",
+  "java", "js", "json", "kt", "less", "makefile", "md", "php", "py", "rb", "rs",
+  "sass", "scss", "sh", "styl", "ts", "toml", "vue", "yml" !default;
+$code-background-color: #282c34 !default;
+
 // Following refs: @Vuepress/theme-default
 // MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
 
 // colors
-$accentColor: $color-primary !default;
-$textColor: $color-text-primary !default;
-$borderColor: $border-color-base !default;
-$codeBgColor: #282c34 !default;
 $arrowBgColor: #ccc !default;
-$tipColor: $color-success !default;
-$warningColor: $color-warning !default;
-$dangerColor: $color-danger !default;
-$badgeTipColor: $tipColor !default;
-$badgeWarningColor: $warningColor !default;
-$badgeDangerColor: $dangerColor !default;
-
-// layout
-$navbarHeight: $navbar-height !default;
-$sidebarWidth: 20rem !default;
-$contentWidth: 740px !default;
-$homePageWidth: 960px !default;
 
 // responsive breakpoints
 $MQNarrow: 959px !default;
 $MQMobile: 719px !default;
 $MQMobileNarrow: 419px !default;
-
-// code
-$lineNumbersWrapperWidth: 3.5rem !default;
-$codeLang: "c", "cpp", "cs", "css", "dart", "docker", "fs", "go", "html", "java",
-  "js", "json", "kt", "less", "makefile", "md", "php", "py", "rb", "rs", "sass",
-  "scss", "sh", "styl", "ts", "toml", "vue", "yml" !default;
 
 // other
 $contentClass: ".page" !default;

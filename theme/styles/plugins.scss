@@ -1,23 +1,5 @@
 @import "./_variables";
 
 .debug {
-  z-index: $index-popper !important;
-}
-
-// ref: @Vuepress/theme-default
-// MIT Licensed, Copyright (c) 2018-present, Yuxi (Evan) You
-
-.back-to-top {
-  --back-to-top-color: $accentColor;
-  --back-to-top-color-hover: lighten($accentColor, 30%);
-}
-
-#nprogress {
-  --nprogress-color: $accentColor;
-}
-
-.DocSearch {
-  --docsearch-primary-color: $accentColor;
-  --docsearch-highlight-color: var(--docsearch-primary-color);
-  --docsearch-searchbox-shadow: inset 0 0 0 2px var(--docsearch-primary-color);
+  z-index: $index-popper + 100 !important;
 }

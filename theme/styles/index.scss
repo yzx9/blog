@@ -1,15 +1,7 @@
-@import "./layout";
-@import "./home";
-@import "./404";
-
+@import "./common";
 @import "./plugins";
 @import "./sr-only";
-@import "./transitions";
 
-@import "./compoments/arrow";
-@import "./compoments/badge";
-@import "./compoments/code";
-@import "./compoments/code-group";
-@import "./compoments/custom-container";
-@import "./compoments/dropdown";
-@import "./compoments/toc";
+@import "./compoments";
+@import "./layout";
+@import "./404";
