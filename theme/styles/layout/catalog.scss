@@ -1,0 +1,37 @@
+@import "../variables";
+
+.catalog {
+  position: sticky;
+  top: 2rem;
+
+  padding: 1rem;
+
+  &__title {
+    cursor: default;
+  }
+
+  &__list {
+    padding-left: 0;
+    margin: 0;
+
+    .catalog__list {
+      padding-left: 1rem;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    padding: 0.3rem;
+  }
+
+  &__link {
+    color: $color-text-regular;
+    text-decoration: none;
+    transition: $color-transition-base;
+
+    &:hover,
+    &--active {
+      color: $color-primary;
+    }
+  }
+}

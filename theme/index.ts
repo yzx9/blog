@@ -10,7 +10,14 @@ export const theme: Theme = (themeConfig, app) => {
     layouts: path.resolve(__dirname, "./layouts"),
     clientAppEnhanceFiles: path.resolve(__dirname, "./clientAppEnhance.ts"),
     extendsPageData,
-    plugins: ["@vuepress/plugin-debug", "vuepress-plugin-post-filter"],
+    plugins: [
+      "@vuepress/plugin-debug",
+      [
+        "@vuepress/plugin-active-header-links",
+        { headerLinkSelector: ".catalog__link" },
+      ],
+      "vuepress-plugin-post-filter",
+    ],
     onInitialized,
   }
 }
