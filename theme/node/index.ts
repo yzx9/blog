@@ -1,5 +1,5 @@
 export * from "./assignDefaultOptions"
-export * from "./assignCategoriesAndTags"
+export * from "./assignOptionCategoriesAndTags"
 
 export * from "./extendsPageData"
 export * from "./resolvePageUpdatedTime"

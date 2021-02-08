@@ -1,5 +1,8 @@
 import { ThemeLocaleOptions, ThemeOptions } from "../types"
-import { assignCategories, assignTags } from "./assignCategoriesAndTags"
+import {
+  assignOptionCategories,
+  assignOptionTags,
+} from "./assignOptionCategoriesAndTags"
 
 const defaultLang = "en-US"
 
@@ -57,6 +60,6 @@ export const assignDefaultOptions = (
     ...options.locales["/"],
   })
 
-  assignCategories(options)
-  assignTags(options)
+  assignOptionCategories(options)
+  assignOptionTags(options)
 }

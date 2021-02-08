@@ -18,5 +18,12 @@ const assignCategoriesOrTags = (attr: "categories" | "tags") => (
   }
 }
 
-export const assignCategories = assignCategoriesOrTags("categories")
-export const assignTags = assignCategoriesOrTags("tags")
+/**
+ * assign locale categories map
+ */
+export const assignOptionCategories = assignCategoriesOrTags("categories")
+
+/**
+ * assign locale tags map
+ */
+export const assignOptionTags = assignCategoriesOrTags("tags")
