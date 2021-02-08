@@ -16,7 +16,7 @@ export const getScrollLeft = () =>
     document.body.scrollLeft
   )
 
-export const usePageScroll = (options = { delay: 33 }) => {
+export const useScroll = (options = { delay: 33 }) => {
   if (isSSR()) return reactive({ top: 0, left: 0 })
 
   const position = reactive({

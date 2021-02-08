@@ -46,7 +46,7 @@
 import { computed, reactive, ref, watch } from "vue"
 import { useRouter } from "vue-router"
 import { useSiteLocaleData } from "@vuepress/client"
-import { usePageScroll } from "../composables"
+import { useScroll } from "../composables"
 import { isSSR } from "../utils"
 
 const threshold = 25
@@ -77,7 +77,7 @@ export default {
     let lastTime = Date.now()
     let lastTop = 0
 
-    watch(usePageScroll(), ({ top }) => {
+    watch(useScroll(), ({ top }) => {
       const now = Date.now()
 
       if (top <= headerHeight) {
