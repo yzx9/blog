@@ -32,7 +32,7 @@ const pagesOptions: PageOptions[] = [
   },
 ]
 
-export const createPages = async (app: App) => {
+export const initializeThemePages = async (app: App) => {
   const pages = await Promise.all(
     pagesOptions
       .filter((a) => app.pages.every((b) => a.path !== b.path))

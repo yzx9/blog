@@ -1,6 +1,10 @@
 import type { App } from "@vuepress/core"
 
-export const resolvePageRoutes = (app: App) => {
+/**
+ * Remove pages
+ * @param app
+ */
+export const initializePagesPath = (app: App) => {
   app.pages
     .filter((a) => !a.frontmatter.home)
     .filter((a) => !a.frontmatter.shadowPage)

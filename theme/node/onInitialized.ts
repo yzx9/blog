@@ -1,10 +1,10 @@
 import type { App } from "@vuepress/core"
-import { createPages } from "./createPages"
-import { resolvePageRoutes } from "./resolvePageRoutes"
-import { resolveHomePage } from "./resolveHomePage"
+import { initializeThemePages } from "./initializeThemePages"
+import { initializePagesPath } from "./initializePagesPath"
+import { initializeHomePage } from "./initializeHomePage"
 
 export const onInitialized = async (app: App) => {
-  resolvePageRoutes(app)
-  resolveHomePage(app)
-  await createPages(app)
+  initializePagesPath(app)
+  initializeHomePage(app)
+  await initializeThemePages(app)
 }

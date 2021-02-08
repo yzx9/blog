@@ -1,6 +1,6 @@
 import type { Page, App } from "@vuepress/core"
 import type { ThemeFrontmatter, ThemePageData } from "../types"
-import { resolveUpdatedTime } from "./resolveUpdated"
+import { resolveUpdatedTime } from "./resolveUpdatedTime"
 
 export const extendsPageData = async (
   page: Page & { frontmatter: ThemeFrontmatter },
