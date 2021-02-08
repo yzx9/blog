@@ -7,9 +7,7 @@ export const theme: Theme = (themeConfig, app) => {
 
   return {
     name: "vuepress-theme-celesta",
-    layouts: path.resolve(__dirname, "./layouts"),
-    clientAppEnhanceFiles: path.resolve(__dirname, "./clientAppEnhance.ts"),
-    extendsPageData,
+
     plugins: [
       "@vuepress/plugin-debug",
       [
@@ -18,6 +16,15 @@ export const theme: Theme = (themeConfig, app) => {
       ],
       "vuepress-plugin-post-filter",
     ],
+
+    layouts: path.resolve(__dirname, "./layouts"),
+
+    clientAppEnhanceFiles: path.resolve(__dirname, "./clientAppEnhance.ts"),
+
+    clientAppSetupFiles: path.resolve(__dirname, "./clientAppSetup.ts"),
+
+    extendsPageData,
+
     onInitialized,
   }
 }
