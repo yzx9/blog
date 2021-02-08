@@ -11,9 +11,9 @@ export const getScrollTop = () =>
 
 export const getScrollLeft = () =>
   Math.max(
-    window.pageYOffset,
-    document.documentElement.scrollTop,
-    document.body.scrollTop
+    window.pageXOffset,
+    document.documentElement.scrollLeft,
+    document.body.scrollLeft
   )
 
 export const usePageScroll = (options = { delay: 33 }) => {
