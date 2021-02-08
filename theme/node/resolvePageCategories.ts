@@ -1,27 +1,36 @@
 import { Page } from "@vuepress/core"
-import { ThemeFrontmatter, ThemePageCategories } from "../types"
+import {
+  ThemeFrontmatter,
+  ThemePageCategories,
+  ThemePageCategory,
+} from "../types"
 import { normalizeCategoryOrTag } from "../utils"
+
+const prefix = "/categories#"
+const map = new Map<string, ThemePageCategory>()
 
 export const resolvePageCategories = (
   page: Page & { frontmatter: ThemeFrontmatter }
 ): ThemePageCategories => {
-  const categoriesRaw = page.frontmatter.categories || ["Default"]
+  const raw = page.frontmatter.categories || "Default"
 
-  const categoriesArr = Array.isArray(categoriesRaw)
-    ? categoriesRaw
-    : [categoriesRaw]
+  const categoriesArray = Array.isArray(raw)
+    ? raw.some(Array.isArray)
+      ? raw.map((a) => (Array.isArray(a) ? a : [a]))
+      : ([raw] as string[][])
+    : [[raw]]
 
-  let path = "/categories#"
-  const categories = categoriesArr.map((raw) => {
+  const reducer = (parent: ThemePageCategory | null, raw: string) => {
     const name = normalizeCategoryOrTag(raw)
-    path = `${path}/${name}`
+    const path = `${parent?.path ?? prefix}/${name}`
+    const cur = map.get(path) || { raw, name, path, parent }
+    map.set(path, cur)
+    return cur
+  }
 
-    return {
-      raw,
-      name,
-      path,
-    }
-  })
+  const categories = categoriesArray.map(
+    (categories) => categories.reduce(reducer, null) as ThemePageCategory
+  )
 
   return categories
 }

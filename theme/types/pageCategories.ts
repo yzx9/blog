@@ -10,11 +10,14 @@ export interface ThemePageCategory {
   name: string
 
   /**
-   * path to category
+   * Path to category
    */
   path: string
+
+  /**
+   * Category parent
+   */
+  parent: ThemePageCategory | null
 }
 
 export type ThemePageCategories = ThemePageCategory[]
-
-export type ThemePageMultiCategories = ThemePageCategories[]

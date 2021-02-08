@@ -35,6 +35,16 @@ $index: $index-normal + 100;
     }
   }
 
+  &__categories {
+    &:not(:last-child) {
+      padding-right: 0.5rem;
+
+      &::after {
+        content: ",";
+      }
+    }
+  }
+
   &__category {
     text-decoration: underline;
     color: $color-meta;
