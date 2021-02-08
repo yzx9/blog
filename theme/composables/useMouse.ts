@@ -1,21 +1,24 @@
 import { reactive, onMounted, onUnmounted } from "vue"
-import { throttle } from "../utils"
+import { debounce } from "ts-debounce"
 
-const useMouse = (options = { allowTrottle: true }) => {
+const useMouse = (options = { delay: 33 }) => {
   const mouse = reactive({
     x: 0,
     y: 0,
   })
 
-  const raw = (e: MouseEvent) => {
+  const onMouseMove = debounce((e: MouseEvent) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
-  }
+  }, options.delay)
 
-  const listener = options.allowTrottle ? throttle(raw, 32) : raw
+  onMounted(() => {
+    document.addEventListener("mousemove", onMouseMove)
+  })
 
-  onMounted(() => document.addEventListener("mousemove", listener))
-  onUnmounted(() => document.removeEventListener("mousemove", listener))
+  onUnmounted(() => {
+    document.removeEventListener("mousemove", onMouseMove)
+  })
 
   return mouse
 }

@@ -29,6 +29,7 @@
     "@vuepress/utils": "2.0.0-alpha.20",
     "sass": "^1.32.5",
     "sass-loader": "^10.1.1",
+    "ts-debounce": "^2.3.0",
     "tsparticles": "^1.18.11",
     "vue": "^3.0.5",
     "vue-loader": "16.1.2",
