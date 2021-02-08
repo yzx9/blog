@@ -3,7 +3,7 @@ import { getUpdatedTime } from "@vuepress/plugin-git"
 import type { ThemeFrontmatter } from "../types"
 import { normalizeDate } from "../utils"
 
-export const resolveUpdatedTime = async (
+export const resolvePageUpdatedTime = async (
   page: Page & { frontmatter: ThemeFrontmatter },
   app: App
 ) => {

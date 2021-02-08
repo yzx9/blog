@@ -2,16 +2,16 @@
   <div class="header">
     <h1 class="header__title">{{ title }}</h1>
     <div class="header__meta">
-      <div class="header__meta-item">发表于 {{ created }}</div>
+      <div class="header__meta-item">发表于 {{ date }}</div>
       <div v-if="showUpdate" class="header__meta-item">
         更新于 {{ updated }}
       </div>
       <div class="header__meta-item">
         分类于
         <RouterLink
-          v-for="{ raw, name, url } in categories"
-          :key="`v-page-category-${raw}`"
-          :to="url"
+          v-for="{ name, path } in categories"
+          :key="`v-header-${path}`"
+          :to="path"
           class="header__category"
         >
           {{ name }}
@@ -24,9 +24,10 @@
 </template>
 
 <script lang="ts">
-import { usePageFrontmatter, usePageData } from "@vuepress/client"
-import type { ThemeFrontmatter, ThemePageData } from "../types"
+import { computed, toRefs } from "vue"
+import { usePageData } from "@vuepress/client"
 import Particles from "./Particles.vue"
+import type { ThemePageData } from "../types"
 import { useLocaleCategories } from "../composables"
 
 export default {
@@ -34,18 +35,15 @@ export default {
     Particles,
   },
   setup(props, ctx) {
-    const frontmatter = usePageFrontmatter<ThemeFrontmatter>()
     const pageData = usePageData<ThemePageData>()
 
-    const title = frontmatter.value.title || pageData.value.title
-    const created = pageData.value.date
-    const updated = pageData.value.updated
-    const showUpdate = created !== updated
+    const { title, date, updated } = toRefs(pageData.value)
+    const showUpdate = computed(() => date !== updated)
     const categories = useLocaleCategories()
 
     return {
       title,
-      created,
+      date,
       updated,
       showUpdate,
       categories,

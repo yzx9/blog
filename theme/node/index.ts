@@ -2,7 +2,9 @@ export * from "./assignDefaultOptions"
 export * from "./assignCategoriesAndTags"
 
 export * from "./extendsPageData"
-export * from "./resolveUpdatedTime"
+export * from "./resolvePageUpdatedTime"
+export * from "./resolvePageCategories"
+export * from "./resolvePageTags"
 
 export * from "./onInitialized"
 export * from "./initializeHomePage"

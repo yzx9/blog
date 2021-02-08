@@ -1,24 +1,24 @@
 import type { Page, App } from "@vuepress/core"
 import type { ThemeFrontmatter, ThemePageData } from "../types"
-import { resolveUpdatedTime } from "./resolveUpdatedTime"
+import { resolvePageCategories } from "./resolvePageCategories"
+import { resolvePageTags } from "./resolvePageTags"
+import { resolvePageUpdatedTime } from "./resolvePageUpdatedTime"
+
+type PageWithFrontmatter = Page & { frontmatter: ThemeFrontmatter }
+type PageExtended = Partial<PageWithFrontmatter> & ThemePageData
 
 export const extendsPageData = async (
-  page: Page & { frontmatter: ThemeFrontmatter },
+  page: PageWithFrontmatter,
   app: App
-): Promise<ThemePageData> => {
+): Promise<PageExtended> => {
   const { date, frontmatter } = page
-
-  const updated = await resolveUpdatedTime(page, app)
-
-  const categoriesRaw = frontmatter.categories || ["Default"]
-  const categories = Array.isArray(categoriesRaw)
-    ? categoriesRaw
-    : [categoriesRaw]
-
-  const tagsRaw = frontmatter.tags || ["Default"]
-  const tags = Array.isArray(tagsRaw) ? tagsRaw : [tagsRaw]
+  const title = frontmatter.title || page.title
+  const updated = await resolvePageUpdatedTime(page, app)
+  const categories = resolvePageCategories(page)
+  const tags = resolvePageTags(page)
 
   return {
+    title,
     date,
     updated,
     categories,

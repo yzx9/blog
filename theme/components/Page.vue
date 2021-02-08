@@ -5,9 +5,9 @@
     </div>
     <div class="page__footer page-footer">
       <RouterLink
-        v-for="{ raw, name, url } in tags"
-        :key="`v-page-tag-${raw}`"
-        :to="url"
+        v-for="{ raw, name, path } in tags"
+        :key="`v-page-${path}`"
+        :to="path"
         class="page-header__tag"
       >
         {{ name }}

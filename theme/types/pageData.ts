@@ -1,4 +1,6 @@
 import type { GitData } from "@vuepress/plugin-git"
+import type { ThemePageCategories } from "./pageCategories"
+import type { ThemePageTags } from "./pageTags"
 
 export interface ThemePageData {
   /**
@@ -14,12 +16,12 @@ export interface ThemePageData {
   /**
    * Raw categories, without normalize and localize
    */
-  categories: string[]
+  categories: ThemePageCategories
 
   /**
    * Raw tags, without normalize and localize
    */
-  tags: string[]
+  tags: ThemePageTags
 
   /**
    * Support by @vuepress/plugin-git
