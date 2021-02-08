@@ -35,7 +35,6 @@ export const usePageScroll = (options = { delay: 33 }) => {
   })
 
   onUnmounted(() => {
-    onScroll.cancel()
     document.removeEventListener("scroll", onScroll)
   })
 

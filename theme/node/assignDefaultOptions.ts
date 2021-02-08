@@ -53,7 +53,7 @@ export const assignDefaultOptions = (
   })
 
   Object.assign(options.locales["/"], {
-    ...(defaultLocaleSet[lang] ?? defaultLocaleSet[defaultLang]),
+    ...(defaultLocaleSet[lang] ?? defaultOptions),
     ...options.locales["/"],
   })
 
