@@ -1,3 +1,6 @@
+@import "../variables";
+
+$color-title: $color-white;
 $color-meta: $color-text-secondary;
 $arrow-size: 0.3rem;
 $index: $index-normal + 100;
@@ -14,9 +17,23 @@ $index: $index-normal + 100;
   position: relative;
 
   &__title {
-    color: $color-white;
+    color: $color-title;
     font-size: 5rem;
+    font-weight: $font-weight-primary;
     z-index: $index;
+
+    &--primary {
+      font-family: "Kaushan Script", Monda, "PingFang SC", "Microsoft YaHei",
+        sans-serif;
+    }
+  }
+
+  &__description {
+    color: $color-title;
+    font-size: 2rem;
+    font-weight: $font-weight-secondary;
+    z-index: $index;
+    margin-top: 0;
   }
 
   &__meta {
