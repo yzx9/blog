@@ -48,22 +48,3 @@
     z-index: -1;
   }
 }
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  box-sizing: border-box;
-  padding: 2rem 1rem;
-
-  cursor: default;
-  color: $color-text-secondary;
-
-  a {
-    font-weight: 400;
-    color: $color-text-secondary;
-    text-decoration: underline;
-  }
-}
