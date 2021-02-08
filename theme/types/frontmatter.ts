@@ -6,23 +6,23 @@ export interface ThemeFrontmatter {
 
   /**
    * @example
-   * categories: categories_1
+   * categories: category_1
    *
    * @example
    * categories:
-   *   - categories_1
-   *   - categories_2
+   *   - category_1
+   *   - category_2
    *
    * @example
    * categories:
-   *   - - categories_1_1
-   *     - categories_1_2
-   *   - categories_2
+   *   - - category_1_1
+   *     - category_1_2
+   *   - category_2
    *
    * @example
    * categories:
-   *   - [categories_1_1, categories_1_2]
-   *   - categories_2
+   *   - [category_1_1, category_1_2]
+   *   - category_2
    */
   categories?: string | string[] | string[][] | (string | string[])[]
 
