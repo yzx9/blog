@@ -77,19 +77,18 @@ export default {
       instant: false,
     })
 
-    // TODO only support `rem` unit now
-    const headerHeight = !isSSR()
-      ? Number.parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--header-height"
-          )
-        ) * Number.parseInt(getComputedStyle(document.documentElement).fontSize)
-      : 0
+    const scroll = useScroll()
+    onMounted(() => {
+      // TODO only support `rem` unit now
+      const documentStyle = getComputedStyle(document.documentElement)
+      const headerHeight =
+        Number.parseInt(documentStyle.getPropertyValue("--header-height")) *
+        Number.parseInt(documentStyle.fontSize)
 
-    let lastTime = Date.now()
-    let lastTop = 0
+      let lastTime = Date.now()
+      let lastTop = 0
 
-    watch(useScroll(), ({ top }) => {
+      watch(scroll, ({ top }) => {
         const now = Date.now()
 
         if (top <= headerHeight) {

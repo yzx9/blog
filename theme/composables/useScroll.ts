@@ -1,7 +1,9 @@
 import { onMounted, onUnmounted, reactive } from "vue"
 import { debounce } from "ts-debounce"
-import { isSSR } from "../utils"
 
+/**
+ * Client only, must wrapped by `onMounted`
+ */
 export const getScrollTop = () =>
   Math.max(
     window.pageYOffset,
@@ -9,6 +11,9 @@ export const getScrollTop = () =>
     document.body.scrollTop
   )
 
+/**
+ * Client only, must wrapped by `onMounted`
+ */
 export const getScrollLeft = () =>
   Math.max(
     window.pageXOffset,
@@ -17,11 +22,9 @@ export const getScrollLeft = () =>
   )
 
 export const useScroll = (options = { delay: 33 }) => {
-  if (isSSR()) return reactive({ top: 0, left: 0 })
-
   const position = reactive({
-    top: getScrollTop(),
-    left: getScrollLeft(),
+    top: 0,
+    left: 0,
   })
 
   const onScroll = debounce(function (this: any, e?: Event) {
