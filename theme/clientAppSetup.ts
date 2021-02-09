@@ -5,6 +5,8 @@ import {
   mapFromTagToPostsSymbol,
   resolveMapFromCategoryToPosts,
   mapFromCategoryToPostsSymbol,
+  resolvePosts,
+  postsSymbol,
 } from "./composables"
 
 const clientAppSetup: ClientAppSetup = () => {
@@ -13,6 +15,9 @@ const clientAppSetup: ClientAppSetup = () => {
 
   const mapFromCategoryToPage = resolveMapFromCategoryToPosts()
   provide(mapFromCategoryToPostsSymbol, mapFromCategoryToPage)
+
+  const posts = resolvePosts()
+  provide(postsSymbol, posts)
 }
 
 export default clientAppSetup

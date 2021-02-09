@@ -3,6 +3,7 @@ export * from "./assignOptionCategoriesAndTags"
 
 export * from "./extendsPageData"
 export * from "./resolvePageUpdatedTime"
+export * from "./resolvePageExcerpt"
 export * from "./resolvePageCategories"
 export * from "./resolvePageTags"
 

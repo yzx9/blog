@@ -5,7 +5,7 @@
     </div>
     <div class="page__footer page-footer">
       <RouterLink
-        v-for="{ raw, name, path } in tags"
+        v-for="{ name, path } in tags"
         :key="`v-page-${path}`"
         :to="path"
         class="page-header__tag"

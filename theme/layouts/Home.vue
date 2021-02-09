@@ -19,7 +19,9 @@
         <!-- <Sidebar /> -->
       </aside>
       <main class="layout__page">
-        <!-- <Page /> -->
+        <Suspense>
+          <Posts />
+        </Suspense>
       </main>
       <aside class="layout__catalog">
         <!-- <Catalog /> -->
@@ -33,20 +35,24 @@
 </template>
 
 <script lang="ts">
+import { computed } from "vue"
 import { useSiteLocaleData } from "@vuepress/client"
 import Navbar from "../components/Navbar.vue"
 import Footer from "../components/Footer.vue"
 import Particles from "../components/Particles.vue"
+import Posts from "../components/Posts.vue"
 
 export default {
   components: {
     Navbar,
     Footer,
     Particles,
+    Posts,
   },
   setup(props, ctx) {
     const siteLocaleData = useSiteLocaleData()
-    const { title, description } = siteLocaleData.value
+    const title = computed(() => siteLocaleData.value.title)
+    const description = computed(() => siteLocaleData.value.description)
 
     return {
       title,

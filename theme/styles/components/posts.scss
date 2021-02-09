@@ -1,0 +1,146 @@
+@import "../variables";
+
+.posts {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__item {
+    width: 100%;
+    min-height: 10rem;
+
+    padding: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    transition: $all-transition;
+
+    &:hover {
+      border-radius: $border-radius-base;
+      box-shadow: $box-shadow-base;
+
+      .posts__title {
+        color: $color-text-primary;
+      }
+
+      .posts__excerpt {
+        color: $color-text-regular;
+      }
+
+      .posts__button {
+        color: $color-text-primary;
+
+        &::before,
+        &::after {
+          animation-play-state: running;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    color: $color-text-secondary;
+    text-decoration: none;
+    text-align: center;
+    transition: $all-transition;
+    position: relative;
+
+    &:hover::before {
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: $color-text-secondary;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition-duration: 0.2s;
+      transition-timing-function: ease-in-out;
+      transition-delay: 0s;
+    }
+  }
+
+  &__excerpt {
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: $all-transition;
+  }
+
+  &__button {
+    position: relative;
+    margin: auto;
+    width: 7rem;
+    line-height: 2.5rem;
+    text-align: center;
+    color: $color-text-secondary;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: $all-transition;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 2px;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      background: $color-white;
+      border-radius: 5px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -2;
+      left: -50%;
+      top: -100%;
+      width: 200%;
+      height: 300%;
+      background-repeat: no-repeat;
+      background-size: 50% 50%;
+      background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+      background-image: linear-gradient(#399953, #399953),
+        linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
+        linear-gradient(#377af5, #377af5);
+      animation: rotate 4s linear infinite;
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(1turn);
+        }
+      }
+    }
+
+    &:hover {
+      filter: contrast(1.2);
+
+      &::before {
+        transform: rotateZ(0deg) translate(0%, -0%);
+      }
+    }
+  }
+
+  &__pagination {
+    span {
+      cursor: pointer;
+      padding: 1rem;
+    }
+  }
+}
