@@ -20,10 +20,10 @@ export const resolvePageCategories = (
       : ([raw] as string[][])
     : [[raw]]
 
-  const reducer = (parent: ThemePageCategory | null, raw: string) => {
-    const name = normalizeCategoryOrTag(raw)
-    const path = `${parent?.path ?? prefix}/${name}`
-    const cur = map.get(path) || { raw, name, path, parent }
+  const reducer = (parent: ThemePageCategory | null, name: string) => {
+    const slug = normalizeCategoryOrTag(name)
+    const path = `${parent?.path ?? prefix}/${slug}`
+    const cur = map.get(path) || { slug, name, path, parent }
     map.set(path, cur)
     return cur
   }

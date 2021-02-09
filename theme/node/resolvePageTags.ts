@@ -7,13 +7,13 @@ export const resolvePageTags = (
 ): ThemePageTags => {
   const tagsRaw = page.frontmatter.tags || ["Default"]
   const tagsArr = Array.isArray(tagsRaw) ? tagsRaw : [tagsRaw]
-  const tags = tagsArr.map((raw) => {
-    const name = normalizeCategoryOrTag(raw)
+  const tags = tagsArr.map((name) => {
+    const slug = normalizeCategoryOrTag(name)
 
     return {
-      raw,
       name,
-      path: `/tags#${name}`,
+      slug,
+      path: `/tags#${slug}`,
     }
   })
 

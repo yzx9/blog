@@ -15,14 +15,15 @@ export const useLocaleCategories = () => {
   const resolveName = (
     a: ThemePageCategory | null
   ): ThemePageCategory | null => {
+    console.log(a)
     return a
       ? {
           ...a,
           parent: resolveName(a.parent),
           name:
-            localeData.value.categories?.[a.name] ??
-            data.value.categories?.[a.name] ??
-            a.raw,
+            localeData.value.categories?.[a.slug] ??
+            data.value.categories?.[a.slug] ??
+            a.name,
         }
       : null
   }

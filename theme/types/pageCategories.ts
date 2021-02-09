@@ -2,15 +2,15 @@ export interface ThemePageCategory {
   /**
    * Raw category name in frontmatter
    */
-  raw: string
-
-  /**
-   * Normalized category name
-   */
   name: string
 
   /**
-   * Path to category
+   * Category slug
+   */
+  slug: string
+
+  /**
+   * Path to category, can be used as id
    */
   path: string
 
