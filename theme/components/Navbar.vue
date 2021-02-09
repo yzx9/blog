@@ -44,7 +44,6 @@ import { computed, onMounted, reactive, ref, watch } from "vue"
 import { useRouter } from "vue-router"
 import { useSiteLocaleData } from "@vuepress/client"
 import { useScroll } from "../composables"
-import { isSSR } from "../utils"
 
 const threshold = 25
 const timespan = 500

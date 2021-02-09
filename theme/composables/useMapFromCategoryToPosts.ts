@@ -1,41 +1,44 @@
 import { PageData, usePagesData } from "@vuepress/client"
 import { inject, InjectionKey } from "vue"
 import type { ThemePageCategory, ThemePageData } from "../types"
+import { isPost } from "../utils"
 
 type CategoryTree = {
   data: ThemePageCategory
-  pages: Set<PageData<ThemePageData>>
+  posts: Set<PageData<ThemePageData>>
   children: Set<CategoryTree>
 }
 
 /**
  * Category path to page data
  */
-type CategoryPagesMap = Map<string, CategoryTree>
+type CategoryTreeMap = Map<string, CategoryTree>
 
-export const mapFromCategoryToPageSymbol: InjectionKey<
-  Promise<CategoryPagesMap>
-> = Symbol("categoryPageMap")
+export const mapFromCategoryToPostsSymbol: InjectionKey<
+  Promise<CategoryTreeMap>
+> = Symbol("mapFromCategoryToPosts")
 
 /**
  * Inject tags global computed
  */
-export const useMapFromCategoryToPage = async (): Promise<CategoryPagesMap> => {
-  const map = inject(mapFromCategoryToPageSymbol)
+export const useMapFromCategoryToPosts = async (): Promise<CategoryTreeMap> => {
+  const map = inject(mapFromCategoryToPostsSymbol)
   if (!map) {
-    throw new Error("useMapFromCategoryToPage() is called without provider.")
+    throw new Error("useMapFromCategoryToPosts() is called without provider.")
   }
   return map
 }
 
-export const resolveMapFromCategoryToPage = async (): Promise<CategoryPagesMap> => {
+export const resolveMapFromCategoryToPosts = async (): Promise<CategoryTreeMap> => {
   const pagesData = usePagesData()
 
-  const pages = (await Promise.all(
+  const pages = await Promise.all(
     Object.keys(pagesData.value).map((key) => pagesData.value[key]())
-  )) as PageData<ThemePageData>[]
+  )
 
-  const map: CategoryPagesMap = new Map()
+  const posts = pages.filter(isPost) as PageData<ThemePageData>[]
+
+  const map: CategoryTreeMap = new Map()
 
   const resolveCategoryTree = (a: ThemePageCategory) => {
     if (map.has(a.path)) {
@@ -46,7 +49,7 @@ export const resolveMapFromCategoryToPage = async (): Promise<CategoryPagesMap> 
       resolveCategoryTree(a.parent)
       const tree: CategoryTree = {
         data: a,
-        pages: new Set(),
+        posts: new Set(),
         children: new Set(),
       }
       map.get(a.parent.path)?.children.add(tree)
@@ -55,17 +58,17 @@ export const resolveMapFromCategoryToPage = async (): Promise<CategoryPagesMap> 
       // case 3: The current node is the root node
       const tree: CategoryTree = {
         data: a,
-        pages: new Set(),
+        posts: new Set(),
         children: new Set(),
       }
       map.set(a.path, tree)
     }
   }
 
-  pages.map((page) => {
+  posts.map((page) => {
     const { categories } = page
     categories.forEach(resolveCategoryTree)
-    categories.forEach((a) => map.get(a.path)?.pages.add(page))
+    categories.forEach((a) => map.get(a.path)?.posts.add(page))
   })
 
   return map

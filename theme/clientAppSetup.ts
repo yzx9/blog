@@ -1,18 +1,18 @@
 import { provide } from "vue"
 import type { ClientAppSetup } from "@vuepress/client"
 import {
-  resolveMapFromTagToPage,
-  mapFromTagToPageSymbol,
-  resolveMapFromCategoryToPage,
-  mapFromCategoryToPageSymbol,
+  resolveMapFromTagToPosts,
+  mapFromTagToPostsSymbol,
+  resolveMapFromCategoryToPosts,
+  mapFromCategoryToPostsSymbol,
 } from "./composables"
 
 const clientAppSetup: ClientAppSetup = () => {
-  const mapFromTagToPage = resolveMapFromTagToPage()
-  provide(mapFromTagToPageSymbol, mapFromTagToPage)
+  const mapFromTagToPage = resolveMapFromTagToPosts()
+  provide(mapFromTagToPostsSymbol, mapFromTagToPage)
 
-  const mapFromCategoryToPage = resolveMapFromCategoryToPage()
-  provide(mapFromCategoryToPageSymbol, mapFromCategoryToPage)
+  const mapFromCategoryToPage = resolveMapFromCategoryToPosts()
+  provide(mapFromCategoryToPostsSymbol, mapFromCategoryToPage)
 }
 
 export default clientAppSetup
