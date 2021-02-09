@@ -13,14 +13,14 @@ type CategoryTree = {
  */
 type CategoryPagesMap = Map<string, CategoryTree>
 
-export const mapFromCategoryToPageSymbol: InjectionKey<CategoryPagesMap> = Symbol(
-  "categoryPageMap"
-)
+export const mapFromCategoryToPageSymbol: InjectionKey<
+  Promise<CategoryPagesMap>
+> = Symbol("categoryPageMap")
 
 /**
  * Inject tags global computed
  */
-export const useMapFromCategoryToPage = (): CategoryPagesMap => {
+export const useMapFromCategoryToPage = async (): Promise<CategoryPagesMap> => {
   const map = inject(mapFromCategoryToPageSymbol)
   if (!map) {
     throw new Error("useMapFromCategoryToPage() is called without provider.")

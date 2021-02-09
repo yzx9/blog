@@ -7,17 +7,17 @@ import type { ThemePageData } from "../types"
  */
 type MapFromTagToPage = Map<string, Set<PageData<ThemePageData>>>
 
-export const mapFromTagToPageSymbol: InjectionKey<MapFromTagToPage> = Symbol(
-  "mapFromTagToPage"
-)
+export const mapFromTagToPageSymbol: InjectionKey<
+  Promise<MapFromTagToPage>
+> = Symbol("mapFromTagToPage")
 
 /**
  * Inject tags global computed
  */
-export const useMapFromTagToPage = (): MapFromTagToPage => {
+export const useMapFromTagToPage = async (): Promise<MapFromTagToPage> => {
   const map = inject(mapFromTagToPageSymbol)
   if (!map) {
-    throw new Error("useAllTagPagesMap() is called without provider.")
+    throw new Error("useMapFromTagToPage() is called without provider.")
   }
   return map
 }

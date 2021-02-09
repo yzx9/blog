@@ -1,5 +1,5 @@
 import { provide } from "vue"
-import { ClientAppSetup } from "@vuepress/client"
+import type { ClientAppSetup } from "@vuepress/client"
 import {
   resolveMapFromTagToPage,
   mapFromTagToPageSymbol,
@@ -7,11 +7,11 @@ import {
   mapFromCategoryToPageSymbol,
 } from "./composables"
 
-export const clientAppSetup: ClientAppSetup = async () => {
-  const mapFromTagToPage = await resolveMapFromTagToPage()
+const clientAppSetup: ClientAppSetup = () => {
+  const mapFromTagToPage = resolveMapFromTagToPage()
   provide(mapFromTagToPageSymbol, mapFromTagToPage)
 
-  const mapFromCategoryToPage = await resolveMapFromCategoryToPage()
+  const mapFromCategoryToPage = resolveMapFromCategoryToPage()
   provide(mapFromCategoryToPageSymbol, mapFromCategoryToPage)
 }
 
