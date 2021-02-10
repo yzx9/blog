@@ -38,11 +38,17 @@ const config: UserConfig<ThemeOptions> = {
   themeConfig: {
     categories: {
       "Computer Science": "计科",
+      "Computer Organization": "计组",
+      "Data Structure": "数据结构",
       Network: "计算机网络",
+      Life: "日常",
       Coffee: "咖啡",
     },
     tags: {
       Network: "计算机网络",
+      "Computer Organization": "计组",
+      "Data Structure": "数据结构",
+      Coffee: "咖啡",
     },
   },
 }
