@@ -35,6 +35,6 @@
     "vue": "^3.0.5",
     "vue-loader": "16.1.2",
     "vuepress": "2.0.0-alpha.20",
-    "vuepress-plugin-post-filter": "^1.0.1"
+    "vuepress-plugin-post-filter": "^1.0.2"
   }
 }
