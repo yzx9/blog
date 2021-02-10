@@ -42,7 +42,7 @@ export default {
     const pageData = usePageData<ThemePageData>()
 
     const { title, date, updated } = toRefs(pageData.value)
-    const showUpdate = computed(() => date !== updated)
+    const showUpdate = computed(() => date.value !== updated.value)
     const categories = useLocaleCategories()
     const categoriesArray = computed(() => {
       return categories.value.map((a) => {
