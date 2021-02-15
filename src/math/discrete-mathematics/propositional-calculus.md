@@ -1,10 +1,10 @@
 ---
 title: Propositional calculus
 categories:
-	- math
-	- discrete mathematical
+  - math
+  - discrete mathematical
 tags:
-	- discrete mathematical
+  - discrete mathematical
 draft: true
 ---
 
