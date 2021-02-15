@@ -1,7 +1,9 @@
 @import "./common";
+@import "./components";
 @import "./plugins";
 @import "./sr-only";
 
-@import "./components";
+@import "./baseLayout";
 @import "./layout";
 @import "./404";
+@import "./home";
