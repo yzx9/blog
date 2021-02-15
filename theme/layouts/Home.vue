@@ -1,52 +1,39 @@
 <template>
-  <teleport to="body">
-    <nav class="layout__navbar">
-      <Navbar />
-    </nav>
-  </teleport>
-
-  <div class="layout">
-    <header class="layout__header">
-      <div class="header">
+  <BaseLayout>
+    <template #header>
+      <Header>
         <h1 class="header__title header__title--primary">{{ title }}</h1>
         <h2 class="header__description">{{ description }}</h2>
-        <Particles class="header__background" preset="starry" />
-      </div>
-    </header>
+      </Header>
+    </template>
 
-    <div class="layout__wrapper">
-      <aside class="layout__sidebar">
-        <!-- <Sidebar /> -->
-      </aside>
-      <main class="layout__page">
-        <Suspense>
-          <Posts />
-        </Suspense>
-      </main>
-      <aside class="layout__catalog">
-        <!-- <Catalog /> -->
-      </aside>
-    </div>
+    <template #main>
+      <Suspense>
+        <Posts />
+      </Suspense>
+    </template>
 
-    <footer class="layout__footer">
-      <Footer />
-    </footer>
-  </div>
+    <template #sub>
+      <!-- <Sidebar /> -->
+    </template>
+
+    <template #extra>
+      <!-- <Catalog /> -->
+    </template>
+  </BaseLayout>
 </template>
 
 <script lang="ts">
 import { computed } from "vue"
 import { useSiteLocaleData } from "@vuepress/client"
-import Navbar from "../components/Navbar.vue"
-import Footer from "../components/Footer.vue"
-import Particles from "../components/Particles.vue"
+import BaseLayout from "./BaseLayout.vue"
+import Header from "../components/Header.vue"
 import Posts from "../components/Posts.vue"
 
 export default {
   components: {
-    Navbar,
-    Footer,
-    Particles,
+    BaseLayout,
+    Header,
     Posts,
   },
   setup(props, ctx) {

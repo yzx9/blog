@@ -1,27 +1,32 @@
 <template>
   <div class="header">
-    <h1 class="header__title">{{ title }}</h1>
-    <div class="header__meta">
-      <div class="header__meta-item">发表于 {{ date }}</div>
-      <div v-if="showUpdate" class="header__meta-item">
-        更新于 {{ updated }}
+    <slot>
+      <h1 class="header__title">{{ title }}</h1>
+      <div class="header__meta">
+        <div class="header__meta-item">发表于 {{ date }}</div>
+        <div v-if="showUpdate" class="header__meta-item">
+          更新于 {{ updated }}
+        </div>
       </div>
-    </div>
-    <div class="header__meta">
-      <div class="header__meta-item">
-        分类于
-        <span v-for="categories in categoriesArray" class="header__categories">
-          <RouterLink
-            v-for="{ name, path } in categories"
-            :key="`v-header-${path}`"
-            :to="path"
-            class="header__category"
+      <div class="header__meta">
+        <div class="header__meta-item">
+          分类于
+          <span
+            v-for="categories in categoriesArray"
+            class="header__categories"
           >
-            {{ name }}
-          </RouterLink>
-        </span>
+            <RouterLink
+              v-for="{ name, path } in categories"
+              :key="`v-header-${path}`"
+              :to="path"
+              class="header__category"
+            >
+              {{ name }}
+            </RouterLink>
+          </span>
+        </div>
       </div>
-    </div>
+    </slot>
 
     <Particles class="header__background" preset="starry" />
   </div>

@@ -19,23 +19,23 @@
     min-height: 30vh;
   }
 
-  &__page {
+  &__main {
     width: 980px;
     margin: 0 1rem;
   }
 
-  &__sidebar,
-  &__catalog {
+  &__sub,
+  &__extra {
     display: flex;
     flex-direction: column;
     flex: 1;
   }
 
-  &__sidebar {
+  &__sub {
     align-items: flex-end;
   }
 
-  &__catalog {
+  &__extra {
     align-items: flex-start;
   }
 

@@ -1,49 +1,37 @@
 <template>
-  <teleport to="body">
-    <nav class="layout__navbar">
-      <Navbar />
-    </nav>
-  </teleport>
-
-  <div class="layout">
-    <header class="layout__header">
+  <BaseLayout>
+    <template #header>
       <Header />
-    </header>
+    </template>
 
-    <div class="layout__wrapper">
-      <aside class="layout__sidebar">
-        <Sidebar />
-      </aside>
-      <main class="layout__page">
-        <Page />
-      </main>
-      <aside class="layout__catalog">
-        <Catalog />
-      </aside>
-    </div>
+    <template #main>
+      <Page />
+    </template>
 
-    <footer class="layout__footer">
-      <Footer />
-    </footer>
-  </div>
+    <template #sub>
+      <Sidebar />
+    </template>
+
+    <template #extra>
+      <Catalog />
+    </template>
+  </BaseLayout>
 </template>
 
 <script lang="ts">
+import BaseLayout from "./BaseLayout.vue"
 import Page from "../components/Page.vue"
-import Navbar from "../components/Navbar.vue"
 import Header from "../components/Header.vue"
 import Sidebar from "../components/Sidebar.vue"
 import Catalog from "../components/Catalog.vue"
-import Footer from "../components/Footer.vue"
 
 export default {
   components: {
+    BaseLayout,
     Page,
-    Navbar,
     Header,
     Sidebar,
     Catalog,
-    Footer,
   },
 }
 </script>
