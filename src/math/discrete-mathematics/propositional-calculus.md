@@ -5,6 +5,7 @@ categories:
 	- discrete mathematical
 tags:
 	- discrete mathematical
+draft: true
 ---
 
 # 命题逻辑
