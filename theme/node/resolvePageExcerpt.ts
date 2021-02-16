@@ -1,12 +1,11 @@
 import { Page } from "@vuepress/core"
-
 import removeMarkdown from "remove-markdown"
 
 const ExcerptLength = 200
 
 export const resolvePageExcerpt = (page: Page) => {
   if (page.excerpt) {
-    return page.excerpt
+    return removeMarkdown(page.excerpt)
   }
 
   const content = page.content
