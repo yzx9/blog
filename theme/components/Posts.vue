@@ -1,12 +1,25 @@
 <template>
-  <div class="posts">
-    <div v-for="post in posts" class="posts__item">
-      <RouterLink :to="post.path" class="posts__title">{{
-        post.title
-      }}</RouterLink>
-      <p class="posts__excerpt">{{ post.excerpt }}</p>
-      <RouterLink :to="post.path" class="posts__button">阅读全文</RouterLink>
-    </div>
+  <div class="flex-col">
+    <template v-for="post in posts">
+      <div
+        class="p-8 my-4 flex flex-col transition-all duration-300 rounded items-center hover:border hover:shadow-md"
+      >
+        <RouterLink
+          class="p-2 text-2xl transition-colors hover:text-primary-500"
+          :to="post.path"
+          >{{ post.title }}</RouterLink
+        >
+
+        <p class="text-base text-gray-500">
+          {{ post.excerpt }}
+        </p>
+        <RouterLink
+          class="mt-2 p-2 px-4 text-center select-none border rounded-full transition-colors hover:text-white hover:border-primary-500 hover:bg-primary-500"
+          :to="post.path"
+          >阅读全文</RouterLink
+        >
+      </div>
+    </template>
   </div>
   <Pagination v-model:current="paginationOption.currentPage" :total="total" />
 </template>

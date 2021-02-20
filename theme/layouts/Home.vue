@@ -2,8 +2,8 @@
   <BaseLayout>
     <template #header>
       <Header>
-        <h1 class="header__title header__title--primary">{{ title }}</h1>
-        <h2 class="header__description">{{ description }}</h2>
+        <h1 class="home-title text-8xl text-white pb-10 z-30">{{ title }}</h1>
+        <h2 class="text-4xl text-white z-30">{{ description }}</h2>
       </Header>
     </template>
 
@@ -48,3 +48,11 @@ export default {
   },
 }
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+.home-title {
+  font-family: "Kaushan Script", cursive;
+}
+</style>
