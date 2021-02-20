@@ -1,47 +1,60 @@
 import { usePosts } from "./usePosts"
-import { isReactive, ref, watch } from "vue"
-import type { Ref } from "vue"
+import { isReactive, reactive, watch } from "vue"
 import type { PostData } from "./usePosts"
 
 type PostFilter = (page: PostData) => boolean
 
 export type PaginationOptions = {
   /**
-   * current page
+   * Current page
    */
   currentPage?: number
 
   /**
-   * posts each page
+   * Posts each page
    */
   pagination?: number
 
   /**
-   * filter by tag path
+   * Filter by tag path
    */
   tags?: string[]
 
   /**
-   * filter by category path
+   * Filter by category path
    */
   categories?: string[]
 
+  /**
+   * @default Sort by date in desc
+   */
   sort?: (a: PostData, b: PostData) => number
 
+  /**
+   * Custom filter
+   */
   filter?: PostFilter
+}
+
+type PaginationData = {
+  posts: PostData[]
+  total: number
 }
 
 const trueFn = () => true
 
 /**
- * post pagination
- * @param options can be an reactive object or an plain object
+ * Post pagination
+ * @param options Can be an plain object or an reactive object
  */
 export const usePostsPagination = async (
   options: PaginationOptions = {}
-): Promise<Ref<PostData[]>> => {
+): Promise<PaginationData> => {
   const posts = await usePosts()
-  const pagingRef = ref([] as PostData[])
+  const paginationData: PaginationData = reactive({
+    posts: [],
+    total: posts.length,
+  })
 
   const watchCallback = () => {
     const {
@@ -56,18 +69,22 @@ export const usePostsPagination = async (
     const tagFilter: PostFilter = tags.length
       ? (page) => page.tags.some((a) => tags.includes(a.path))
       : trueFn
+
     const categoryFilter: PostFilter = categories.length
       ? (page) => page.categories.some((a) => categories.includes(a.path))
       : trueFn
 
-    const current = posts
+    const filteredPosts = posts
+      .filter(filter)
       .filter(tagFilter)
       .filter(categoryFilter)
-      .filter(filter)
+
+    const currentPosts = filteredPosts
       .sort(sort)
       .slice((currentPage - 1) * pagination, currentPage * pagination)
 
-    pagingRef.value = current
+    paginationData.total = filteredPosts.length
+    paginationData.posts = currentPosts
   }
 
   if (isReactive(options)) {
@@ -76,5 +93,5 @@ export const usePostsPagination = async (
     watchCallback()
   }
 
-  return pagingRef
+  return paginationData
 }

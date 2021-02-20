@@ -8,27 +8,30 @@
       <RouterLink :to="post.path" class="posts__button">阅读全文</RouterLink>
     </div>
   </div>
-  <div class="posts__pagination">
-    <span v-for="i in 5" @click="onPageChange(i)">{{ i }}</span>
-  </div>
+  <Pagination v-model:current="paginationOption.currentPage" :total="total" />
 </template>
 
 <script lang="ts">
-import { reactive } from "vue"
+import { reactive, toRefs } from "vue"
+import Pagination from "./Pagination.vue"
 import { usePostsPagination } from "../composables"
+import type { PaginationOptions } from "../composables"
 
 export default {
+  components: {
+    Pagination,
+  },
   async setup(props, ctx) {
-    const paginationOption = reactive({
+    const paginationOption: PaginationOptions = reactive({
       currentPage: 1,
     })
 
-    const posts = await usePostsPagination(paginationOption)
-    const onPageChange = (i: number) => (paginationOption.currentPage = i)
+    const { posts, total } = toRefs(await usePostsPagination(paginationOption))
 
     return {
       posts,
-      onPageChange,
+      total,
+      paginationOption,
     }
   },
 }
