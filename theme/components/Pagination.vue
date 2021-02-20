@@ -1,5 +1,5 @@
 <template>
-  <ul class="pagination">
+  <ul class="flex flex-row justify-center select-none">
     <template v-for="p in pager">
       <template v-if="p.type === 'page'">
         <li
@@ -26,18 +26,9 @@ import { computed } from "vue"
 export default {
   emits: ["update:current", "update:size"],
   props: {
-    current: {
-      type: Number,
-      required: true,
-    },
-    total: {
-      type: Number,
-      required: true,
-    },
-    pageSize: {
-      type: Number,
-      default: 10,
-    },
+    current: { type: Number, required: true },
+    total: { type: Number, required: true },
+    pageSize: { type: Number, default: 10 },
     pagerCount: {
       type: Number,
       default: 7,
@@ -147,3 +138,16 @@ export default {
   },
 }
 </script>
+
+<style>
+.pagination__item {
+  @apply h-8 w-10 mx-2 leading-8 text-center cursor-pointer;
+  @apply border rounded border-transparent;
+  @apply transition-all text-gray-900 hover:text-primary-500;
+}
+
+.pagination__item.pagination__item--active {
+  @apply text-primary-500 border-gray-200;
+  @apply hover:border-gray-300;
+}
+</style>
