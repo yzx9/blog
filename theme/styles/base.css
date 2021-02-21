@@ -1,7 +1,13 @@
-@import "../variables";
+:root {
+  --main-width: 980px;
+  --bg-color: #f5f7fa;
+  --header-height: 30rem; /* Only support `rem` now */
+}
 
-@mixin scrollbar {
-  $color-tarck: mix($background-color-base, $background-color-dark, 90%);
+html,
+body {
+  background: var(--bg-color);
+  scroll-behavior: smooth;
 
   &::-webkit-scrollbar {
     width: 8px;
@@ -11,7 +17,7 @@
   &::-webkit-scrollbar-thumb {
     height: 50px;
     background-color: #999;
-    outline: 2px solid $color-tarck;
+    outline: 2px solid #e5e7eb;
     outline-offset: -2px;
     border: 2px solid #fff;
     border-radius: 4px;
@@ -24,7 +30,7 @@
   }
 
   &::-webkit-scrollbar-track {
-    background-color: $color-tarck;
+    background-color: #e5e7eb;
     border-radius: 0;
   }
 }

@@ -1,4 +1,4 @@
-:root {
-  /* Only support `rem` now */
-  --header-height: 30rem;
-}
+@import "./base.css";
+@import "./components/index.css";
+@import "./plugins.css";
+@import "./sr-only.css";

@@ -14,20 +14,13 @@
     </ul>
 
     <ul class="flex">
-      <li class="navbar__link" :class="{ 'text-primary-500': active.archives }">
-        <RouterLink to="/archives.html">ARCHIVES</RouterLink>
-      </li>
       <li
+        v-for="{ name, link, active } in links"
+        :key="`v-navbar-link-${link}`"
         class="navbar__link"
-        :class="{ 'text-primary-500': active.categories }"
+        :class="{ 'text-primary-500': active }"
       >
-        <RouterLink to="/categories.html">CATEGORIES</RouterLink>
-      </li>
-      <li class="navbar__link" :class="{ 'text-primary-500': active.tags }">
-        <RouterLink to="/tags.html">TAGS</RouterLink>
-      </li>
-      <li class="navbar__link" :class="{ 'text-primary-500': active.about }">
-        <RouterLink to="/about.html">ABOUT</RouterLink>
+        <RouterLink :to="link">{{ name }}</RouterLink>
       </li>
     </ul>
   </div>
@@ -44,23 +37,36 @@ const timespan = 500
 
 export default {
   setup(props, ctx) {
-    // active link
+    // links
     const { currentRoute } = useRouter()
-    const active = computed(() => {
+    const isHomepage = currentRoute.value.path === "/"
+
+    const links = computed(() => {
       const { path } = currentRoute.value
-      return {
-        home: path === "/",
-        archives: path.startsWith("/archives"),
-        categories: path.startsWith("/categories"),
-        tags: path.startsWith("/tags"),
-        about: path.startsWith("/about"),
-      }
+      return [
+        {
+          name: "ARCHIVES",
+          link: "/archives.html",
+          active: path.startsWith("/archives"),
+        },
+        {
+          name: "CATEGORIES",
+          link: "/categories.html",
+          active: path.startsWith("/categories"),
+        },
+        { name: "TAGS", link: "/tags.html", active: path.startsWith("/tags") },
+        {
+          name: "ABOUT",
+          link: "/about.html",
+          active: path.startsWith("/about"),
+        },
+      ]
     })
 
     // title
     const siteLocaleData = useSiteLocaleData()
     const title = computed(() =>
-      active.value.home ? "BLOG" : siteLocaleData.value.title.toUpperCase()
+      isHomepage ? "BLOG" : siteLocaleData.value.title.toUpperCase()
     )
 
     // display
@@ -116,9 +122,9 @@ export default {
     })
 
     return {
+      links,
       title,
       status,
-      active,
     }
   },
 }
@@ -126,24 +132,25 @@ export default {
 
 <style lang="postcss">
 .navbar {
-  @apply fixed top-0 w-full flex justify-between;
-  @apply transition-all duration-500;
+  @apply fixed top-0 w-full flex justify-between transition-all duration-500;
 
   --navbar-height: 3rem;
   height: var(--navbar-height);
-}
 
-.navbar--hidden {
-  @apply shadow-none;
-  top: calc(0 - var(--navbar-height));
-}
+  & .navbar__link {
+    @apply flex justify-center items-center transition-all font-medium text-white hover:text-primary-500;
 
-.navbar--instant {
-  @apply transition-none;
+    & a {
+      @apply h-full px-4 align-middle transition-all;
+      border-bottom: 2px solid transparent;
+      line-height: var(--navbar-height);
+    }
+  }
 }
 
 .navbar--opaque {
-  @apply shadow-md bg-white bg-opacity-50;
+  @apply shadow-md bg-opacity-50;
+  background-color: rgba(var(--bg-color), var(--tw-bg-opacity));
 
   & .navbar__link {
     @apply text-primary-500;
@@ -154,14 +161,12 @@ export default {
   }
 }
 
-.navbar__link {
-  @apply flex justify-center items-center transition-all;
-  @apply text-white hover:text-primary-500;
+.navbar--hidden {
+  @apply shadow-none;
+  top: calc(0 - var(--navbar-height));
+}
 
-  & a {
-    @apply h-full px-4 font-medium align-middle transition-all;
-    border-bottom: 2px solid transparent;
-    line-height: var(--navbar-height);
-  }
+.navbar--instant {
+  @apply transition-none;
 }
 </style>
