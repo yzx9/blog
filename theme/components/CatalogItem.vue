@@ -1,7 +1,7 @@
 <template>
   <li class="m-1">
     <RouterLink
-      class="text-gray-500 hover:text-primary-500 transition-colors duration-300"
+      class="catalog__link text-gray-500 hover:text-primary-500 transition-colors duration-300"
       :class="{ 'text-primary-500': isActive }"
       :to="{ hash }"
       replace
