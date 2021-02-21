@@ -11,7 +11,9 @@ export const useLocaleTags = () => {
     pageData.value.tags.map((a) => ({
       ...a,
       name:
-        localeData.value.tags?.[a.slug] ?? data.value.tags?.[a.slug] ?? a.slug,
+        localeData.value.translations?.[a.slug] ??
+        data.value.translations?.[a.slug] ??
+        a.slug,
     }))
   )
 

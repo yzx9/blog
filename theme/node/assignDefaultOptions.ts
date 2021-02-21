@@ -1,8 +1,5 @@
 import { ThemeLocaleOptions, ThemeOptions } from "../types"
-import {
-  assignOptionCategories,
-  assignOptionTags,
-} from "./assignOptionCategoriesAndTags"
+import { assignOptionTranslations } from "./assignOptionTranslations"
 
 const defaultLang = "en-US"
 
@@ -19,7 +16,7 @@ const defaultLocaleSet: Record<string, ThemeLocaleOptions> = {
       "Oooops",
     ],
     backToHome: ["Take me home.", "Go Home", "Homepage", "HEAD ON HOME"],
-    categories: {},
+    translations: {},
   },
   "zh-CN": {
     notFound: [
@@ -34,7 +31,7 @@ const defaultLocaleSet: Record<string, ThemeLocaleOptions> = {
       "看起来我们进入了错误的链接",
     ],
     backToHome: ["返回首页"],
-    categories: {},
+    translations: {},
   },
 }
 
@@ -60,6 +57,5 @@ export const assignDefaultOptions = (
     ...options.locales["/"],
   })
 
-  assignOptionCategories(options)
-  assignOptionTags(options)
+  assignOptionTranslations(options)
 }

@@ -14,14 +14,9 @@ export interface ThemeLocaleOptions {
   backToHome?: string[]
 
   /**
-   * Translation for categories
+   * Translation for categories and tags
    */
-  categories?: Record<string, string>
-
-  /**
-   * Translation for tags
-   */
-  tags?: Record<string, string>
+  translations?: Record<string, string>
 }
 
 export interface ThemeOptions extends ThemeLocaleOptions {

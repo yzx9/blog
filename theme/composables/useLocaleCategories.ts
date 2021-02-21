@@ -20,8 +20,8 @@ export const useLocaleCategories = () => {
           ...a,
           parent: resolveName(a.parent),
           name:
-            localeData.value.categories?.[a.slug] ??
-            data.value.categories?.[a.slug] ??
+            localeData.value.translations?.[a.slug] ??
+            data.value.translations?.[a.slug] ??
             a.name,
         }
       : null
