@@ -1,5 +1,7 @@
 <template>
-  <div class="header">
+  <div
+    class="header h-full flex flex-col justify-center items-center relative overflow-hidden"
+  >
     <slot>
       <div class="flex flex-col items-start">
         <div class="z-30 min-w-max">
@@ -7,20 +9,20 @@
             v-for="{ name, path } in tags"
             :key="`v-page-${path}`"
             :to="path"
-            class="text-white border rounded-full px-3 py-1 transition-colors duration-300 hover:border-transparent hover:bg-primary-500 hover:bg-opacity-50"
+            class="mr-2 px-3 py-1 text-white border rounded-full transition-colors duration-300 hover:border-transparent hover:bg-primary-500 hover:bg-opacity-50"
           >
             {{ name }}
           </RouterLink>
         </div>
-        <h1 class="header__title">{{ title }}</h1>
+        <h1 class="my-6 z-30 text-white text-8xl font-medium">{{ title }}</h1>
       </div>
-      <div class="header__meta">
+      <div class="flex z-30">
         <div class="header__meta-item">发表于 {{ date }}</div>
         <div v-if="showUpdate" class="header__meta-item">
           更新于 {{ updated }}
         </div>
       </div>
-      <div class="header__meta">
+      <div class="flex z-30">
         <div class="header__meta-item">
           分类于
           <span
@@ -40,7 +42,7 @@
       </div>
     </slot>
 
-    <Particles class="header__background" preset="starry" />
+    <Particles class="absolute h-full w-full z-0" preset="starry" />
   </div>
 </template>
 
@@ -87,3 +89,43 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+.header__meta-item {
+  @apply my-2 px-4 z-30 text-gray-500;
+
+  &:not(:last-child) {
+    @apply border-r border-gray-600;
+  }
+}
+
+.header__categories {
+  &:not(:last-child) {
+    @apply pl-2;
+
+    &::after {
+      @apply pl-1 pr-2;
+      content: ",";
+    }
+  }
+}
+
+.header__category {
+  @apply underline z-30 text-gray-500 transition-colors duration-300 hover:text-primary-500;
+
+  &:not(:last-child) {
+    @apply pr-1;
+
+    &::after {
+      @apply m-1 border border-b-0 border-l-0 border-gray-500 inline-block;
+
+      --arrow-size: 0.3rem;
+      width: var(--arrow-size);
+      height: var(--arrow-size);
+      content: "";
+      transform: rotate(45deg) scaleY(1);
+      transform-origin: center;
+    }
+  }
+}
+</style>

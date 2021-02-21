@@ -139,15 +139,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="postcss">
 .pagination__item {
   @apply h-8 w-10 mx-2 leading-8 text-center cursor-pointer;
   @apply border rounded border-transparent;
   @apply transition-all text-gray-900 hover:text-primary-500;
-}
 
-.pagination__item.pagination__item--active {
-  @apply text-primary-500 border-gray-200;
-  @apply hover:border-gray-300;
+  &.pagination__item--active {
+    @apply text-primary-500 border-gray-200 hover:border-gray-300;
+  }
 }
 </style>
