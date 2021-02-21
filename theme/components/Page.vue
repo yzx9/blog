@@ -1,37 +1,17 @@
 <template>
-  <article class="page">
-    <div class="page__content prose max-w-none">
-      <Content />
-    </div>
-    <div class="page__footer page-footer">
-      <RouterLink
-        v-for="{ name, path } in tags"
-        :key="`v-page-${path}`"
-        :to="path"
-        class="page-header__tag"
-      >
-        {{ name }}
-      </RouterLink>
-    </div>
+  <article class="page prose max-w-none">
+    <Content />
   </article>
 </template>
 
 <script lang="ts">
-import { useLocaleTags } from "../composables"
-
 export default {
-  setup(props, ctx) {
-    const tags = useLocaleTags()
-
-    return {
-      tags,
-    }
-  },
+  setup(props, ctx) {},
 }
 </script>
 
 <style lang="postcss">
-.page__content {
+.page {
   @apply p-10;
 
   & a.header-anchor {

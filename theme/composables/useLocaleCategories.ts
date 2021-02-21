@@ -15,7 +15,6 @@ export const useLocaleCategories = () => {
   const resolveName = (
     a: ThemePageCategory | null
   ): ThemePageCategory | null => {
-    console.log(a)
     return a
       ? {
           ...a,

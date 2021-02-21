@@ -1,7 +1,19 @@
 <template>
   <div class="header">
     <slot>
-      <h1 class="header__title">{{ title }}</h1>
+      <div class="flex flex-col items-start">
+        <div class="z-30 min-w-max">
+          <RouterLink
+            v-for="{ name, path } in tags"
+            :key="`v-page-${path}`"
+            :to="path"
+            class="text-white border rounded-full px-3 py-1 transition-colors duration-300 hover:border-transparent hover:bg-primary-500 hover:bg-opacity-50"
+          >
+            {{ name }}
+          </RouterLink>
+        </div>
+        <h1 class="header__title">{{ title }}</h1>
+      </div>
       <div class="header__meta">
         <div class="header__meta-item">发表于 {{ date }}</div>
         <div v-if="showUpdate" class="header__meta-item">
@@ -36,8 +48,8 @@
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import Particles from "./Particles.vue"
+import { useLocaleCategories, useLocaleTags } from "../composables"
 import type { ThemePageCategory, ThemePageData } from "../types"
-import { useLocaleCategories } from "../composables"
 
 export default {
   components: {
@@ -48,6 +60,7 @@ export default {
 
     const { title, date, updated } = toRefs(pageData.value)
     const showUpdate = computed(() => date.value !== updated.value)
+
     const categories = useLocaleCategories()
     const categoriesArray = computed(() => {
       return categories.value.map((a) => {
@@ -61,12 +74,15 @@ export default {
       })
     })
 
+    const tags = useLocaleTags()
+
     return {
       title,
       date,
       updated,
       showUpdate,
       categoriesArray,
+      tags,
     }
   },
 }
