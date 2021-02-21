@@ -1,16 +1,45 @@
 import { reactive, onMounted, onUnmounted } from "vue"
 import { debounce } from "ts-debounce"
 
-const useMouse = (options = { delay: 33 }) => {
+type MouseOption = {
+  /**
+   * debounce delay
+   *
+   * @default 33
+   */
+  delay?: number
+
+  /**
+   * debounce max wait
+   *
+   * set true to use delay
+   *
+   * set false to disable it
+   *
+   * @default true
+   */
+  maxWait?: boolean | number
+}
+
+export const useMouse = (
+  options: MouseOption = { delay: 33, maxWait: true }
+) => {
+  const { delay = 33, maxWait = true } = options
+
   const mouse = reactive({
     x: 0,
     y: 0,
   })
 
-  const onMouseMove = debounce((e: MouseEvent) => {
+  const mouseEventHandle = (e: MouseEvent) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
-  }, options.delay)
+  }
+
+  const option =
+    maxWait !== false ? { maxWait: maxWait === true ? delay : maxWait } : {}
+
+  const onMouseMove = debounce(mouseEventHandle, delay, option)
 
   onMounted(() => {
     document.addEventListener("mousemove", onMouseMove)
@@ -22,5 +51,3 @@ const useMouse = (options = { delay: 33 }) => {
 
   return mouse
 }
-
-export { useMouse }
