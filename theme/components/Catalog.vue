@@ -1,6 +1,6 @@
 <template>
-  <div class="sticky top-8 p-4">
-    <h3 class="text-lg font-bold select-none">Catalog</h3>
+  <div class="sticky top-12 p-4">
+    <h3 class="text-lg font-bold select-none">CATALOG</h3>
 
     <ul v-for="item in items">
       <CatalogItem :item="item" />

@@ -1,0 +1,4 @@
+:root {
+  /* Only support `rem` now */
+  --header-height: 30rem;
+}

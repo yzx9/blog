@@ -7,32 +7,26 @@
       'navbar--instant': status.instant,
     }"
   >
-    <ul class="navbar__list">
-      <li class="navbar__link navbar__link--homepage">
-        <RouterLink to="/">{{ title }}</RouterLink>
+    <ul class="flex">
+      <li class="navbar__link">
+        <RouterLink to="/" class="font-bold">{{ title }}</RouterLink>
       </li>
     </ul>
 
-    <ul class="navbar__list">
-      <li
-        class="navbar__link"
-        :class="{ 'navbar__link--active': active.archives }"
-      >
+    <ul class="flex">
+      <li class="navbar__link" :class="{ 'text-primary-500': active.archives }">
         <RouterLink to="/archives.html">ARCHIVES</RouterLink>
       </li>
       <li
         class="navbar__link"
-        :class="{ 'navbar__link--active': active.categories }"
+        :class="{ 'text-primary-500': active.categories }"
       >
         <RouterLink to="/categories.html">CATEGORIES</RouterLink>
       </li>
-      <li class="navbar__link" :class="{ 'navbar__link--active': active.tags }">
+      <li class="navbar__link" :class="{ 'text-primary-500': active.tags }">
         <RouterLink to="/tags.html">TAGS</RouterLink>
       </li>
-      <li
-        class="navbar__link"
-        :class="{ 'navbar__link--active': active.about }"
-      >
+      <li class="navbar__link" :class="{ 'text-primary-500': active.about }">
         <RouterLink to="/about.html">ABOUT</RouterLink>
       </li>
     </ul>
@@ -40,7 +34,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted, reactive, ref, watch } from "vue"
+import { computed, onMounted, reactive, watch } from "vue"
 import { useRouter } from "vue-router"
 import { useSiteLocaleData } from "@vuepress/client"
 import { useScroll } from "../composables"
@@ -129,3 +123,45 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+.navbar {
+  @apply fixed top-0 w-full flex justify-between;
+  @apply transition-all duration-500;
+
+  --navbar-height: 3rem;
+  height: var(--navbar-height);
+}
+
+.navbar--hidden {
+  @apply shadow-none;
+  top: calc(0 - var(--navbar-height));
+}
+
+.navbar--instant {
+  @apply transition-none;
+}
+
+.navbar--opaque {
+  @apply shadow-md bg-white bg-opacity-50;
+
+  & .navbar__link {
+    @apply text-primary-500;
+
+    &:hover a {
+      @apply border-primary-500;
+    }
+  }
+}
+
+.navbar__link {
+  @apply flex justify-center items-center transition-all;
+  @apply text-white hover:text-primary-500;
+
+  & a {
+    @apply h-full px-4 font-medium align-middle transition-all;
+    border-bottom: 2px solid transparent;
+    line-height: var(--navbar-height);
+  }
+}
+</style>
