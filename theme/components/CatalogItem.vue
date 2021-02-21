@@ -1,14 +1,14 @@
 <template>
-  <li class="catalog__item">
+  <li class="m-1">
     <RouterLink
-      class="catalog__link"
-      :class="{ 'catalog__link--active': isActive }"
+      class="text-gray-500 hover:text-primary-500 transition-colors duration-300"
+      :class="{ 'text-primary-500': isActive }"
       :to="{ hash }"
       replace
       >{{ title }}</RouterLink
     >
 
-    <ul class="catalog__list">
+    <ul class="pl-4 mb-2">
       <CatalogItem
         v-for="child in item.children"
         :item="child"

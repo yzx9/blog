@@ -1,8 +1,8 @@
 <template>
-  <div class="catalog">
-    <h3 class="catalog__title">Catalog</h3>
+  <div class="sticky top-8 p-4">
+    <h3 class="text-lg font-bold select-none">Catalog</h3>
 
-    <ul v-for="item in items" class="catalog__list">
+    <ul v-for="item in items">
       <CatalogItem :item="item" />
     </ul>
   </div>
