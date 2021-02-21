@@ -21,6 +21,7 @@
     "serve": "vuepress serve src"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.4.0",
     "@vuepress/client": "2.0.0-alpha.24",
     "@vuepress/core": "2.0.0-alpha.24",
     "@vuepress/plugin-active-header-links": "^2.0.0-alpha.24",

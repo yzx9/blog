@@ -1,6 +1,6 @@
 <template>
   <article class="page">
-    <div class="page__content">
+    <div class="page__content prose max-w-none">
       <Content />
     </div>
     <div class="page__footer page-footer">
@@ -29,3 +29,35 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+.page__content {
+  @apply p-10;
+
+  & a.header-anchor {
+    @apply text-primary-500;
+
+    font-size: 0.85em;
+    float: left;
+    margin-left: -0.87em;
+    padding-right: 0.23em;
+    margin-top: 0.125em;
+    opacity: 0;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    &:hover .header-anchor {
+      opacity: 1;
+    }
+  }
+}
+</style>
