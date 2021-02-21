@@ -1,12 +1,14 @@
 <template>
-  <div class="not-found">
-    <div class="not-found__content">
+  <div class="flex justify-center items-center min-h-screen">
+    <div class="flex justify-center items-center m-20 pb-64">
       <Ghost />
-      <div class="not-found__info">
-        <span class="not-found__title">404</span>
-        <blockquote class="not-found__message">{{ message }}</blockquote>
+      <div class="not-found__info flex flex-col items-start">
+        <span class="text-8xl text-primary-500">404</span>
+        <blockquote class="text-gray-400 border-l-4 my-4 p-1 pl-4">
+          {{ message }}
+        </blockquote>
 
-        <RouterLink to="/" class="not-found__back-to-home">
+        <RouterLink to="/" class="text-primary-500 font-bold hover:underline">
           {{ backToHome }}
         </RouterLink>
       </div>
@@ -39,3 +41,9 @@ export default {
   },
 }
 </script>
+
+<style lang="postcss">
+.not-found__info {
+  min-width: 30rem;
+}
+</style>
