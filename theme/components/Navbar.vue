@@ -39,8 +39,7 @@ export default {
   setup(props, ctx) {
     // links
     const { currentRoute } = useRouter()
-    const isHomepage = currentRoute.value.path === "/"
-
+    const isHomepageRef = computed(() => currentRoute.value.path === "/")
     const links = computed(() => {
       const { path } = currentRoute.value
       return [
@@ -66,7 +65,7 @@ export default {
     // title
     const siteLocaleData = useSiteLocaleData()
     const title = computed(() =>
-      isHomepage ? "BLOG" : siteLocaleData.value.title.toUpperCase()
+      isHomepageRef.value ? "BLOG" : siteLocaleData.value.title.toUpperCase()
     )
 
     // display
@@ -146,27 +145,27 @@ export default {
       line-height: var(--navbar-height);
     }
   }
-}
 
-.navbar--opaque {
-  @apply shadow-md bg-opacity-50;
-  background-color: rgba(var(--bg-color), var(--tw-bg-opacity));
+  &.navbar--opaque {
+    @apply shadow-md bg-opacity-50;
+    background-color: rgba(var(--bg-color), var(--tw-bg-opacity));
 
-  & .navbar__link {
-    @apply text-primary-500;
+    & .navbar__link {
+      @apply text-primary-500;
 
-    &:hover a {
-      @apply border-primary-500;
+      &:hover a {
+        @apply border-primary-500;
+      }
     }
   }
-}
 
-.navbar--hidden {
-  @apply shadow-none;
-  top: calc(0 - var(--navbar-height));
-}
+  &.navbar--hidden {
+    @apply shadow-none;
+    top: calc(0 - var(--navbar-height));
+  }
 
-.navbar--instant {
-  @apply transition-none;
+  &.navbar--instant {
+    @apply transition-none;
+  }
 }
 </style>
