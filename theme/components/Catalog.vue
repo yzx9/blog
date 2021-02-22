@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-12 p-4">
+  <div class="sticky top-12 p-4 mr-8">
     <h3 class="text-lg font-bold select-none">CATALOG</h3>
 
     <ul v-for="item in items">
