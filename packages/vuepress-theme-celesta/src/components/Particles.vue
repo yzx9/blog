@@ -3,7 +3,8 @@
 </template>
 
 <script lang="ts">
-import { ref, onMounted, onUnmounted, watch, PropType } from "vue"
+import { computed, ref, onMounted, onUnmounted, watch } from "vue"
+import type { PropType } from "vue"
 import { tsParticles } from "tsparticles"
 import type { Container, ISourceOptions } from "tsparticles"
 
@@ -53,25 +54,29 @@ export default {
     const id = `particles-${count++}`
     const containerRef = ref<Container | undefined>(undefined)
 
+    const presetsRef = computed(() => {
+      return (
+        props.presets?.reduce(
+          (map, a) => ({ ...map, [a]: presetMap[a] }),
+          {}
+        ) || presetMap
+      )
+    })
+
+    const presetRef = computed(() => {
+      return props.preset && props.preset !== "random"
+        ? presetsRef.value[props.preset]
+        : random(presetsRef.value)
+    })
+
+    const optionsRef = computed(() => props.options || presetRef.value)
+
     onMounted(() =>
       watch(
-        props,
+        optionsRef,
         async () => {
-          const presets =
-            props.presets?.reduce(
-              (map, a) => ({ ...map, [a]: presetMap[a] }),
-              {}
-            ) || presetMap
-
-          const preset =
-            props.preset && props.preset !== "random"
-              ? presets[props.preset]
-              : random(presets)
-
-          const options = props.options || preset
-
           containerRef.value?.destroy()
-          containerRef.value = await tsParticles.load(id, options)
+          containerRef.value = await tsParticles.load(id, optionsRef.value)
           ctx.emit("change", containerRef.value)
         },
         { immediate: true }
