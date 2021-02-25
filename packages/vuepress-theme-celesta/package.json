@@ -1,0 +1,40 @@
+{
+  "name": "vuepress-theme-celesta",
+  "version": "1.0.0",
+  "description": "Vuepress blog theme",
+  "author": "Celeste <yuan.zx@outlook.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsznsznjsz/blog/"
+  },
+  "keywords": [
+    "blog",
+    "vuepress",
+    "vuepress-theme"
+  ],
+  "main": "src/index.ts",
+  "homepage": "https://nsznsznjsz.github.io/",
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.4.0",
+    "@vuepress/client": "2.0.0-alpha.24",
+    "@vuepress/core": "2.0.0-alpha.24",
+    "@vuepress/plugin-active-header-links": "^2.0.0-alpha.24",
+    "@vuepress/plugin-debug": "2.0.0-alpha.24",
+    "@vuepress/plugin-git": "2.0.0-alpha.24",
+    "@vuepress/utils": "2.0.0-alpha.24",
+    "autoprefixer": "^10.2.4",
+    "postcss-csso": "^5.0.0",
+    "postcss-import": "^14.0.0",
+    "postcss-nesting": "^7.0.1",
+    "remove-markdown": "^0.3.0",
+    "tailwindcss": "^2.0.3",
+    "ts-debounce": "^2.3.0",
+    "tsparticles": "^1.18.11",
+    "vue": "^3.0.5",
+    "vue-loader": "16.1.2",
+    "vuepress": "2.0.0-alpha.24",
+    "vuepress-plugin-post-filter": "^1.0.2"
+  }
+}

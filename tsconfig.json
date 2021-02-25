@@ -1,20 +1,5 @@
 {
-  "compilerOptions": {
-    "lib": ["DOM", "ES2020"],
-    "module": "CommonJS",
-    "moduleResolution": "node",
-    "newLine": "lf",
-    "declaration": true,
-    "declarationMap": true,
-    "noEmitOnError": true,
-    "noImplicitAny": false,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "target": "ES2018"
-  },
-  "include": ["./theme/**/*.ts", "./theme/**/*.vue", "./__tests__"],
-  "exclude": ["node_modules"]
+  "extends": "./tsconfig.base.json",
+  "references": [],
+  "files": []
 }

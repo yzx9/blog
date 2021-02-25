@@ -1,6 +1,5 @@
-import { path } from "@vuepress/utils"
 import type { UserConfig } from "@vuepress/cli"
-import type { ThemeOptions } from "./theme/types"
+import type { ThemeOptions } from "../../packages/vuepress-theme-celesta/src/types"
 
 const config: UserConfig<ThemeOptions> = {
   title: "Celeste's blog",
@@ -9,10 +8,6 @@ const config: UserConfig<ThemeOptions> = {
   lang: "zh-CN",
   base: process.env.BASE_PATH || "/",
   head: [["link", { rel: "icon", href: `/logo.png` }]],
-  dest: "dist",
-  temp: ".temp",
-  cache: ".cache",
-  public: "public",
 
   locales: {
     "/": {
@@ -22,7 +17,7 @@ const config: UserConfig<ThemeOptions> = {
 
   plugins: [],
 
-  theme: path.resolve(__dirname, "./theme/index.ts"),
+  theme: "vuepress-theme-celesta",
   themeConfig: {
     translations: {
       "Computer Science": "计科",

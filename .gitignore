@@ -10,5 +10,6 @@ dist/
 .DS_Store
 
 # Local files
+lib/
 todos.md
 .log
