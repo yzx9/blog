@@ -1,4 +1,4 @@
-name: README Copy
+name: Copy README
 on:
   push:
     branches:

@@ -1,4 +1,4 @@
-name: Dev Build Test
+name: Test Blog Build
 on:
   push:
     branches:
@@ -13,4 +13,4 @@ jobs:
       - name: Install and Build
         run: |
           npm install
-          npm run build
+          npm run blog:build
