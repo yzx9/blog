@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "ES2020"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "outDir": "./lib",
+    "newLine": "lf",
+    "declaration": true,
+    "declarationMap": true,
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "ES2018"
+  },
+  "include": ["./src/index.ts", "./__tests__"],
+  "exclude": ["node_modules"]
+}
