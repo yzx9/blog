@@ -10,12 +10,23 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@main
+        with:
+          fetch-depth: 0
 
-      - name: Install and Build
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install
+        run: |
+          npm install
+          npx lerna bootstrap
+
+      - name: Build
         env:
           BASE_PATH: /
         run: |
-          npm install
           npm run blog:build
 
       - name: Deploy github page
@@ -23,7 +34,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: dist
+          source-directory: posts/.vuepress/dist
           destination-github-username: nsznsznjsz
           destination-repository-name: nsznsznjsz.github.io
           target-branch: main

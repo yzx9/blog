@@ -6,11 +6,26 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: "14"
     steps:
       - name: Checkout
         uses: actions/checkout@main
+        with:
+          fetch-depth: 0
 
-      - name: Install and Build
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install
         run: |
           npm install
+          npx lerna bootstrap
+
+      - name: Build
+        env:
+          BASE_PATH: /
+        run: |
           npm run blog:build
