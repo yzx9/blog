@@ -29,7 +29,6 @@ published: false
 
 Now, your draft will not publish when building.
 
-
 ## Config
 
 ```js

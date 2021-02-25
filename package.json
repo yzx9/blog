@@ -1,4 +1,8 @@
 {
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "author": "Celeste <yuan.zx@outlook.com>",
   "homepage": "https://nsznsznjsz.github.io/",
   "repository": {
@@ -6,9 +10,6 @@
     "url": "https://github.com/nsznsznjsz/blog/"
   },
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "blog:build": "vuepress build posts --clean-cache",
     "blog:clean": "rimraf posts/.vuepress/.temp posts/.vuepress/.cache posts/.vuepress/dist",
