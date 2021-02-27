@@ -19,11 +19,11 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Build packages
+        run: yarn build
+
       - name: Install dependencies
-        run: |
-          yarn --frozen-lockfile
-          yarn lerna link
-          yarn lerna bootstrap
+        run: yarn --frozen-lockfile
 
       - name: Build blog site
         env:

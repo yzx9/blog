@@ -11,6 +11,7 @@
   },
   "license": "MIT",
   "scripts": {
+    "build": "lerna run build",
     "blog:build": "vuepress build posts --clean-cache",
     "blog:clean": "rimraf posts/.vuepress/.temp posts/.vuepress/.cache posts/.vuepress/dist",
     "blog:dev": "vuepress dev posts --clean-cache"
