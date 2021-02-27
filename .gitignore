@@ -13,3 +13,4 @@ dist/
 lib/
 todos.md
 .log
+*.tsbuildinfo
