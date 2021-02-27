@@ -3,17 +3,21 @@
   "version": "1.0.0",
   "description": "Vuepress blog theme",
   "author": "Celeste <yuan.zx@outlook.com>",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nsznsznjsz/blog/"
-  },
+  "homepage": "https://github.com/nsznsznjsz/blog/tree/master/packages/vuepress-theme-celesta#readme",
   "keywords": [
     "blog",
     "vuepress",
     "vuepress-theme"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nsznsznjsz/blog/"
+  },
+  "bugs": {
+    "url": "https://github.com/nsznsznjsz/blog/issues",
+    "email": "yuan.zx@outlook.com"
+  },
   "main": "src/index.ts",
-  "homepage": "https://nsznsznjsz.github.io/",
   "license": "MIT",
   "scripts": {},
   "devDependencies": {
