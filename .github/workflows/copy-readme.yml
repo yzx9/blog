@@ -12,8 +12,6 @@ jobs:
         uses: actions/checkout@main
 
       - name: Copy README to new folder
-        env:
-          BASE_PATH: /
         run: |
           mkdir .temp
           cp README.md .temp/README.md

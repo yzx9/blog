@@ -5,8 +5,10 @@ on:
       - main
 jobs:
   # nsznsznjsz/nsznsznjsz.github.io
-  build-and-push:
+  blog-build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      NODE_VERSION: "14"
     steps:
       - name: Checkout
         uses: actions/checkout@main
@@ -18,29 +20,21 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install
+      - name: Install dependencies
         run: |
-          npm install
-          npx lerna bootstrap
+          yarn --frozen-lockfile
 
-      - name: Build
+      - name: Build blog site
         env:
           BASE_PATH: /
         run: |
-          npm run blog:build
+          yarn blog:build
 
-      - name: Deploy github page
-        uses: cpina/github-action-push-to-another-repository@v1.2
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
-          source-directory: posts/.vuepress/dist
-          destination-github-username: nsznsznjsz
-          destination-repository-name: nsznsznjsz.github.io
-          target-branch: main
-          user-email: yuan.zx@outlook.com
-          commit-message: |
-            Deploy from blog repo, see it for detail
-
-            - repo: github.com/nsznsznjsz/blog
-            - commit: github.com/nsznsznjsz/blog/commit/${{ github.sha }}
+          repo: nsznsznjsz/nsznsznjsz.github.io
+          target_branch: main
+          build_dir: posts/.vuepress/dist
+        env:
+          GH_PAT: ${{ secrets.API_TOKEN_GITHUB }}
