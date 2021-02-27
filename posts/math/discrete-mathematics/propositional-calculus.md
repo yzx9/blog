@@ -1,5 +1,6 @@
 ---
-title: Propositional calculus
+title: 命题逻辑
+date: 2021-2-16 16:42:00
 categories:
   - math
   - discrete mathematical
@@ -7,8 +8,6 @@ tags:
   - discrete mathematical
 draft: true
 ---
-
-# 命题逻辑
 
 ## 命题
 
@@ -133,64 +132,24 @@ draft: true
 
 ### 基本等值式
 
-| 名称           |                                     形式一                                      |                             形式二                              |
-| -------------- | :-----------------------------------------------------------------------------: | :-------------------------------------------------------------: |
-| 双重否定律     |                        $\lnot \lnot p\Leftrightarrow p$                         |                                -                                |
-| 同一律         |                           $p\lor 0\Leftrightarrow p$                            |                   $p\land 1\Leftrightarrow$ p                   |
-| 零元律         |                          $p\land 1 \Leftrightarrow 1$                           |                  $p \land 0 \Leftrightarrow 0$                  |
-| 等幂律         |                           $p\lor p\Leftrightarrow p$                            |                  $p \land p \Leftrightarrow p$                  |
-| 交换律         |                        $p\lor q\Leftrightarrow q\lor p$                         |               $p\land q\Leftrightarrow q\land p$                |
-| 结合律         |                $(p\lor q)\lor r\Leftrightarrow p\lor (q\lor r)$                 |      $(p\land q)\land r\Leftrightarrow p\land (q\land r)$       |
-| 德摩根律       |             $\lnot (p\lor q)\Leftrightarrow \lnot p \land \lnot q$              |     $\lnot (p\land q)\Leftrightarrow \lnot p \lor \lnot q$      |
-| 吸收律         |                     $p \lor (p \land q) \Leftrightarrow p$                      |             $p \land (p \lor q) \Leftrightarrow p$              |
-| 分配律         |        $p \lor (q \land r) \Leftrightarrow (p \lor q) \land (p \lor r)$         | $p \land (q \lor r)\Leftrightarrow (p \land q)\lor (p \land r)$ |
-| 排中律         |                       $p \lor \lnot p \Leftrightarrow 1$                        |                                -                                |
-| 矛盾律         |                       $p \land \lnot p \Leftrightarrow 0$                       |                                -                                |
-| 蕴涵等值式     |                $p \rightarrow q \Leftrightarrow \lnot p \lor q$                 |                                -                                |
-| 等价等值式     | $p \leftrightarrow q \Leftrightarrow (p \rightarrow q) \land (q \rightarrow p)$ |                                -                                |
-| 假言易位       |          $p \rightarrow q \Leftrightarrow \lnot p \rightarrow \lnot q$          |                                -                                |
-| 等价否定等值式 |        $p \leftrightarrow q \Leftrightarrow \lnot p \rightarrow \lnot q$        |                                -                                |
-| 归谬论         |    $(p \rightarrow q) \land (p \rightarrow \lnot q) \Leftrightarrow \lnot p$    |                                -                                |
-
-## 例题
-
-### 判断公式：$p \leftrightarrow (p \lor q \lor r)$ 的类型，请写出过程
-
-$$
-\begin{align}
-p \leftrightarrow (p \lor q \lor r)
-&\Leftrightarrow \lnot p \lor (p \lor q \lor r) \\
-&\Leftrightarrow \lnot p \lor p \lor q \lor r \\
-&\Leftrightarrow 1 \lor q \lor r \\
-&\Leftrightarrow 1
-\end{align}
-$$
-
-所以，该公式为永言式。
-
-### 化简公式：$\lnot (p \lor r) \lor (\lnot p \land q)$
-
-$$
-\begin{align}
-\lnot (p \lor r) \lor (\lnot p \land q) 
-& \Leftrightarrow (\lnot p \land \lnot r) \lor (\lnot p \land q)\\ 
-& \Leftrightarrow \lnot p \land (\lnot r \lor q)
-\end{align}
-$$
-
-> 错解：
-> 
-> $$
-> \begin{align}
-> \lnot (p \lor r) \lor (\lnot p \land q)
-> & \Leftrightarrow (\lnot p \land \lnot r) \lor (\lnot p \land q)\\
-> & \Leftrightarrow ((\lnot p \land \lnot r) \lor \lnot p)\land ((\lnot p \land \lnot r) \lor q)\\
-> & \Leftrightarrow \lnot p \land (\lnot p \land \lnot r \lor q)\\
-> & \Leftrightarrow \lnot p
-> \end{align}
-> $$
-> 
-> 第三步时，括号不能去掉
+| 名称           | 形式一                                                       | 形式二                                                       |
+| -------------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| 双重否定律     | $\lnot \lnot p \Leftrightarrow p$                            | -                                                            |
+| 同一律         | $p \lor 0 \Leftrightarrow p$                                 | $p \land 1 \Leftrightarrow$ p                                |
+| 零元律         | $p \land 1 \Leftrightarrow 1$                                | $p \land 0 \Leftrightarrow 0$                                |
+| 等幂律         | $p \lor p \Leftrightarrow p$                                 | $p \land p \Leftrightarrow p$                                |
+| 交换律         | $p \lor q \Leftrightarrow q \lor p$                          | $p \land q \Leftrightarrow q \land p$                        |
+| 结合律         | $(p \lor q) \lor r \Leftrightarrow p \lor (q \lor r)$        | $(p \land q) \land r \Leftrightarrow p \land (q \land r)$    |
+| 德摩根律       | $\lnot (p \lor q) \Leftrightarrow \lnot p \land \lnot q$     | $\lnot (p \land q) \Leftrightarrow \lnot p \lor \lnot q$     |
+| 吸收律         | $p \lor (p \land q) \Leftrightarrow p$                       | $p \land (p \lor q) \Leftrightarrow p$                       |
+| 分配律         | $p \lor (q \land r) \Leftrightarrow (p \lor q) \land (p \lor r)$ | $p \land (q \lor r)\Leftrightarrow (p \land q)\lor (p \land r)$ |
+| 排中律         | $p \lor \lnot p \Leftrightarrow 1$                           | -                                                            |
+| 矛盾律         | $p \land \lnot p \Leftrightarrow 0$                          | -                                                            |
+| 蕴涵等值式     | $p \rightarrow q \Leftrightarrow \lnot p \lor q$             | -                                                            |
+| 等价等值式     | $p \leftrightarrow q \Leftrightarrow (p \rightarrow q) \land (q \rightarrow p)$ | -                                                            |
+| 假言易位       | $p \rightarrow q \Leftrightarrow \lnot p \rightarrow \lnot q$ | -                                                            |
+| 等价否定等值式 | $p \leftrightarrow q \Leftrightarrow \lnot p \rightarrow \lnot q$ | -                                                            |
+| 归谬论         | $(p \rightarrow q) \land (p \rightarrow \lnot q) \Leftrightarrow \lnot p$ | -                                                            |
 
 ## 范式
 
@@ -261,9 +220,9 @@ $$(X_{1}\lor Y_{1})\land (X_{2}\lor Y_{2})\land \dots \land (X_{n}\lor Y_{n})$$
    > $$
    > \begin{align}
    > B
-   > &\Leftrightarrow B \land 1 \\
-   > &\Leftrightarrow B \land (p_i \lor \lnot p_i) \\
-   > &\Leftrightarrow (B \land p_i) \lor (B \land \lnot p_i)
+   > \Leftrightarrow & B \land 1 \\
+   > \Leftrightarrow & B \land (p_i \lor \lnot p_i) \\
+   > \Leftrightarrow & (B \land p_i) \lor (B \land \lnot p_i)
    > \end{align}
    > $$
 
@@ -271,22 +230,22 @@ $$(X_{1}\lor Y_{1})\land (X_{2}\lor Y_{2})\land \dots \land (X_{n}\lor Y_{n})$$
 
 #### 通过真值表求极小项
 
-求 $p \land q \lor r$ 的主析取范式：
+求  $p \land q \lor r$ 的主析取范式：
 
 1. 写出真值表
 
-   |  p   |  q   |  r   | $p \and q \lor r$ |
-   | :--: | :--: | :--: | :---------------: |
-   |  0   |  0   |  0   |         0         |
-   |  0   |  0   |  1   |         1         |
-   |  0   |  1   |  0   |         0         |
-   |  0   |  1   |  1   |         1         |
-   |  1   |  0   |  0   |         0         |
-   |  1   |  0   |  1   |         1         |
-   |  1   |  1   |  0   |         1         |
-   |  1   |  1   |  1   |         1         |
+   |  p   |  q   |  r   | $p \land q \lor r$ |
+   | :--: | :--: | :--: | :----------------: |
+   |  0   |  0   |  0   |         0          |
+   |  0   |  0   |  1   |         1          |
+   |  0   |  1   |  0   |         0          |
+   |  0   |  1   |  1   |         1          |
+   |  1   |  0   |  0   |         0          |
+   |  1   |  0   |  1   |         1          |
+   |  1   |  1   |  0   |         1          |
+   |  1   |  1   |  1   |         1          |
 
-2. 得出极小项：$p \land q \lor r \Leftrightarrow m_1, m_3, m_5, m_6, m_7 \Leftrightarrow \sum \left(1, 3, 5, 6, 7 \right)$ 
+2. 得出极小项： $p \land q \lor r \Leftrightarrow m_1, m_3, m_5, m_6, m_7 \Leftrightarrow \sum \left(1, 3, 5, 6, 7 \right)$ 
 
 ### 主合取范式
 
@@ -313,17 +272,184 @@ $$(X_{1}\lor Y_{1})\land (X_{2}\lor Y_{2})\land \dots \land (X_{n}\lor Y_{n})$$
 例如，求命题公式 $(p \lor (q \land r)) \rightarrow (p \land q \land r)$ 的主合取范式：
 $$
 \begin{align}
-(p \lor (q \land r)) \rightarrow (p \land q \land r)
-&\Leftrightarrow (\lnot p \land (\lnot q \lor \lnot r)) \lor (p \land q \land r)\\
-&\Leftrightarrow (\lnot p \land \lnot q) \lor (\lnot p \land \lnot r) \lor (p \land q \land r)\\
-&\Leftrightarrow (\lnot p \land \lnot q \land r) \lor (\lnot p \land \lnot q \land \lnot r) \lor (\lnot p \land q \land \lnot r) \lor (\lnot p \land \lnot q \land \lnot r) \lor (p \land q \land r)\\
-&\Leftrightarrow (p \land q \land r) \lor (\lnot p \land \lnot q \land r) \lor (\lnot p \land q \land \lnot r) \lor (\lnot p \land \lnot q \land \lnot r)\\
-&\Leftrightarrow \sum \left(0, 1, 2, 7 \right)\\
-&\Leftrightarrow m_0 \lor m_1 \lor m_2 \lor m_7 &{主析取范式}\\
-&\Leftrightarrow M3 \land M_4 \land M_5 \land M_6 &{主合取范式}
+& (p \lor (q \land r)) \rightarrow (p \land q \land r) \\
+\Leftrightarrow & (\lnot p \land (\lnot q \lor \lnot r)) \lor (p \land q \land r)\\
+\Leftrightarrow & (\lnot p \land \lnot q) \lor (\lnot p \land \lnot r) \lor (p \land q \land r)\\
+\Leftrightarrow & (\lnot p \land \lnot q \land r) \lor (\lnot p \land \lnot q \land \lnot r) \lor (\lnot p \land q \land \lnot r) \lor (\lnot p \land \lnot q \land \lnot r) \lor (p \land q \land r)\\
+\Leftrightarrow & (p \land q \land r) \lor (\lnot p \land \lnot q \land r) \lor (\lnot p \land q \land \lnot r) \lor (\lnot p \land \lnot q \land \lnot r)\\
+\Leftrightarrow & \sum \left(0, 1, 2, 7 \right)\\
+\Leftrightarrow & m_0 \lor m_1 \lor m_2 \lor m_7 &{主析取范式}\\
+\Leftrightarrow & \prod(3,4,5,6) \\
+\Leftrightarrow & M3 \land M_4 \land M_5 \land M_6 &{主合取范式}
 \end{align}
 $$
 
+## 命题演算的推理
+
+证明可以由前提 $A$ 推得结论 $B$，即证明 $A \rightarrow B$ 为永真式，记作 $A \Rightarrow B$
+
+### 推理定律
+
+| 定律       | 形式                                                         |
+| ---------- | ------------------------------------------------------------ |
+| 化简       | $p \land q \Rightarrow p$                                    |
+| 附加       | $p \Rightarrow p \lor q$                                     |
+| 假言推理   | $p, p \rightarrow q \Rightarrow q$                           |
+| 拒取式     | $\lnot q, p \rightarrow q \Rightarrow \lnot p$               |
+| 合取式     | $p, q \Rightarrow p \land q$                                 |
+| 归结式     | $p \lor q, \lnot p \lor r \Rightarrow q \lor r$              |
+| 析取三段论 | $\lnot p, p \lor q \Rightarrow q$                            |
+| 假言三段论 | $p \rightarrow q, p \rightarrow r \Rightarrow p \rightarrow r$ |
+| 等价三段论 | $p \leftrightarrow q, q \leftrightarrow r \Rightarrow p \leftrightarrow r$ |
+| 构造性两难 | $p \rightarrow q, r \rightarrow s, p \lor r \Rightarrow q \lor s$ |
+
+### 推理定理
+
+#### 前提引入规则
+
+在推导的过程中，可随时引入前提集合中的任意一个前提。
+
+#### 结论引入规则
+
+在推导的过程中所得到的结论都可做为后续推到的前提。
+
+#### 置换规则
+
+在推导的过程中，命题公式的子公式都可以用等值的公式置换。
+
+#### CP规则（附加前提规则）
+
+- 若 $H_1, H_2, \dots, H_m, P$ 推出 $Q$，则 $H_1, H_2, \dots, H_m$ 可以推出 $P \rightarrow Q$
+- 若 $H_1, H_2, \dots, H_m$ 推出 $P \rightarrow Q$，则 $H_1, H_2, \dots, H_m, P$ 可以推出 $Q$
+
+### 推理证明方法
+
+#### 真值表法
+
+要证明 $A \Rightarrow B$，可以列出其真值表，证明 $A \rightarrow B$ 是重言式即得证 
+
+#### 等价演算法
+
+要证明 $A \Rightarrow B$，可以通过等价演算，证明 $A \rightarrow B$ 为重言式即得证
+
+#### 演绎法
+
+要证明 $A \Rightarrow B$，可以从前提出发，依据推理规则、推理定律和基本等价式推导出结论来。
+
+> **证明 $\lnot r \rightarrow s$ 是 $p \rightarrow (q \rightarrow r), p \land q$ 的结论**
+> $$
+> \begin{align}
+> & p \and q & 前提引入 \tag{1} \\
+> & p \tag{2} & （1）化简  \\
+> & p \rightarrow (q \rightarrow r) & 前提引入 \tag{3} \\
+> & q \rightarrow r & （2）（4）假言推理 \tag {4} \\
+> & q & （1）化简 \tag{5} \\
+> & r & （3）（5）假言推理 \tag{6} \\
+> & r \lor s & （6）附加 \tag{7} \\
+> & \lnot r \rightarrow s & （7）置换规则 \tag{8} \\
+> & \therefore 得证
+> \end{align}
+> $$
+>
+
+##### 附加前提证明法（CP规则）
+
+通过CP规则将附加前提引入，然后运用演绎法推得结论。
+
+> **证明 $r \rightarrow s$ 是 $p \rightarrow (q \rightarrow s), \lnot r \lor p, q$ 的结论**
+> $$
+> \begin{align}
+> & \lnot r \lor p & 前提引入 \tag{1} \\
+> & r \rightarrow p & （1）置换规则 \tag{2} \\
+> & r & 附加前提引入 \tag{3} \\
+> & p & （2）（3）假言推理 \tag{4} \\
+> & p \rightarrow (q \rightarrow s) & 前提引入 \tag{5} \\
+> & q \rightarrow s & （4）（5）假言推理 \tag{6} \\
+> & q & 前提引入 \tag{7} \\
+> & s & （6）（7）假言推理 \tag{8} \\
+> & \therefore 由CP规则，即得证
+> \end{align}
+> $$
+>
+
+#### 间接推演法（归谬法）
+
+要证明 $A \Rightarrow B$，可以从要推出的结论的否定出发，运用演绎法推得矛盾结论得证明方法。
+
+> **证明 $\lnot p$ 是 $p \rightarrow \lnot q, p \land \lnot r, r \land \lnot s$ 的结论**
+> $$
+> \begin{align}
+> & \lnot \lnot p & 否定结论引入 \tag{1} \\
+> & p & （1）双重否定 \tag{2} \\
+> & p \rightarrow \lnot q & 前提引入 \tag{3} \\
+> & \lnot q & （2）（3）假言推理 \tag{4} \\
+> & q \lor \lnot r & 前提引入 \tag{5} \\
+> & \lnot q \rightarrow \lnot r & （5）置换规则 \tag{6} \\
+> & \lnot r & （4）（6）假言推理 \tag{7} \\
+> & r \land \lnot s & 前提引入 \tag{8} \\
+> & r & (8)化简 \tag{9} \\
+> & \therefore (7)(9)矛盾，故得证
+> \end{align}
+> $$
+> 
+>> 第（7）步也可以由（4）（5）步析取三段论得到，省略第（6）步
+
+#### 归结证明法
+
+归结规则： $(p \lor q) \land (\lnot p \lor r) \Rightarrow q \lor r$
+
+- 前提和结论必须被表示为子句
+- 对于非子句的语句，可以用一个或多个
+
+## 例题
+
+### 判断公式：$p \leftrightarrow (p \lor q \lor r)$ 的类型，请写出过程
+
+$$
+\begin{align}
+& p \leftrightarrow (p \lor q \lor r) \\
+\Leftrightarrow &\lnot p \lor (p \lor q \lor r) \\
+\Leftrightarrow &\lnot p \lor p \lor q \lor r \\
+\Leftrightarrow &1 \lor q \lor r \\
+\Leftrightarrow &1 \\
+&\therefore \text{该公式为重言式}
+\end{align}
+$$
+
+### 化简公式：$\lnot (p \lor r) \lor (\lnot p \land q)$
+
+$$
+\begin{align}
+& \lnot (p \lor r) \lor (\lnot p \land q) \\
+\Leftrightarrow & (\lnot p \land \lnot r) \lor (\lnot p \land q)\\ 
+\Leftrightarrow & \lnot p \land (\lnot r \lor q)
+\end{align}
+$$
+
+> 错解：
+> 
+> $$
+> \begin{align}
+> & \lnot (p \lor r) \lor (\lnot p \land q) \\
+> \Leftrightarrow & (\lnot p \land \lnot r) \lor (\lnot p \land q)\\
+> \Leftrightarrow & ((\lnot p \land \lnot r) \lor \lnot p)\land ((\lnot p \land \lnot r) \lor q) \\
+> \Leftrightarrow & \lnot p \land (\lnot p \land \lnot r \lor q) &{\text{错误，括号不能去掉}}\\
+> \Leftrightarrow & \lnot p
+> \end{align}
+> $$
+> 
+
+### 求公式：$(\lnot P \rightarrow Q) \rightarrow (\lnot Q \lor P)$ 的主析取范式
+
+$$
+\begin{align}
+&(\lnot P \rightarrow Q) \rightarrow (\lnot Q \lor P) \\
+\Leftrightarrow & (\lnot P \land \lnot Q) \lor \lnot Q \lor P \\
+\Leftrightarrow & (\lnot P \land \lnot Q) \lor ((P \lor \lnot P) \land \lnot Q) \lor (P \land (Q \lor \lnot Q)) \\
+\Leftrightarrow & (P \land Q) \lor (P \land \lnot Q) \lor (\lnot P \land \lnot Q) \\
+\Leftrightarrow & m_0 \lor m_1 \lor m_3 \\
+\end{align}
+$$
 
 ## References
 
