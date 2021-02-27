@@ -23,12 +23,13 @@ jobs:
       - name: Install dependencies
         run: |
           yarn --frozen-lockfile
+          yarn lerna link
+          yarn lerna bootstrap
 
       - name: Build blog site
         env:
           BASE_PATH: /
-        run: |
-          yarn blog:build
+        run: yarn blog:build
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.2.0
