@@ -1,5 +1,7 @@
-import { postFilter } from "./filter"
+import { postFilterPlugin } from "./filter"
 
-export { PostFilterOptions } from "./type"
-export { postFilter }
-export default postFilter
+export * from "./type"
+export * from "./filter"
+
+export { postFilterPlugin as postFilter }
+export default postFilterPlugin

@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "build": "lerna run build",
-    "test": "jest --runInBand",
+    "test": "jest",
     "blog:build": "vuepress build posts --clean-cache",
     "blog:clean": "rimraf posts/.vuepress/.temp posts/.vuepress/.cache posts/.vuepress/dist",
     "blog:dev": "vuepress dev posts --clean-cache"
