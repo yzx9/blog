@@ -12,5 +12,5 @@ dist/
 # Local files
 lib/
 todos.md
-.log
+*.log
 *.tsbuildinfo
