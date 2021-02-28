@@ -17,7 +17,7 @@
 </template>
 
 <script lang="ts">
-import { useThemeData } from "@vuepress/client"
+import { useThemeLocaleData } from "../composables"
 import Ghost from "../components/Ghost.vue"
 
 const rand = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)]
@@ -27,7 +27,7 @@ export default {
     Ghost,
   },
   setup(props, ctx) {
-    const themeLocale = useThemeData()
+    const themeLocale = useThemeLocaleData()
     const messages = themeLocale.value.notFound ?? ["Not Found"]
     const backToHomes = themeLocale.value.backToHome ?? ["Back To Home"]
 
