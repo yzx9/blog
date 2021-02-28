@@ -1,19 +1,13 @@
 import type { LocaleData, ThemeConfig } from "@vuepress/core"
-import type { ThemeData } from "@vuepress/plugin-theme-data"
+import type { ThemeData as _ThemeData } from "@vuepress/plugin-theme-data"
 
-export interface CelestaThemeOptions
-  extends ThemeConfig,
-    CelestaThemeLocaleOptions {
-  themePlugins?: CelestaThemePluginsOptions
-}
+export interface ThemeOptions extends ThemeConfig, ThemeLocaleOptions {}
 
-export interface CelestaThemePluginsOptions {}
+export type ThemeLocaleOptions = ThemeData
 
-export type CelestaThemeLocaleOptions = CelestaThemeData
+export type ThemeData = _ThemeData<ThemeLocaleData>
 
-export type CelestaThemeData = ThemeData<CelestaThemeLocaleData>
-
-export interface CelestaThemeLocaleData extends LocaleData {
+export interface ThemeLocaleData extends LocaleData {
   /**
    * 404 page config
    *

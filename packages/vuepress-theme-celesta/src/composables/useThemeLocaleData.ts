@@ -6,9 +6,9 @@ import type {
   ThemeDataRef,
   ThemeLocaleDataRef,
 } from "@vuepress/plugin-theme-data/lib/composables"
-import type { CelestaThemeData } from "../types"
+import type { ThemeData } from "../types"
 
-export const useThemeData = (): ThemeDataRef<CelestaThemeData> =>
-  _useThemeData<CelestaThemeData>()
-export const useThemeLocaleData = (): ThemeLocaleDataRef<CelestaThemeData> =>
-  _useThemeLocaleData<CelestaThemeData>()
+export const useThemeData = (): ThemeDataRef<ThemeData> =>
+  _useThemeData<ThemeData>()
+export const useThemeLocaleData = (): ThemeLocaleDataRef<ThemeData> =>
+  _useThemeLocaleData<ThemeData>()
