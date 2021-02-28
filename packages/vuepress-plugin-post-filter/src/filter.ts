@@ -1,29 +1,39 @@
-import type { Page, Plugin } from "@vuepress/core"
+import type { App, Page, PluginFunction } from "@vuepress/core"
 import { PostFilterOptions } from "./type"
 
 const name = "vuepress-plugin-post-filter"
 
-export const postFilter: Plugin = (options: PostFilterOptions = {}, app) => {
-  const {
-    frontmatter = { draft: true, published: false },
-    prodOnly = true,
-  } = options
+export const createPostFilter = (frontmatter: Record<string, any>) => {
+  const testFns = Object.keys(frontmatter).map((key) => (a: Page) =>
+    a.frontmatter[key] !== frontmatter[key]
+  )
 
-  return prodOnly && app.env.isProd
-    ? {
-        name,
-        onInitialized(app) {
-          const frontmatterFilter = (page: Page) =>
-            Object.keys(frontmatter)
-              .map((key) => (a: Page) =>
-                a.frontmatter[key] !== frontmatter[key]
-              )
-              .every((fn) => fn(page))
-
-          app.pages = app.pages.filter(frontmatterFilter)
-        },
-      }
-    : { name }
+  return (page: Page) => testFns.every((fn) => fn(page))
 }
 
-export default postFilter
+export const postFilterPluginRaw: PluginFunction = (
+  options: PostFilterOptions = {}
+) => {
+  const { frontmatter = { draft: true, published: false } } = options
+
+  const filter = createPostFilter(frontmatter)
+
+  const onInitialized = (app: App) => {
+    app.pages = app.pages.filter(filter)
+  }
+
+  return {
+    name,
+    onInitialized,
+  }
+}
+
+export const postFilterPlugin: PluginFunction = (
+  options: PostFilterOptions = {},
+  app
+) => {
+  const { prodOnly = true } = options
+  return prodOnly && app.env.isProd
+    ? postFilterPluginRaw(options, app)
+    : { name }
+}
