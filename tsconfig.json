@@ -1,5 +1,8 @@
 {
   "extends": "./tsconfig.base.json",
-  "references": [],
+  "references": [
+    { "path": "./packages/vuepress-theme-celesta/tsconfig.json" },
+    { "path": "./packages/vuepress-plugin-post-filter/tsconfig.build.json" }
+  ],
   "files": []
 }
