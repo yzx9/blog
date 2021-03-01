@@ -2,8 +2,8 @@ import { path } from "@vuepress/utils"
 import type { Theme } from "@vuepress/core"
 import { assignDefaultOptions, extendsPageData, onInitialized } from "./node"
 
-export const theme: Theme = (themeConfig, app) => {
-  assignDefaultOptions(themeConfig, app.options.lang)
+export const theme: Theme = (themeOptions, app) => {
+  assignDefaultOptions(themeOptions, app.options.lang)
 
   return {
     name: "vuepress-theme-celesta",
@@ -14,6 +14,7 @@ export const theme: Theme = (themeConfig, app) => {
         "@vuepress/plugin-active-header-links",
         { headerLinkSelector: ".catalog__link" },
       ],
+      ["@vuepress/theme-data", { themeData: themeOptions }],
       "vuepress-plugin-post-filter",
     ],
 
