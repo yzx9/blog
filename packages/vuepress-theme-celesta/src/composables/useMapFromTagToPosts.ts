@@ -1,12 +1,12 @@
-import { PageData, usePagesData } from "@vuepress/client"
+import { usePagesData } from "@vuepress/client"
 import { inject, InjectionKey } from "vue"
-import type { ThemePageData } from "../types"
+import type { PageData } from "../types"
 import { isPost } from "../utils"
 
 /**
  * Category path to page data
  */
-type MapFromTagToPosts = Map<string, Set<PageData<ThemePageData>>>
+type MapFromTagToPosts = Map<string, Set<PageData>>
 
 export const mapFromTagToPostsSymbol: InjectionKey<
   Promise<MapFromTagToPosts>
@@ -30,13 +30,12 @@ export const resolveMapFromTagToPosts = async (): Promise<MapFromTagToPosts> => 
     Object.keys(pagesData.value).map((key) => pagesData.value[key]())
   )
 
-  const posts = pages.filter(isPost) as PageData<ThemePageData>[]
+  const posts = pages.filter(isPost) as PageData[]
 
   const map: MapFromTagToPosts = new Map()
   posts.map((post) => {
-    const { tags } = post
-    tags.map((a) => {
-      const set = map.get(a.path) || new Set<PageData<ThemePageData>>()
+    post.tags.map((a) => {
+      const set = map.get(a.path) || new Set<PageData>()
       set.add(post)
       map.set(a.path, set)
     })

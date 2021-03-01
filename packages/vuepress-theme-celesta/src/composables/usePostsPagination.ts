@@ -1,8 +1,8 @@
 import { usePosts } from "./usePosts"
 import { isReactive, reactive, watch } from "vue"
-import type { PostData } from "./usePosts"
+import type { PageData } from "../types"
 
-type PostFilter = (page: PostData) => boolean
+type PostFilter = (page: PageData) => boolean
 
 export type PaginationOptions = {
   /**
@@ -28,7 +28,7 @@ export type PaginationOptions = {
   /**
    * @default Sort by date in desc
    */
-  sort?: (a: PostData, b: PostData) => number
+  sort?: (a: PageData, b: PageData) => number
 
   /**
    * Custom filter
@@ -37,7 +37,7 @@ export type PaginationOptions = {
 }
 
 type PaginationData = {
-  posts: PostData[]
+  posts: PageData[]
   total: number
 }
 

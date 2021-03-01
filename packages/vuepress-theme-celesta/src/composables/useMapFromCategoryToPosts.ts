@@ -1,11 +1,11 @@
-import { PageData, usePagesData } from "@vuepress/client"
+import { usePagesData } from "@vuepress/client"
 import { inject, InjectionKey } from "vue"
-import type { ThemePageCategory, ThemePageData } from "../types"
+import type { PageData, ThemePageCategory } from "../types"
 import { isPost } from "../utils"
 
 type CategoryTree = {
   data: ThemePageCategory
-  posts: Set<PageData<ThemePageData>>
+  posts: Set<PageData>
   children: Set<CategoryTree>
 }
 
@@ -36,7 +36,7 @@ export const resolveMapFromCategoryToPosts = async (): Promise<CategoryTreeMap> 
     Object.keys(pagesData.value).map((key) => pagesData.value[key]())
   )
 
-  const posts = pages.filter(isPost) as PageData<ThemePageData>[]
+  const posts = pages.filter(isPost) as PageData[]
 
   const map: CategoryTreeMap = new Map()
 
