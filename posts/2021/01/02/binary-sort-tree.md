@@ -1,6 +1,7 @@
 ---
 title: 二叉排序树
 date: 2021-1-2 14:00:00
+updated: 2021-1-2 14:00:00
 categories:
   - Computer Science
   - Data Structure

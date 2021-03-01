@@ -1,6 +1,7 @@
 ---
 title: HTTP协议
 date: 2019-12-15 10:45:02
+updated: 2019-12-15 10:45:02
 categories:
   - Computer Science
   - Network
@@ -191,4 +192,4 @@ HTTP 基于 TCP, 浏览器最快也需要在第三次握手才能捎带 HTTP 报
 
 ### MultiPlexing 与 Pipelining 区别?
 
-![Different between MultiPlexing and Pipelining](./assets/MultiPlexing-and-Pipelining.jpg)
+![Different between MultiPlexing and Pipelining](./assets/multi-plexing-and-pipelining.jpg)

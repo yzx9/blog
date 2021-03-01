@@ -1,6 +1,7 @@
 ---
 title: 取指周期
 date: 2021-1-1 00:00:00
+updated: 2021-1-1 00:00:00
 categories:
   - Computer Science
   - Computer Organization
