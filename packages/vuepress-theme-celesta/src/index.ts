@@ -31,3 +31,4 @@ export const theme: Theme = (themeOptions, app) => {
 }
 
 export default theme
+export * from "./types"

@@ -1,5 +1,5 @@
 import type { UserConfig } from "@vuepress/cli"
-import type { ThemeOptions } from "../../packages/vuepress-theme-celesta/src/types"
+import type { ThemeOptions } from "vuepress-theme-celesta"
 
 const config: UserConfig<ThemeOptions> = {
   title: "Celeste's blog",
