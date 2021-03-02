@@ -57,6 +57,7 @@ import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import Particles from "./Particles.vue"
 import { useLocaleCategories, useLocaleTags } from "../composables"
+import { linkListToArray } from "../utils"
 import type { ThemePageCategory, ThemePageData } from "../types"
 
 export default {
@@ -70,17 +71,9 @@ export default {
     const showUpdate = computed(() => date.value !== updated.value)
 
     const categories = useLocaleCategories()
-    const categoriesArray = computed(() => {
-      return categories.value.map((a) => {
-        const arr: ThemePageCategory[] = []
-        let p: ThemePageCategory | null = a
-        while (p) {
-          arr.unshift(p)
-          p = p.parent
-        }
-        return arr
-      })
-    })
+    const categoriesArray = computed(() =>
+      categories.value.map(linkListToArray((c) => c.parent))
+    )
 
     const tags = useLocaleTags()
 

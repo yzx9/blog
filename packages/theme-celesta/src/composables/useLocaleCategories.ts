@@ -22,7 +22,9 @@ export const useLocaleCategories = () => {
       : null
   }
 
-  const categories = computed(() => pageData.value.categories.map(resolveName))
+  const categories = computed(
+    () => pageData.value.categories.map(resolveName) as ThemePageCategory[]
+  )
 
   return categories
 }
