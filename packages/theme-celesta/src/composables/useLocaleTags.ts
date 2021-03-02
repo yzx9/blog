@@ -1,5 +1,5 @@
 import { computed } from "vue"
-import { usePageData, useThemeLocaleData } from "../composables"
+import { usePageData, useThemeLocaleData } from "."
 
 export const useLocaleTags = () => {
   const pageData = usePageData()
