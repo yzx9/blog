@@ -1,14 +1,10 @@
 <template>
-  <li class="m-1">
-    <RouterLink
-      class="catalog__link text-gray-500 hover:text-primary-500 transition-colors duration-300"
-      :class="{ 'text-primary-500': isActive }"
-      :to="{ hash }"
-      replace
-      >{{ title }}</RouterLink
-    >
+  <li class="catalog__item" :class="{ 'catalog__item--active': active }">
+    <RouterLink class="catalog__link" :to="{ hash }" replace>{{
+      title
+    }}</RouterLink>
 
-    <ul class="pl-4 mb-2">
+    <ul v-if="active" class="pl-4">
       <CatalogItem
         v-for="child in item.children"
         :item="child"
@@ -19,7 +15,8 @@
 </template>
 
 <script lang="ts">
-import { computed, PropType } from "vue"
+import { computed } from "vue"
+import type { PropType } from "vue"
 import { useRouter } from "vue-router"
 import { PageHeader } from "@vuepress/client"
 import { decodeHTML } from "../utils"
@@ -38,13 +35,44 @@ export default {
   },
   setup(props, ctx) {
     const { currentRoute } = useRouter()
-    const item = props.item
+    const { item } = props
 
     const title = computed(() => decodeHTML(item.title))
     const hash = computed(() => `#${item.slug}`)
-    const isActive = computed(() => currentRoute.value.hash === hash.value)
 
-    return { title, hash, isActive }
+    const isActive = (pageHeader: PageHeader) =>
+      currentRoute.value.hash === `#${pageHeader.slug}`
+    const active = computed(
+      () => isActive(item) || item.children.some(isActive)
+    )
+
+    return { title, hash, active }
   },
 }
 </script>
+
+<style lang="postcss">
+.catalog__item {
+  @apply p-1 pl-2 border-l transition-colors duration-300;
+
+  & .catalog__item {
+    @apply border-transparent;
+  }
+
+  &.catalog__item--active {
+    @apply border-l border-primary-300;
+
+    & .catalog__item {
+      @apply border-transparent;
+    }
+
+    & > .catalog__link {
+      @apply text-primary-500;
+    }
+  }
+}
+
+.catalog__link {
+  @apply text-gray-500 hover:text-primary-500 transition-colors duration-300;
+}
+</style>
