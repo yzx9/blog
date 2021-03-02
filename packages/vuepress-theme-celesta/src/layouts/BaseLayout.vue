@@ -1,34 +1,34 @@
 <template>
-  <teleport to="body">
-    <nav class="overflow-hidden z-50">
-      <slot name="navbar">
-        <Navbar />
-      </slot>
-    </nav>
-  </teleport>
+  <div class="layout">
+    <main class="layout__main">
+      <slot name="main" />
+    </main>
 
-  <div class="layout z-10 min-h-screen">
+    <aside class="layout__sub">
+      <slot name="sub" />
+    </aside>
+
+    <aside class="layout__extra">
+      <slot name="extra" />
+    </aside>
+
     <header class="layout__header">
       <slot name="header" />
     </header>
-
-    <div class="flex justify-center">
-      <aside class="layout__sub flex flex-col items-end flex-1">
-        <slot name="sub" />
-      </aside>
-      <main class="layout__main mx-4">
-        <slot name="main" />
-      </main>
-      <aside class="layout__extra flex flex-col items-start flex-1">
-        <slot name="extra" />
-      </aside>
-    </div>
 
     <footer class="layout__footer">
       <slot name="footer">
         <Footer />
       </slot>
     </footer>
+
+    <teleport to="body">
+      <nav class="overflow-hidden z-50">
+        <slot name="nav">
+          <Navbar />
+        </slot>
+      </nav>
+    </teleport>
   </div>
 </template>
 
@@ -46,14 +46,36 @@ export default {
 
 <style lang="postcss">
 .layout {
+  @apply z-10 min-h-screen;
+
+  display: grid;
+  grid:
+    "header header header" var(--header-height)
+    "sub    main   extra " auto
+    "footer footer footer" auto
+    / 1fr var(--main-width) 1fr;
+  gap: 1rem;
+
   background: var(--bg-color);
 }
 
-.layout__header {
-  height: var(--header-height);
+.layout__main {
+  grid-area: main;
 }
 
-.layout__main {
-  width: var(--main-width);
+.layout__sub {
+  grid-area: sub;
+}
+
+.layout__extra {
+  grid-area: extra;
+}
+
+.layout__header {
+  grid-area: header;
+}
+
+.layout__footer {
+  grid-area: footer;
 }
 </style>
