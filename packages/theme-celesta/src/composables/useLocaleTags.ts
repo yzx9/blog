@@ -1,18 +1,16 @@
 import { computed } from "vue"
-import { usePageData, useThemeData, useThemeLocaleData } from "."
+import { usePageData } from "@vuepress/client"
+import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/composables"
+import type { ThemeData, ThemePageData } from "../types"
 
 export const useLocaleTags = () => {
-  const pageData = usePageData()
-  const localeData = useThemeLocaleData()
-  const data = useThemeData()
+  const pageData = usePageData<ThemePageData>()
+  const themeLocaleData = useThemeLocaleData<ThemeData>()
 
   const tags = computed(() =>
     pageData.value.tags.map((a) => ({
       ...a,
-      name:
-        localeData.value.translations?.[a.slug] ??
-        data.value.translations?.[a.slug] ??
-        a.slug,
+      name: themeLocaleData.value.translations?.[a.slug] ?? a.slug,
     }))
   )
 

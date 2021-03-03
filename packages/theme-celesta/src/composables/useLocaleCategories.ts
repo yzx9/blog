@@ -1,11 +1,12 @@
 import { computed } from "vue"
-import { usePageData, useThemeData, useThemeLocaleData } from "."
+import { usePageData } from "@vuepress/client"
+import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/composables"
+import type { ThemeData, ThemePageData } from "../types"
 import type { ThemePageCategory } from "../types"
 
 export const useLocaleCategories = () => {
-  const pageData = usePageData()
-  const localeData = useThemeLocaleData()
-  const data = useThemeData()
+  const pageData = usePageData<ThemePageData>()
+  const localeData = useThemeLocaleData<ThemeData>()
 
   const resolveName = (
     a: ThemePageCategory | null
@@ -14,10 +15,7 @@ export const useLocaleCategories = () => {
       ? {
           ...a,
           parent: resolveName(a.parent),
-          name:
-            localeData.value.translations?.[a.slug] ??
-            data.value.translations?.[a.slug] ??
-            a.name,
+          name: localeData.value.translations?.[a.slug] ?? a.name,
         }
       : null
   }
