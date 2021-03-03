@@ -1,6 +1,11 @@
 import { path } from "@vuepress/utils"
 import type { Theme } from "@vuepress/core"
-import { assignDefaultOptions, extendsPageData, onInitialized } from "./node"
+import {
+  assignDefaultOptions,
+  extendsPageData,
+  extendsPageOptions,
+  onInitialized,
+} from "./node"
 
 export const theme: Theme = (themeOptions, app) => {
   assignDefaultOptions(themeOptions, app.options.lang)
@@ -25,6 +30,8 @@ export const theme: Theme = (themeOptions, app) => {
     clientAppSetupFiles: path.resolve(__dirname, "./clientAppSetup.ts"),
 
     extendsPageData,
+
+    extendsPageOptions,
 
     onInitialized,
   }
