@@ -14,13 +14,16 @@
             {{ name }}
           </RouterLink>
           <a
-            class="header__pill-link header__pill-link--github"
-            href="https://github.com"
+            v-if="editLink"
+            class="header__pill-link"
+            :href="editLink.link"
+            target="_blank"
+            >{{ editLink.text }}</a
           >
-            <span>编辑此页</span>
-          </a>
         </div>
-        <h1 class="my-6 z-30 text-white text-8xl font-medium">{{ title }}</h1>
+        <h1 class="my-6 z-30 text-white text-8xl font-medium">
+          {{ title }}
+        </h1>
       </div>
       <div class="flex z-30">
         <div class="header__meta-item">发表于 {{ date }}</div>
@@ -56,9 +59,9 @@
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import Particles from "./Particles.vue"
-import { useLocaleCategories, useLocaleTags } from "../composables"
+import { useLocaleCategories, useLocaleTags, useEditLink } from "../composables"
 import { linkListToArray } from "../utils"
-import type { ThemePageCategory, ThemePageData } from "../types"
+import type { ThemePageData } from "../types"
 
 export default {
   components: {
@@ -69,6 +72,8 @@ export default {
 
     const { title, date, updated } = toRefs(pageData.value)
     const showUpdate = computed(() => date.value !== updated.value)
+
+    const editLink = useEditLink()
 
     const categories = useLocaleCategories()
     const categoriesArray = computed(() =>
@@ -81,6 +86,7 @@ export default {
       title,
       date,
       updated,
+      editLink,
       showUpdate,
       categoriesArray,
       tags,
@@ -92,11 +98,6 @@ export default {
 <style lang="postcss">
 .header__pill-link {
   @apply mr-2 px-3 py-1 text-white border rounded-full transition-colors duration-300 hover:border-transparent hover:bg-primary-500 hover:bg-opacity-50;
-
-  &.header__pill-link--github {
-    @apply pl-9 bg-contain bg-no-repeat;
-    background-image: url("../assets/GitHub-Mark/GitHub-Mark-Light-64px.png");
-  }
 }
 
 .header__meta-item {

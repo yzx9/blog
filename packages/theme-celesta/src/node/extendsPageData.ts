@@ -12,7 +12,7 @@ export const extendsPageData = async (
   page: PageWithFrontmatter,
   app: App
 ): Promise<PageExtended> => {
-  const { date, frontmatter } = page
+  const { date, frontmatter, filePathRelative } = page
   const title = frontmatter.title || page.title
   const updated = await resolvePageUpdatedTime(page, app)
   const categories = resolvePageCategories(page)
@@ -23,6 +23,7 @@ export const extendsPageData = async (
     title,
     date,
     updated,
+    filePathRelative,
     categories,
     tags,
     excerpt,

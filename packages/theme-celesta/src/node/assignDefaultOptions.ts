@@ -3,7 +3,11 @@ import { assignOptionTranslations } from "./assignOptionTranslations"
 
 const defaultLang = "en-US"
 
-const defaultLocaleSet: Record<string, ThemeLocaleOptions> = {
+const defaultOptions = {
+  translations: {},
+}
+
+const defaultOptionsLocaleSet: Record<string, ThemeLocaleOptions> = {
   "en-US": {
     notFound: [
       "There's nothing here.",
@@ -16,7 +20,7 @@ const defaultLocaleSet: Record<string, ThemeLocaleOptions> = {
       "Oooops",
     ],
     backToHome: ["Take me home.", "Go Home", "Homepage", "HEAD ON HOME"],
-    translations: {},
+    editLinkText: "Edit this page",
   },
   "zh-CN": {
     notFound: [
@@ -31,7 +35,7 @@ const defaultLocaleSet: Record<string, ThemeLocaleOptions> = {
       "看起来我们进入了错误的链接",
     ],
     backToHome: ["返回首页"],
-    translations: {},
+    editLinkText: "编辑此页",
   },
 }
 
@@ -42,18 +46,20 @@ export const assignDefaultOptions = (
   options: ThemeOptions,
   lang = defaultLang
 ) => {
-  const defaultOptions = defaultLocaleSet[defaultLang]
+  const defaultOptionsLocale = defaultOptionsLocaleSet[defaultLang]
 
   if (!options.locales) options.locales = {}
   if (!options.locales["/"]) options.locales["/"] = {}
 
   Object.assign(options, {
     ...defaultOptions,
+    ...defaultOptionsLocale,
     ...options,
   })
 
   Object.assign(options.locales["/"], {
-    ...(defaultLocaleSet[lang] ?? defaultOptions),
+    ...defaultOptions,
+    ...(defaultOptionsLocaleSet[lang] ?? defaultOptionsLocale),
     ...options.locales["/"],
   })
 

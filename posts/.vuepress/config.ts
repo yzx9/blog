@@ -19,6 +19,8 @@ const config: UserConfig<ThemeOptions> = {
 
   theme: "vuepress-theme-celesta",
   themeConfig: {
+    repo: "nsznsznjsz/blog",
+
     translations: {
       "Computer Science": "计科",
       "Computer Organization": "计组",

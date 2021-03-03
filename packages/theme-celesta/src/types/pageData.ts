@@ -17,12 +17,17 @@ export interface ThemePageData {
   updated: string
 
   /**
-   * Raw categories, without normalize and localize
+   * Page file relative path
+   */
+  filePathRelative: string | null
+
+  /**
+   * Page categories
    */
   categories: ThemePageCategories
 
   /**
-   * Raw tags, without normalize and localize
+   * Page tags
    */
   tags: ThemePageTags
 

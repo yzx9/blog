@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Vuepress blog theme",
   "author": "Celeste <yuan.zx@outlook.com>",
-  "homepage": "https://github.com/nsznsznjsz/blog/tree/master/packages/vuepress-theme-celesta#readme",
+  "homepage": "https://github.com/nsznsznjsz/blog/tree/master/packages/theme-celesta#readme",
   "keywords": [
     "blog",
     "vuepress",
@@ -31,6 +31,7 @@
     "@vuepress/plugin-git": "2.0.0-alpha.25",
     "@vuepress/plugin-theme-data": "2.0.0-alpha.25",
     "@vuepress/utils": "2.0.0-alpha.25",
+    "@vuepress/shared": "2.0.0-alpha.25",
     "autoprefixer": "^10.2.4",
     "postcss-csso": "^5.0.0",
     "postcss-import": "^14.0.0",
