@@ -6,7 +6,7 @@ categories:
   - Computer Science
   - Data Structure
   - Hash
-tags: 
+tags:
   - Data Structure
 ---
 
@@ -33,7 +33,7 @@ tags:
 
 1. 线性探测再散列: $d_i=1, 2, 3..., m-1$
 2. 二次探测再散列: $d_i=1^2, -1^2, 2^2, -2^2, 3^3, -3^3 ...$
-3. 伪随机探测再散列: $d_i=伪随机数序列$
+3. 伪随机探测再散列: $d_i=Pseudorandom\ Sequence$
 
 ### 再哈希
 
@@ -50,14 +50,26 @@ tags:
 ## 性能分析
 
 装填因子:
-$$\alpha = \frac{元素个数}{哈希表长度}$$
 
-1. 线性探测再散列
-   $$ASL_{succ}\approx\frac{1}{2}(1+\frac{1}{1-\alpha})$$
-   $$ASL_{unsucc}\approx\frac{1}{2}(1+\frac{1}{(1-\alpha)^2})$$
-2. 伪随机探测再散列, 二次探测再散列, 再哈希法
-   $$ASL_{succ}\approx-\frac{1}{\alpha}\ln(1-\alpha)$$
-   $$ASL_{unsucc}\approx-\frac{1}{1-\alpha}$$
-3. 链址法
-   $$ASL_{succ}\approx1+\frac{\alpha}{2}$$
-   $$ASL_{unsucc}\approx\alpha+e^{-\alpha}$$
+$$\alpha = \frac{number}{length}$$
+
+### 线性探测再散列
+
+$$
+ASL_{succ}\approx\frac{1}{2}(1+\frac{1}{1-\alpha}) \\
+ASL_{unsucc}\approx\frac{1}{2}(1+\frac{1}{(1-\alpha)^2})
+$$
+
+### 伪随机探测再散列, 二次探测再散列, 再哈希法
+
+$$
+ASL_{succ}\approx-\frac{1}{\alpha}\ln(1-\alpha) \\
+ASL_{unsucc}\approx-\frac{1}{1-\alpha}
+$$
+
+### 链址法
+
+$$
+ASL_{succ}\approx1+\frac{\alpha}{2} \\
+ASL_{unsucc}\approx\alpha+e^{-\alpha}
+$$
