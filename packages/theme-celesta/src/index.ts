@@ -2,6 +2,7 @@ import { path } from "@vuepress/utils"
 import type { Theme } from "@vuepress/core"
 import {
   assignDefaultOptions,
+  extendsMarkdown,
   extendsPageData,
   extendsPageOptions,
   onInitialized,
@@ -29,9 +30,11 @@ export const theme: Theme = (themeOptions, app) => {
 
     clientAppSetupFiles: path.resolve(__dirname, "./clientAppSetup.ts"),
 
-    extendsPageData,
+    extendsMarkdown,
 
     extendsPageOptions,
+
+    extendsPageData,
 
     onInitialized,
   }
