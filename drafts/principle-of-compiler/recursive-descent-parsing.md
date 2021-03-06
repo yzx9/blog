@@ -1,5 +1,9 @@
 ---
 title: 递归下降分析
+location: Guang Ze, Fu Jian
+categories: 
+  - Computer Science
+  - Principle of Compiler
 tags:
   - Grammar
 categories:
