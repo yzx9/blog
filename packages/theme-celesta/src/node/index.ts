@@ -1,7 +1,6 @@
 export * from "./assignDefaultOptions"
 export * from "./assignOptionTranslations"
 
-export * from "./extendsMarkdown"
 export * from "./extendsPageOptions"
 
 export * from "./extendsPageData"

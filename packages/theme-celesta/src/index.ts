@@ -2,9 +2,8 @@ import { path } from "@vuepress/utils"
 import type { Theme } from "@vuepress/core"
 import {
   assignDefaultOptions,
-  extendsMarkdown,
-  extendsPageData,
   extendsPageOptions,
+  extendsPageData,
   onInitialized,
 } from "./node"
 
@@ -22,6 +21,7 @@ export const theme: Theme = (themeOptions, app) => {
       ],
       ["@vuepress/theme-data", { themeData: themeOptions }],
       "vuepress-plugin-post-filter",
+      "vuepress-plugin-texmath",
     ],
 
     layouts: path.resolve(__dirname, "./layouts"),
@@ -29,8 +29,6 @@ export const theme: Theme = (themeOptions, app) => {
     clientAppEnhanceFiles: path.resolve(__dirname, "./clientAppEnhance.ts"),
 
     clientAppSetupFiles: path.resolve(__dirname, "./clientAppSetup.ts"),
-
-    extendsMarkdown,
 
     extendsPageOptions,
 

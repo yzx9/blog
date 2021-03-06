@@ -33,8 +33,6 @@
     "@vuepress/shared": "2.0.0-alpha.25",
     "@vuepress/utils": "2.0.0-alpha.25",
     "autoprefixer": "^10.2.4",
-    "katex": "^0.12.0",
-    "markdown-it-texmath": "^0.8.0",
     "postcss-csso": "^5.0.0",
     "postcss-import": "^14.0.0",
     "postcss-nesting": "^7.0.1",
@@ -44,6 +42,7 @@
     "tsparticles": "^1.18.11",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",
+    "vuepress-plugin-texmath": "^0.1.0",
     "vuepress-plugin-post-filter": "^1.0.2"
   }
 }
