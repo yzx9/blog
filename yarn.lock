@@ -380,13 +380,6 @@
   dependencies:
     purgecss "^3.1.3"
 
-"@iktakahiro/markdown-it-katex@^4.0.1":
-  version "4.0.1"
-  resolved "https://registry.npm.taobao.org/@iktakahiro/markdown-it-katex/download/@iktakahiro/markdown-it-katex-4.0.1.tgz#65ff9d12afd4c0b7684dd247abe7ce42fc1edac3"
-  integrity sha1-Zf+dEq/UwLdoTdJHq+fOQvwe2sM=
-  dependencies:
-    katex "^0.12.0"
-
 "@istanbuljs/load-nyc-config@^1.0.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@istanbuljs/load-nyc-config/-/load-nyc-config-1.1.0.tgz#fd3db1d59ecf7cf121e80650bb86712f9b55eced"
@@ -1829,7 +1822,7 @@
     envinfo "^7.7.4"
     esbuild "^0.8.43"
 
-"@vuepress/client@2.0.0-alpha.25":
+"@vuepress/client@2.0.0-alpha.25", "@vuepress/client@^2.0.0-alpha.25":
   version "2.0.0-alpha.25"
   resolved "https://registry.yarnpkg.com/@vuepress/client/-/client-2.0.0-alpha.25.tgz#1c4207837c6a3a7808f04b4f278119aecd0f49de"
   integrity sha512-Mh7/nN4N5zUjBOWKJ0louLfO86dEnU3MC7IqJVT5wO4NHcPiQUVQUSz4I3I4tSkUEO+bmL0Lpy8ylRI/T5JXug==
@@ -1838,7 +1831,7 @@
     vue "^3.0.5"
     vue-router "^4.0.3"
 
-"@vuepress/core@2.0.0-alpha.25":
+"@vuepress/core@2.0.0-alpha.25", "@vuepress/core@^2.0.0-alpha.20", "@vuepress/core@^2.0.0-alpha.25":
   version "2.0.0-alpha.25"
   resolved "https://registry.yarnpkg.com/@vuepress/core/-/core-2.0.0-alpha.25.tgz#1a2b51e9aa229a5b3de986b0e9ac62a897bb4815"
   integrity sha512-L7hWwQ6qEFqk4ke9OSuxSG4i9o/d74Ga6mvMhRMwY1e3kuGjkLe9Ocj1BB5KDvINIQrrZ89UHivclfcz7+0v8Q==
@@ -1911,7 +1904,7 @@
   dependencies:
     "@vue/shared" "^3.0.5"
 
-"@vuepress/utils@2.0.0-alpha.25":
+"@vuepress/utils@2.0.0-alpha.25", "@vuepress/utils@^2.0.0-alpha.25":
   version "2.0.0-alpha.25"
   resolved "https://registry.yarnpkg.com/@vuepress/utils/-/utils-2.0.0-alpha.25.tgz#5cd01146be7a329e47a2f26fcff57376c6545b9e"
   integrity sha512-3fRINshjUH3yBXgw+U6f8SY4YqDxDwfoQkLXJ1L6zp7QaJa6FRNO8jGwAMqXKDucbAklBR9tta+WmW4hYfC02A==
