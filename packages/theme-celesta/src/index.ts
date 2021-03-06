@@ -21,7 +21,7 @@ export const theme: Theme = (themeOptions, app) => {
       ],
       ["@vuepress/theme-data", { themeData: themeOptions }],
       "vuepress-plugin-post-filter",
-      "vuepress-plugin-texmath",
+      "vuepress-plugin-math",
     ],
 
     layouts: path.resolve(__dirname, "./layouts"),
