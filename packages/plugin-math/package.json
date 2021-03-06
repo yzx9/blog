@@ -27,7 +27,6 @@
     "url": "https://github.com/nsznsznjsz/blog/issues"
   },
   "devDependencies": {
-    "@iktakahiro/markdown-it-katex": "^4.0.1",
     "@vuepress/core": "^2.0.0-alpha.25",
     "@vuepress/client": "^2.0.0-alpha.25",
     "@vuepress/utils": "^2.0.0-alpha.25",

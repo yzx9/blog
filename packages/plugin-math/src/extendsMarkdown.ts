@@ -1,7 +1,7 @@
 import type { App } from "@vuepress/core"
 import type * as MarkdownIt from "markdown-it"
-import * as MarkdownItKatex from "@iktakahiro/markdown-it-katex"
+import { math_plugin } from "./markdownItPlugin"
 
 export const extendsMarkdown = (md: MarkdownIt, app: App) => {
-  md.use(MarkdownItKatex)
+  md.use(math_plugin)
 }
