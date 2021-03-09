@@ -4,7 +4,11 @@ export const translations: { [key: string]: string } = {
   "Data Structure": "数据结构",
   Tree: "树",
   Network: "计算机网络",
+  "Principle of Compiler": "编译原理",
+  Grammar: "语法",
+
   Life: "日常",
   Coffee: "咖啡",
+
   Default: "默认",
 }
