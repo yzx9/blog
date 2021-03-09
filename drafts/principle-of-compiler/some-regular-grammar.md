@@ -1,5 +1,6 @@
 ---
-title: 词法分析
+date: 2021-3-3
+updated: 2021-3-8
 location: Guang Ze, Fu Jian
 categories: 
   - Computer Science
@@ -7,6 +8,8 @@ categories:
 todos:
   - DFA
 ---
+
+# 一些正则语法及其自动机
 
 ## 识别标识符
 
