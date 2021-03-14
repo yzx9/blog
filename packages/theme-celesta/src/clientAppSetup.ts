@@ -1,5 +1,5 @@
 import { provide } from "vue"
-import type { ClientAppSetup } from "@vuepress/client"
+import { defineClientAppSetup } from "@vuepress/client"
 import {
   resolveMapFromTagToPosts,
   mapFromTagToPostsSymbol,
@@ -9,7 +9,7 @@ import {
   postsSymbol,
 } from "./composables"
 
-const clientAppSetup: ClientAppSetup = () => {
+export default defineClientAppSetup(() => {
   const mapFromTagToPage = resolveMapFromTagToPosts()
   provide(mapFromTagToPostsSymbol, mapFromTagToPage)
 
@@ -18,6 +18,4 @@ const clientAppSetup: ClientAppSetup = () => {
 
   const posts = resolvePosts()
   provide(postsSymbol, posts)
-}
-
-export default clientAppSetup
+})
