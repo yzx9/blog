@@ -27,9 +27,9 @@
     "url": "https://github.com/nsznsznjsz/blog/issues"
   },
   "devDependencies": {
-    "@vuepress/client": "^2.0.0-beta.1",
-    "@vuepress/core": "^2.0.0-beta.1",
-    "@vuepress/utils": "^2.0.0-beta.1",
+    "@vuepress/client": "^2.0.0-beta.2",
+    "@vuepress/core": "^2.0.0-beta.2",
+    "@vuepress/utils": "^2.0.0-beta.2",
     "katex": "^0.12.0",
     "typescript": "^4.1.3"
   }
