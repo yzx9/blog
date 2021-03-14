@@ -1,7 +1,7 @@
-import type { UserConfig } from "@vuepress/cli"
+import { defineUserConfig } from "@vuepress/cli"
 import type { ThemeOptions } from "vuepress-theme-celesta"
 
-const config: UserConfig<ThemeOptions> = {
+export default defineUserConfig<ThemeOptions>({
   title: "Celeste's blog",
   description: "Technique && Life",
 
@@ -14,6 +14,11 @@ const config: UserConfig<ThemeOptions> = {
       lang: "zh-CN",
     },
   },
+
+  bundler:
+    process.env.NODE_ENV === "production"
+      ? "@vuepress/webpack"
+      : "@vuepress/vite",
 
   plugins: [],
 
@@ -32,6 +37,4 @@ const config: UserConfig<ThemeOptions> = {
       Default: "默认",
     },
   },
-}
-
-export default config
+})
