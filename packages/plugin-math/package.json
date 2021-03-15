@@ -30,7 +30,7 @@
     "@vuepress/client": "^2.0.0-alpha.25",
     "@vuepress/core": "^2.0.0-alpha.25",
     "@vuepress/utils": "^2.0.0-alpha.25",
-    "katex": "^0.12.0",
+    "katex": "^0.13.0",
     "typescript": "^4.1.3"
   }
 }
