@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.base.json",
   "references": [
-    { "path": "./packages/theme-celesta/tsconfig.json" },
+    { "path": "./packages/theme-celesta/tsconfig.build.json" },
     { "path": "./packages/plugin-math/tsconfig.build.json" },
     { "path": "./packages/plugin-post-filter/tsconfig.build.json" }
   ],
