@@ -149,7 +149,7 @@ while(C 中有未标记子集 T) {
 | 5    | 对子集 $\{ 5,6,7 \}$ 中每个元素 $C$ 执行 $Move(C, a)$，发现 $\{ 5 \} \{ 6,7 \}$ 可区分             | $P_3 = \{ \{ 1,2 \} \{ 3 \} \{ 4 \} \{ 5 \} \{ 6,7 \} \}$ |
 | 6    | 对子集 $\{ 6,7 \}$ 中每个元素 $C$ 执行 $Move(C, a); Move(C, b)$，发现 $\{ 6,7 \}$ 不可区分         | -                                                         |
 
-![Simplification](assets/division-simplification.png)
+![Simplification](./assets/division-simplification.png)
 
 ## Reference
 

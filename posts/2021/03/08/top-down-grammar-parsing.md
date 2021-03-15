@@ -1,6 +1,6 @@
 ---
-date: 2021-3-8
-updated: 2021-3-9
+date: 2021-3-8 19:50:16
+updated: 2021-3-15 14:40:28
 location: Guang Ze, Fu Jian
 categories:
   - Computer Science
@@ -156,15 +156,15 @@ $$
 
 $$
 \begin{align}
-S &\rightarrow Aa|b \tag{1.1} \\
-A &\rightarrow Ac|Sd|\epsilon \tag{1.2} \\
+S \rightarrow Aa|b               \tag{1a} \\
+A \rightarrow Ac|Sd|\epsilon     \tag{1b} \\
 \\
-S &\rightarrow Aa|b \tag{2.1} \\
-A &\rightarrow Ac|Aad|bd|\epsilon \tag{2.2} & put (1.1) into (1.2) \\
+S \rightarrow Aa|b               \tag{2a} \\
+A \rightarrow Ac|Aad|bd|\epsilon \tag{2b} & put (1a) into (1b) \\
 \\
-S &\rightarrow Aa|b \tag{3.1} \\
-A &\rightarrow bdA' \tag{3.2} \\
-A &\rightarrow cA'|adA'|\epsilon \tag{3.3} \\
+S \rightarrow Aa|b               \tag{3a} \\
+A \rightarrow bdA'               \tag{3b} \\
+A \rightarrow cA'|adA'|\epsilon  \tag{3c} \\
 \end{align}
 $$
 
@@ -279,11 +279,11 @@ $$
 
 当某非终结符 $A$ 与当前输入符 $a$ 不匹配时，若存在产生式 $A\rightarrow \epsilon $，则检查 a 是否可以出现在 A 的后面，来决定是否使用 ε 产生式；若不存在产生式 $A\rightarrow \epsilon $，则报错。我们将这个可能在某个句型中紧跟在 $A$ 后边的终结符 $a$ 的集合，记为 $FOLLOW(A)$ 。如果 $A$ 是某个句型的最右符号，则将结束符 "\$" 添加到 $FOLLOW(A)$ 中。
 
-因此对于上述文法：
+因此对于上述文法，求出 $FOLLOW(B)$ 后不难发现 $e \notin FOLLOW(B)$，因此可以直接发现错误。
 
 $$
 \begin{aligned}
-FOLLOW(S) &= \{\$\} \\
+FOLLOW(S) &= \{\$ \} \\
 FOLLOW(B) &= \{a,c\} \\
 FOLLOW(C) &= \{a,c,\$\} \\
 \end{aligned}

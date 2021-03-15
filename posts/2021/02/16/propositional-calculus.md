@@ -344,7 +344,7 @@ $$
 证明 $\lnot r \rightarrow s$ 是 $p \rightarrow (q \rightarrow r), p \land q$ 的结论
 
 $$
-\begin{aligned}
+\begin{align}
 & p \and q & \text{前提引入} \tag{1} \\
 & p & \text{（1）化简} \tag{2} \\
 & p \rightarrow (q \rightarrow r) & \text{前提引入} \tag{3} \\
@@ -354,7 +354,7 @@ $$
 & r \lor s & \text{（6）附加} \tag{7} \\
 & \lnot r \rightarrow s & \text{（7）置换规则} \tag{8} \\
 & \therefore \text{得证} \\
-\end{aligned}
+\end{align}
 $$
 
 ##### 附加前提证明法（CP 规则）
@@ -366,17 +366,17 @@ $$
 证明 $r \rightarrow s$ 是 $p \rightarrow (q \rightarrow s), \lnot r \lor p, q$ 的结论\*\*
 
 $$
-\begin{aligned}
+\begin{align}
 & \lnot r \lor p & \text{前提引入} \tag{1} \\
 & r \rightarrow p & \text{（1）置换规则} \tag{2} \\
 & r & \text{附加前提引入} \tag{3} \\
 & p & \text{（2）（3）假言推理} \tag{4} \\
-& p \rightarrow (q \rightarrow s) & 前提引入} \tag{5} \\
+& p \rightarrow (q \rightarrow s) & \text{前提引入} \tag{5} \\
 & q \rightarrow s & \text{（4）（5）假言推理} \tag{6} \\
 & q & \text{前提引入} \tag{7} \\
 & s & \text{（6）（7）假言推理} \tag{8} \\
 & \therefore \text{由CP规则，即得证}
-\end{aligned}
+\end{align}
 $$
 
 #### 间接推演法（归谬法）
@@ -388,9 +388,9 @@ $$
 证明 $\lnot p$ 是 $p \rightarrow \lnot q, p \land \lnot r, r \land \lnot s$ 的结论
 
 $$
-\begin{aligned}
+\begin{align}
 & \lnot \lnot p & \text{否定结论引入} \tag{1} \\
-& p & \text{(1)双重否定} \tag{2}} \\
+& p & \text{(1)双重否定} \tag{2} \\
 & p \rightarrow \lnot q & \text{前提引入} \tag{3} \\
 & \lnot q & \text{(2)(3)假言推理} \tag{4} \\
 & q \lor \lnot r & \text{前提引入} \tag{5} \\
@@ -399,7 +399,7 @@ $$
 & r \land \lnot s & \text{前提引入} \tag{8} \\
 & r & \text{(8)化简} \tag{9} \\
 & \therefore \text{(7)(9)矛盾，故得证}
-\end{aligned}
+\end{align}
 $$
 
 第（7）步也可以由（4）（5）步析取三段论得到，省略第（6）步
