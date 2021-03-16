@@ -200,7 +200,7 @@ S\_文法，简单的确定性文法，Korenjak & Hopcroft，1966。
 
 #### 计算 FIRST 集
 
-计算一个文法符号 $X$ 的 FIRST 集
+计算一个文法符号 $X$ 的 $FIRST$ 集
 
 ```cpp
 while(每个产生式){
@@ -212,7 +212,7 @@ while(每个产生式){
 }
 ```
 
-计算串 $X_1X_2\ldots X_n$ 的 FIRST 集
+计算串 $X_1X_2\ldots X_n$ 的 $FIRST$ 集
 
 ```cpp
 frist = [];
@@ -257,15 +257,15 @@ $$
 考虑下列文法：
 
 $$
-\begin{aligned}
-&1.& S &\rightarrow aBC \\
-&2.& B &\rightarrow bC \\
-&3.& B &\rightarrow dB \\
-&4.& B &\rightarrow \epsilon \\
-&5.& C &\rightarrow a \\
-&6.& C &\rightarrow c \\
-&7.& D &\rightarrow e \\
-\end{aligned}
+\begin{align}
+S &\rightarrow aBC      &(1) \\
+B &\rightarrow bC       &(2) \\
+B &\rightarrow dB       &(3) \\
+B &\rightarrow \epsilon &(4) \\
+C &\rightarrow a        &(5) \\
+C &\rightarrow c        &(6) \\
+D &\rightarrow e        &(7) \\
+\end{align}
 $$
 
 对于输入集`ade#`，有下列分析过程：
@@ -335,18 +335,18 @@ $$
 产生式 $A\rightarrow \beta$ 的可选集是指可以选用该产生式进行推导时，对应的输入符号的集合，记为 $SELECT(A\rightarrow \beta)$。例如：
 
 $$
-\begin{aligned}
-&SELECT(A\rightarrow a\beta) &=& \{a\} \\
-&SELECT(A\rightarrow \epsilon) &=& FOLLOW(A)
-\end{aligned}
+\begin{align}
+&SELECT(A\rightarrow a\beta)   &= &\{ a \}   \\
+&SELECT(A\rightarrow \epsilon) &= &FOLLOW(A) \\
+\end{align}
 $$
 
 #### 计算 SELECT 集
 
 $$
 \begin{aligned}
-&\text{if }\epsilon \in FIRST(\alpha), &\text{then }& SELECT(A \rightarrow \alpha)=FIRST(A) \\
-&\text{if }\epsilon \notin FIRST(\alpha), &\text{then }& SELECT(A \rightarrow \alpha)=(FIRST(A)-\{\epsilon\}) \cup FOLLOW(A)
+&\text{if }\epsilon \in FIRST(\alpha),    &\text{then }& SELECT(A \rightarrow \alpha)=FIRST(A)                               \\
+&\text{if }\epsilon \notin FIRST(\alpha), &\text{then }& SELECT(A \rightarrow \alpha)=(FIRST(A)-\{\epsilon\}) \cup FOLLOW(A) \\
 \end{aligned}
 $$
 
@@ -354,11 +354,11 @@ $$
 
 $$
 \begin{aligned}
-&E  &\rightarrow& TE' \\
+&E  &\rightarrow& TE'           \\
 &E' &\rightarrow& +TE'|\epsilon \\
-&T  &\rightarrow& FT' \\
+&T  &\rightarrow& FT'           \\
 &T' &\rightarrow& *FT'|\epsilon \\
-&F  &\rightarrow& (E)|id \\
+&F  &\rightarrow& (E)|id        \\
 \end{aligned}
 $$
 
@@ -366,11 +366,11 @@ FIRST 集：
 
 $$
 \begin{aligned}
-&FIRST(E') &=& \{+,\epsilon\} \\
-&FIRST(T') &= &\{*,\epsilon\} \\
-&FIRST(F) &=& \{(,id\} \\
-&FIRST(T) &=& FIRST(F) &= \{(,id\} \\
-&FIRST(E) &=& FIRST(T) &= \{(,id\} \\
+&FIRST(E') &= & \{+,\epsilon\}             \\
+&FIRST(T') &= & \{*,\epsilon\}             \\
+&FIRST(F)  &= & \{(,id\}                   \\
+&FIRST(T)  &= & FIRST(F)       &= \{(,id\} \\
+&FIRST(E)  &= & FIRST(T)       &= \{(,id\} \\
 \end{aligned}
 $$
 
@@ -378,11 +378,11 @@ FOLLOW 集：
 
 $$
 \begin{aligned}
-&FOLLOW(E)  &=& \{\$,)\} \\
-&FOLLOW(E') &=& \{\$\}   \\
-&FOLLOW(T)  &=& \{+,\$\} \\
-&FOLLOW(T') &=& \{+,\$\} \\
-&FOLLOW(F)  &=& \{*,+,\$\} \\
+&FOLLOW(E)  &= & \{\$,)\}   \\
+&FOLLOW(E') &= & \{\$\}     \\
+&FOLLOW(T)  &= & \{+,\$\}   \\
+&FOLLOW(T') &= & \{+,\$\}   \\
+&FOLLOW(F)  &= & \{*,+,\$\} \\
 \end{aligned}
 $$
 
@@ -390,14 +390,14 @@ SELECT 集：
 
 $$
 \begin{aligned}
-&SELECT(E \rightarrow TE') &&= FIRST(T) &&= \{(,id\} \\
-&SELECT(E'\rightarrow +TE') &&= \{+\} \\
-&SELECT(E'\rightarrow \epsilon) &&=FOLLOW(E') &&=\{\$,)\} \\
-&SELECT(T \rightarrow FT') &&=FIRST(F) &&=\{(,id\} \\
-&SELECT(T'\rightarrow *FT') &&=\{*\} \\
+&SELECT(E \rightarrow TE')      &&= FIRST(T)  &&= \{(,id\}  \\
+&SELECT(E'\rightarrow +TE')     &&= \{+\}                   \\
+&SELECT(E'\rightarrow \epsilon) &&=FOLLOW(E') &&=\{\$,)\}   \\
+&SELECT(T \rightarrow FT')      &&=FIRST(F)   &&=\{(,id\}   \\
+&SELECT(T'\rightarrow *FT')     &&=\{*\}                    \\
 &SELECT(T'\rightarrow \epsilon) &&=FOLLOW(T') &&=\{+,),\$\} \\
-&SELECT(F \rightarrow (E)) &&=\{(\}\\
-&SELECT(F \rightarrow id) &&=\{id\} \\
+&SELECT(F \rightarrow (E))      &&=\{(\}                    \\
+&SELECT(F \rightarrow id)       &&=\{id\}                   \\
 \end{aligned}
 $$
 
