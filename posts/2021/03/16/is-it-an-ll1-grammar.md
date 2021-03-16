@@ -1,6 +1,6 @@
 ---
 date: 2021-3-16 14:07:03
-update: 2021-3-16 14:07:03
+update: 2021-3-16 15:00:16
 categories:
   - Computer Science
   - Principle of Compiler
@@ -11,7 +11,19 @@ tags:
 
 # LL(1)文法判别
 
-判别一个给定上下文无关文法 G 是否为 LL(1) 文法的关键在于判断 SELECT 集是否相交，求解时可以分为几个步骤：
+在 LR 分析中，首先应该判断一个文法是否为 LL(1) 文法，对此可以给出一些必要条件：
+
+- 含有左递归的文法绝对不是 LL(1) 文法
+
+同样也可以给出一些充分条件：
+
+- s\_文法和 q\_文法是 LL1
+
+但是这些条件都无法在任意条件下判断一个 CFG 文法（上下文无关文法）是否是 LL(1) 的，还是要回到 LL(1) 文法定义：
+
+> 假设文法 G 是 LL(1) 的，当且仅当 G 的任意两个具有相同左部的产生式 $A \rightarrow\alpha|\beta$ ，有$SELECT(A \rightarrow \alpha) \cap SELTCT(A \rightarrow \beta)=\emptyset$，其中 $\alpha$ 和 $\beta$ 不能同时 ${\Rightarrow}^* \epsilon$。
+
+可以看出，要判别一个给定 Context Free Grammar G 是否为 LL(1) 文法的关键在于判断 SELECT 集是否相交，求解时可以分为几个步骤：
 
 1. 求能够推出 ε 的非终结符
 2. 计算每一个文法符号的 FIRST 集
