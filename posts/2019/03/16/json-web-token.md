@@ -37,16 +37,18 @@ https://www.iana.org/assignments/jwt/jwt.xhtml
 
 ### Signature
 
-```js
+```javascript
 HMACSHA256(
   base64UrlEncode(header) + "." + base64UrlEncode(payload),
-  your-256-bit-secret
+  your - 256 - bit - secret
 )
 ```
 
 ### HTTP Header
 
+```
 Authorization: Bearer <token>
+```
 
 ## 优点
 
@@ -57,6 +59,7 @@ Authorization: Bearer <token>
 ## 缺点
 
 - 包含认证信息，因此一旦信息泄露，任何人都可以获得令牌的所有权限
+
   - 有效期不宜太长
   - 重要操作时应验证身份
   - HTTPS
@@ -74,5 +77,5 @@ Authorization: Bearer <token>
 [Using Tokens with User Pools](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html)
 
 [Microsoft identity platform ID tokens](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims)
- 
+
 [Tokens used by Auth0](https://auth0.com/docs/tokens)

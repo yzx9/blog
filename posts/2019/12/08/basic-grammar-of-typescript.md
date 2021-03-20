@@ -20,63 +20,63 @@ tags:
 enum Tristate {
   False,
   True = 2,
-  Unknown
+  Unknown,
 }
 
-const lie = Tristate.False;
+const lie = Tristate.False
 
 // compiled, 生成一个全局变量
-var Tristate;
-(function(Tristate) {
-  Tristate[(Tristate['False'] = 0)] = 'False';
-  Tristate[(Tristate['True'] = 2)] = 'True';
-  Tristate[(Tristate['Unknown'] = 3)] = 'Unknown';
-})(Tristate || (Tristate = {}));
+var Tristate
+;(function (Tristate) {
+  Tristate[(Tristate["False"] = 0)] = "False"
+  Tristate[(Tristate["True"] = 2)] = "True"
+  Tristate[(Tristate["Unknown"] = 3)] = "Unknown"
+})(Tristate || (Tristate = {}))
 
-var lie = Tristate.False;
+var lie = Tristate.False
 ```
 
 **const enum :** 编译后不包含全局变量, 而是直接替换为值, 减少寻址过程 `var lie = 0`, 可以添加编译选项`--preserveConstEnums`生成全局变量
 
 ### Interface
 
-+ 不以 I 开头, 因为并不仅仅是接口
-+ Duck typing
+- 不以 I 开头, 因为并不仅仅是接口
+- Duck typing
 
 ```typescript
 interface Point {
-  x: number;
-  y: number;
+  x: number
+  y: number
 }
 
 class MyPoint implements Point {
-  x: number;
-  y: number; // Same as Point
+  x: number
+  y: number // Same as Point
 }
 ```
 
 ```typescript
 interface Crazy {
   new (): {
-    hello: number;
-  };
+    hello: number
+  }
 }
 
 class CrazyClass implements Crazy {
   constructor() {
-    return { hello: 123 };
+    return { hello: 123 }
   }
 }
 
 // Because
-const crazy = new CrazyClass(); // crazy would be { hello:123 }
+const crazy = new CrazyClass() // crazy would be { hello:123 }
 ```
 
 ### Type Alias
 
 ```typescript
-type Shape = Square | Rectangle;
-type Pet = Cat & Dog;
+type Shape = Square | Rectangle
+type Pet = Cat & Dog
 
 type Point = {
   x: number
@@ -107,7 +107,7 @@ type Pointable = {
 - interface
   - extends
   - declaration merging
-    - 公开API 必须使用 interface
+    - 公开 API 必须使用 interface
 
 ## 类型操作关键词
 
@@ -121,20 +121,20 @@ type Pointable = {
 - extends
 
 ```typescript
-type Words = 'a'|'b'|"c";
-type W<T> = T extends Words ? true : false;
-type WA = W<'a'>; // -> true
-type WD = W<'d'>; // -> false
+type Words = "a" | "b" | "c"
+type W<T> = T extends Words ? true : false
+type WA = W<"a"> // -> true
+type WD = W<"d"> // -> false
 ```
 
 ## 泛型
 
 ### base usage
 
-- function<T>: T {}
-- <T>(input: T) => void
-- interface<T> {}
-- type<T> = T | { [key: string] : string }
+- `function<T>: T {}`
+- `<T>(input: T) => void`
+- `interface<T> {}`
+- `type<T> = T | { [key: string] : string }`
 
 ### infer
 

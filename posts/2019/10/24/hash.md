@@ -56,20 +56,26 @@ $$\alpha = \frac{number}{length}$$
 ### 线性探测再散列
 
 $$
-ASL_{succ}\approx\frac{1}{2}(1+\frac{1}{1-\alpha}) \\
-ASL_{unsucc}\approx\frac{1}{2}(1+\frac{1}{(1-\alpha)^2})
+\begin{aligned}
+ASL_{succ}\approx\frac{1}{2}(1+\frac{1}{1-\alpha})       \\
+ASL_{unsucc}\approx\frac{1}{2}(1+\frac{1}{(1-\alpha)^2}) \\
+\end{aligned}
 $$
 
 ### 伪随机探测再散列, 二次探测再散列, 再哈希法
 
 $$
+\begin{aligned}
 ASL_{succ}\approx-\frac{1}{\alpha}\ln(1-\alpha) \\
-ASL_{unsucc}\approx-\frac{1}{1-\alpha}
+ASL_{unsucc}\approx-\frac{1}{1-\alpha}          \\
+\end{aligned}
 $$
 
 ### 链址法
 
 $$
-ASL_{succ}\approx1+\frac{\alpha}{2} \\
-ASL_{unsucc}\approx\alpha+e^{-\alpha}
+\begin{aligned}
+ASL_{succ}\approx1+\frac{\alpha}{2}   \\
+ASL_{unsucc}\approx\alpha+e^{-\alpha} \\
+\end{aligned}
 $$
