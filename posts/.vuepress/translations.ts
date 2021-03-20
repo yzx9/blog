@@ -7,6 +7,9 @@ export const translations: { [key: string]: string } = {
   "Principle of Compiler": "编译原理",
   Grammar: "语法",
 
+  "Front End": "前端",
+  "Browser": "浏览器",
+
   Life: "日常",
   Coffee: "咖啡",
 

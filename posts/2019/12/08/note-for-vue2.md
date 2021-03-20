@@ -141,7 +141,7 @@ _update (vnode -> DOM)
 
 ### 生命周期
 
-![Vue 生命周期](./assets/lifecycle.png)
+![Vue 生命周期](./assets/vue2-lifecycle.png)
 
 ### 异步组件
 

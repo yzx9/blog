@@ -5,6 +5,7 @@ categories:
   - Computer Science
 tags:
   - Authorization
+  - OAuth2
 ---
 
 # OAuth 2

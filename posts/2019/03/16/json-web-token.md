@@ -5,6 +5,7 @@ categories:
   - Computer Science
 tags:
   - Authorization
+  - jwt
 ---
 
 # Json Web Token
