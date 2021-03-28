@@ -29,7 +29,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@vuepress/core": "^2.0.0-alpha.20",
+    "@vuepress/core": "^2.0.0-beta.6",
     "typescript": "^4.1.3"
   }
 }

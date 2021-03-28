@@ -20,8 +20,8 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
-    "@vuepress/bundler-webpack": "2.0.0-alpha.26",
-    "@vuepress/cli": "2.0.0-alpha.26",
+    "@vuepress/bundler-webpack": "2.0.0-beta.6",
+    "@vuepress/cli": "2.0.0-beta.6",
     "jest": "^26.6.3",
     "jest-serializer-vue": "^2.0.2",
     "lerna": "^3.22.1",
