@@ -22,8 +22,6 @@
   "scripts": {},
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
-    "@vuepress/bundler-webpack": "2.0.0-alpha.26",
-    "@vuepress/cli": "2.0.0-alpha.26",
     "@vuepress/client": "2.0.0-alpha.25",
     "@vuepress/core": "2.0.0-alpha.25",
     "@vuepress/plugin-active-header-links": "2.0.0-alpha.25",
