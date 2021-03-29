@@ -36,7 +36,7 @@ export type PaginationOptions = {
   filter?: PostFilter
 }
 
-type PaginationData = {
+export type PaginationData = {
   posts: PageData[]
   total: number
 }

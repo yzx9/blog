@@ -1,6 +1,6 @@
 <template>
   <div class="flex-col">
-    <template v-for="post in posts">
+    <template v-for="post in pagination.posts">
       <div
         class="p-8 my-4 flex flex-col transition-all duration-300 rounded items-center hover:border hover:shadow-md"
       >
@@ -21,15 +21,18 @@
       </div>
     </template>
   </div>
-  <Pagination v-model:current="paginationOption.currentPage" :total="total" />
+  <Pagination
+    v-model:current="paginationOption.currentPage"
+    :total="pagination.total"
+  />
 </template>
 
 <script lang="ts">
 import { reactive, ref, watch } from "vue"
 import Pagination from "./Pagination.vue"
 import { usePostsPagination } from "../composables"
-import type { PaginationOptions } from "../composables"
-import type { PageData } from "../types"
+import type { Ref } from "vue"
+import type { PaginationOptions, PaginationData } from "../composables"
 
 export default {
   components: {
@@ -40,22 +43,18 @@ export default {
       currentPage: 1,
     })
 
-    const posts = ref<PageData[]>([])
-    const total = ref(0)
+    const pagination: Ref<PaginationData> = ref({
+      posts: [],
+      total: 0,
+    })
+
     usePostsPagination(paginationOption).then((paginationData) => {
-      watch(
-        paginationData,
-        (a) => {
-          posts.value = a.posts
-          total.value = a.total
-        },
-        { immediate: true }
-      )
+      const watcher = (a: PaginationData) => (pagination.value = a)
+      watch(paginationData, watcher, { immediate: true })
     })
 
     return {
-      posts,
-      total,
+      pagination,
       paginationOption,
     }
   },
