@@ -8,9 +8,7 @@
     </template>
 
     <template #main>
-      <Suspense>
-        <Posts />
-      </Suspense>
+      <Posts />
     </template>
 
     <template #sub>

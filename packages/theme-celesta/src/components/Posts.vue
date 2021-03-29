@@ -25,21 +25,33 @@
 </template>
 
 <script lang="ts">
-import { reactive, toRefs } from "vue"
+import { reactive, ref, watch } from "vue"
 import Pagination from "./Pagination.vue"
 import { usePostsPagination } from "../composables"
 import type { PaginationOptions } from "../composables"
+import type { PageData } from "../types"
 
 export default {
   components: {
     Pagination,
   },
-  async setup(props, ctx) {
+  setup(props, ctx) {
     const paginationOption: PaginationOptions = reactive({
       currentPage: 1,
     })
 
-    const { posts, total } = toRefs(await usePostsPagination(paginationOption))
+    const posts = ref<PageData[]>([])
+    const total = ref(0)
+    usePostsPagination(paginationOption).then((paginationData) => {
+      watch(
+        paginationData,
+        (a) => {
+          posts.value = a.posts
+          total.value = a.total
+        },
+        { immediate: true }
+      )
+    })
 
     return {
       posts,
