@@ -12,19 +12,26 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "lerna run build",
-    "test": "jest",
+    "build": "tsc --build",
+    "clean": "lerna run clean --stream",
+    "copy": "lerna run copy --stream",
+    "copy-watch": "lerna run copy --parallel -- --watch",
+    "dev": "yarn copy-watch & yarn build --watch",
     "blog:build": "vuepress build posts --clean-cache",
     "blog:clean": "rimraf posts/.vuepress/.temp posts/.vuepress/.cache posts/.vuepress/dist",
-    "blog:dev": "vuepress dev posts"
+    "blog:dev": "vuepress dev posts",
+    "test": "jest"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@vuepress/bundler-webpack": "2.0.0-beta.6",
     "@vuepress/cli": "2.0.0-beta.6",
+    "cpx2": "^3.0.0",
     "jest": "^26.6.3",
     "jest-serializer-vue": "^2.0.2",
     "lerna": "^3.22.1",
-    "ts-jest": "^26.5.2"
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.5.2",
+    "typescript": "^4.1.3"
   }
 }
