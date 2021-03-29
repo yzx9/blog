@@ -1,9 +1,8 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./lib"
-  },
-  "include": ["./src"],
-  "exclude": ["node_modules"]
+  "references": [
+    { "path": "./tsconfig.esm.json" },
+    { "path": "./tsconfig.cjs.json" }
+  ],
+  "files": []
 }
