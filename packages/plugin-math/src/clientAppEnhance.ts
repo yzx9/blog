@@ -1,8 +1,6 @@
-import type { ClientAppEnhance } from "@vuepress/client"
+import { defineClientAppEnhance } from "@vuepress/client"
 
 // katex styles
 import "katex/dist/katex.min.css"
 
-export const clientAppEnhance: ClientAppEnhance = (ctx) => {}
-
-export default clientAppEnhance
+export default defineClientAppEnhance((ctx) => {})
