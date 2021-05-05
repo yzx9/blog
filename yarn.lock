@@ -1924,14 +1924,14 @@
     "@vuepress/shared" "2.0.0-beta.7"
     "@vuepress/utils" "2.0.0-beta.11"
 
-"@vuepress/shared@2.0.0-beta.12", "@vuepress/shared@2.0.0-beta.7":
+"@vuepress/shared@2.0.0-beta.7":
   version "2.0.0-beta.7"
   resolved "https://registry.npmjs.org/@vuepress/shared/-/shared-2.0.0-beta.7.tgz#5514b8e9cd7f7aeab59a5bb4767dbf3271a8d7d5"
   integrity sha512-yqaWY5DtVBE7+r4FSWLxxs8u0cznAs/NH4QabadfJ+463KbcSJ2zBgLg7YcRlUdTKqlxsTymyB4Hfpva79GUIw==
   dependencies:
     "@vue/shared" "^3.0.11"
 
-"@vuepress/utils@2.0.0-beta.11", "@vuepress/utils@2.0.0-beta.12", "@vuepress/utils@^2.0.0-beta.12":
+"@vuepress/utils@2.0.0-beta.11", "@vuepress/utils@^2.0.0-beta.11":
   version "2.0.0-beta.11"
   resolved "https://registry.npmjs.org/@vuepress/utils/-/utils-2.0.0-beta.11.tgz#a44b6a664a515fcf9f7b494697bb555a4a742beb"
   integrity sha512-ci+wjxWcNbtnX/0gN9LH/6uDmO1lhzZJzqoGTaJQxg/94anrgd8bGFIdTZ0aSCfJvbLWZXMCrNYVAmAq8W2EaQ==
