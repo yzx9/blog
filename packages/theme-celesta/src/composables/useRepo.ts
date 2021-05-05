@@ -1,5 +1,5 @@
 import { computed } from "vue"
-import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/composables"
+import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
 import { resolveRepoType } from "../utils"
 import type { ThemeData } from "../types"
 

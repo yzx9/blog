@@ -1,6 +1,6 @@
 import { computed } from "vue"
 import { usePageData } from "@vuepress/client"
-import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/composables"
+import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
 import type { ThemeData, ThemePageData } from "../types"
 
 export const useLocaleTags = () => {
