@@ -1,0 +1,34 @@
+{
+  "name": "vuepress-plugin-celesta",
+  "version": "0.1.0",
+  "description": "> TODO: description",
+  "author": "Celeste <yuan.zx@outlook.com>",
+  "homepage": "https://nsznsznjsz.github.io/tree/main/packages/plugin-celesta#readme",
+  "license": "MIT",
+  "main": "lib/index.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.yarnpkg.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsznsznjsz/blog.git"
+  },
+  "scripts": {
+    "build": "tsc --build tsconfig.build.json",
+    "clean": "rimraf lib *.tsbuildinfo",
+    "copy": "cpx \"src/**/*\" lib"
+  },
+  "bugs": {
+    "url": "https://github.com/nsznsznjsz/blog/issues"
+  },
+  "dependencies": {
+    "@vuepress/core": "^2.0.0-beta.12"
+  }
+}

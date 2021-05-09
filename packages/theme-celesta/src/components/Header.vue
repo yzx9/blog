@@ -59,7 +59,11 @@
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import Particles from "./Particles.vue"
-import { useLocaleCategories, useLocaleTags, useEditLink } from "../composables"
+import {
+  useLocaleCategories,
+  useLocaleTags,
+  useEditLink,
+} from "vuepress-plugin-celesta/lib/composables"
 import { linkListToArray } from "../utils"
 import type { ThemePageData } from "../types"
 

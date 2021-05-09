@@ -1,8 +1,7 @@
 import { computed } from "vue"
 import { usePageData } from "@vuepress/client"
 import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
-import type { ThemeData, ThemePageData } from "../types"
-import type { ThemePageCategory } from "../types"
+import type { ThemeData, ThemePageData, ThemePageCategory } from "../types"
 
 export const useLocaleCategories = () => {
   const pageData = usePageData<ThemePageData>()

@@ -20,7 +20,8 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf lib *.tsbuildinfo"
+    "clean": "rimraf lib *.tsbuildinfo",
+    "copy": "cpx \"src/**/*\" lib"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
@@ -43,6 +44,7 @@
     "tsparticles": "^1.18.11",
     "vue": "^3.0.5",
     "vue-router": "^4.0.3",
+    "vuepress-plugin-celesta": "^0.1.0",
     "vuepress-plugin-math": "^0.1.0",
     "vuepress-plugin-post-filter": "^1.0.2"
   }

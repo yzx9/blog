@@ -1,5 +1,5 @@
 import { ThemeLocaleOptions, ThemeOptions } from "../types"
-import { assignOptionTranslations } from "./assignOptionTranslations"
+import { assignOptionTranslations } from "vuepress-plugin-celesta/lib/node/assignOptionTranslations"
 
 const defaultLang = "en-US"
 

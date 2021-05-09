@@ -1,11 +1,6 @@
 import { path } from "@vuepress/utils"
 import type { Theme } from "@vuepress/core"
-import {
-  assignDefaultOptions,
-  extendsPageOptions,
-  extendsPageData,
-  onInitialized,
-} from "./node"
+import { assignDefaultOptions, extendsPageOptions, onInitialized } from "./node"
 
 export const theme: Theme = (themeOptions, app) => {
   assignDefaultOptions(themeOptions, app.options.lang)
@@ -20,6 +15,7 @@ export const theme: Theme = (themeOptions, app) => {
         { headerLinkSelector: ".catalog__link" },
       ],
       ["@vuepress/theme-data", { themeData: themeOptions }],
+      "vuepress-plugin-celesta",
       "vuepress-plugin-post-filter",
       "vuepress-plugin-math",
     ],
@@ -31,8 +27,6 @@ export const theme: Theme = (themeOptions, app) => {
     clientAppSetupFiles: path.resolve(__dirname, "./clientAppSetup.ts"),
 
     extendsPageOptions,
-
-    extendsPageData,
 
     onInitialized,
   }
