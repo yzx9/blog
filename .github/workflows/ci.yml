@@ -38,7 +38,9 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Build packages
-        run: yarn build
+        run: |
+          yarn copy
+          yarn build
 
       - name: Build blog site
         env:

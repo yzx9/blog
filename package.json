@@ -12,14 +12,15 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "tsc --build && yarn copy",
-    "clean": "lerna run clean --stream",
-    "copy": "lerna run copy --stream",
-    "copy-watch": "lerna run copy --parallel -- --watch",
-    "dev": "yarn copy-watch & yarn build --watch",
     "blog:build": "vuepress build posts --clean-cache",
     "blog:clean": "rimraf posts/.vuepress/.temp posts/.vuepress/.cache posts/.vuepress/dist",
     "blog:dev": "vuepress dev posts",
+    "build": "tsc --build",
+    "build-watch": "tsc --build --watch",
+    "clean": "lerna run clean --stream",
+    "copy": "lerna run copy --stream",
+    "copy-watch": "lerna run copy --parallel -- --watch",
+    "dev": "yarn copy-watch & yarn build-watch",
     "test": "jest"
   },
   "devDependencies": {
