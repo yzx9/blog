@@ -17,7 +17,7 @@
     "blog:dev": "vuepress dev posts",
     "build": "tsc --build",
     "build-watch": "tsc --build --watch",
-    "clean": "lerna run clean --stream",
+    "clean": "yarn blog:clean && lerna run clean --stream",
     "copy": "lerna run copy --stream",
     "copy-watch": "lerna run copy --parallel -- --watch",
     "dev": "yarn copy-watch & yarn build-watch",
