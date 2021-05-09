@@ -28,8 +28,6 @@ export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
       "./client/clientAppEnhance.ts"
     ),
 
-    clientAppSetupFiles: path.resolve(__dirname, "./client/clientAppSetup.ts"),
-
     extendsPageOptions,
 
     onInitialized,
