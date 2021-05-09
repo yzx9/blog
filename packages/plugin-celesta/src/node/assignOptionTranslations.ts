@@ -1,4 +1,4 @@
-import { normalizeCategoryOrTag } from "../utils"
+import { normalizeCategoryOrTag } from "../client/utils"
 import type { ThemeOptions } from "../types"
 
 export const normalizeTranslations = (raw: Record<string, string> = {}) =>

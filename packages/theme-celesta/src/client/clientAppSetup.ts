@@ -7,7 +7,7 @@ import {
   mapFromCategoryToPostsSymbol,
   resolvePosts,
   postsSymbol,
-} from "vuepress-plugin-celesta/lib/composables"
+} from "vuepress-plugin-celesta/lib/client"
 
 export default defineClientAppSetup(() => {
   const mapFromTagToPage = resolveMapFromTagToPosts()

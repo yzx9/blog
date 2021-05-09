@@ -4,7 +4,7 @@ import {
   ThemePageCategories,
   ThemePageCategory,
 } from "../types"
-import { normalizeCategoryOrTag } from "../utils"
+import { normalizeCategoryOrTag } from "../client/utils"
 
 const prefix = "/categories#"
 const map = new Map<string, ThemePageCategory>()

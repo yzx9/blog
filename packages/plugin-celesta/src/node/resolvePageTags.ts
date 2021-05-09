@@ -1,6 +1,6 @@
 import { Page } from "@vuepress/core"
 import { ThemeFrontmatter, ThemePageTags } from "../types"
-import { normalizeCategoryOrTag } from "../utils"
+import { normalizeCategoryOrTag } from "../client/utils"
 
 export const resolvePageTags = (
   page: Page & { frontmatter: ThemeFrontmatter }

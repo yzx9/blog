@@ -1,7 +1,7 @@
 import { computed } from "vue"
 import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
 import { resolveRepoType } from "../utils"
-import type { ThemeData } from "../types"
+import type { ThemeData } from "../../types"
 
 export const useRepo = () => {
   const themeLocale = useThemeLocaleData<ThemeData>()

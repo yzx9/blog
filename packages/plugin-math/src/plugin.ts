@@ -1,11 +1,14 @@
 import type { PluginObject } from "@vuepress/core"
 import { path } from "@vuepress/utils"
-import { extendsMarkdown } from "./extendsMarkdown"
+import { extendsMarkdown } from "./node/extendsMarkdown"
 
 export const texmathPlugin: PluginObject = {
   name: "vuepress-plugin-math",
 
-  clientAppEnhanceFiles: path.resolve(__dirname, "./clientAppEnhance.js"),
+  clientAppEnhanceFiles: path.resolve(
+    __dirname,
+    "./client/clientAppEnhance.js"
+  ),
 
   extendsMarkdown,
 }

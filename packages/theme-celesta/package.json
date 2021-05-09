@@ -17,9 +17,10 @@
     "url": "https://github.com/nsznsznjsz/blog/issues",
     "email": "yuan.zx@outlook.com"
   },
-  "main": "src/index.ts",
+  "main": "lib/index.ts",
   "license": "MIT",
   "scripts": {
+    "build": "",
     "clean": "rimraf lib *.tsbuildinfo",
     "copy": "cpx \"src/**/*\" lib"
   },

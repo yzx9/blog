@@ -30,12 +30,12 @@
 <script lang="ts">
 import { reactive, ref, watch } from "vue"
 import Pagination from "./Pagination.vue"
-import { usePostsPagination } from "vuepress-plugin-celesta/lib/composables"
+import { usePostsPagination } from "vuepress-plugin-celesta/lib/client"
 import type { Ref } from "vue"
 import type {
   PaginationOptions,
   PaginationData,
-} from "vuepress-plugin-celesta/lib/composables"
+} from "vuepress-plugin-celesta/lib/client"
 
 export default {
   components: {

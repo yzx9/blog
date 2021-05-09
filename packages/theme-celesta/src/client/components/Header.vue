@@ -63,7 +63,7 @@ import {
   useLocaleCategories,
   useLocaleTags,
   useEditLink,
-} from "vuepress-plugin-celesta/lib/composables"
+} from "vuepress-plugin-celesta/lib/client"
 import { linkListToArray } from "../utils"
 import type { ThemePageData } from "../types"
 

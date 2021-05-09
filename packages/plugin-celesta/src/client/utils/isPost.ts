@@ -1,6 +1,6 @@
 import type { PageData } from "@vuepress/client"
 import { Page } from "@vuepress/core"
-import type { ThemePageData } from "../types"
+import type { ThemePageData } from "../../types"
 
 export function isPost(page: Page): boolean
 export function isPost(page: PageData): boolean

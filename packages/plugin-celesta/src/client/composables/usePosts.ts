@@ -1,7 +1,7 @@
 import { inject } from "vue"
 import { usePagesData } from "@vuepress/client"
 import type { InjectionKey } from "vue"
-import type { PageData } from "../types"
+import type { PageData } from "../../types"
 import { isPost } from "../utils"
 
 export const postsSymbol: InjectionKey<Promise<PageData[]>> = Symbol("posts")

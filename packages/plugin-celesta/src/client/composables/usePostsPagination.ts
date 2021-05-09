@@ -1,6 +1,6 @@
 import { usePosts } from "./usePosts"
 import { isReactive, reactive, watch } from "vue"
-import type { PageData } from "../types"
+import type { PageData } from "../../types"
 
 type PostFilter = (page: PageData) => boolean
 

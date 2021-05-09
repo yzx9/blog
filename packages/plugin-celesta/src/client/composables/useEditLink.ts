@@ -2,7 +2,7 @@ import { usePageData, usePageFrontmatter } from "@vuepress/client"
 import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
 import { computed } from "vue"
 import { resolveEditLink } from "../utils"
-import type { ThemeData, ThemePageData } from "../types"
+import type { ThemeData, ThemePageData } from "../../types"
 
 export const useEditLink = () => {
   const themeLocale = useThemeLocaleData<ThemeData>()

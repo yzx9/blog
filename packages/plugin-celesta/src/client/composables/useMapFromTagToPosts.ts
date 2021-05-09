@@ -1,6 +1,6 @@
 import { usePagesData } from "@vuepress/client"
 import { inject, InjectionKey } from "vue"
-import type { PageData } from "../types"
+import type { PageData } from "../../types"
 import { isPost } from "../utils"
 
 /**

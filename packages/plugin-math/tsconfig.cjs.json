@@ -6,5 +6,5 @@
     "outDir": "./lib"
   },
   "include": ["./src"],
-  "exclude": ["./src/clientAppEnhance.ts"]
+  "exclude": ["./src/client"]
 }
