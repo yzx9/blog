@@ -48,11 +48,11 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile
 
-      - name: Run test
-        run: yarn test --runInBand
-
       - name: Build packages
         run: yarn build
+
+      - name: Run test
+        run: yarn test --runInBand
 
       - name: Build blog site
         env:
