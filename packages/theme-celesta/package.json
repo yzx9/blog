@@ -25,6 +25,13 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.4",
+    "postcss-csso": "^5.0.0",
+    "postcss-import": "^14.0.0",
+    "postcss-nesting": "^7.0.1",
+    "tailwindcss": "^2.0.3"
+  },
+  "dependencies": {
     "@vuepress/client": "2.0.0-beta.12",
     "@vuepress/core": "2.0.0-beta.12",
     "@vuepress/plugin-active-header-links": "2.0.0-beta.12",
@@ -34,12 +41,6 @@
     "@vuepress/plugin-theme-data": "2.0.0-beta.12",
     "@vuepress/shared": "2.0.0-beta.7",
     "@vuepress/utils": "2.0.0-beta.11",
-    "autoprefixer": "^10.2.4",
-    "postcss-csso": "^5.0.0",
-    "postcss-import": "^14.0.0",
-    "postcss-nesting": "^7.0.1",
-    "remove-markdown": "^0.3.0",
-    "tailwindcss": "^2.0.3",
     "ts-debounce": "^2.3.0",
     "tsparticles": "^1.18.11",
     "vue": "^3.0.5",

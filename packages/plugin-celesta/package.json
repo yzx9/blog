@@ -29,6 +29,8 @@
     "url": "https://github.com/nsznsznjsz/blog/issues"
   },
   "dependencies": {
-    "@vuepress/core": "^2.0.0-beta.12"
+    "@vuepress/core": "^2.0.0-beta.12",
+    "@vuepress/plugin-theme-data": "2.0.0-beta.12",
+    "remove-markdown": "^0.3.0"
   }
 }
