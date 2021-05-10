@@ -26,8 +26,8 @@
 
 <script lang="ts">
 import { onMounted, ref, watch } from "vue"
-import type { Ref } from "vue"
 import { useMouse } from "../composables"
+import type { Ref } from "vue"
 
 // 偏移半径
 const R = 3

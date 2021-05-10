@@ -16,10 +16,10 @@
 
 <script lang="ts">
 import { computed } from "vue"
-import type { PropType } from "vue"
 import { useRouter } from "vue-router"
-import { PageHeader } from "@vuepress/client"
 import { decodeHTML } from "../utils"
+import type { PageHeader } from "@vuepress/client"
+import type { PropType } from "vue"
 
 export default {
   name: "CatalogItem",

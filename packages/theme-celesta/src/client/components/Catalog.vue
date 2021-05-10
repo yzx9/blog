@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import { usePageData } from "@vuepress/client"
-import { ThemePageData } from "../types"
 import CatalogItem from "./CatalogItem.vue"
+import { usePageData } from "@vuepress/client"
+import type { ThemePageData } from "../../types"
 
 export default {
   components: {

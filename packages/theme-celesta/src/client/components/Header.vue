@@ -56,16 +56,16 @@
 </template>
 
 <script lang="ts">
+import Particles from "./Particles.vue"
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
-import Particles from "./Particles.vue"
 import {
   useLocaleCategories,
   useLocaleTags,
   useEditLink,
 } from "vuepress-plugin-celesta/lib/client"
 import { linkListToArray } from "../utils"
-import type { ThemePageData } from "../types"
+import type { ThemePageData } from "../../types"
 
 export default {
   components: {
