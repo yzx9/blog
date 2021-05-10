@@ -1,4 +1,4 @@
-import removeMarkdown from "remove-markdown"
+import * as removeMarkdown from "remove-markdown"
 import type { Page } from "@vuepress/core"
 
 const ExcerptLength = 200

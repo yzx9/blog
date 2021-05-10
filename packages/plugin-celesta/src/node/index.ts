@@ -7,7 +7,7 @@ import type { ThemeData } from "../types"
 export const VuepressPluginCelesta: Plugin<ThemeData> = (options, app) => {
   return {
     name: "vuepress-plugin-celesta",
-    clientAppSetupFiles: path.resolve(__dirname, "../client/clientAppSetup.ts"),
+    clientAppSetupFiles: path.resolve(__dirname, "../client/clientAppSetup.js"),
     extendsPageData,
     onPrepared: createPreparedHook(options),
   }
