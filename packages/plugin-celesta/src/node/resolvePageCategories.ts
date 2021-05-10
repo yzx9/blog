@@ -4,7 +4,7 @@ import {
   ThemePageCategories,
   ThemePageCategory,
 } from "../types"
-import { normalizeCategoryOrTag } from "../client/utils"
+import { normalize } from "./utils"
 
 const prefix = "/categories#"
 const map = new Map<string, ThemePageCategory>()
@@ -21,7 +21,7 @@ export const resolvePageCategories = (
     : [[raw]]
 
   const reducer = (parent: ThemePageCategory | null, name: string) => {
-    const slug = normalizeCategoryOrTag(name)
+    const slug = normalize(name)
     const path = `${parent?.path ?? prefix}/${slug}`
     const cur = map.get(path) || { slug, name, path, parent }
     map.set(path, cur)

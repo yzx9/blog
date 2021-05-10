@@ -1,6 +1,5 @@
-export * from "./assignOptionTranslations"
-
 export * from "./extendsPageData"
+export * from "./onPrepare"
 export * from "./resolvePageUpdatedTime"
 export * from "./resolvePageExcerpt"
 export * from "./resolvePageCategories"
