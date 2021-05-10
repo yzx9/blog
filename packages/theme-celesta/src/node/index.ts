@@ -27,7 +27,7 @@ export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
 
     clientAppEnhanceFiles: path.resolve(
       __dirname,
-      "../client/clientAppEnhance.ts"
+      "../client/clientAppEnhance.js"
     ),
 
     extendsPageOptions,

@@ -3,7 +3,8 @@
   "references": [
     { "path": "./packages/plugin-celesta/tsconfig.build.json" },
     { "path": "./packages/plugin-math/tsconfig.build.json" },
-    { "path": "./packages/plugin-post-filter/tsconfig.build.json" }
+    { "path": "./packages/plugin-post-filter/tsconfig.build.json" },
+    { "path": "./packages/theme-celesta/tsconfig.build.json" }
   ],
   "files": []
 }
