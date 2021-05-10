@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Vuepress blog theme",
   "author": "Celeste <yuan.zx@outlook.com>",
+  "main": "lib/node/index.ts",
+  "types": "lib/node/index.d.ts",
+  "license": "MIT",
   "homepage": "https://github.com/nsznsznjsz/blog/tree/master/packages/theme-celesta#readme",
   "keywords": [
     "blog",
@@ -17,8 +20,6 @@
     "url": "https://github.com/nsznsznjsz/blog/issues",
     "email": "yuan.zx@outlook.com"
   },
-  "main": "lib/index.ts",
-  "license": "MIT",
   "scripts": {
     "build": "",
     "clean": "rimraf lib *.tsbuildinfo",
