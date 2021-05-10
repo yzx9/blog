@@ -5,6 +5,6 @@
     "rootDir": "./src",
     "outDir": "./lib"
   },
-  "include": ["./src"],
-  "exclude": ["./src/client"]
+  "include": ["./src/node", "./src/types"],
+  "exclude": []
 }
