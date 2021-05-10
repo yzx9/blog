@@ -1,10 +1,10 @@
-import { normalize } from "./utils"
+import { normalizeString } from "./utils"
 import type { App } from "@vuepress/core"
 import type { ThemeOptions } from "../types"
 
 const normalizeTranslations = (raw: Record<string, string> = {}) =>
   Object.keys(raw).reduce((map, key) => {
-    map[normalize(key)] = raw[key]
+    map[normalizeString(key)] = raw[key]
     return map
   }, {})
 

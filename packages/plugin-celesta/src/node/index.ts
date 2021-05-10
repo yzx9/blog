@@ -1,6 +1,2 @@
 export * from "./extendsPageData"
 export * from "./onPrepare"
-export * from "./resolvePageUpdatedTime"
-export * from "./resolvePageExcerpt"
-export * from "./resolvePageCategories"
-export * from "./resolvePageTags"
