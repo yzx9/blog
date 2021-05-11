@@ -1,5 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ES2020",
+    "baseUrl": ".",
+    "paths": {
+      "@temp/celesta/translations": ["src/client/translations.d.ts"]
+    },
+    "types": ["@vuepress/client/types", "webpack-env", "vite/client"]
+  },
   "include": ["./src/**/*.ts", "./src/**/*.vue", "./__tests__"],
   "exclude": ["node_modules"]
 }
