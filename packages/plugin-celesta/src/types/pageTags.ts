@@ -1,13 +1,11 @@
 export interface ThemePageTag {
+  name: string
+  slug: string
+
   /**
    * Raw tag name in frontmatter
    */
-  name: string
-
-  /**
-   * Tag slug
-   */
-  slug: string
+  raw: string
 
   /**
    * path to tag, can be used as id

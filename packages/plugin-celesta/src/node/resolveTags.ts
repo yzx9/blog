@@ -9,12 +9,12 @@ const pageToTagsMap: PageToTagsMap = {}
 const resolvePageTags = (page: Page & { frontmatter: ThemeFrontmatter }) => {
   const tagsRaw = page.frontmatter.tags || ["Default"]
   const tagsArr = Array.isArray(tagsRaw) ? tagsRaw : [tagsRaw]
-  const tags = tagsArr.map((name) => {
-    const slug = normalizeString(name)
+  const tags = tagsArr.map((raw) => {
+    const slug = normalizeString(raw)
     const path = `/tags#${slug}`
     if (!tagToPagesMap[path]) tagToPagesMap[path] = []
     tagToPagesMap[path].push(page.path)
-    return { name, slug, path }
+    return { raw, name: raw, slug, path }
   })
   pageToTagsMap[page.path] = tags
 }
