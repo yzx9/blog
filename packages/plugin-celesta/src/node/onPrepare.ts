@@ -16,6 +16,6 @@ const writeTags = async (app: App) => {
 }
 
 export const createPreparedHook = (options: ThemeData) => async (app: App) => {
-  const promises = [writeTranslations(options, app), writeTags(app)]
+  const promises = [writeTranslations(app, options), writeTags(app)]
   await Promise.all(promises)
 }
