@@ -2,7 +2,7 @@ import type { Page, App } from "@vuepress/core"
 import type { ThemeFrontmatter, ThemePageData } from "../types"
 import { resolvePageCategories } from "./resolvePageCategories"
 import { resolvePageExcerpt } from "./resolvePageExcerpt"
-import { resolvePageTags } from "./resolvePageTags"
+import { resolveTags } from "./resolveTags"
 import { resolvePageUpdatedTime } from "./resolvePageUpdatedTime"
 
 type PageWithFrontmatter = Page & { frontmatter: ThemeFrontmatter }
@@ -16,7 +16,6 @@ export const extendsPageData = async (
   const title = frontmatter.title || page.title
   const updated = await resolvePageUpdatedTime(page, app)
   const categories = resolvePageCategories(page)
-  const tags = resolvePageTags(page)
   const excerpt = resolvePageExcerpt(page)
 
   return {
@@ -25,7 +24,6 @@ export const extendsPageData = async (
     updated,
     filePathRelative,
     categories,
-    tags,
     excerpt,
   }
 }

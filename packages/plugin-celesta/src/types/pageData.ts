@@ -27,11 +27,6 @@ export interface ThemePageData {
   categories: ThemePageCategories
 
   /**
-   * Page tags
-   */
-  tags: ThemePageTags
-
-  /**
    * Support by @vuepress/plugin-git
    *
    * Disable in dev mode
