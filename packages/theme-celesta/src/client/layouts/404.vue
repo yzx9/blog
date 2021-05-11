@@ -19,7 +19,7 @@
 <script lang="ts">
 import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
 import Ghost from "../components/Ghost.vue"
-import type { ThemeData } from "../types"
+import type { ThemeData } from "../../types"
 
 const rand = (arr: string[]) => arr[Math.floor(Math.random() * arr.length)]
 
