@@ -1,4 +1,4 @@
-import type { ThemePageTags } from "src/node"
+import type { ThemePageTags } from "./pageTags"
 
 /**
  * Get pages by tag
