@@ -1,23 +1,25 @@
 import { computed } from "vue"
-import { usePageData } from "@vuepress/client"
+import { usePageLang } from "@vuepress/client"
+import { useRoute } from "vue-router"
 import {
   defaultTranslations,
   localeTranslations,
 } from "@temp/celesta/translations"
-import type { ThemePageData, ThemePageCategory } from "../../types"
+import { pageToCategoriesMap } from "@temp/celesta/categories"
+import type { ComputedRef } from "vue"
+import type { Category } from "../../types"
 
 export const useLocaleCategories = () => {
-  const pageData = usePageData<ThemePageData>()
+  const lang = usePageLang()
+  const route = useRoute()
 
-  const resolveName = (
-    a: ThemePageCategory | null
-  ): ThemePageCategory | null => {
+  const resolveName = (a: Category | null): Category | null => {
     return a
       ? {
           ...a,
           parent: resolveName(a.parent),
           name:
-            localeTranslations?.[pageData.value.lang]?.[a.slug] ??
+            localeTranslations?.[lang.value]?.[a.slug] ??
             defaultTranslations?.[a.slug] ??
             a.name,
         }
@@ -25,8 +27,8 @@ export const useLocaleCategories = () => {
   }
 
   const categories = computed(
-    () => pageData.value.categories.map(resolveName) as ThemePageCategory[]
-  )
+    () => pageToCategoriesMap[route.path]?.map(resolveName) || []
+  ) as ComputedRef<Category[]>
 
   return categories
 }

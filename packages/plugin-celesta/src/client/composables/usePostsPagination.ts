@@ -1,5 +1,7 @@
-import { usePosts } from "./usePosts"
 import { isReactive, reactive, watch } from "vue"
+import { usePosts } from "./usePosts"
+import { useMapFromCategoryToPosts } from "./useMapFromCategoryToPosts"
+import { useMapFromTagToPosts } from "./useMapFromTagToPosts"
 import type { PageData } from "../../types"
 
 type PostFilter = (page: PageData) => boolean
@@ -51,7 +53,9 @@ export const usePostsPagination = async (
   options: PaginationOptions = {}
 ): Promise<PaginationData> => {
   const posts = await usePosts()
-  const paginationData: PaginationData = reactive({
+  const tagMap = useMapFromTagToPosts()
+  const categoryMap = useMapFromCategoryToPosts()
+  const paginationData = reactive<PaginationData>({
     posts: [],
     total: posts.length,
   })
@@ -67,11 +71,12 @@ export const usePostsPagination = async (
     } = options
 
     const tagFilter: PostFilter = tags.length
-      ? (page) => page.tags.some((a) => tags.includes(a.path))
+      ? (page) => tagMap[page.path].some((a) => tags.includes(a))
       : trueFn
 
     const categoryFilter: PostFilter = categories.length
-      ? (page) => page.categories.some((a) => categories.includes(a.path))
+      ? (page) =>
+          categoryMap[page.path].some((a) => categories.includes(a.slug))
       : trueFn
 
     const filteredPosts = posts

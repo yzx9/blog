@@ -5,6 +5,7 @@
     "baseUrl": ".",
     "paths": {
       "@temp/celesta/translations": ["src/client/translations.d.ts"],
+      "@temp/celesta/categories": ["src/client/categories.d.ts"],
       "@temp/celesta/tags": ["src/client/tags.d.ts"]
     },
     "types": ["@vuepress/client/types", "webpack-env", "vite/client"]
