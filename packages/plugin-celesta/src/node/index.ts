@@ -1,6 +1,6 @@
 import { path } from "@vuepress/utils"
 import { extendsPageData } from "./extendsPageData"
-import { createPreparedHook } from "./onPrepare"
+import { createPreparedHook } from "./prepare"
 import type { Plugin } from "@vuepress/core"
 import type { ThemeData } from "../types"
 

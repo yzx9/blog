@@ -8,7 +8,7 @@ const normalizeTranslations = (raw: Record<string, string> = {}) =>
     return map
   }, {})
 
-export const writeTranslations = async (app: App, options: ThemeOptions) => {
+export const prepareTranslations = async (app: App, options: ThemeOptions) => {
   const defaultTranslations = normalizeTranslations(options.translations)
 
   const localeTranslations: Record<string, Record<string, string>> = {}
