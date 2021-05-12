@@ -17,8 +17,8 @@ const writeTags = async (app: App) => {
   await app.writeTemp(
     "celesta/tags.js",
     [
-      `export const tagToPagesMap = ${tagToPagesMap}`,
-      `export const pageToTagsMap = ${pageToTagsMap}`,
+      `export const tagToPagesMap = ${JSON.stringify(tagToPagesMap)}`,
+      `export const pageToTagsMap = ${JSON.stringify(pageToTagsMap)}`,
     ].join(";")
   )
 }
