@@ -6,9 +6,9 @@
       <div class="flex flex-col items-start">
         <div class="z-30 min-w-max">
           <RouterLink
-            v-for="{ name, path } in tags"
-            :key="`v-page-${path}`"
-            :to="path"
+            v-for="{ name, slug } in tags"
+            :key="`v-page-${slug}`"
+            :to="`/tags#${slug}`"
             class="header__pill-link"
           >
             {{ name }}
@@ -39,9 +39,9 @@
             class="header__categories"
           >
             <RouterLink
-              v-for="{ name, path } in categories"
-              :key="`v-header-${path}`"
-              :to="path"
+              v-for="{ name, slug } in categories"
+              :key="`v-header-${slug}`"
+              :to="`/category#${slug}`"
               class="header__category"
             >
               {{ name }}
