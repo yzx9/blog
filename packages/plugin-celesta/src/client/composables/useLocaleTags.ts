@@ -11,7 +11,7 @@ export const useLocaleTags = (): ThemePageTags => {
   const pageData = usePageData<ThemePageData>()
   const lang = pageData.value.lang
   const route = useRoute()
-  const tags = pageToTagsMap[route.path]
+  const tags = pageToTagsMap[route.path] || []
   const localeTags = tags.map((tag) => ({
     ...tag,
     name:
