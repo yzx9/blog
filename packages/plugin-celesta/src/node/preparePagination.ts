@@ -13,7 +13,7 @@ const resolvePaginationDataSet = (app: App): PaginationDataSet =>
       excerpt: resolvePageExcerpt(a),
     }))
 
-export const preaprePagination = async (app: App) => {
+export const preparePagination = async (app: App) => {
   const paginationDataSet = resolvePaginationDataSet(app)
 
   await app.writeTemp(
