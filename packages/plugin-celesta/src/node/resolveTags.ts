@@ -1,22 +1,38 @@
 import { isPost, normalizeString } from "./utils"
 import type { App, Page } from "@vuepress/core"
-import type { PageToTagsMap, TagToPagesMap, ThemeFrontmatter } from "../types"
+import type {
+  PageToRawTagNameMap,
+  PageToTagsMap,
+  Tags,
+  ThemeFrontmatter,
+} from "../types"
 
 let resolved = false
-const tagToPagesMap: TagToPagesMap = {}
+const tags: Tags = []
 const pageToTagsMap: PageToTagsMap = {}
+const pageToRawTagNameMap: PageToRawTagNameMap = {}
 
 const resolvePageTags = (page: Page & { frontmatter: ThemeFrontmatter }) => {
-  const tagsRaw = page.frontmatter.tags || ["Default"]
-  const tagsArr = Array.isArray(tagsRaw) ? tagsRaw : [tagsRaw]
-  const tags = tagsArr.map((raw) => {
+  const rawNameMap: Record<string, string> = {}
+  const raw = page.frontmatter.tags || ["Default"]
+  const arr = Array.isArray(raw) ? raw : [raw]
+  const currentTags = arr.map((raw) => {
     const slug = normalizeString(raw)
-    const path = `/tags#${slug}`
-    if (!tagToPagesMap[path]) tagToPagesMap[path] = []
-    tagToPagesMap[path].push(page.path)
-    return { raw, name: raw, slug, path }
+    let tag = tags.find((a) => a.slug === slug)
+    if (!tag) {
+      tag = {
+        slug,
+        name: "",
+        pages: [], // filled in client side
+      }
+      tags.push(tag)
+    }
+    tag.pages.push(page.path)
+    rawNameMap[slug] = raw
+    return tag
   })
-  pageToTagsMap[page.path] = tags
+  pageToRawTagNameMap[page.path] = rawNameMap
+  pageToTagsMap[page.path] = currentTags.map((a) => a.slug)
 }
 
 const _resolveTags = (app: App) =>
@@ -25,5 +41,5 @@ const _resolveTags = (app: App) =>
 export const resolveTags = (app: App) => {
   if (!resolved) _resolveTags(app)
   resolved = true
-  return { tagToPagesMap, pageToTagsMap }
+  return { tags, pageToTagsMap, pageToRawTagNameMap }
 }

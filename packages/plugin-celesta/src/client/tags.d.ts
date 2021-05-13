@@ -1,6 +1,7 @@
-import type { PageToTagsMap, TagToPagesMap } from "src/types"
+import type { PageToRawTagNameMap, PageToTagsMap, Tags } from "src/types"
 
 declare module "@temp/celesta/tags" {
-  export const tagToPagesMap: TagToPagesMap
+  export const tags: Tags
   export const pageToTagsMap: PageToTagsMap
+  export const pageToRawTagNameMap: PageToRawTagNameMap
 }

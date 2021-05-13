@@ -1,6 +1,5 @@
 export * from "./useCategories"
-export * from "./useLocaleTags"
-export * from "./useMapFromTagToPosts"
+export * from "./useTags"
 
 export * from "./usePosts"
 export * from "./usePostsPagination"

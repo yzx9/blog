@@ -6,9 +6,9 @@
       <div class="flex flex-col items-start">
         <div class="z-30 min-w-max">
           <RouterLink
-            v-for="{ name, slug } in tags"
+            v-for="{ name, slug } in currentTags"
             :key="`v-page-${slug}`"
-            :to="`/tags#${slug}`"
+            :to="`/tags/${slug}`"
             class="header__pill-link"
           >
             {{ name }}
@@ -61,7 +61,7 @@ import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import {
   useCategories,
-  useLocaleTags,
+  useTags,
   useEditLink,
 } from "vuepress-plugin-celesta/lib/client"
 import type { ThemePageData } from "../../types"
@@ -78,8 +78,8 @@ export default {
 
     const editLink = useEditLink()
 
-    const x = useCategories()
-    const tags = useLocaleTags()
+    const { currentCategories } = useCategories()
+    const { currentTags } = useTags()
 
     return {
       title,
@@ -87,9 +87,8 @@ export default {
       updated,
       editLink,
       showUpdate,
-      x,
-      currentCategories: x.currentCategories,
-      tags,
+      currentCategories,
+      currentTags,
     }
   },
 }

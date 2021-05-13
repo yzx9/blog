@@ -1,26 +1,36 @@
-export interface ThemePageTag {
-  name: string
+export interface Tag {
+  /**
+   * Slug of tag, can be used as id
+   */
   slug: string
 
   /**
-   * Raw tag name in frontmatter
+   * Name of tag
+   *
+   * Firstly inferred from the frontmatter
+   *
+   * Might be overright by translation
    */
-  raw: string
+  name: string
 
   /**
-   * path to tag, can be used as id
+   * Page paths
    */
-  path: string
+  pages: string[]
 }
 
-export type ThemePageTags = ThemePageTag[]
+export type Tags = Tag[]
 
-/**
- * Get path of pages by tag path
- */
-export type TagToPagesMap = Record<string, string[]>
+type Slug = string
+type PagePath = string
+type RawName = string
 
 /**
  * Get tags by page path
  */
-export type PageToTagsMap = Record<string, ThemePageTags>
+export type PageToTagsMap = Record<PagePath, Slug[]>
+
+/**
+ * Get the raw tag name map by page path
+ */
+export type PageToRawTagNameMap = Record<PagePath, Record<Slug, RawName>>
