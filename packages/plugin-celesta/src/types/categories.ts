@@ -56,4 +56,4 @@ export type SlugToCategoryMap = Record<Slug, Categories>
 /**
  * Get the raw name map by page path
  */
-export type PageToRawNameMap = Record<PagePath, Record<Slug, RawName>>
+export type PageToRawCategoryNameMap = Record<PagePath, Record<Slug, RawName>>

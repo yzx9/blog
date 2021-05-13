@@ -7,7 +7,7 @@ import {
 } from "@temp/celesta/translations"
 import {
   rootCategories as _rootCategories,
-  pageToRawNameMap,
+  pageToRawCategoryNameMap,
   pageToCategoriesMap,
 } from "@temp/celesta/categories"
 import type { DeepReadonly, Ref } from "vue"
@@ -92,8 +92,8 @@ function createResolveLocaleCategory(lang: string, path: string) {
     const name =
       localeTranslations?.[lang]?.[lastSlug] ||
       defaultTranslations?.[lastSlug] ||
-      pageToRawNameMap[path]?.[category.slug] ||
-      category.name
+      pageToRawCategoryNameMap[path]?.[category.slug] ||
+      category.slug
 
     const localeCategory: Category = { ...category, name, parent }
     localeCategory.ancestors = [...(parent?.ancestors ?? []), localeCategory]

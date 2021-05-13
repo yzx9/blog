@@ -2,7 +2,7 @@ import { resolveCategories } from "./resolveCategories"
 import type { App } from "@vuepress/core"
 
 export const prepareCategories = async (app: App) => {
-  const { rootCategories, pageToCategoriesMap, pageToRawNameMap } =
+  const { rootCategories, pageToCategoriesMap, pageToRawCategoryNameMap } =
     resolveCategories(app)
 
   await app.writeTemp(
@@ -12,7 +12,9 @@ export const prepareCategories = async (app: App) => {
       `export const pageToCategoriesMap = ${JSON.stringify(
         pageToCategoriesMap
       )}`,
-      `export const pageToRawNameMap = ${JSON.stringify(pageToRawNameMap)}`,
+      `export const pageToRawCategoryNameMap = ${JSON.stringify(
+        pageToRawCategoryNameMap
+      )}`,
     ].join(";")
   )
 }

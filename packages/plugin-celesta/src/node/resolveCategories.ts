@@ -4,14 +4,14 @@ import type {
   Categories,
   Category,
   PageToCategoriesMap,
-  PageToRawNameMap,
+  PageToRawCategoryNameMap,
   ThemeFrontmatter,
 } from "../types"
 
 let resolved = false
 const rootCategories: Categories = []
-const pageToRawNameMap: PageToRawNameMap = {}
 const pageToCategoriesMap: PageToCategoriesMap = {}
+const pageToRawCategoryNameMap: PageToRawCategoryNameMap = {}
 
 const createNewCategory = (slug: string): Category => ({
   slug,
@@ -52,7 +52,7 @@ const resovePageCategories = (
 
   currentCategories.forEach((category) => category.pages.push(page.path))
   pageToCategoriesMap[page.path] = currentCategories.map((a) => a.slug)
-  pageToRawNameMap[page.path] = rawNameMap
+  pageToRawCategoryNameMap[page.path] = rawNameMap
 
   return currentCategories
 }
@@ -63,5 +63,9 @@ const _resolveCategories = (app: App) =>
 export const resolveCategories = (app: App) => {
   if (!resolved) _resolveCategories(app)
   resolved = true
-  return { rootCategories, pageToCategoriesMap, pageToRawNameMap }
+  return {
+    rootCategories,
+    pageToCategoriesMap,
+    pageToRawCategoryNameMap,
+  }
 }
