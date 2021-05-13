@@ -5,26 +5,55 @@ export type Category = {
   slug: string
 
   /**
-   * Display name
+   * Name of category
+   *
+   * Firstly inferred from the frontmatter
+   *
+   * Might be overright by translation
    */
   name: string
-
-  /**
-   * Raw category name in frontmatter
-   */
-  raw: string
 
   /**
    * Page paths
    */
   pages: string[]
 
-  parent: Category | null
+  /**
+   * Amcestors of category
+   *
+   * Last of ancestors equals itself
+   *
+   * @example
+   *
+   * "foo/bar/baz".category => ["foo", "foo/bar", "foo/bar/baz"]
+   */
   ancestors: Category[]
+
+  /**
+   * If this is root, parent should be null
+   */
+  parent: Category | null
+
   children: Category[]
 }
 
+export type Categories = Category[]
+
+type Slug = string
+type PagePath = string
+type RawName = string
+
 /**
- * Get the categories by category path
+ * Get the slugs of category by page path
  */
-export type PageToCategoriesMap = Record<string, Category[]>
+export type PageToCategoriesMap = Record<PagePath, Slug[]>
+
+/**
+ * Get the categories by slugs
+ */
+export type SlugToCategoryMap = Record<Slug, Categories>
+
+/**
+ * Get the raw name map by page path
+ */
+export type PageToRawNameMap = Record<PagePath, Record<Slug, RawName>>

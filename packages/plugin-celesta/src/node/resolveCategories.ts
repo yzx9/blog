@@ -1,10 +1,26 @@
 import { isPost, normalizeString } from "./utils"
 import type { App, Page } from "@vuepress/core"
-import type { Category, PageToCategoriesMap, ThemeFrontmatter } from "../types"
+import type {
+  Categories,
+  Category,
+  PageToCategoriesMap,
+  PageToRawNameMap,
+  ThemeFrontmatter,
+} from "../types"
 
 let resolved = false
+const rootCategories: Categories = []
+const pageToRawNameMap: PageToRawNameMap = {}
 const pageToCategoriesMap: PageToCategoriesMap = {}
-const categoryMap: Record<string, Category> = {}
+
+const createNewCategory = (slug: string): Category => ({
+  slug,
+  name: "",
+  pages: [],
+  parent: null, // filled in client side
+  ancestors: [], // filled in client side
+  children: [],
+})
 
 const resovePageCategories = (
   page: Page & { frontmatter: ThemeFrontmatter }
@@ -16,31 +32,29 @@ const resovePageCategories = (
       : ([raw] as string[][])
     : [[raw]]
 
-  const reducer = (parent: Category | null, name: string) => {
-    const prefix = parent?.slug ?? "/categories#"
-    const slug = `${prefix}/${normalizeString(name)}`
-    const cur: Category = categoryMap[slug] || {
-      raw: name,
-      slug,
-      name,
-      pages: [],
-      parent: null, // filled in client side
-      ancestors: [], // filled in client side
-      children: [],
-    }
-    categoryMap[slug] = cur
-    cur.pages.push(page.path)
-    parent?.children.push(cur)
-    return cur
-  }
+  const rawNameMap: Record<string, string> = {}
+  const currentCategories = categoriesRoutes.map((routes) =>
+    routes.reduce((parent: Category | null, route: string) => {
+      const path = normalizeString(route)
+      const slug = parent ? `${parent.slug}/${path}` : path
+      const children = parent?.children ?? rootCategories
+      const next = children.find((a) => a.slug === slug)
 
-  const categories = categoriesRoutes.map((route) =>
-    route.reduce(reducer, null)
-  ) as Category[]
+      rawNameMap[slug] = route
 
-  pageToCategoriesMap[page.path] = categories
+      if (next) return next
+      const newCategory = createNewCategory(slug)
+      const arr = parent?.children ?? rootCategories
+      arr.push(newCategory)
+      return newCategory
+    }, null)
+  ) as Categories
 
-  return categories
+  currentCategories.forEach((category) => category.pages.push(page.path))
+  pageToCategoriesMap[page.path] = currentCategories.map((a) => a.slug)
+  pageToRawNameMap[page.path] = rawNameMap
+
+  return currentCategories
 }
 
 const _resolveCategories = (app: App) =>
@@ -49,5 +63,5 @@ const _resolveCategories = (app: App) =>
 export const resolveCategories = (app: App) => {
   if (!resolved) _resolveCategories(app)
   resolved = true
-  return { pageToCategoriesMap }
+  return { rootCategories, pageToCategoriesMap, pageToRawNameMap }
 }

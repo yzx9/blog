@@ -35,13 +35,13 @@
         <div class="header__meta-item">
           分类于
           <span
-            v-for="categories in categoriesArray"
+            v-for="category in currentCategories"
             class="header__categories"
           >
             <RouterLink
-              v-for="{ name, slug } in categories"
+              v-for="{ name, slug } in category.ancestors"
               :key="`v-header-${slug}`"
-              :to="`/category#${slug}`"
+              :to="`/categories/${slug}`"
               class="header__category"
             >
               {{ name }}
@@ -60,11 +60,10 @@ import Particles from "./Particles.vue"
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import {
-  useLocaleCategories,
+  useCategories,
   useLocaleTags,
   useEditLink,
 } from "vuepress-plugin-celesta/lib/client"
-import { linkListToArray } from "../utils"
 import type { ThemePageData } from "../../types"
 
 export default {
@@ -79,11 +78,7 @@ export default {
 
     const editLink = useEditLink()
 
-    const categories = useLocaleCategories()
-    const categoriesArray = computed(() =>
-      categories.value.map(linkListToArray((c) => c.parent))
-    )
-
+    const x = useCategories()
     const tags = useLocaleTags()
 
     return {
@@ -92,7 +87,8 @@ export default {
       updated,
       editLink,
       showUpdate,
-      categoriesArray,
+      x,
+      currentCategories: x.currentCategories,
       tags,
     }
   },
