@@ -1,6 +1,6 @@
 <template>
   <div class="flex-col">
-    <template v-for="post in pagination.posts">
+    <template v-for="post in pagination.pages">
       <div
         class="p-8 my-4 flex flex-col transition-all duration-300 rounded items-center hover:border hover:shadow-md"
       >
@@ -21,44 +21,29 @@
       </div>
     </template>
   </div>
-  <Pagination
-    v-model:current="paginationOption.currentPage"
-    :total="pagination.total"
-  />
+  <Pagination v-model:current="options.currentPage" :total="pagination.total" />
 </template>
 
 <script lang="ts">
-import { reactive, ref, watch } from "vue"
+import { reactive } from "vue"
 import Pagination from "./Pagination.vue"
-import { usePostsPagination } from "vuepress-plugin-celesta/lib/client"
-import type { Ref } from "vue"
-import type {
-  PaginationOptions,
-  PaginationData,
-} from "vuepress-plugin-celesta/lib/client"
+import { usePagination } from "vuepress-plugin-celesta/lib/client"
+import type { PaginationOptions } from "vuepress-plugin-celesta"
 
 export default {
   components: {
     Pagination,
   },
   setup(props, ctx) {
-    const paginationOption: PaginationOptions = reactive({
+    const options = reactive<PaginationOptions>({
       currentPage: 1,
     })
 
-    const pagination: Ref<PaginationData> = ref({
-      posts: [],
-      total: 0,
-    })
-
-    usePostsPagination(paginationOption).then((paginationData) => {
-      const watcher = (a: PaginationData) => (pagination.value = a)
-      watch(paginationData, watcher, { immediate: true })
-    })
+    const pagination = usePagination(options)
 
     return {
       pagination,
-      paginationOption,
+      options,
     }
   },
 }
