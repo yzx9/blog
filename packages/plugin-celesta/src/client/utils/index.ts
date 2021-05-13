@@ -1,5 +1,2 @@
-export * from "./decodeHTML"
-export * from "./linkListToArray"
-export * from "./isPost"
 export * from "./resolveEditLink"
 export * from "./resolveRepoType"
