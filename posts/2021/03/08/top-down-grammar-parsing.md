@@ -1,6 +1,6 @@
 ---
 date: 2021-3-8 19:50:16
-updated: 2021-3-15 14:40:28
+updated: 2021-3-22 16:55:24
 location: Guang Ze, Fu Jian
 categories:
   - Computer Science
@@ -18,12 +18,11 @@ tags:
 
 不确定的自顶向下方法，就是带有回溯的分析方法，实际上也就是一种穷举的试探方法，效率低，代价高，因此极少使用。
 
-不确定的分方法不常用的主要原因就是回溯，回溯指的是回到之前的状态，从输入字符串角度考虑，需要不停的退回到之前的输入中，效率非常差，而且需要额外的代价存储之前的状态。回溯常常由以下问题导致：
+不确定的分方法不常用的主要原因就是回溯，回溯指的是回到之前的状态，从输入字符串角度考虑，需要不停的退回到之前的输入中，效率非常差，而且需要额外的代价存储之前的状态。因此，我们通常希望寻找一种线性时间的无回溯的算法。回溯常常由以下问题导致：
 
-### 回溯：文法中具有相同左部的产生式的 $FIRST$ 集交集不为空
+### 由于FIRST集相交引起回溯
 
-考虑下列文法：
-
+文法中具有相同左部的产生式的 $FIRST$ 集交集不为空可能引起回溯，考虑下列文法：
 $$
 \begin{aligned}
 S &\rightarrow xAy \\
@@ -33,11 +32,9 @@ $$
 
 其中非终结符 A 有两条产生式，且具有相同的 $FIRST$ 集 $\{ a \}$。若当前输入串为 `xay#`，当处于 $xAy$ 状态时，编译器无法确定选用哪一个产生式，只能进行一次尝试，如果失败，则回退到当前状态。
 
-显而易见，回溯会导致编译器效率极低，因此，我们通常希望寻找一种线性时间的无回溯的算法。
+### 由于空产生式引起回溯
 
-### 回溯：由于相同左部非终结符的右部存在能 ${\Rightarrow}^* \epsilon$ 的产生式，且该非终结符的 $FOLLOW$ 集中含有其他产生式右部
-
-考虑下列文法及输入串 `ab#`：
+由于相同左部非终结符的右部存在能推导出ε的产生式，且该非终结符的 $FOLLOW$ 集中含有其他产生式右部，可能导致回溯，考虑下列文法及输入串 `ab#`：
 
 $$
 \begin{aligned}
@@ -48,9 +45,11 @@ A &\rightarrow \epsilon
 \end{aligned}
 $$
 
-### 回溯：由于文法左部含有左递归而引起回溯
+当分析到非终结符 $A$ 且面临输入 `b`时，$A$ 的两条产生式都可以被选择，可能导致回溯。
 
-考虑下列文法及输入串 `baa#`：
+### 由于左递归而引起回溯
+
+由于文法左部含有左递归而引起回溯，考虑下列文法及输入串 `baa#`：
 
 $$
 \begin{aligned}
@@ -58,6 +57,8 @@ S &\rightarrow Sa \\
 S &\rightarrow b
 \end{aligned}
 $$
+
+左部非终结符出现在产生式右部的最左侧称为左递归，左递归会导致该产生式不断被选择，直到无法继续匹配字符，不得已只能回退。
 
 ## 等价变换
 
@@ -156,15 +157,17 @@ $$
 
 $$
 \begin{align}
-S \rightarrow Aa|b               \tag{1a} \\
-A \rightarrow Ac|Sd|\epsilon     \tag{1b} \\
+& S \rightarrow Aa|b               &(1a)  \\
+& A \rightarrow Ac|Sd|\epsilon     &(1b)  \\
 \\
-S \rightarrow Aa|b               \tag{2a} \\
-A \rightarrow Ac|Aad|bd|\epsilon \tag{2b} & put (1a) into (1b) \\
+& \text{Put (1a) into (1b):}              \\
+& S \rightarrow Aa|b               &(2a)  \\
+& A \rightarrow Ac|Aad|bd|\epsilon &(2b)  \\
 \\
-S \rightarrow Aa|b               \tag{3a} \\
-A \rightarrow bdA'               \tag{3b} \\
-A \rightarrow cA'|adA'|\epsilon  \tag{3c} \\
+& \text{Eliminate direct left recursion:} \\
+& S \rightarrow Aa|b               &(3a)  \\
+& A \rightarrow bdA'               &(3b)  \\
+& A \rightarrow cA'|adA'|\epsilon  &(3c)  \\
 \end{align}
 $$
 
@@ -203,7 +206,7 @@ S\_文法，简单的确定性文法，Korenjak & Hopcroft，1966。
 计算一个文法符号 $X$ 的 $FIRST$ 集
 
 ```cpp
-while(每个产生式){
+while(每个产生式) {
     if (x → a && (a是终结符 || a == ε){
         first.push(a);
     } else if (X → Y_1Y_2...Y_n) {
@@ -416,5 +419,6 @@ LL(1) 文法是一种实用的确定的自顶向下分析方法，其中第一�
 ## References
 
 - 王生原, 董渊, 张素琴, 吕映芝, 蒋维杜. 编译原理. 清华大学出版社
-- 陈鄞, 单丽莉, 郭勇, 涂志莹. [编译原理](https://www.icourse163.org/learn/HIT-1002123007). 哈尔滨工业大学
-- Zhen Wang. [S*型文法到 q*型文法再到 LL(1)型文法演进笔记](https://zhuanlan.zhihu.com/p/207178166)
+- 陈鄞, 单丽莉, 郭勇, 涂志莹. 编译原理. <https://www.icourse163.org/learn/HIT-1002123007>
+- Zhen Wang. S\*型文法到 q\*型文法再到 LL(1)型文法演进笔记. <https://zhuanlan.zhihu.com/p/207178166>
+
