@@ -12,6 +12,9 @@
     "vuepress",
     "vuepress-theme"
   ],
+  "files": [
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/nsznsznjsz/blog/"
