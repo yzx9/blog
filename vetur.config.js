@@ -7,5 +7,5 @@ module.exports = {
   settings: {
     "vetur.useWorkspaceDependencies": true,
   },
-  projects: ["./blog", ...packages.map((item) => `./packages/${item}`)],
+  projects: ["./posts", ...packages.map((item) => `./packages/${item}`)],
 }
