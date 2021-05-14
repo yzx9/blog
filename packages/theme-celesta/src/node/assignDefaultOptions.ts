@@ -1,10 +1,7 @@
 import { ThemeLocaleOptions, ThemeOptions } from "../types"
+
 const defaultLang = "en-US"
-
-const defaultOptions = {
-  translations: {},
-}
-
+const defaultOptions = {}
 const defaultOptionsLocaleSet: Record<string, ThemeLocaleOptions> = {
   "en-US": {
     notFound: [
