@@ -1,5 +1,5 @@
 {
-  "name": "vuepress-plugin-math",
+  "name": "@celesta/vuepress-plugin-math",
   "version": "0.1.0",
   "description": "KaTex support for vuepress",
   "author": "Celeste <yuan.zx@outlook.com>",

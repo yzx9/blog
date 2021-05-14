@@ -2,8 +2,18 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "0.1.0",
-  "command": {},
   "packages": [
     "packages/*"
-  ]
+  ],
+  "command": {
+    "version": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "exact": true,
+      "ignoreChanges": [
+        "**/*.md"
+      ],
+      "message": "build: publish %s"
+    }
+  }
 }

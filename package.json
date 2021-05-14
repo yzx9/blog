@@ -22,7 +22,8 @@
     "copy": "lerna run copy --stream",
     "copy-watch": "lerna run copy --parallel -- --watch",
     "dev": "yarn copy-watch & yarn build-watch",
-    "test": "jest"
+    "test": "jest",
+    "release": "yarn clean && yarn copy && yarn build && lerna publish"
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",

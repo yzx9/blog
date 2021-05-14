@@ -18,9 +18,9 @@ export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
         { headerLinkSelector: ".catalog__link" },
       ],
       ["@vuepress/theme-data", { themeData: themeOptions }],
-      ["vuepress-plugin-celesta", themeOptions],
-      "vuepress-plugin-post-filter",
-      "vuepress-plugin-math",
+      ["@celesta/vuepress-plugin-celesta", themeOptions],
+      "@celesta/vuepress-plugin-post-filter",
+      "@celesta/vuepress-plugin-math",
     ],
 
     layouts: path.resolve(__dirname, "../client/layouts"),

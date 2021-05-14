@@ -63,7 +63,7 @@ import {
   useCategories,
   useTags,
   useEditLink,
-} from "vuepress-plugin-celesta/lib/client"
+} from "@celesta/vuepress-plugin-celesta/lib/client"
 import type { ThemePageData } from "../../types"
 
 export default {
