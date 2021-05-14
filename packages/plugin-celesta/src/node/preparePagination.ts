@@ -1,7 +1,8 @@
 import { isPost } from "./utils"
-import { PaginationDataSet } from "../types"
 import { resolvePageExcerpt } from "./resolvePageExcerpt"
+import { generateTempContent } from "./utils/generateTempContent"
 import type { App } from "@vuepress/core"
+import type { PaginationDataSet } from "../types"
 
 const resolvePaginationDataSet = (app: App): PaginationDataSet =>
   app.pages
@@ -18,6 +19,9 @@ export const preparePagination = async (app: App) => {
 
   await app.writeTemp(
     "celesta/pagination.js",
-    `export const paginationDataSet = ${JSON.stringify(paginationDataSet)}`
+    generateTempContent({
+      key: `paginationDataSet`,
+      value: paginationDataSet,
+    })
   )
 }

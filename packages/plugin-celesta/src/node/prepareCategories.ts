@@ -1,4 +1,5 @@
 import { resolveCategories } from "./resolveCategories"
+import { generateTempContent } from "./utils/generateTempContent"
 import type { App } from "@vuepress/core"
 
 export const prepareCategories = async (app: App) => {
@@ -7,14 +8,10 @@ export const prepareCategories = async (app: App) => {
 
   await app.writeTemp(
     "celesta/categories.js",
-    [
-      `export const rootCategories = ${JSON.stringify(rootCategories)}`,
-      `export const pageToCategoriesMap = ${JSON.stringify(
-        pageToCategoriesMap
-      )}`,
-      `export const pageToRawCategoryNameMap = ${JSON.stringify(
-        pageToRawCategoryNameMap
-      )}`,
-    ].join(";")
+    generateTempContent([
+      { key: `rootCategories`, value: rootCategories },
+      { key: `pageToCategoriesMap`, value: pageToCategoriesMap },
+      { key: `pageToRawCategoryNameMap`, value: pageToRawCategoryNameMap },
+    ])
   )
 }
