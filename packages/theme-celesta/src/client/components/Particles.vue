@@ -8,25 +8,16 @@ import type { PropType } from "vue"
 import { tsParticles } from "tsparticles"
 import type { Container, ISourceOptions } from "tsparticles"
 
-import chars from "../assets/particles-preset-chars.json"
-import connect from "../assets/particles-preset-connect.json"
-import nasa from "../assets/particles-preset-nasa.json"
-import nyancat2 from "../assets/particles-preset-nyancat2.json"
-import polygonMask from "../assets/particles-preset-polygonMask.json"
-import shadow from "../assets/particles-preset-shadow.json"
-import snow from "../assets/particles-preset-snow.json"
-import starry from "../assets/particles-preset-starry.json"
-
-const presetMap = {
-  chars,
-  connect,
-  nasa,
-  nyancat2,
-  polygonMask,
-  shadow,
-  snow,
-  starry,
-} as Record<string, ISourceOptions>
+const presetMap = ({
+  chars: import("../assets/particles-preset-chars.json"),
+  connect: import("../assets/particles-preset-connect.json"),
+  nasa: import("../assets/particles-preset-nasa.json"),
+  nyancat2: import("../assets/particles-preset-nyancat2.json"),
+  polygonMask: import("../assets/particles-preset-polygonMask.json"),
+  shadow: import("../assets/particles-preset-shadow.json"),
+  snow: import("../assets/particles-preset-snow.json"),
+  starry: import("../assets/particles-preset-starry.json"),
+} as unknown) as Record<string, Promise<ISourceOptions>>
 
 let count = 0
 const random = function <T>(map: Record<string, T>) {
@@ -75,8 +66,9 @@ export default {
       watch(
         optionsRef,
         async () => {
+          const option = await optionsRef.value
           containerRef.value?.destroy()
-          containerRef.value = await tsParticles.load(id, optionsRef.value)
+          containerRef.value = await tsParticles.load(id, option)
           ctx.emit("change", containerRef.value)
         },
         { immediate: true }

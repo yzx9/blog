@@ -28,7 +28,7 @@
 import { reactive } from "vue"
 import Pagination from "./Pagination.vue"
 import { usePagination } from "@celesta/vuepress-plugin-celesta/lib/client"
-import type { PaginationOptions } from "vuepress-plugin-celesta"
+import type { PaginationOptions } from "@celesta/vuepress-plugin-celesta"
 
 export default {
   components: {
