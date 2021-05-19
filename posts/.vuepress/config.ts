@@ -1,6 +1,6 @@
 import { defineUserConfig } from "@vuepress/cli"
-import type { ThemeOptions } from "vuepress-theme-celesta"
 import { translations } from "./translations"
+import type { ThemeOptions } from "@celesta/vuepress-theme-celesta"
 
 export default defineUserConfig<ThemeOptions>({
   title: "Celeste's blog",
@@ -23,7 +23,7 @@ export default defineUserConfig<ThemeOptions>({
 
   plugins: [],
 
-  theme: "vuepress-theme-celesta",
+  theme: "@celesta/vuepress-theme-celesta",
   themeConfig: {
     repo: "nsznsznjsz/blog",
     translations,
