@@ -6,14 +6,14 @@ describe("post filter", () => {
     const app = createApp({ source: "" })
 
     const drafts = await Promise.all([
-      createPage(app, { frontmatter: { true: true } }),
-      createPage(app, { frontmatter: { false: false } }),
+      createPage(app, { path: "draft1", frontmatter: { true: true } }),
+      createPage(app, { path: "draft2", frontmatter: { false: false } }),
     ])
     const posts = await Promise.all([
-      createPage(app, { frontmatter: { true: false } }),
-      createPage(app, { frontmatter: { false: true } }),
-      createPage(app, { frontmatter: { true: 0 } }),
-      createPage(app, { frontmatter: { true: "" } }),
+      createPage(app, { path: "post1", frontmatter: { true: false } }),
+      createPage(app, { path: "post2", frontmatter: { false: true } }),
+      createPage(app, { path: "post3", frontmatter: { true: 0 } }),
+      createPage(app, { path: "post4", frontmatter: { true: "" } }),
     ])
     const pages = [...drafts, ...posts]
 
@@ -29,12 +29,12 @@ describe("post filter", () => {
     const app = createApp({ source: "" })
 
     const drafts = await Promise.all([
-      createPage(app, { frontmatter: { number: 0 } }),
+      createPage(app, { path: "draft1", frontmatter: { number: 0 } }),
     ])
     const posts = await Promise.all([
-      createPage(app, { frontmatter: { number: true } }),
-      createPage(app, { frontmatter: { number: 1 } }),
-      createPage(app, { frontmatter: { number: "" } }),
+      createPage(app, { path: "post1", frontmatter: { number: true } }),
+      createPage(app, { path: "post2", frontmatter: { number: 1 } }),
+      createPage(app, { path: "post3", frontmatter: { number: "" } }),
     ])
     const pages = [...drafts, ...posts]
 
@@ -47,12 +47,12 @@ describe("post filter", () => {
     const app = createApp({ source: "" })
 
     const drafts = await Promise.all([
-      createPage(app, { frontmatter: { string: "" } }),
+      createPage(app, { path: "draft1", frontmatter: { string: "" } }),
     ])
     const posts = await Promise.all([
-      createPage(app, { frontmatter: { string: true } }),
-      createPage(app, { frontmatter: { string: 1 } }),
-      createPage(app, { frontmatter: { string: "123" } }),
+      createPage(app, { path: "post1", frontmatter: { string: true } }),
+      createPage(app, { path: "post2", frontmatter: { string: 1 } }),
+      createPage(app, { path: "post3", frontmatter: { string: "123" } }),
     ])
     const pages = [...drafts, ...posts]
 
