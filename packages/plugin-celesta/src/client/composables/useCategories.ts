@@ -57,7 +57,7 @@ function treeWalker(parent: Category) {
   }
 }
 
-function useCurrentCategories(): CategoriesRef {
+function useCurrentCategories(): CategoriesMutableRef {
   const route = useRoute()
   const lang = usePageLang()
   const currentRawCategoriesRef = computed(
