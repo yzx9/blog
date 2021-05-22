@@ -1,10 +1,16 @@
-import { App } from "@vuepress/core"
+import { createPage } from "@vuepress/core"
+import type { App } from "@vuepress/core"
 
-export const initializeHomePage = (app: App) => {
-  app.pages
-    .filter((a) => a.frontmatter.home)
-    .forEach((a) => {
-      a.frontmatter.layout = "Home"
-      a.frontmatter.shadowPage = true
+export const initializeHomePage = async (app: App) => {
+  if (app.pages.every((page) => page.path !== "/")) {
+    const homepage = await createPage(app, {
+      path: "/",
+      content: "",
+      frontmatter: {
+        layout: "Home",
+        shadowPage: true,
+      },
     })
+    app.pages.push(homepage)
+  }
 }

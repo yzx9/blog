@@ -1,5 +1,5 @@
-import type { App } from "@vuepress/core"
-import { createPage, PageOptions } from "@vuepress/core"
+import { createPage } from "@vuepress/core"
+import type { App, PageOptions } from "@vuepress/core"
 
 const pagesOptions: PageOptions[] = [
   {
