@@ -12,18 +12,12 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  setup(props, ctx) {
-    const currentYear = new Date(Date.now()).getFullYear()
-    const author = "Celeste"
+<script setup lang="ts">
+const currentYear = new Date(Date.now()).getFullYear()
+const author = "Celeste"
 
-    const copyrightRaw = "Copyright © 2021 – :year :author"
-    const copyright = copyrightRaw
-      .replace(":year", currentYear.toString())
-      .replace(":author", author)
-
-    return { copyright }
-  },
-}
+const copyrightRaw = "Copyright © 2021 – :year :author"
+const copyright = copyrightRaw
+  .replace(":year", currentYear.toString())
+  .replace(":author", author)
 </script>

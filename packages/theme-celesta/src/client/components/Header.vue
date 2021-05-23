@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="header h-full flex flex-col justify-center items-center relative overflow-hidden"
-  >
+  <div class="header h-full flex flex-col justify-center items-center relative overflow-hidden">
     <slot>
       <div class="flex flex-col items-start">
         <div class="z-30 min-w-max">
@@ -10,42 +8,30 @@
             :key="`v-page-${slug}`"
             :to="`/tags/${slug}`"
             class="header__pill-link"
-          >
-            {{ name }}
-          </RouterLink>
+          >{{ name }}</RouterLink>
           <a
             v-if="editLink"
             class="header__pill-link"
             :href="editLink.link"
             target="_blank"
-            >{{ editLink.text }}</a
-          >
+          >{{ editLink.text }}</a>
         </div>
-        <h1 class="my-6 z-30 text-white text-8xl font-medium">
-          {{ title }}
-        </h1>
+        <h1 class="my-6 z-30 text-white text-8xl font-medium">{{ title }}</h1>
       </div>
       <div class="flex z-30">
         <div class="header__meta-item">发表于 {{ date }}</div>
-        <div v-if="showUpdate" class="header__meta-item">
-          更新于 {{ updated }}
-        </div>
+        <div v-if="showUpdate" class="header__meta-item">更新于 {{ updated }}</div>
       </div>
       <div class="flex z-30">
         <div class="header__meta-item">
           分类于
-          <span
-            v-for="category in currentCategories"
-            class="header__categories"
-          >
+          <span v-for="category in currentCategories" class="header__categories">
             <RouterLink
               v-for="{ name, slug } in category.ancestors"
               :key="`v-header-${slug}`"
               :to="`/categories/${slug}`"
               class="header__category"
-            >
-              {{ name }}
-            </RouterLink>
+            >{{ name }}</RouterLink>
           </span>
         </div>
       </div>
@@ -55,7 +41,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import Particles from "./Particles.vue"
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
@@ -66,32 +52,15 @@ import {
 } from "@celesta/vuepress-plugin-celesta/lib/client"
 import type { ThemePageData } from "../../types"
 
-export default {
-  components: {
-    Particles,
-  },
-  setup(props, ctx) {
-    const pageData = usePageData<ThemePageData>()
+const pageData = usePageData<ThemePageData>()
 
-    const { title, date, updated } = toRefs(pageData.value)
-    const showUpdate = computed(() => date.value !== updated.value)
+const { title, date, updated } = toRefs(pageData.value)
+const showUpdate = computed(() => date.value !== updated.value)
 
-    const editLink = useEditLink()
+const editLink = useEditLink()
 
-    const { currentCategories } = useCategories()
-    const { currentTags } = useTags()
-
-    return {
-      title,
-      date,
-      updated,
-      editLink,
-      showUpdate,
-      currentCategories,
-      currentTags,
-    }
-  },
-}
+const { currentCategories } = useCategories()
+const { currentTags } = useTags()
 </script>
 
 <style lang="postcss">

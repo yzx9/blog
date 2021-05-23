@@ -26,7 +26,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { computed, onMounted, reactive, watch } from "vue"
 import { useRouter } from "vue-router"
 import { useSiteLocaleData } from "@vuepress/client"
@@ -35,98 +35,88 @@ import { useScroll } from "../composables"
 const threshold = 25
 const timespan = 500
 
-export default {
-  setup(props, ctx) {
-    // links
-    const { currentRoute } = useRouter()
-    const isHomepageRef = computed(() => currentRoute.value.path === "/")
-    const links = computed(() => {
-      const { path } = currentRoute.value
-      return [
-        {
-          name: "ARCHIVES",
-          link: "/archives.html",
-          active: path.startsWith("/archives"),
-        },
-        {
-          name: "CATEGORIES",
-          link: "/categories.html",
-          active: path.startsWith("/categories"),
-        },
-        { name: "TAGS", link: "/tags.html", active: path.startsWith("/tags") },
-        {
-          name: "ABOUT",
-          link: "/about.html",
-          active: path.startsWith("/about"),
-        },
-      ]
-    })
+// links
+const { currentRoute } = useRouter()
+const isHomepageRef = computed(() => currentRoute.value.path === "/")
+const links = computed(() => {
+  const { path } = currentRoute.value
+  return [
+    {
+      name: "ARCHIVES",
+      link: "/archives.html",
+      active: path.startsWith("/archives"),
+    },
+    {
+      name: "CATEGORIES",
+      link: "/categories.html",
+      active: path.startsWith("/categories"),
+    },
+    { name: "TAGS", link: "/tags.html", active: path.startsWith("/tags") },
+    {
+      name: "ABOUT",
+      link: "/about.html",
+      active: path.startsWith("/about"),
+    },
+  ]
+})
 
-    // title
-    const siteLocaleData = useSiteLocaleData()
-    const title = computed(() =>
-      isHomepageRef.value ? "BLOG" : siteLocaleData.value.title.toUpperCase()
-    )
+// title
+const siteLocaleData = useSiteLocaleData()
+const title = computed(() =>
+  isHomepageRef.value ? "BLOG" : siteLocaleData.value.title.toUpperCase()
+)
 
-    // display
-    const status = reactive({
-      hidden: false,
-      opaque: false,
-      instant: false,
-    })
+// display
+const status = reactive({
+  hidden: false,
+  opaque: false,
+  instant: false,
+})
 
-    const scroll = useScroll()
-    onMounted(() => {
-      // TODO only support `rem` unit now
-      const documentStyle = getComputedStyle(document.documentElement)
-      const headerHeight =
-        Number.parseInt(documentStyle.getPropertyValue("--header-height")) *
-        Number.parseInt(documentStyle.fontSize)
+const scroll = useScroll()
+onMounted(() => {
+  // TODO only support `rem` unit now
+  const documentStyle = getComputedStyle(document.documentElement)
+  const headerHeight =
+    Number.parseInt(documentStyle.getPropertyValue("--header-height")) *
+    Number.parseInt(documentStyle.fontSize)
 
-      let lastTime = Date.now()
-      let lastTop = 0
+  let lastTime = Date.now()
+  let lastTop = 0
 
-      watch(scroll, ({ top }) => {
-        const now = Date.now()
+  watch(scroll, ({ top }) => {
+    const now = Date.now()
 
-        if (top <= headerHeight) {
-          status.opaque = false
-          status.hidden = false
-          status.instant = true
-          lastTime = now
-        } else if (lastTop <= headerHeight) {
-          status.opaque = true
+    if (top <= headerHeight) {
+      status.opaque = false
+      status.hidden = false
+      status.instant = true
+      lastTime = now
+    } else if (lastTop <= headerHeight) {
+      status.opaque = true
+      status.hidden = true
+      status.instant = true
+      lastTime = now
+    } else {
+      status.opaque = true
+
+      if (now - lastTime > timespan) {
+        const offset = top - lastTop
+        status.instant = false
+
+        if (offset > threshold) {
           status.hidden = true
-          status.instant = true
-          lastTime = now
-        } else {
-          status.opaque = true
-
-          if (now - lastTime > timespan) {
-            const offset = top - lastTop
-            status.instant = false
-
-            if (offset > threshold) {
-              status.hidden = true
-            } else if (offset < -threshold) {
-              status.hidden = false
-            }
-
-            lastTime = now
-          }
+        } else if (offset < -threshold) {
+          status.hidden = false
         }
 
-        lastTop = top
-      })
-    })
-
-    return {
-      links,
-      title,
-      status,
+        lastTime = now
+      }
     }
-  },
-}
+
+    lastTop = top
+  })
+})
 </script>
 
 <style lang="postcss">

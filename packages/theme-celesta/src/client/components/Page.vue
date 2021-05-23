@@ -4,10 +4,7 @@
   </article>
 </template>
 
-<script lang="ts">
-export default {
-  setup(props, ctx) {},
-}
+<script setup lang="ts">
 </script>
 
 <style lang="postcss">

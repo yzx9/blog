@@ -1,30 +1,30 @@
 <template>
-  <div ref="ghostRef" class="ghost">
+  <div class="ghost" ref="ghostRef">
     <div class="ghost__body">
       <div class="ghost__face">
         <div class="ghost__eyes">
-          <div ref="eyeLeftRef" class="ghost__eye ghost__eye--left" />
-          <div ref="eyeRightRef" class="ghost__eye ghost__eye--right" />
+          <div class="ghost__eye ghost__eye--left" ref="eyeLeftRef"></div>
+          <div class="ghost__eye ghost__eye--right" ref="eyeRightRef"></div>
         </div>
-        <div class="ghost__smile" />
-        <div class="ghost__rosy ghost__rosy--left" />
-        <div class="ghost__rosy ghost__rosy--right" />
+        <div class="ghost__smile"></div>
+        <div class="ghost__rosy ghost__rosy--left"></div>
+        <div class="ghost__rosy ghost__rosy--right"></div>
       </div>
-      <div class="ghost__arm ghost__arm--left" />
-      <div class="ghost__arm ghost__arm--right" />
+      <div class="ghost__arm ghost__arm--left"></div>
+      <div class="ghost__arm ghost__arm--right"></div>
       <div class="ghost__bottom">
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-    <div class="ghost__shadow" />
+    <div class="ghost__shadow"></div>
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { onMounted, ref, watch } from "vue"
 import { useMouse } from "../composables"
 import type { Ref } from "vue"
@@ -40,44 +40,34 @@ const Y1 = 11
 const X2 = 5
 const Y2 = 11
 
-export default {
-  setup(props, ctx) {
-    const ghostRef = ref<HTMLElement | null>(null)
-    const eyeLeftRef = ref<HTMLElement | null>(null)
-    const eyeRightRef = ref<HTMLElement | null>(null)
+const ghostRef = ref<HTMLElement | null>(null)
+const eyeLeftRef = ref<HTMLElement | null>(null)
+const eyeRightRef = ref<HTMLElement | null>(null)
 
-    const mouse = useMouse()
+const mouse = useMouse()
 
-    onMounted(() => {
-      const coords = {
-        x: ghostRef.value?.offsetLeft || 0,
-        y: ghostRef.value?.offsetTop || 0,
-      }
+onMounted(() => {
+  const coords = {
+    x: ghostRef.value?.offsetLeft || 0,
+    y: ghostRef.value?.offsetTop || 0,
+  }
 
-      const createWatchCb = (
-        eyeRef: Ref<HTMLElement | null>,
-        X: number,
-        Y: number
-      ) => () => {
-        const angle = Math.atan2(mouse.x - X - coords.x, mouse.y - Y - coords.y)
-        const x = R * Math.cos(angle) + Y - 10
-        const y = R * Math.sin(angle) + X - 10
+  const createWatchCb = (
+    eyeRef: Ref<HTMLElement | null>,
+    X: number,
+    Y: number
+  ) => () => {
+    const angle = Math.atan2(mouse.x - X - coords.x, mouse.y - Y - coords.y)
+    const x = R * Math.cos(angle) + Y - 10
+    const y = R * Math.sin(angle) + X - 10
 
-        eyeRef.value?.style.setProperty("--offset-top", `${x}px`)
-        eyeRef.value?.style.setProperty("--offset-left", `${y}px`)
-      }
+    eyeRef.value?.style.setProperty("--offset-top", `${x}px`)
+    eyeRef.value?.style.setProperty("--offset-left", `${y}px`)
+  }
 
-      watch(mouse, createWatchCb(eyeLeftRef, X1, Y1))
-      watch(mouse, createWatchCb(eyeRightRef, X2, Y2))
-    })
-
-    return {
-      ghostRef,
-      eyeLeftRef,
-      eyeRightRef,
-    }
-  },
-}
+  watch(mouse, createWatchCb(eyeLeftRef, X1, Y1))
+  watch(mouse, createWatchCb(eyeRightRef, X2, Y2))
+})
 </script>
 
 <style lang="postcss">

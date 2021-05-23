@@ -1,12 +1,9 @@
 <template>
-  <div :id="id" class="particles" />
+  <div :id="id" class="particles"></div>
 </template>
 
 <script lang="ts">
-import { computed, ref, onMounted, onUnmounted, watch } from "vue"
-import type { PropType } from "vue"
-import { tsParticles } from "tsparticles"
-import type { Container, ISourceOptions } from "tsparticles"
+import type { ISourceOptions } from "tsparticles"
 
 const presetMap = ({
   chars: import("../assets/particles-preset-chars.json"),
@@ -24,60 +21,62 @@ const random = function <T>(map: Record<string, T>) {
   const i = Math.floor(Math.random() * Object.keys(map).length)
   return map[Object.keys(map)[i]]
 }
+</script>
 
-export default {
-  props: {
-    preset: {
-      type: String as PropType<"random" | keyof typeof presetMap>,
-      validator: (preset: string) =>
-        preset === "random" || Object.keys(presetMap).includes(preset),
-    },
-    presets: {
-      type: Array as PropType<(keyof typeof presetMap)[]>,
-      validator: (presets: string[]) =>
-        presets.every((preset) => Object.keys(presetMap).includes(preset)),
-    },
-    options: {
-      type: Object as PropType<ISourceOptions>,
-    },
+<script setup lang="ts">
+import { computed, defineEmit, defineProps, ref, onMounted, onUnmounted, watch } from "vue"
+import { tsParticles } from "tsparticles"
+import type { PropType } from "vue"
+import type { Container } from "tsparticles"
+
+const props = defineProps({
+  preset: {
+    type: String as PropType<"random" | keyof typeof presetMap>,
+    validator: (preset: string) =>
+      preset === "random" || Object.keys(presetMap).includes(preset),
   },
-  setup(props, ctx) {
-    const id = `particles-${count++}`
-    const containerRef = ref<Container | undefined>(undefined)
-
-    const presetsRef = computed(() => {
-      return (
-        props.presets?.reduce(
-          (map, a) => ({ ...map, [a]: presetMap[a] }),
-          {}
-        ) || presetMap
-      )
-    })
-
-    const presetRef = computed(() => {
-      return props.preset && props.preset !== "random"
-        ? presetsRef.value[props.preset]
-        : random(presetsRef.value)
-    })
-
-    const optionsRef = computed(() => props.options || presetRef.value)
-
-    onMounted(() =>
-      watch(
-        optionsRef,
-        async () => {
-          const option = await optionsRef.value
-          containerRef.value?.destroy()
-          containerRef.value = await tsParticles.load(id, option)
-          ctx.emit("change", containerRef.value)
-        },
-        { immediate: true }
-      )
-    )
-
-    onUnmounted(() => containerRef.value?.destroy())
-
-    return { id }
+  presets: {
+    type: Array as PropType<(keyof typeof presetMap)[]>,
+    validator: (presets: string[]) =>
+      presets.every((preset) => Object.keys(presetMap).includes(preset)),
   },
-}
+  options: Object as PropType<ISourceOptions>,
+})
+
+const emit = defineEmit(["change"])
+
+const id = `particles-${count++}`
+const containerRef = ref<Container | undefined>(undefined)
+
+const presetsRef = computed(() => {
+  return (
+    props.presets?.reduce(
+      (map, a) => ({ ...map, [a]: presetMap[a] }),
+      {}
+    ) || presetMap
+  )
+})
+
+const presetRef = computed(() => {
+  return props.preset && props.preset !== "random"
+    ? presetsRef.value[props.preset]
+    : random(presetsRef.value)
+})
+
+const optionsRef = computed(() => props.options || presetRef.value)
+
+onMounted(() =>
+  watch(
+    optionsRef,
+    async () => {
+      const option = await optionsRef.value
+      containerRef.value?.destroy()
+      containerRef.value = await tsParticles.load(id, option)
+      emit("change", containerRef.value)
+    },
+    { immediate: true }
+  )
+)
+
+onUnmounted(() => containerRef.value?.destroy())
 </script>
