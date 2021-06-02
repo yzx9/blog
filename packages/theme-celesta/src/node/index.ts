@@ -9,7 +9,7 @@ export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
   assignDefaultOptions(themeOptions, app.options.lang)
 
   return {
-    name: "vuepress-theme-celesta",
+    name: "@celesta/vuepress-theme-celesta",
 
     plugins: [
       "@vuepress/plugin-debug",
