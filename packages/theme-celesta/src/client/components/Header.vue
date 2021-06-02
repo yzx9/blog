@@ -37,7 +37,9 @@
       </div>
     </slot>
 
-    <Particles class="absolute h-full w-full z-0" preset="starry" />
+    <ClientOnly>
+      <Particles class="absolute h-full w-full z-0" preset="starry" />
+    </ClientOnly>
   </div>
 </template>
 
