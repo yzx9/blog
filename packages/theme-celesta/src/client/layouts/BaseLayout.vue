@@ -22,26 +22,17 @@
       </slot>
     </footer>
 
-    <teleport to="body">
-      <nav class="overflow-hidden z-50">
-        <slot name="nav">
-          <Navbar />
-        </slot>
-      </nav>
-    </teleport>
+    <nav class="overflow-hidden z-50">
+      <slot name="nav">
+        <Navbar />
+      </slot>
+    </nav>
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import Navbar from "../components/Navbar.vue"
 import Footer from "../components/Footer.vue"
-
-export default {
-  components: {
-    Navbar,
-    Footer,
-  },
-}
 </script>
 
 <style lang="postcss">
