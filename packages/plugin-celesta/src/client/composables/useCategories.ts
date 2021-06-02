@@ -11,7 +11,7 @@ import {
   pageToCategoriesMap,
 } from "@temp/celesta/categories"
 import type { DeepReadonly, Ref } from "vue"
-import type { Categories, Category } from "../../types"
+import type { Categories, Category, PageToCategoriesMap } from "../../types"
 
 type CategoriesMutableRef = Ref<Categories>
 type CategoriesRef = DeepReadonly<CategoriesMutableRef>
@@ -60,9 +60,14 @@ function treeWalker(parent: Category) {
 function useCurrentCategories(): CategoriesMutableRef {
   const route = useRoute()
   const lang = usePageLang()
+
+  const currentCategoriesIdsRef = computed(
+    () => pageToCategoriesMap?.[route.path] ?? []
+  )
+
   const currentRawCategoriesRef = computed(
     () =>
-      pageToCategoriesMap[route.path].map((slug) =>
+      currentCategoriesIdsRef.value.map((slug) =>
         allCategories.value.find((a) => a.slug === slug)
       ) as Categories
   )
