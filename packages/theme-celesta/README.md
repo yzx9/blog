@@ -21,18 +21,11 @@ export default {
 }
 ```
 
-Last, create `[your source dir]/index.md` and set `frontmatter.home` to `true`: 
-```bash
-echo "---\nhome:true\n---" > [your-source-dir]/index.md
-```
-
-Then, enjor your blog!
+Then, enjor your blog🎉!
 
 ## Memorandum
 
 1. Don't create posts with the same title
-2. Don't forget create homepage
-3. You can use folders to categorize posts
 
 ## Config
 
@@ -83,6 +76,10 @@ export default {
 ## Frontmatter
 
 ### Updated
+
+> Last updated time is not a required option, we will use last commit from git if git is enabled and this frontmatter is not ~~
+> 
+> However, updated time from git is not always right and it doesn't take a lots of time to specify it😊
 
 Format: yyyy-MM-dd
 
