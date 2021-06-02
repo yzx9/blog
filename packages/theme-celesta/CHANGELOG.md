@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/nsznsznjsz/blog/compare/v0.2.0...v0.2.1) (2021-06-02)
+
+
+### Bug Fixes
+
+* **theme-celesta:** fix theme name ([f58b0b9](https://github.com/nsznsznjsz/blog/commit/f58b0b91c2de127f53c0d3cdef7969dcc961442f))
+
+
+
+
+
 # 0.2.0 (2021-06-02)
 
 

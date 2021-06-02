@@ -1,6 +1,6 @@
 {
   "name": "@celesta/vuepress-plugin-post-filter",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Post filter plugin for vuepress-next",
   "author": "Celeste <yuan.zx@outlook.com>",
   "homepage": "https://github.com/nsznsznjsz/blog/tree/master/packages/vuepress-plugin-post-filter#readme",
