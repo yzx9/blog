@@ -8,6 +8,7 @@ export type PaginationOptions = {
 }
 
 export type PaginationData = {
+  key: string
   path: string
   title: string
   excerpt: string

@@ -9,6 +9,7 @@ const resolvePaginationDataSet = (app: App): PaginationDataSet =>
     .filter(isPost)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
     .map((a) => ({
+      key: a.key,
       path: a.path,
       title: a.title,
       excerpt: resolvePageExcerpt(a),
