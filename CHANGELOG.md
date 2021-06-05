@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/nsznsznjsz/blog/compare/v0.2.2...v0.3.0) (2021-06-05)
+
+
+### Features
+
+* **plugin-celesta/pagination:** support collect key ([d17f12a](https://github.com/nsznsznjsz/blog/commit/d17f12ab6d899636799fdf9b3f2c152b1743e2cf))
+* **theme-celesta:** display full post in homepage ([bc76488](https://github.com/nsznsznjsz/blog/commit/bc764885a22f2bf85664bf2f4534ad13a8c2b173))
+* **theme-celesta:** new homepage and navbar ([5da1480](https://github.com/nsznsznjsz/blog/commit/5da1480030250021f612eb1064d241c26445660d))
+
+
+
+
+
 ## [0.2.2](https://github.com/nsznsznjsz/blog/compare/v0.2.1...v0.2.2) (2021-06-02)
 
 **Note:** Version bump only for package blog
