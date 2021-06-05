@@ -28,9 +28,7 @@
           <TheNavbar />
         </slot>
       </nav>
-    </Teleport>
 
-    <Teleport to="#app">
       <ClientOnly>
         <Particles class="layout__background" preset="starry" />
       </ClientOnly>
