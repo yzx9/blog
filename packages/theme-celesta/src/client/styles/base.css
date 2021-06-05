@@ -6,7 +6,6 @@
 
 html,
 body {
-  background: var(--bg-color);
   scroll-behavior: smooth;
 
   &::-webkit-scrollbar {

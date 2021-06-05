@@ -1,8 +1,8 @@
-import { onMounted, onUnmounted, reactive } from "vue"
+import { onMounted, onUnmounted, reactive, ref } from "vue"
 import { debounce } from "ts-debounce"
 
 /**
- * Client only, must wrapped by `onMounted`
+ * Client Only
  */
 export const getScrollTop = () =>
   Math.max(
@@ -12,7 +12,13 @@ export const getScrollTop = () =>
   )
 
 /**
- * Client only, must wrapped by `onMounted`
+ * Client Only
+ */
+export const getScrollBottom = () =>
+  document.body.clientHeight - window.innerHeight - getScrollTop()
+
+/**
+ * Client Only
  */
 export const getScrollLeft = () =>
   Math.max(
@@ -21,15 +27,22 @@ export const getScrollLeft = () =>
     document.body.scrollLeft
   )
 
-export const useScroll = (options = { delay: 33 }) => {
-  const position = reactive({
-    top: 0,
-    left: 0,
-  })
+/**
+ * Client Only
+ */
+export const getScrollRight = () => document.body.clientWidth - getScrollLeft()
+
+export const useScroll = (options = { delay: 0 }) => {
+  const top = ref(0)
+  const bottom = ref(0)
+  const left = ref(0)
+  const right = ref(0)
 
   const onScroll = debounce(function (this: any, e?: Event) {
-    position.top = getScrollTop()
-    position.left = getScrollLeft()
+    top.value = getScrollTop()
+    bottom.value = getScrollBottom()
+    left.value = getScrollLeft()
+    right.value = getScrollRight()
   }, options.delay)
 
   onMounted(() => {
@@ -41,5 +54,5 @@ export const useScroll = (options = { delay: 33 }) => {
     document.removeEventListener("scroll", onScroll)
   })
 
-  return position
+  return { top, bottom, left, right }
 }

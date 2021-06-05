@@ -1,10 +1,12 @@
 <template>
-  <BaseLayout>
+  <BaseLayout class="layout_homepage">
     <template #header>
-      <Header>
+      <div
+        class="flex flex-col h-screen pb-12 justify-center items-center relative overflow-hidden"
+      >
         <h1 class="home-title text-8xl text-white pb-10 z-30">{{ title }}</h1>
         <h2 class="text-4xl text-white z-30">{{ description }}</h2>
-      </Header>
+      </div>
     </template>
 
     <template #main>
@@ -21,34 +23,23 @@
   </BaseLayout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import BaseLayout from "./BaseLayout.vue"
+import Posts from "../components/Posts.vue"
 import { computed } from "vue"
 import { useSiteLocaleData } from "@vuepress/client"
-import BaseLayout from "./BaseLayout.vue"
-import Header from "../components/Header.vue"
-import Posts from "../components/Posts.vue"
 
-export default {
-  components: {
-    BaseLayout,
-    Header,
-    Posts,
-  },
-  setup(props, ctx) {
-    const siteLocaleData = useSiteLocaleData()
-    const title = computed(() => siteLocaleData.value.title)
-    const description = computed(() => siteLocaleData.value.description)
-
-    return {
-      title,
-      description,
-    }
-  },
-}
+const siteLocaleData = useSiteLocaleData()
+const title = computed(() => siteLocaleData.value.title)
+const description = computed(() => siteLocaleData.value.description)
 </script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+.layout_homepage {
+  --header-height: 100vh;
+}
 
 .home-title {
   font-family: "Kaushan Script", cursive;

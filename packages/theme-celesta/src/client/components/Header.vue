@@ -1,50 +1,47 @@
 <template>
   <div class="header h-full flex flex-col justify-center items-center relative overflow-hidden">
-    <slot>
-      <div class="flex flex-col items-start">
-        <div class="z-30 min-w-max">
-          <RouterLink
-            v-for="{ name, slug } in currentTags"
-            :key="`v-page-${slug}`"
-            :to="`/tags/${slug}`"
-            class="header__pill-link"
-          >{{ name }}</RouterLink>
-          <a
-            v-if="editLink"
-            class="header__pill-link"
-            :href="editLink.link"
-            target="_blank"
-          >{{ editLink.text }}</a>
-        </div>
-        <h1 class="my-6 z-30 text-white text-8xl font-medium">{{ title }}</h1>
-      </div>
-      <div class="flex z-30">
-        <div class="header__meta-item">发表于 {{ date }}</div>
-        <div v-if="showUpdate" class="header__meta-item">更新于 {{ updated }}</div>
-      </div>
-      <div class="flex z-30">
-        <div class="header__meta-item">
-          分类于
-          <span v-for="category in currentCategories" class="header__categories">
-            <RouterLink
-              v-for="{ name, slug } in category.ancestors"
-              :key="`v-header-${slug}`"
-              :to="`/categories/${slug}`"
-              class="header__category"
-            >{{ name }}</RouterLink>
-          </span>
-        </div>
-      </div>
-    </slot>
+    <div class="flex flex-col items-start">
+      <div class="z-30 min-w-max">
+        <RouterLink
+          v-for="{ name, slug } in currentTags"
+          :key="`v-page-${slug}`"
+          :to="`/tags/${slug}`"
+          class="header__pill-link"
+        >{{ name }}</RouterLink>
 
-    <ClientOnly>
-      <Particles class="absolute h-full w-full z-0" preset="starry" />
-    </ClientOnly>
+        <a
+          v-if="editLink"
+          class="header__pill-link"
+          :href="editLink.link"
+          target="_blank"
+        >{{ editLink.text }}</a>
+      </div>
+
+      <h1 class="my-6 z-30 text-white text-8xl font-medium">{{ title }}</h1>
+    </div>
+
+    <div class="flex z-30">
+      <div class="header__meta-item">发表于 {{ date }}</div>
+      <div v-if="showUpdate" class="header__meta-item">更新于 {{ updated }}</div>
+    </div>
+
+    <div class="flex z-30">
+      <div class="header__meta-item">
+        分类于
+        <span v-for="category in currentCategories" class="header__categories">
+          <RouterLink
+            v-for="{ name, slug } in category.ancestors"
+            :key="`v-header-${slug}`"
+            :to="`/categories/${slug}`"
+            class="header__category"
+          >{{ name }}</RouterLink>
+        </span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import Particles from "./Particles.vue"
 import { computed, toRefs } from "vue"
 import { usePageData } from "@vuepress/client"
 import {

@@ -7,7 +7,7 @@ export const initializeHomePage = async (app: App) => {
       path: "/",
       content: "",
       frontmatter: {
-        layout: "Home",
+        layout: "Homepage",
         shadowPage: true,
       },
     })

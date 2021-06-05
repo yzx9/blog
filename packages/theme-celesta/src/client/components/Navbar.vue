@@ -1,12 +1,5 @@
 <template>
-  <div
-    class="navbar"
-    :class="{
-      'navbar--hidden': status.hidden,
-      'navbar--opaque': status.opaque,
-      'navbar--instant': status.instant,
-    }"
-  >
+  <div class="navbar" :class="{ 'navbar_opaque': isOpaque }">
     <ul class="flex">
       <li class="navbar__link">
         <RouterLink to="/" class="font-bold">{{ title }}</RouterLink>
@@ -27,135 +20,89 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, reactive, watch } from "vue"
-import { useRouter } from "vue-router"
+import { computed, ref, watch } from "vue"
 import { useSiteLocaleData } from "@vuepress/client"
+import { useRouter } from "vue-router"
 import { useScroll } from "../composables"
-
-const threshold = 25
-const timespan = 500
 
 // links
 const { currentRoute } = useRouter()
-const isHomepageRef = computed(() => currentRoute.value.path === "/")
-const links = computed(() => {
-  const { path } = currentRoute.value
-  return [
-    {
-      name: "ARCHIVES",
-      link: "/archives.html",
-      active: path.startsWith("/archives"),
-    },
-    {
-      name: "CATEGORIES",
-      link: "/categories.html",
-      active: path.startsWith("/categories"),
-    },
-    { name: "TAGS", link: "/tags.html", active: path.startsWith("/tags") },
-    {
-      name: "ABOUT",
-      link: "/about.html",
-      active: path.startsWith("/about"),
-    },
-  ]
-})
+const links = computed(() => [
+  {
+    name: "ARCHIVES",
+    link: "/archives.html",
+    active: currentRoute.value.path.startsWith("/archives"),
+  },
+  {
+    name: "CATEGORIES",
+    link: "/categories.html",
+    active: currentRoute.value.path.startsWith("/categories"),
+  },
+  {
+    name: "TAGS",
+    link: "/tags.html",
+    active: currentRoute.value.path.startsWith("/tags")
+  },
+  {
+    name: "ABOUT",
+    link: "/about.html",
+    active: currentRoute.value.path.startsWith("/about"),
+  },
+])
 
 // title
 const siteLocaleData = useSiteLocaleData()
+const isHomepage = computed(() => currentRoute.value.path === "/")
 const title = computed(() =>
-  isHomepageRef.value ? "BLOG" : siteLocaleData.value.title.toUpperCase()
+  isHomepage.value ? "BLOG" : siteLocaleData.value.title.toUpperCase()
 )
 
 // display
-const status = reactive({
-  hidden: false,
-  opaque: false,
-  instant: false,
-})
+const THRESHOLD = 25
+const NAVBAR_HEIGHT = 50
 
-const scroll = useScroll()
-onMounted(() => {
-  // TODO only support `rem` unit now
-  const documentStyle = getComputedStyle(document.documentElement)
-  const headerHeight =
-    Number.parseInt(documentStyle.getPropertyValue("--header-height")) *
-    Number.parseInt(documentStyle.fontSize)
+const { top: scrollTop } = useScroll()
+const isOpaque = computed(() => scrollTop.value <= THRESHOLD)
 
-  let lastTime = Date.now()
-  let lastTop = 0
-
-  watch(scroll, ({ top }) => {
-    const now = Date.now()
-
-    if (top <= headerHeight) {
-      status.opaque = false
-      status.hidden = false
-      status.instant = true
-      lastTime = now
-    } else if (lastTop <= headerHeight) {
-      status.opaque = true
-      status.hidden = true
-      status.instant = true
-      lastTime = now
-    } else {
-      status.opaque = true
-
-      if (now - lastTime > timespan) {
-        const offset = top - lastTop
-        status.instant = false
-
-        if (offset > threshold) {
-          status.hidden = true
-        } else if (offset < -threshold) {
-          status.hidden = false
-        }
-
-        lastTime = now
-      }
-    }
-
-    lastTop = top
-  })
+const top = ref(0)
+const createBetween = (min: number, max: number) => (val: number) => val < min ? min : val > max ? max : val
+const between = createBetween(-NAVBAR_HEIGHT, 0)
+watch(scrollTop, (value, oldValue) => {
+  top.value = between(top.value + oldValue - value)
 })
 </script>
 
 <style lang="postcss">
 .navbar {
-  @apply fixed top-0 w-full flex justify-between transition-all duration-500;
+  @apply fixed top-0 left-0 w-full flex justify-between;
+  @apply z-50 bg-white bg-opacity-70 shadow-md transition-all duration-500;
 
-  --navbar-height: 3rem;
+  --navbar-height: calc(v-bind(NAVBAR_HEIGHT) * 1px);
+
   height: var(--navbar-height);
+  top: calc(v-bind(top) * 1px);
+}
+
+.navbar_opaque {
+  @apply bg-opacity-0 shadow-none;
 
   & .navbar__link {
-    @apply flex justify-center items-center transition-all font-medium text-white hover:text-primary-500;
+    @apply text-white;
 
-    & a {
-      @apply h-full px-4 align-middle transition-all;
-      border-bottom: 2px solid transparent;
-      line-height: var(--navbar-height);
+    &:hover a {
+      @apply border-primary-500;
     }
   }
+}
 
-  &.navbar--opaque {
-    @apply shadow-md bg-opacity-50;
-    background-color: rgba(var(--bg-color), var(--tw-bg-opacity));
+.navbar__link {
+  @apply flex justify-center items-center transition-all;
+  @apply font-medium text-primary-500;
 
-    & .navbar__link {
-      @apply text-primary-500;
-
-      &:hover a {
-        @apply border-primary-500;
-      }
-    }
-  }
-
-  &.navbar--hidden {
-    @apply shadow-none;
-    top: calc(0 - var(--navbar-height));
-  }
-
-  &.navbar--instant {
-    @apply transition-none;
+  & a {
+    @apply h-full px-4 align-middle transition-all;
+    border-bottom: 2px solid transparent;
+    line-height: var(--navbar-height);
   }
 }
 </style>

@@ -1,9 +1,7 @@
 <template>
-  <div class="flex-col">
+  <div class="posts flex-col">
     <template v-for="post in pagination.pages">
-      <div
-        class="p-8 my-4 flex flex-col transition-all duration-300 rounded items-center hover:border hover:shadow-md"
-      >
+      <div class="posts__card">
         <RouterLink
           class="p-2 text-4xl font-bold transition-colors hover:text-primary-500"
           :to="post.path"
@@ -17,9 +15,10 @@
 
 <script setup lang="ts">
 import Page from "./Page.vue"
-import { usePagination } from "@celesta/vuepress-plugin-celesta/lib/client"
 import { debounce } from "ts-debounce"
-import { computed, onMounted, onUnmounted, reactive, ref } from "vue"
+import { computed, reactive, ref, watch } from "vue"
+import { useScroll } from "../composables"
+import { usePagination } from "@celesta/vuepress-plugin-celesta/lib/client"
 import type { PaginationOptions } from "@celesta/vuepress-plugin-celesta"
 
 const pageSize = ref(1)
@@ -29,22 +28,31 @@ const options: PaginationOptions = reactive({
 })
 const pagination = usePagination(options)
 
+const THRESHOLD = 200
+const { bottom } = useScroll()
 const loadAllPost = computed(() => pageSize.value === pagination.total)
 
 const infiniteScrollEvent = debounce(() => {
   pageSize.value++
 }, 500, { isImmediate: true })
-const infiniteScrollHandler = () => {
-  if (!loadAllPost.value && window.scrollY + window.innerHeight + 200 > document.body.offsetHeight) {
-    infiniteScrollEvent()
-  }
-}
 
-onMounted(() => window.addEventListener("scroll", infiniteScrollHandler))
-onUnmounted(() => window.removeEventListener("scroll", infiniteScrollHandler))
+watch(bottom, val => {
+  if (!loadAllPost.value && val < THRESHOLD) infiniteScrollEvent()
+})
 </script>
 
 <style lang="postcss">
+.posts {
+  margin-top: -5rem;
+}
+
+.posts__card {
+  @apply p-8 my-4 flex flex-col transition-all duration-300;
+  @apply rounded-xl shadow-md z-40;
+
+  background: var(--bg-color);
+}
+
 .page_title-hidden {
   & > h1:first-child {
     display: none;
