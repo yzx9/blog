@@ -1,10 +1,15 @@
 <template>
   <article class="page prose max-w-none">
-    <Content />
+    <Content :pageKey="props.pageKey" />
   </article>
 </template>
 
 <script setup lang="ts">
+import { defineProps } from "vue"
+
+const props = defineProps<{
+  pageKey?: string
+}>()
 </script>
 
 <style lang="postcss">

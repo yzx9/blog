@@ -5,32 +5,60 @@
         class="p-8 my-4 flex flex-col transition-all duration-300 rounded items-center hover:border hover:shadow-md"
       >
         <RouterLink
-          class="p-2 text-2xl transition-colors hover:text-primary-500"
+          class="p-2 text-4xl font-bold transition-colors hover:text-primary-500"
           :to="post.path"
         >{{ post.title }}</RouterLink>
 
-        <p class="text-base text-gray-500">{{ post.excerpt }}</p>
-        <RouterLink
-          class="mt-2 p-2 px-4 text-center select-none border rounded-full transition-colors hover:text-white hover:border-primary-500 hover:bg-primary-500"
-          :to="post.path"
-        >阅读全文</RouterLink>
+        <Page class="page_title-hidden" :pageKey="post.key" />
       </div>
     </template>
   </div>
-
-  <Pagination v-model:current="options.currentPage" :total="pagination.total" />
 </template>
 
 <script setup lang="ts">
-import Pagination from "./Pagination.vue"
-import { reactive } from "vue"
+import Page from "./Page.vue"
 import { usePagination } from "@celesta/vuepress-plugin-celesta/lib/client"
+import { debounce } from "ts-debounce"
+import { computed, onMounted, onUnmounted, reactive, ref } from "vue"
 import type { PaginationOptions } from "@celesta/vuepress-plugin-celesta"
 
-const options = reactive<Required<PaginationOptions>>({
+const pageSize = ref(1)
+const options: PaginationOptions = reactive({
   currentPage: 1,
-  pageSize: 10,
+  pageSize,
 })
-
 const pagination = usePagination(options)
+
+const loadAllPost = computed(() => pageSize.value === pagination.total)
+
+const infiniteScrollEvent = debounce(() => {
+  pageSize.value++
+}, 500, { isImmediate: true })
+const infiniteScrollHandler = () => {
+  if (!loadAllPost.value && window.scrollY + window.innerHeight + 200 > document.body.offsetHeight) {
+    infiniteScrollEvent()
+  }
+}
+
+onMounted(() => window.addEventListener("scroll", infiniteScrollHandler))
+onUnmounted(() => window.removeEventListener("scroll", infiniteScrollHandler))
 </script>
+
+<style lang="postcss">
+.page_title-hidden {
+  & > h1:first-child {
+    display: none;
+  }
+
+  & h1,
+  & h2,
+  & h3,
+  & h4,
+  & h5,
+  & h6 {
+    & .header-anchor {
+      display: none;
+    }
+  }
+}
+</style>
