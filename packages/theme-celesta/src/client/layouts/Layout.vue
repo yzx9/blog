@@ -1,7 +1,7 @@
 <template>
   <BaseLayout>
     <template #header>
-      <Header />
+      <TheHeader />
     </template>
 
     <template #main>
@@ -9,29 +9,19 @@
     </template>
 
     <template #sub>
-      <Sidebar />
+      <TheSidebar />
     </template>
 
     <template #extra>
-      <Catalog />
+      <TheCatalog />
     </template>
   </BaseLayout>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import BaseLayout from "./BaseLayout.vue"
 import Page from "../components/Page.vue"
-import Header from "../components/Header.vue"
-import Sidebar from "../components/Sidebar.vue"
-import Catalog from "../components/Catalog.vue"
-
-export default {
-  components: {
-    BaseLayout,
-    Page,
-    Header,
-    Sidebar,
-    Catalog,
-  },
-}
+import TheHeader from "../components/Header.vue"
+import TheSidebar from "../components/Sidebar.vue"
+import TheCatalog from "../components/Catalog.vue"
 </script>

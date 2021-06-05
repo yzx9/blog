@@ -18,21 +18,21 @@
 
     <footer class="layout__footer">
       <slot name="footer">
-        <Footer />
+        <TheFooter />
       </slot>
     </footer>
 
     <nav class="overflow-hidden z-50">
       <slot name="nav">
-        <Navbar />
+        <TheNavbar />
       </slot>
     </nav>
   </div>
 </template>
 
 <script setup lang="ts">
-import Navbar from "../components/Navbar.vue"
-import Footer from "../components/Footer.vue"
+import TheNavbar from "../components/Navbar.vue"
+import TheFooter from "../components/Footer.vue"
 </script>
 
 <style lang="postcss">
