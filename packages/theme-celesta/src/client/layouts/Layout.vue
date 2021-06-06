@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseLayout from "./BaseLayout.vue"
+import BaseLayout from "../components/BaseLayout.vue"
 import Page from "../components/Page.vue"
 import TheHeader from "../components/Header.vue"
 import TheSidebar from "../components/Sidebar.vue"

@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import BaseLayout from "./BaseLayout.vue"
+import BaseLayout from "../components/BaseLayout.vue"
 import Posts from "../components/Posts.vue"
 import { computed } from "vue"
 import { useSiteLocaleData } from "@vuepress/client"
