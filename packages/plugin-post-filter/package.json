@@ -32,6 +32,6 @@
     "clean": "rimraf lib *.tsbuildinfo"
   },
   "dependencies": {
-    "@vuepress/core": "^2.0.0-beta.14"
+    "@vuepress/core": "^2.0.0-beta.17"
   }
 }
