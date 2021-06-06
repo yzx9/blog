@@ -1,8 +1,6 @@
-import type { App } from "@vuepress/core"
 import { initializeThemePages } from "./initializeThemePages"
-import { initializeHomePage } from "./initializeHomePage"
+import type { App } from "@vuepress/core"
 
 export const onInitialized = async (app: App) => {
-  initializeHomePage(app)
   await initializeThemePages(app)
 }

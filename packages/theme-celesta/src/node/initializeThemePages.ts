@@ -1,43 +1,54 @@
 import { createPage } from "@vuepress/core"
 import type { App, PageOptions } from "@vuepress/core"
 
+const initializeHomePage = async (app: App) => {
+  if (app.pages.every((page) => page.path !== "/")) {
+    const homepage = await createPage(app, {
+      path: "/",
+      content: "",
+      frontmatter: {
+        layout: "Homepage",
+        shadowPage: true,
+      },
+    })
+    app.pages.push(homepage)
+  }
+}
+
 const pagesOptions: PageOptions[] = [
   {
     path: "/about.html",
-    frontmatter: {
-      layout: "About",
-    },
+    frontmatter: { layout: "About" },
   },
   {
     path: "/archives.html",
-    frontmatter: {
-      layout: "Archives",
-    },
+    frontmatter: { layout: "Archives" },
   },
   {
     path: "/categories.html",
-    frontmatter: {
-      layout: "Categories",
-    },
+    frontmatter: { layout: "Categories" },
   },
   {
     path: "/tags.html",
-    frontmatter: {
-      layout: "Tags",
-    },
+    frontmatter: { layout: "Tags" },
   },
 ]
 
-export const initializeThemePages = async (app: App) => {
+const initializeAdditionalPages = async (app: App) => {
   const pages = await Promise.all(
     pagesOptions
       .filter((a) => app.pages.every((b) => a.path !== b.path))
-      .map((a) => ({
-        ...a,
-        frontmatter: { ...a.frontmatter, shadowPage: true },
-      }))
-      .map((option) => createPage(app, option))
+      .map((a) =>
+        createPage(app, {
+          ...a,
+          frontmatter: { ...a.frontmatter, shadowPage: true },
+        })
+      )
   )
 
   app.pages.push(...pages)
+}
+
+export const initializeThemePages = async (app: App) => {
+  await Promise.all([initializeHomePage(app), initializeAdditionalPages(app)])
 }
