@@ -7,7 +7,7 @@ import type {
   ThemeFrontmatter,
 } from "../types"
 
-let resolved = false
+const resolved = new WeakSet<App>()
 const tags: Tags = []
 const pageToTagsMap: PageToTagsMap = {}
 const pageToRawTagNameMap: PageToRawTagNameMap = {}
@@ -39,7 +39,7 @@ const _resolveTags = (app: App) =>
   app.pages.filter(isPost).forEach(resolvePageTags)
 
 export const resolveTags = (app: App) => {
-  if (!resolved) _resolveTags(app)
-  resolved = true
+  if (!resolved.has(app)) _resolveTags(app)
+  resolved.add(app)
   return { tags, pageToTagsMap, pageToRawTagNameMap }
 }

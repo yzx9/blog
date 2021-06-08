@@ -8,7 +8,7 @@ import type {
   ThemeFrontmatter,
 } from "../types"
 
-let resolved = false
+const resolved = new WeakSet<App>()
 const rootCategories: Categories = []
 const pageToCategoriesMap: PageToCategoriesMap = {}
 const pageToRawCategoryNameMap: PageToRawCategoryNameMap = {}
@@ -61,8 +61,8 @@ const _resolveCategories = (app: App) =>
   app.pages.filter(isPost).forEach(resovePageCategories)
 
 export const resolveCategories = (app: App) => {
-  if (!resolved) _resolveCategories(app)
-  resolved = true
+  if (!resolved.has(app)) _resolveCategories(app)
+  resolved.add(app)
   return {
     rootCategories,
     pageToCategoriesMap,

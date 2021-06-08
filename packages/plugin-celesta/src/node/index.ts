@@ -12,4 +12,6 @@ export const VuepressPluginCelesta: Plugin<ThemeData> = (options, app) => {
 }
 
 export default VuepressPluginCelesta
+export * from "./resolveCategories"
+export * from "./resolveTags"
 export * from "../types"
