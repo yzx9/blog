@@ -22,17 +22,15 @@
       </slot>
     </footer>
 
-    <Teleport to="#app">
-      <nav class="layout__nav overflow-hidden z-50">
-        <slot name="nav">
-          <TheNavbar />
-        </slot>
-      </nav>
+    <nav class="layout__nav overflow-hidden z-50">
+      <slot name="nav">
+        <TheNavbar />
+      </slot>
+    </nav>
 
-      <ClientOnly>
-        <Particles class="layout__background" preset="starry" />
-      </ClientOnly>
-    </Teleport>
+    <ClientOnly>
+      <Particles class="layout__background" preset="starry" />
+    </ClientOnly>
   </div>
 </template>
 
