@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar" :class="{ 'navbar_opaque': isOpaque }">
+  <div class="navbar" :class="{ 'navbar_transparent': isTransparent }">
     <ul class="flex">
       <li class="navbar__link">
         <RouterLink to="/" class="font-bold">{{ title }}</RouterLink>
@@ -62,7 +62,7 @@ const NAVBAR_HEIGHT = 50
 const THRESHOLD = NAVBAR_HEIGHT * 3
 
 const { top: scrollTop } = useScroll()
-const isOpaque = computed(() => scrollTop.value <= THRESHOLD)
+const isTransparent = computed(() => scrollTop.value <= THRESHOLD)
 
 const top = ref(0)
 const createBetween = (min: number, max: number) => (val: number) => val < min ? min : val > max ? max : val
@@ -83,7 +83,7 @@ watch(scrollTop, (value, oldValue) => {
   top: calc(v-bind(top) * 1px);
 }
 
-.navbar_opaque {
+.navbar_transparent {
   @apply bg-opacity-0 shadow-none;
 
   & .navbar__link {
