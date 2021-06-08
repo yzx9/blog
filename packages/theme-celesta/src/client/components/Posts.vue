@@ -3,7 +3,7 @@
     <template v-for="post in pagination.pages">
       <div class="posts__card">
         <RouterLink
-          class="p-2 text-4xl font-bold transition-colors hover:text-primary-500"
+          class="p-2 pl-6 text-4xl font-bold transition-colors hover:text-primary-500"
           :to="post.path"
         >{{ post.title }}</RouterLink>
 
@@ -47,8 +47,8 @@ watch(bottom, val => {
 }
 
 .posts__card {
-  @apply p-8 my-4 flex flex-col transition-all duration-300;
-  @apply rounded-xl shadow-md z-40;
+  @apply p-8 mt-4 mb-6 flex flex-col transition-all duration-300;
+  @apply rounded-xl shadow-xl z-40;
 
   background: var(--bg-color);
 }
