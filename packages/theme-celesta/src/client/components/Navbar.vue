@@ -58,8 +58,8 @@ const title = computed(() =>
 )
 
 // display
-const THRESHOLD = 25
 const NAVBAR_HEIGHT = 50
+const THRESHOLD = NAVBAR_HEIGHT * 3
 
 const { top: scrollTop } = useScroll()
 const isOpaque = computed(() => scrollTop.value <= THRESHOLD)
