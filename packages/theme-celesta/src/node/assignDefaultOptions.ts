@@ -1,4 +1,5 @@
-import { ThemeLocaleOptions, ThemeOptions } from "../types"
+import type { App } from "@vuepress/core"
+import type { ThemeLocaleOptions, ThemeOptions } from "../types"
 
 const defaultLang = "en-US"
 const defaultOptions = {}
@@ -37,10 +38,8 @@ const defaultOptionsLocaleSet: Record<string, ThemeLocaleOptions> = {
 /**
  * Assign default options to `themeConfig`
  */
-export const assignDefaultOptions = (
-  options: ThemeOptions,
-  lang = defaultLang
-) => {
+export const assignDefaultOptions = (app: App, options: ThemeOptions) => {
+  const lang = app.options.lang ?? defaultLang
   const defaultOptionsLocale = defaultOptionsLocaleSet[defaultLang]
 
   if (!options.locales) options.locales = {}

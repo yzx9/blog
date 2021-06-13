@@ -7,7 +7,7 @@ import type { Theme } from "@vuepress/core"
 import type { ThemeData } from "../types"
 
 export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
-  assignDefaultOptions(themeOptions, app.options.lang)
+  assignDefaultOptions(app, themeOptions)
   assignPostcssConfig(app)
 
   return {
