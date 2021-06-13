@@ -8,6 +8,7 @@ let count = 0
 
 <script setup lang="ts">
 import { defineEmit, defineProps, ref, onMounted, onUnmounted, watch } from "vue"
+import { withBase } from "@vuepress/client"
 import { tsParticles } from "tsparticles"
 import type { PropType } from "vue"
 import type { Container, ISourceOptions } from "tsparticles"
@@ -31,15 +32,16 @@ onMounted(() =>
 
       const presets = Array.isArray(preset) ? preset : [preset]
       const index = Math.floor(Math.random() * presets.length)
-      try {
-        container.value = typeof presets[0] === "string"
-          ? await tsParticles.loadJSON(id, presets as string[], index)
-          : await tsParticles.loadFromArray(id, presets as ISourceOptions[], index)
 
-        emit("change", container.value)
-      } catch (e) {
-        console.log(e)
+      if (typeof presets[0] === "string") {
+        const paths = presets as string[]
+        const jsons = paths.map(a => ["http", "https"].some(b => a.startsWith(b)) ? a : withBase(a))
+        container.value = await tsParticles.loadJSON(id, jsons, index)
+      } else {
+        const options = presets as ISourceOptions[]
+        container.value = await tsParticles.loadFromArray(id, options, index)
       }
+      emit("change", container.value)
     },
     { immediate: true }
   )
