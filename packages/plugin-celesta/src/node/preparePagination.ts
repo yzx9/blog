@@ -2,9 +2,9 @@ import { isPost } from "./utils"
 import { resolvePageExcerpt } from "./resolvePageExcerpt"
 import { generateTempContent } from "./utils/generateTempContent"
 import type { App } from "@vuepress/core"
-import type { PaginationDataSet } from "../types"
+import type { PaginationStorageDataSet } from "../types"
 
-const resolvePaginationDataSet = (app: App): PaginationDataSet =>
+const resolvePaginationDataSet = (app: App): PaginationStorageDataSet =>
   app.pages
     .filter(isPost)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())

@@ -1,10 +1,10 @@
 import type {
   PageToRawTagNameMap,
   PageToTagsMap,
-  PaginationDataSet,
+  PaginationStorageDataSet,
   Tags,
 } from "src/types"
 
 declare module "@temp/celesta/pagination" {
-  export const paginationDataSet: PaginationDataSet
+  export const paginationDataSet: PaginationStorageDataSet
 }

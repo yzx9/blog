@@ -11,7 +11,7 @@ import {
   pageToCategoriesMap,
 } from "@temp/celesta/categories"
 import type { DeepReadonly, Ref } from "vue"
-import type { Categories, Category, PageToCategoriesMap } from "../../types"
+import type { Categories, Category } from "../../types"
 
 type CategoriesMutableRef = Ref<Categories>
 type CategoriesRef = DeepReadonly<CategoriesMutableRef>
