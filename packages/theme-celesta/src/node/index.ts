@@ -10,6 +10,10 @@ export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
   assignDefaultOptions(app, themeOptions)
   assignPostcssConfig(app)
 
+  const translations = themeOptions.translations
+  const themeData = { ...themeOptions }
+  Reflect.deleteProperty(themeData, "translations")
+
   return {
     name: "@celesta/vuepress-theme-celesta",
 
@@ -19,8 +23,8 @@ export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
         "@vuepress/plugin-active-header-links",
         { headerLinkSelector: ".catalog__link" },
       ],
-      ["@vuepress/theme-data", { themeData: themeOptions }],
-      ["@celesta/vuepress-plugin-celesta", themeOptions],
+      ["@vuepress/theme-data", { themeData }],
+      ["@celesta/vuepress-plugin-celesta", { translations }],
       "@celesta/vuepress-plugin-post-filter",
       "@celesta/vuepress-plugin-math",
     ],
