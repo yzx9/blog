@@ -31,8 +31,12 @@ export function assignPostcssConfig(app: App) {
       require(require.resolve("postcss-import")),
       require(require.resolve("tailwindcss"))(tailwindConfig),
       require(require.resolve("postcss-nesting")),
-      require(require.resolve("autoprefixer")),
-      require(require.resolve("postcss-csso")),
+      ...(process.env.NODE_ENV === "production"
+        ? [
+            require(require.resolve("autoprefixer")),
+            require(require.resolve("postcss-csso")),
+          ]
+        : []),
     ],
   }
   const webpackBundlerOptions: WebpackBundlerOptions = {
