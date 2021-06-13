@@ -1,5 +1,6 @@
 import { path } from "@vuepress/utils"
 import { assignDefaultOptions } from "./assignDefaultOptions"
+import { assignPostcssConfig } from "./assignPostcssConfig"
 import { extendsPageOptions } from "./extendsPageOptions"
 import { onInitialized } from "./onInitialized"
 import type { Theme } from "@vuepress/core"
@@ -7,6 +8,7 @@ import type { ThemeData } from "../types"
 
 export const VuepressThemeCelesta: Theme<ThemeData> = (themeOptions, app) => {
   assignDefaultOptions(themeOptions, app.options.lang)
+  assignPostcssConfig(app)
 
   return {
     name: "@celesta/vuepress-theme-celesta",
