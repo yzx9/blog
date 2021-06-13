@@ -26,6 +26,7 @@ export default defineUserConfig<ThemeOptions>({
   theme: "@celesta/vuepress-theme-celesta",
   themeConfig: {
     repo: "nsznsznjsz/blog",
+    particles: "particles-preset-starry.json",
     translations,
   },
 })

@@ -29,7 +29,7 @@
     </nav>
 
     <ClientOnly>
-      <Particles class="layout__background" preset="starry" />
+      <Particles class="layout__background" :preset="themeData.particles" />
     </ClientOnly>
   </div>
 </template>
@@ -38,6 +38,10 @@
 import TheNavbar from "../components/Navbar.vue"
 import TheFooter from "../components/Footer.vue"
 import Particles from "../components/Particles.vue"
+import { useThemeLocaleData } from "@vuepress/plugin-theme-data/lib/client"
+import type { ThemeData } from "../../types"
+
+const themeData = useThemeLocaleData<ThemeData>()
 </script>
 
 <style lang="postcss">

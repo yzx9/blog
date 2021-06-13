@@ -1,5 +1,6 @@
 import type { LocaleData, ThemeConfig } from "@vuepress/core"
 import type { ThemeData as _ThemeData } from "@vuepress/plugin-theme-data"
+import type { ISourceOptions } from "tsparticles"
 
 export interface ThemeOptions extends ThemeConfig, ThemeLocaleOptions {}
 
@@ -86,4 +87,11 @@ export interface ThemeLocaleData extends LocaleData {
    * Set this config if your docs is placed in sub dir of your `docsRepo`
    */
   docsDir?: string
+
+  /**
+   * Options of particles
+   *
+   * See https://github.com/matteobruni/tsparticles
+   */
+  particles?: string | string[] | ISourceOptions | ISourceOptions[]
 }
