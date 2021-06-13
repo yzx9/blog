@@ -1,7 +1,7 @@
 :root {
   --main-width: 980px;
-  --bg-color: #f5f7fa;
-  --header-height: 30rem; /* Only support `rem` now */
+  --bg-color: #eaeaef;
+  --header-height: 30rem;
 }
 
 html,

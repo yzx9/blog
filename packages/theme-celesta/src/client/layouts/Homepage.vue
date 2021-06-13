@@ -14,7 +14,7 @@
     </template>
 
     <template #sub>
-      <!-- <Sidebar /> -->
+      <Tags class="m-4 ml-8" @click="slug => $router.push(`/tags/${slug}.html`)" />
     </template>
 
     <template #extra>
@@ -25,7 +25,8 @@
 
 <script setup lang="ts">
 import BaseLayout from "../components/BaseLayout.vue"
-import Posts from "../components/Posts.vue"
+import Posts from "../components/PostsOverWhole.vue"
+import Tags from "../components/Tags.vue"
 import { computed } from "vue"
 import { useSiteLocaleData } from "@vuepress/client"
 

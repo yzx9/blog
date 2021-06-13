@@ -5,8 +5,12 @@
         <RouterLink
           v-for="{ name, slug } in currentTags"
           :key="`v-page-${slug}`"
-          :to="`/tags/${slug}`"
+          :to="`/tags/${slug}.html`"
           class="header__pill-link"
+          :style="{
+            // @ts-ignore
+            '--pill-color': getColor(slug)
+          }"
         >{{ name }}</RouterLink>
 
         <a
@@ -32,7 +36,7 @@
           <RouterLink
             v-for="{ name, slug } in category.ancestors"
             :key="`v-header-${slug}`"
-            :to="`/categories/${slug}`"
+            :to="`/categories/${slug}.html`"
             class="header__category"
           >{{ name }}</RouterLink>
         </span>
@@ -49,6 +53,7 @@ import {
   useTags,
   useEditLink,
 } from "@celesta/vuepress-plugin-celesta/lib/client"
+import { getColor } from "../utils"
 import type { ThemePageData } from "../../types"
 
 const pageData = usePageData<ThemePageData>()
@@ -64,7 +69,12 @@ const { currentTags } = useTags()
 
 <style lang="postcss">
 .header__pill-link {
-  @apply mr-2 px-3 py-1 text-white border rounded-full transition-colors duration-300 hover:border-transparent hover:bg-primary-500 hover:bg-opacity-50;
+  @apply mr-2 px-3 py-1 text-white border rounded-full transition-colors duration-300 hover:border-transparent;
+
+  --color-primary: 6, 182, 212;
+  &:hover {
+    background-color: rgba(var(--pill-color, var(--color-primary)), 1);
+  }
 }
 
 .header__meta-item {
