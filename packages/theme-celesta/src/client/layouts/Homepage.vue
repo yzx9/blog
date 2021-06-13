@@ -14,7 +14,7 @@
     </template>
 
     <template #sub>
-      <Tags class="m-4 ml-8" @click="slug => $router.push(`/tags/${slug}.html`)" />
+      <Tags class="m-4 ml-8" @update:actives="slug => $router.push(`/tags/${slug?.[0]}.html`)" />
     </template>
 
     <template #extra>

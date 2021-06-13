@@ -23,14 +23,19 @@
 
 <script setup lang="ts">
 import Pagination from "./Pagination.vue"
-import { reactive } from "vue"
+import { computed, defineProps, reactive } from "vue"
 import { usePagination } from "@celesta/vuepress-plugin-celesta/lib/client"
 import type { PaginationOptions } from "@celesta/vuepress-plugin-celesta"
 
-const options = reactive<Required<PaginationOptions>>({
+const props = defineProps<{
+  options?: PaginationOptions
+}>()
+
+const options = reactive({
   currentPage: 1,
   pageSize: 10,
 })
 
-const pagination = usePagination(options)
+const realOptions = computed<PaginationOptions>(() => Object.assign({}, options, props.options ?? {}))
+const pagination = usePagination(realOptions)
 </script>

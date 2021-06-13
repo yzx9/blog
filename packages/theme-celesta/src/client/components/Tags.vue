@@ -1,30 +1,47 @@
 <template>
   <div class="tags">
     <span
-      v-for="{tag, color} in tags"
-      :key="`v-tag-${tag.slug}`"
+      v-for="{ slug, name, color, isActive } in tags"
+      :key="`v-tag-${slug}`"
       class="tags__tag"
+      :class="{ 'tags__tag--active': isActive }"
       :style="{
         // @ts-ignore
         '--tag-color': color
       }"
-      @click="handleClick(tag.slug)"
-    >{{ tag.name }}</span>
+      @click="handleClick(slug)"
+    >{{ name }}</span>
   </div>
 </template>
 
 <script setup lang="ts">
 import { useTags } from "@celesta/vuepress-plugin-celesta/lib/client"
-import { computed, defineEmit } from "@vue/runtime-core";
-import { getColor } from "../utils"
+import { computed, defineEmit, defineProps } from "vue"
+import { colors, getVisiableColorByHash } from "../utils"
+import type { PropType } from "vue"
 
-const emit = defineEmit(["click"])
+const inactiveColor = colors.Grey
+const emit = defineEmit(["update:actives"])
+const props = defineProps({
+  actives: { type: Array as PropType<string[]>, default: [] },
+  singleChoice: { type: Boolean, default: false }
+})
 
 const { allTags } = useTags()
-const tags = computed(() => allTags.value.map(tag => ({ tag, color: getColor(tag.slug) })))
+const tags = computed(() => allTags.value.map(tag => ({
+  ...tag,
+  color: getVisiableColorByHash(tag.slug),
+  isActive: props.actives.length ? props.actives.includes(tag.slug) : true
+})))
 
 function handleClick(slug: string) {
-  emit("click", slug)
+  const index = props.actives.findIndex(a => a === slug)
+  const newActives = props.singleChoice
+    ? [slug]
+    : index === -1
+      ? [...props.actives, slug]
+      : props.actives.slice(0, index).concat(props.actives.slice(index + 1))
+  emit("update:actives", newActives)
 }
 </script>
 
@@ -37,11 +54,17 @@ function handleClick(slug: string) {
   @apply m-1 px-3 py-1 rounded-full text-white cursor-pointer;
   @apply transition-all duration-300;
 
+  --tag-bg-color: v-bind(inactiveColor);
   --tag-opacity: 0.7;
-  background-color: rgba(var(--tag-color), var(--tag-opacity));
+  background-color: rgba(var(--tag-bg-color), var(--tag-opacity));
 
   &:hover {
+    --tag-bg-color: var(--tag-color);
     --tag-opacity: 1;
   }
+}
+
+.tags__tag--active {
+  --tag-bg-color: var(--tag-color);
 }
 </style>

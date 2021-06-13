@@ -9,8 +9,8 @@
     </template>
 
     <template #main>
-      <Tags v-if="isTagsPage" class="m-2 mt-4" />
-      <PostsOverExcerpt />
+      <Tags v-model:actives="options.tags" class="m-2 mt-4" :single-choice="isTagPage" />
+      <PostsOverExcerpt :options="options" />
     </template>
   </BaseLayout>
 </template>
@@ -19,9 +19,27 @@
 import BaseLayout from "../components/BaseLayout.vue"
 import Tags from "../components/Tags.vue"
 import PostsOverExcerpt from "../components/PostsOverExcerpt.vue"
-import { useRoute } from "vue-router"
-import { computed } from "vue"
+import { computed, reactive, watch } from "vue"
+import { useRouter } from "vue-router"
 
-const route = useRoute()
-const isTagsPage = computed(() => route.path.endsWith("/tags.html"))
+const options = reactive({
+  tags: [] as string[]
+})
+
+const router = useRouter()
+const isTagPage = computed(() => !router.currentRoute.value.path.endsWith("tags.html"))
+
+watch(router.currentRoute, ({ path }) => {
+  if (isTagPage.value) {
+    const slug = path.split("/").pop()!.replace(/.html$/, "")
+    options.tags.push(slug)
+  }
+}, { immediate: true })
+
+watch(options, ({ tags }) => {
+  if (isTagPage.value) {
+    const url = tags.length ? `/tags/${tags[0]}.html` : `/tags.html`
+    router.push(url)
+  }
+})
 </script>

@@ -9,7 +9,7 @@
           class="header__pill-link"
           :style="{
             // @ts-ignore
-            '--pill-color': getColor(slug)
+            '--pill-color': getVisiableColorByHash(slug)
           }"
         >{{ name }}</RouterLink>
 
@@ -53,7 +53,7 @@ import {
   useTags,
   useEditLink,
 } from "@celesta/vuepress-plugin-celesta/lib/client"
-import { getColor } from "../utils"
+import { getVisiableColorByHash } from "../utils"
 import type { ThemePageData } from "../../types"
 
 const pageData = usePageData<ThemePageData>()
