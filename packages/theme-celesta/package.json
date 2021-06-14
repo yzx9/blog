@@ -35,6 +35,7 @@
     "@celesta/vuepress-plugin-celesta": "0.3.0",
     "@celesta/vuepress-plugin-math": "0.3.0",
     "@celesta/vuepress-plugin-post-filter": "0.3.0",
+    "@celesta/shared": "0.3.0",
     "@tailwindcss/typography": "^0.4.0",
     "@vuepress/client": "^2.0.0-beta.15",
     "@vuepress/core": "^2.0.0-beta.17",

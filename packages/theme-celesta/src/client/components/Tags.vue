@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { useTags } from "@celesta/vuepress-plugin-celesta/lib/client"
+import { toReadableCase } from "@celesta/shared"
 import { computed, defineEmit, defineProps } from "vue"
 import { colors, getVisiableColorByHash } from "../utils"
 import type { PropType } from "vue"
@@ -30,6 +31,7 @@ const props = defineProps({
 const { allTags } = useTags()
 const tags = computed(() => allTags.value.map(tag => ({
   ...tag,
+  name: tag.name === tag.slug ? toReadableCase(tag.name) : tag.name,
   color: getVisiableColorByHash(tag.slug),
   isActive: props.actives.length ? props.actives.includes(tag.slug) : true
 })))
