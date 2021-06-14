@@ -1,9 +1,3 @@
-:root {
-  --main-width: 980px;
-  --bg-color: #eaeaef;
-  --header-height: 30rem;
-}
-
 html,
 body {
   scroll-behavior: smooth;
