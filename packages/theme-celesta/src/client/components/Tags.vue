@@ -39,7 +39,9 @@ const tags = computed(() => allTags.value.map(tag => ({
 function handleClick(slug: string) {
   const index = props.actives.findIndex(a => a === slug)
   const newActives = props.singleChoice
-    ? [slug]
+    ? index === -1
+      ? [slug]
+      : []
     : index === -1
       ? [...props.actives, slug]
       : props.actives.slice(0, index).concat(props.actives.slice(index + 1))
