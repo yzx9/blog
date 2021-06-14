@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/nsznsznjsz/blog/compare/v0.3.0...v0.4.0) (2021-06-14)
+
+
+### Bug Fixes
+
+* **plugin-celesta:** should handle multi app ([b1e5f17](https://github.com/nsznsznjsz/blog/commit/b1e5f1707404947e59206e5a9b545513598ba77c))
+* **plugin-celesta:** should translate all tags or categories ([3a0efb1](https://github.com/nsznsznjsz/blog/commit/3a0efb19217bad9e6e8de5bc3908a88ed45f2edf))
+
+
+### Features
+
+* **plugin-celesta/pagination:** support filter ([89809eb](https://github.com/nsznsznjsz/blog/commit/89809eb264343fde5cd07684f04de3fad954ca13))
+
+
+
+
+
 # [0.3.0](https://github.com/nsznsznjsz/blog/compare/v0.2.2...v0.3.0) (2021-06-05)
 
 

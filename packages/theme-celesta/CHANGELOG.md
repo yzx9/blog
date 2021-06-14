@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/nsznsznjsz/blog/compare/v0.3.0...v0.4.0) (2021-06-14)
+
+
+### Bug Fixes
+
+* **theme-celesta:** increase opaque thereshold of navbar ([d0beb6b](https://github.com/nsznsznjsz/blog/commit/d0beb6ba208a9050cd06ec4d3ae7fba4e3f80c6a))
+* **theme-celesta:** should allow back to tags page ([189fe64](https://github.com/nsznsznjsz/blog/commit/189fe64a66fa7dd21881f8614eb85de89a769877))
+* **theme-celesta/particles:** should load json with base url ([32b1a1c](https://github.com/nsznsznjsz/blog/commit/32b1a1ca71860d952d262ec6f92267a737a29900))
+* **thme-celsta:** avoid use teleport ([a5060f8](https://github.com/nsznsznjsz/blog/commit/a5060f87a2228ee35a9bd026b9592a7bf5e0e7f7))
+
+
+### Features
+
+* **theme-celesta:** auto inject postcss config ([21fa6e4](https://github.com/nsznsznjsz/blog/commit/21fa6e43268339bc7f049d2fd5d3ebc585cbecb5))
+* **theme-celesta:** move particles preset to user side ([d8905cf](https://github.com/nsznsznjsz/blog/commit/d8905cf16464924ccbed136316b4785d3b5d11d3))
+* **theme-celesta:** perttier tag name ([cc97eba](https://github.com/nsznsznjsz/blog/commit/cc97eba5bb740f36e055a099aa98d74261d53ab6))
+* **theme-celesta:** tweak style of homepage ([9841049](https://github.com/nsznsznjsz/blog/commit/9841049080b74a67d4a80413255f78b2a509719e))
+* **theme-celesta:** use css custom property as theme colors ([47be4b6](https://github.com/nsznsznjsz/blog/commit/47be4b67eb912036ac67670291cd0035b1028652))
+* **theme-celesta/tag:** support filter ([c3527ae](https://github.com/nsznsznjsz/blog/commit/c3527ae6736dacc3efab25d99884c580fa7f48a5))
+* **theme-celesta/tags:** add initial tag pages ([698bd5d](https://github.com/nsznsznjsz/blog/commit/698bd5de6bc3a86b31d208adb6aef640d4564b28))
+
+
+
+
+
 # [0.3.0](https://github.com/nsznsznjsz/blog/compare/v0.2.2...v0.3.0) (2021-06-05)
 
 
