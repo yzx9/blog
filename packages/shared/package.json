@@ -26,5 +26,8 @@
   },
   "bugs": {
     "url": "https://github.com/nsznsznjsz/blog/issues"
+  },
+  "peerDependencies": {
+    "vue": "^3.1.1"
   }
 }

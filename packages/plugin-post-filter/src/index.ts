@@ -31,7 +31,7 @@ export const VuepressPluginPostFilter: Plugin<PostFilterOptions> = (
   app
 ) => {
   const { prodOnly = true } = options
-  return prodOnly && app.env.isProd
+  return prodOnly && app.env.isBuild
     ? VuepressPluginPostFilterRaw(options, app)
     : { name }
 }
