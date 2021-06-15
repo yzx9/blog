@@ -1,6 +1,6 @@
 {
   "name": "@celesta/vuepress-theme-celesta",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Vuepress blog theme",
   "author": "Celeste <yuan.zx@outlook.com>",
   "main": "lib/node/index.js",
@@ -32,10 +32,10 @@
     "copy": "cpx \"src/**/*.{d.ts,vue,css,json}\" lib"
   },
   "dependencies": {
-    "@celesta/shared": "0.4.0",
-    "@celesta/vuepress-plugin-celesta": "0.4.0",
-    "@celesta/vuepress-plugin-math": "0.4.0",
-    "@celesta/vuepress-plugin-post-filter": "0.4.0",
+    "@celesta/shared": "0.4.1",
+    "@celesta/vuepress-plugin-celesta": "0.4.1",
+    "@celesta/vuepress-plugin-math": "0.4.1",
+    "@celesta/vuepress-plugin-post-filter": "0.4.1",
     "@tailwindcss/typography": "^0.4.0",
     "@vuepress/client": "^2.0.0-beta.18",
     "@vuepress/core": "^2.0.0-beta.18",
