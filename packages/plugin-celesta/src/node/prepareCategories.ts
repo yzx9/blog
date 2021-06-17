@@ -1,5 +1,5 @@
 import { resolveCategories } from "./resolveCategories"
-import { generateTempContent } from "./utils/generateTempContent"
+import { generateTempContent } from "./utils"
 import type { App } from "@vuepress/core"
 
 export const prepareCategories = async (app: App) => {

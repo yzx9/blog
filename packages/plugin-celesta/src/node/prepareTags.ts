@@ -1,6 +1,6 @@
 import { resolveTags } from "./resolveTags"
+import { generateTempContent } from "./utils"
 import type { App } from "@vuepress/core"
-import { generateTempContent } from "./utils/generateTempContent"
 
 export const prepareTags = async (app: App) => {
   const { tags, pageToTagsMap, pageToRawTagNameMap } = resolveTags(app)

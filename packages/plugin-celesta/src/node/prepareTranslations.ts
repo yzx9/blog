@@ -1,7 +1,6 @@
-import { normalizeString } from "./utils"
+import { generateTempContent, normalizeString } from "./utils"
 import type { App } from "@vuepress/core"
 import type { ThemeOptions } from "../types"
-import { generateTempContent } from "./utils/generateTempContent"
 
 const normalizeTranslations = (raw: Record<string, string> = {}) =>
   Object.keys(raw).reduce((map, key) => {
