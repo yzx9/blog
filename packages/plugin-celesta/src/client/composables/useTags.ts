@@ -24,6 +24,7 @@ export function useTags(): {
 } {
   const allTags = useAllTags()
   const currentTags = useCurrentTags(allTags)
+
   return {
     currentTags: readonly(currentTags),
     allTags: readonly(allTags),
@@ -32,24 +33,22 @@ export function useTags(): {
 
 function useAllTags(): TagsMutableRef {
   const lang = usePageLang()
-  const localeTags = computed(() =>
+  return computed(() =>
     tags.value.map((tag) => ({
       ...tag,
       name:
-        localeTranslations?.[lang.value]?.[tag.slug] ||
-        defaultTranslations?.[tag.slug] ||
+        localeTranslations[lang.value]?.[tag.slug] ??
+        defaultTranslations[tag.slug] ??
         tag.slug,
     }))
   )
-
-  return localeTags
 }
 
 function useCurrentTags(allTags: TagsMutableRef): TagsMutableRef {
   const route = useRoute()
-  const currentTags = computed(() =>
+  return computed(() =>
     allTags.value
-      .filter((b) => pageToTagsMap[route.path].includes(b.slug))
+      .filter((a) => pageToTagsMap[route.path]?.includes(a.slug))
       .map((tag) => ({
         ...tag,
         name:
@@ -58,6 +57,4 @@ function useCurrentTags(allTags: TagsMutableRef): TagsMutableRef {
             : tag.name,
       }))
   )
-
-  return currentTags
 }

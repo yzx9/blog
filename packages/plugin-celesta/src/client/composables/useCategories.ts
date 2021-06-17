@@ -41,8 +41,8 @@ function useRootCategories(): CategoriesMutableRef {
     (child: StorageCategory): Category => {
       const lastSlug = child?.slug.split("/").pop()!
       const name =
-        localeTranslations?.[lang.value]?.[lastSlug] ??
-        defaultTranslations?.[lastSlug] ??
+        localeTranslations[lang.value]?.[lastSlug] ??
+        defaultTranslations[lastSlug] ??
         lastSlug
 
       const newChild: Category = {
@@ -90,16 +90,14 @@ function useCurrentCategories(
 
   const currentRawCategoriesRef = computed(
     () =>
-      pageToCategoriesMap?.[route.path]?.map(
+      pageToCategoriesMap[route.path]?.map(
         (slug) => allCategories.value.find((a) => a.slug === slug)!
       ) ?? []
   )
 
-  const currentCategoriesRef = computed(() =>
+  return computed(() =>
     currentRawCategoriesRef.value.map(createResolveLocaleCategory(route.path))
-  )
-
-  return currentCategoriesRef as CategoriesMutableRef
+  ) as CategoriesMutableRef
 }
 
 function createResolveLocaleCategory(path: string) {
