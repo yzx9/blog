@@ -31,6 +31,7 @@
   "peerDependencies": {
     "@vuepress/client": "^2.0.0-beta.18",
     "@vuepress/core": "^2.0.0-beta.18",
+    "upath": "^2.0.1",
     "vue": "^3.1.1"
   }
 }

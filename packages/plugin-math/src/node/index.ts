@@ -1,4 +1,4 @@
-import { path } from "@vuepress/utils"
+import { path } from "@celesta/shared"
 import { extendsMarkdown } from "./extendsMarkdown"
 import type { PluginObject } from "@vuepress/core"
 

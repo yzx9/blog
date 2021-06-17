@@ -1,4 +1,4 @@
-import { path } from "@vuepress/utils"
+import { path } from "@celesta/shared"
 import { assignDefaultOptions } from "./assignDefaultOptions"
 import { assignPostcssConfig } from "./assignPostcssConfig"
 import { extendsPageOptions } from "./extendsPageOptions"
