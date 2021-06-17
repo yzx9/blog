@@ -71,9 +71,9 @@ const { currentTags } = useTags()
 .header__pill-link {
   @apply mr-2 px-3 py-1 text-white border rounded-full transition-colors duration-300 hover:border-transparent;
 
-  --color-primary: 6, 182, 212;
+  --color-primary: #06b6d4;
   &:hover {
-    background-color: rgba(var(--pill-color, var(--color-primary)), 1);
+    background-color: var(--pill-color, var(--color-primary));
   }
 }
 

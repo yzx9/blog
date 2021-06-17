@@ -60,7 +60,9 @@ function handleClick(slug: string) {
 
   --tag-bg-color: v-bind(inactiveColor);
   --tag-opacity: 0.7;
-  background-color: rgba(var(--tag-bg-color), var(--tag-opacity));
+
+  background-color: var(--tag-bg-color);
+  opacity: var(--tag-opacity);
 
   &:hover {
     --tag-bg-color: var(--tag-color);
