@@ -11,7 +11,7 @@ import {
   pageToCategoriesMap,
 } from "@temp/celesta/categories"
 import type { DeepReadonly, Ref } from "vue"
-import type { Categories, Category } from "../../types"
+import type { Categories, Category, StorageCategory } from "../../types"
 
 type CategoriesMutableRef = Ref<Categories>
 type CategoriesRef = DeepReadonly<CategoriesMutableRef>
@@ -36,29 +36,35 @@ export function useCategories(): {
 
 function useRootCategories(): CategoriesMutableRef {
   const lang = usePageLang()
-  const createWalker = (parent: Category) => (child: Category) => {
-    child.parent = parent
-    child.ancestors = parent.ancestors.concat(child)
+  const createWalker =
+    (parent: Category | null) =>
+    (child: StorageCategory): Category => {
+      const lastSlug = child?.slug.split("/").pop()!
+      const name =
+        localeTranslations?.[lang.value]?.[lastSlug] ??
+        defaultTranslations?.[lastSlug] ??
+        lastSlug
 
-    const lastSlug = child?.slug.split("/").pop()!
-    child.name =
-      localeTranslations?.[lang.value]?.[lastSlug] ??
-      defaultTranslations?.[lastSlug] ??
-      lastSlug
+      const newChild: Category = {
+        ...child,
+        name,
+        parent,
+        ancestors: [],
+      }
+      newChild.ancestors = parent
+        ? parent.ancestors.concat(newChild)
+        : [newChild]
 
-    const walk = createWalker(child)
-    child.children.forEach(walk)
-  }
+      const walk = createWalker(newChild)
+      newChild.children = newChild.children.map(walk)
 
-  const localeRootCategories = computed(() =>
-    rootCategories.value
-      .filter((a) => !a.parent)
-      .map((a) => {
-        const walk = createWalker(a)
-        a.children.map(walk)
-        return a
-      })
-  )
+      return newChild
+    }
+
+  const localeRootCategories = computed<Categories>(() => {
+    const walk = createWalker(null)
+    return rootCategories.value.map(walk)
+  })
 
   return localeRootCategories
 }

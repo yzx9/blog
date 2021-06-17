@@ -1,4 +1,4 @@
-export type Category = {
+export interface Category {
   /**
    * Category slug, can be used as id
    */
@@ -38,6 +38,8 @@ export type Category = {
 }
 
 export type Categories = Category[]
+export type StorageCategory = Omit<Category, "name" | "parent" | "ancestors">
+export type StorageCategories = StorageCategory[]
 
 type Slug = string
 type PagePath = string

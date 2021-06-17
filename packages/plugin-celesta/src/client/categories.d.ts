@@ -1,11 +1,11 @@
 import type {
-  Categories,
   PageToRawCategoryNameMap,
   PageToCategoriesMap,
-} from "src/types"
+  StorageCategories,
+} from "../types"
 
 declare module "@temp/celesta/categories" {
-  export const rootCategories: Categories
+  export const rootCategories: StorageCategories
   export const pageToCategoriesMap: PageToCategoriesMap
   export const pageToRawCategoryNameMap: PageToRawCategoryNameMap
 }

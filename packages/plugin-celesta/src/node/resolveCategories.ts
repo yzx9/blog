@@ -1,15 +1,15 @@
 import { isPost, normalizeString } from "./utils"
 import type { App, Page } from "@vuepress/core"
 import type {
-  Categories,
-  Category,
   PageToCategoriesMap,
   PageToRawCategoryNameMap,
+  StorageCategories,
+  StorageCategory,
   ThemeFrontmatter,
 } from "../types"
 
 type CategoryResolvedData = {
-  rootCategories: Categories
+  rootCategories: StorageCategories
   pageToCategoriesMap: PageToCategoriesMap
   pageToRawCategoryNameMap: PageToRawCategoryNameMap
 }
@@ -22,12 +22,9 @@ const _resolveCategories = (app: App) => {
     pageToRawCategoryNameMap: {},
   }
 
-  const createNewCategory = (slug: string): Category => ({
+  const createNewCategory = (slug: string): StorageCategory => ({
     slug,
-    name: "",
     pages: [],
-    parent: null, // filled in client side
-    ancestors: [], // filled in client side
     children: [],
   })
 
@@ -43,7 +40,7 @@ const _resolveCategories = (app: App) => {
 
     const rawNameMap: Record<string, string> = {}
     const currentCategories = categoriesRoutes.map((routes) =>
-      routes.reduce((parent: Category | null, route: string) => {
+      routes.reduce((parent: StorageCategory | null, route: string) => {
         const path = normalizeString(route)
         const slug = parent ? `${parent.slug}/${path}` : path
         const children = parent?.children ?? data.rootCategories
@@ -57,7 +54,7 @@ const _resolveCategories = (app: App) => {
         arr.push(newCategory)
         return newCategory
       }, null)
-    ) as Categories
+    ) as StorageCategories
 
     currentCategories.forEach((category) => category.pages.push(page.path))
     data.pageToCategoriesMap[page.path] = currentCategories.map((a) => a.slug)
