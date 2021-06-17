@@ -7,39 +7,50 @@ import type {
   ThemeFrontmatter,
 } from "../types"
 
-const resolved = new WeakSet<App>()
-const tags: Tags = []
-const pageToTagsMap: PageToTagsMap = {}
-const pageToRawTagNameMap: PageToRawTagNameMap = {}
-
-const resolvePageTags = (page: Page & { frontmatter: ThemeFrontmatter }) => {
-  const rawNameMap: Record<string, string> = {}
-  const raw = page.frontmatter.tags || ["Default"]
-  const arr = Array.isArray(raw) ? raw : [raw]
-  const currentTags = arr.map((raw) => {
-    const slug = normalizeString(raw)
-    let tag = tags.find((a) => a.slug === slug)
-    if (!tag) {
-      tag = {
-        slug,
-        name: "",
-        pages: [], // filled in client side
-      }
-      tags.push(tag)
-    }
-    tag.pages.push(page.path)
-    rawNameMap[slug] = raw
-    return tag
-  })
-  pageToRawTagNameMap[page.path] = rawNameMap
-  pageToTagsMap[page.path] = currentTags.map((a) => a.slug)
+type TagResolvedData = {
+  tags: Tags
+  pageToTagsMap: PageToTagsMap
+  pageToRawTagNameMap: PageToRawTagNameMap
 }
 
-const _resolveTags = (app: App) =>
-  app.pages.filter(isPost).forEach(resolvePageTags)
+const cache = new WeakMap<App, TagResolvedData>()
 
-export const resolveTags = (app: App) => {
-  if (!resolved.has(app)) _resolveTags(app)
-  resolved.add(app)
-  return { tags, pageToTagsMap, pageToRawTagNameMap }
+const _resolveTags = (app: App) => {
+  const data: TagResolvedData = {
+    tags: [],
+    pageToTagsMap: {},
+    pageToRawTagNameMap: {},
+  }
+
+  const resolvePageTags = (page: Page & { frontmatter: ThemeFrontmatter }) => {
+    const rawNameMap: Record<string, string> = {}
+    const raw = page.frontmatter.tags || ["Default"]
+    const arr = Array.isArray(raw) ? raw : [raw]
+    const currentTags = arr.map((raw) => {
+      const slug = normalizeString(raw)
+      let tag = data.tags.find((a) => a.slug === slug)
+      if (!tag) {
+        tag = {
+          slug,
+          name: "",
+          pages: [], // filled in client side
+        }
+        data.tags.push(tag)
+      }
+      tag.pages.push(page.path)
+      rawNameMap[slug] = raw
+      return tag
+    })
+    data.pageToRawTagNameMap[page.path] = rawNameMap
+    data.pageToTagsMap[page.path] = currentTags.map((a) => a.slug)
+  }
+
+  app.pages.filter(isPost).forEach(resolvePageTags)
+  cache.set(app, data)
+}
+
+export const resolveTags = (app: App): TagResolvedData => {
+  if (!cache.has(app)) _resolveTags(app)
+  const data = cache.get(app)!
+  return data
 }
