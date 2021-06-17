@@ -20,6 +20,8 @@ export interface Tag {
 }
 
 export type Tags = Tag[]
+export type StorageTag = Omit<Tag, "name">
+export type StorageTags = StorageTag[]
 
 type Slug = string
 type PagePath = string
