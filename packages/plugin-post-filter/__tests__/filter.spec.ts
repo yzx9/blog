@@ -1,9 +1,9 @@
-import { createApp, createPage } from "@vuepress/core"
+import { createBuildApp, createPage } from "@vuepress/core"
 import { createPostFilter } from "../src/filter"
 
 describe("post filter", () => {
   test("should be filter by boolean", async () => {
-    const app = createApp({ source: "" })
+    const app = createBuildApp({ source: "" })
 
     const drafts = await Promise.all([
       createPage(app, { path: "draft1", frontmatter: { true: true } }),
@@ -26,7 +26,7 @@ describe("post filter", () => {
   })
 
   test("should be filter by number", async () => {
-    const app = createApp({ source: "" })
+    const app = createBuildApp({ source: "" })
 
     const drafts = await Promise.all([
       createPage(app, { path: "draft1", frontmatter: { number: 0 } }),
@@ -44,7 +44,7 @@ describe("post filter", () => {
   })
 
   test("should be filter by string", async () => {
-    const app = createApp({ source: "" })
+    const app = createBuildApp({ source: "" })
 
     const drafts = await Promise.all([
       createPage(app, { path: "draft1", frontmatter: { string: "" } }),
