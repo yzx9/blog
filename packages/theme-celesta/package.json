@@ -43,7 +43,6 @@
     "@vuepress/plugin-debug": "^2.0.0-beta.18",
     "@vuepress/plugin-prismjs": "^2.0.0-beta.18",
     "@vuepress/plugin-theme-data": "^2.0.0-beta.18",
-    "@vuepress/shared": "^2.0.0-beta.18",
     "autoprefixer": "^10.2.4",
     "postcss-csso": "^5.0.0",
     "postcss-import": "^14.0.0",

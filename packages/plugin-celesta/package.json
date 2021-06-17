@@ -32,7 +32,7 @@
     "@celesta/shared": "0.4.1",
     "@vuepress/core": "^2.0.0-beta.18",
     "@vuepress/plugin-git": "^2.0.0-beta.18",
-    "@vuepress/plugin-theme-data": "^2.0.0-beta.18",
+    "@vuepress/shared": "^2.0.0-beta.18",
     "remove-markdown": "^0.3.0",
     "vue": "^3.1.1",
     "vue-router": "^4.0.8"
