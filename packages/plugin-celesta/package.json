@@ -29,6 +29,7 @@
     "url": "https://github.com/nsznsznjsz/blog/issues"
   },
   "dependencies": {
+    "@celesta/shared": "0.4.1",
     "@vuepress/core": "^2.0.0-beta.18",
     "@vuepress/plugin-git": "^2.0.0-beta.18",
     "@vuepress/plugin-theme-data": "^2.0.0-beta.18",

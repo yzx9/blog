@@ -1,10 +1,11 @@
-import { generateTempContent, normalizeString } from "./utils"
+import { generateTempContent } from "./utils"
+import { toUrlFriendlyCase } from "@celesta/shared"
 import type { App } from "@vuepress/core"
 import type { ThemeOptions } from "../types"
 
 const normalizeTranslations = (raw: Record<string, string> = {}) =>
   Object.keys(raw).reduce((map, key) => {
-    map[normalizeString(key)] = raw[key]
+    map[toUrlFriendlyCase(key)] = raw[key]
     return map
   }, {})
 

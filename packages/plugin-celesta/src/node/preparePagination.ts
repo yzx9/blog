@@ -1,5 +1,6 @@
 import { resolvePageExcerpt } from "./resolvePageExcerpt"
-import { generateTempContent, isPost } from "./utils"
+import { generateTempContent } from "./utils"
+import { isPost } from "@celesta/shared"
 import type { App } from "@vuepress/core"
 import type { PaginationStorageDataSet } from "../types"
 

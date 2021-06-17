@@ -1,4 +1,4 @@
-import { isPost, normalizeString } from "./utils"
+import { isPost, toUrlFriendlyCase } from "@celesta/shared"
 import type { App, Page } from "@vuepress/core"
 import type {
   PageToCategoriesMap,
@@ -41,7 +41,7 @@ const _resolveCategories = (app: App) => {
     const rawNameMap: Record<string, string> = {}
     const currentCategories = categoriesRoutes.map((routes) =>
       routes.reduce((parent: StorageCategory | null, route: string) => {
-        const path = normalizeString(route)
+        const path = toUrlFriendlyCase(route)
         const slug = parent ? `${parent.slug}/${path}` : path
         const children = parent?.children ?? data.rootCategories
         const next = children.find((a) => a.slug === slug)

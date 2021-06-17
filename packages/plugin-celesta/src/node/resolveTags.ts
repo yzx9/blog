@@ -1,4 +1,4 @@
-import { isPost, normalizeString } from "./utils"
+import { isPost, toUrlFriendlyCase } from "@celesta/shared"
 import type { App, Page } from "@vuepress/core"
 import type {
   PageToRawTagNameMap,
@@ -27,7 +27,7 @@ const _resolveTags = (app: App) => {
     const raw = page.frontmatter.tags || ["Default"]
     const arr = Array.isArray(raw) ? raw : [raw]
     const currentTags = arr.map((raw) => {
-      const slug = normalizeString(raw)
+      const slug = toUrlFriendlyCase(raw)
       let tag = data.tags.find((a) => a.slug === slug)
       if (!tag) {
         tag = { slug, pages: [] }

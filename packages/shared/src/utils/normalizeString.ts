@@ -9,3 +9,12 @@ export function toReadableCase(raw: string) {
     .map((a) => a[0].toUpperCase() + a.slice(1))
     .join(" ")
 }
+
+/**
+ * Remove url unfriendly char
+ * @param raw
+ * @returns
+ */
+export function toUrlFriendlyCase(raw: string) {
+  return raw.toLowerCase().replace(/[\s, /, ?, %, #, &, =]+/g, "-")
+}

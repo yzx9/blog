@@ -29,6 +29,8 @@
     "url": "https://github.com/nsznsznjsz/blog/issues"
   },
   "peerDependencies": {
+    "@vuepress/client": "^2.0.0-beta.18",
+    "@vuepress/core": "^2.0.0-beta.18",
     "vue": "^3.1.1"
   }
 }
