@@ -31,6 +31,10 @@
     "clean": "rimraf lib *.tsbuildinfo",
     "copy": "cpx \"src/**/*.{d.ts,vue,css,json}\" lib"
   },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-beta.18",
+    "@vuepress/bundler-webpack": "^2.0.0-beta.18"
+  },
   "dependencies": {
     "@celesta/shared": "0.4.1",
     "@celesta/vuepress-plugin-celesta": "0.4.1",
