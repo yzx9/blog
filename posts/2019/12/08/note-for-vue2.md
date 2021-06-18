@@ -18,8 +18,8 @@ tags:
   - 原生属性
     - 特殊: class, style
   - data
-  
 - props
+
   - VUE 如何监听子组件改变 Props?
 
 - vuex
@@ -62,7 +62,7 @@ initLifecycle(vm) {
 
 ### render
 
-```typescript
+```javascript
 const mount = Vue.prototype.$mount
 Vue.prototype.$mount = function (
   el?: string | Element,
@@ -72,9 +72,10 @@ Vue.prototype.$mount = function (
 
   /* istanbul ignore if */
   if (el === document.body || el === document.documentElement) {
-    process.env.NODE_ENV !== 'production' && warn(
-      `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
-    )
+    isDevMode &&
+      warn(
+        `Do not mount Vue to <html> or <body> - mount to normal elements instead.`
+      )
     return this
   }
 
@@ -83,11 +84,11 @@ Vue.prototype.$mount = function (
   if (!options.render) {
     let template = options.template
     if (template) {
-      if (typeof template === 'string') {
-        if (template.charAt(0) === '#') {
+      if (typeof template === "string") {
+        if (template.charAt(0) === "#") {
           template = idToTemplate(template)
           /* istanbul ignore if */
-          if (process.env.NODE_ENV !== 'production' && !template) {
+          if (isDevMode && !template) {
             warn(
               `Template element not found or is empty: ${options.template}`,
               this
@@ -97,8 +98,8 @@ Vue.prototype.$mount = function (
       } else if (template.nodeType) {
         template = template.innerHTML
       } else {
-        if (process.env.NODE_ENV !== 'production') {
-          warn('invalid template option:' + template, this)
+        if (isDevMode) {
+          warn("invalid template option:" + template, this)
         }
         return this
       }
@@ -107,23 +108,27 @@ Vue.prototype.$mount = function (
     }
     if (template) {
       /* istanbul ignore if */
-      if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-        mark('compile')
+      if (isDevMode && config.performance && mark) {
+        mark("compile")
       }
 
-      const { render, staticRenderFns } = compileToFunctions(template, {
-        shouldDecodeNewlines,
-        shouldDecodeNewlinesForHref,
-        delimiters: options.delimiters,
-        comments: options.comments
-      }, this)
+      const { render, staticRenderFns } = compileToFunctions(
+        template,
+        {
+          shouldDecodeNewlines,
+          shouldDecodeNewlinesForHref,
+          delimiters: options.delimiters,
+          comments: options.comments,
+        },
+        this
+      )
       options.render = render
       options.staticRenderFns = staticRenderFns
 
       /* istanbul ignore if */
-      if (process.env.NODE_ENV !== 'production' && config.performance && mark) {
-        mark('compile end')
-        measure(`vue ${this._name} compile`, 'compile', 'compile end')
+      if (isDevMode && config.performance && mark) {
+        mark("compile end")
+        measure(`vue ${this._name} compile`, "compile", "compile end")
       }
     }
   }
@@ -135,7 +140,7 @@ Vue.prototype.$mount = function (
 
 CreateElement (VNode)
 
-_update (vnode -> DOM)
+\_update (vnode -> DOM)
 
 ## 组件化
 
@@ -160,11 +165,11 @@ _update (vnode -> DOM)
 
 **Setter:** Notify Watcher
 
-  - Array.push 并没有改变引用，Vue 如何监听？
-    - https://github.com/vuejs/vue/blob/dev/src/core/observer/array.js#L27
+- Array.push 并没有改变引用，Vue 如何监听？
 
-  - Object.observe
+  - https://github.com/vuejs/vue/blob/dev/src/core/observer/array.js#L27
 
+- Object.observe
 
 ### Watcher
 
