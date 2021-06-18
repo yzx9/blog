@@ -16,10 +16,7 @@ export default defineUserConfig<ThemeOptions>({
     },
   },
 
-  bundler:
-    process.env.NODE_ENV === "production"
-      ? "@vuepress/webpack"
-      : "@vuepress/vite",
+  bundler: "@vuepress/vite",
 
   plugins: [],
 
