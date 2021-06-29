@@ -12,6 +12,10 @@ tags:
 
 稍微复杂的层叠样式表（CSS，Cascade Style Sheet）中都存在多条规则同时选中同一个元素的情况。CSS采用层叠规则（Cascade）处理该问题，从其名字便可以看出重要性。
 
+
+
+:link :visited : hover : focus :active
+
 ## 位置决定优先级
 
 行内样式 > 样式表样式 > 
@@ -45,11 +49,17 @@ html h1 { color: red; }
 
 浏览器会将其渲染成红色，而不是受到第一条规则的影响。个人理解这一现象是因为 Style Engine 位于 CSS Parser 之后，而 Parser 并不知道 DOM 树相关信息。
 
+## Best Practice
+
+1. 控制特殊性，降低优先级
+2. 不要用 \*，多数情况下你并不需要设置它，即使是box-sizing
+3. 使用CSS模块化方案，例如CSS module、CSS BEM或~~CSS in JS~~
+
 ## 总结
 
 1. 标注为 !important 的用户样式
 2. 标注为 !important 的作者样式
 3. 用户样式
 4. 作者样式
-5. 浏览器默认样式
-
+5. 继承样式
+6. 浏览器默认样式
