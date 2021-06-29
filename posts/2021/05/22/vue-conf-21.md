@@ -21,7 +21,7 @@ Vite 快速的核心原因时改变了原有的 Bundler-Based Dev Server，而�
 
 > 其实可能还有依赖预编译，当然这也是为了更快
 
-### SSR目标
+### SSR 目标
 
 - Dev Bundless
 - Node 环境下加载 ESM
@@ -74,7 +74,7 @@ Type First, 类型优先 -> Typescript
 
 ### Be Explicit
 
-- 用 define* 的帮助函数：类型补全
+- 用 define\* 的帮助函数：类型补全
 
 - 不要省略文件名：类型
 
@@ -82,14 +82,19 @@ Type First, 类型优先 -> Typescript
 
 - 拥抱 ES Module
 
-- 重新看待 Externals，放弃
+- 重新看待 Externals，在 ESM 时代，简单的 Externals 并不好用
+
   - alias
   - import maps
-- `__filename` / `_dirname` / `require.resolve` => `import.meta.url`
-- `process.env` => `import.meta.env`
+
+- `__filename` / `__dirname` / `require.resolve` => `import.meta.<wbr/>url`
+
+- `process.env` => `import.meta.<wbr/>env`
+
   - 来自 Node.js，环境并不存在
   - 浏览器端的 `process.env` 并不是环境，而是配置
   - `NODE_ENV`有各种约定俗称的用法
+
 - JSON modules => 标准只有 default import
 
 ### 构建工具的兼容难题
@@ -100,7 +105,7 @@ Type First, 类型优先 -> Typescript
 - Dynamic Import
 - Node.js Polyfills & Shims
 
-## 减少Node依赖
+## 减少 Node 依赖
 
 抹平差距
 
@@ -112,7 +117,7 @@ Type First, 类型优先 -> Typescript
 
 ## JSX
 
-![From Template to Render Function](assets/from-template-to-render-function.png)
+![From Template to Render Function](./assets/from-template-to-render-function.png)
 
 利用 Babel 赋予的编译能力，实现模板与 JSX 跨语言联动，以用户的需求为抓手，摸索出一套适用于 Vue 的 JSX 方法论，打造 Vue 生态闭环，利用 TypeScript 的类型提示，为更习惯于 JSX 的开发者赋能。
 
@@ -135,7 +140,7 @@ _createVNode("h1", null, "Hello, world!")
 
 1. **额外的运行时**：JSX 无法判断 slot 或 children，只能在运行时判断
 
-2. **信息不足**：JSX语法自由的代价就是难以实现静态分析，编译信息较少，Vue3 引入的`PatchFlags`无法完全做到，导致 JSX 编译后的 `Render Function` 性能差一些
+2. **信息不足**：JSX 语法自由的代价就是难以实现静态分析，编译信息较少，Vue3 引入的`PatchFlags`无法完全做到，导致 JSX 编译后的 `Render Function` 性能差一些
 
 ## Composition API
 
@@ -153,7 +158,7 @@ _createVNode("h1", null, "Hello, world!")
 
 - 专注点分离
 
-![image-20210522151014368](./assets/composable-dependency-graph.png)
+![Composable Dependency Graph](./assets/composable-dependency-graph.png)
 
 ### Reactive
 
@@ -162,43 +167,63 @@ _createVNode("h1", null, "Hello, world!")
 - 建立输入 → 输出的连结
 - 输出会根据输入的改变而改变（就像你的 Excel 一样 :tada:）
 
-![Reactive Like Excel](./assets/reactive-like-excel.png) 
+![Reactive Like Excel](./assets/reactive-like-excel.png)
 
 ### Best practices
 
 - 优先使用 `ref` 而不是 `reactive`
+
   - 显示调用，类型检查
+
   - 相比 Reactive 局限更少：`reactive `有类型，无法解构……
+
 - Ref 自动解包
+
   - `watch` 直接接收 Ref ，回调中会自动解包
+
   - Ref 在模板中自动解包
+
   - 使用 `reactive` 解包嵌套 `ref`，用来代替 `toRef`
+
 - `unref` API
+
   - `unref(a) => isRef(a) ? a.value : a`
+
   - 接收 Ref 作为函数参数 `(a, b) => unref(a) + unref(b)`
+
 - `type MaybeRef<T> = Ref<T> | T `
+
 - 重复使用 ref，`ref `会自动解包的！
+
   - `newRef = isRef(foo) ? foo : ref(foo)`和`newRef = ref(foo)` 一样的
+
 - 副作用自动清除
+
   - 组件内的 `watch` 和 `computed` 会在销毁时自动清除
+
   - Vue 3.2: `effectScope`
+
 - 类型安全的 `Provide`/`Inject`：`InjectionKey<T>`
+
 - 状态共享
+
   - 直接用 Composition API 把状态抽离
+
   - 使用 `provide`/`inject` 来共享应用层面的状态
+
 - 小技巧：`useVModel`
 
 ```ts
 export function useVModel(props, name) {
-    const emit = getCurrentInstance.emit
-    return computed({
-        get() {
-            return props[name]
-        },
-        set(v) {
-            emit(`update${name}`, v)
-        }
-    })
+  const emit = getCurrentInstance.emit
+  return computed({
+    get() {
+      return props[name]
+    },
+    set(v) {
+      emit(`update${name}`, v)
+    },
+  })
 }
 ```
 
@@ -208,6 +233,6 @@ export function useVModel(props, name) {
 
 - 移动端技术栈演变：WebView -> Hybrid -> RN -> Flutter
 
-![image-20210522155303466](./assets/kraken-intro.png)
+![Kraken Intro](./assets/kraken-intro.png)
 
-![image-20210522155346520](./assets/kraken-diff-tech.png)
+![Kraken Diff Tech](./assets/kraken-diff-tech.png)
