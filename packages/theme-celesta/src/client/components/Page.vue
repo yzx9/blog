@@ -41,5 +41,9 @@ const props = defineProps<{
       opacity: 1;
     }
   }
+
+  & img {
+    margin: auto;
+  }
 }
 </style>
