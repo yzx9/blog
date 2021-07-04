@@ -1,4 +1,4 @@
-import { computed, readonly, ref } from "vue"
+import { computed, inject, InjectionKey, readonly, ref } from "vue"
 import { useRoute } from "vue-router"
 import { usePageLang } from "@vuepress/client"
 import {
@@ -15,13 +15,16 @@ import type { DeepReadonly, Ref } from "vue"
 
 type TagsMutableRef = Ref<Tags>
 type TagsRef = DeepReadonly<Ref<Tags>>
+type TagsResult = {
+  currentTags: TagsRef
+  allTags: TagsRef
+}
 
 const tags = ref(_tags)
 
-export function useTags(): {
-  currentTags: TagsRef
-  allTags: TagsRef
-} {
+export const tagsSymbol: InjectionKey<TagsResult> = Symbol("@celesta/tags")
+
+export function resolveTags(): TagsResult {
   const allTags = useAllTags()
   const currentTags = useCurrentTags(allTags)
 
@@ -29,6 +32,14 @@ export function useTags(): {
     currentTags: readonly(currentTags),
     allTags: readonly(allTags),
   }
+}
+
+export function useTags(): TagsResult {
+  const tags = inject(tagsSymbol)
+  if (!tags) {
+    throw new Error("useTags() is called without provider.")
+  }
+  return tags
 }
 
 function useAllTags(): TagsMutableRef {

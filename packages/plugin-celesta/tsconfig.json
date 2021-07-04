@@ -9,7 +9,7 @@
       "@temp/celesta/tags": ["src/client/tags.d.ts"],
       "@temp/celesta/pagination": ["src/client/pagination.d.ts"]
     },
-    "types": ["@vuepress/client/types", "webpack-env", "vite/client"]
+    "types": ["node", "@vuepress/client/types", "webpack-env", "vite/client"]
   },
   "include": ["./src/**/*.ts", "./src/**/*.vue", "./__tests__"],
   "exclude": ["node_modules"]

@@ -1,4 +1,4 @@
-import { computed, readonly, ref } from "vue"
+import { computed, inject, readonly, ref } from "vue"
 import { usePageLang } from "@vuepress/client"
 import { useRoute } from "vue-router"
 import {
@@ -10,19 +10,24 @@ import {
   pageToRawCategoryNameMap,
   pageToCategoriesMap,
 } from "@temp/celesta/categories"
-import type { DeepReadonly, Ref } from "vue"
+import type { DeepReadonly, Ref, InjectionKey } from "vue"
 import type { Categories, Category, StorageCategory } from "../../types"
 
 type CategoriesMutableRef = Ref<Categories>
 type CategoriesRef = DeepReadonly<CategoriesMutableRef>
-
-const rootCategories = ref(_rootCategories)
-
-export function useCategories(): {
+type CategoriesResult = {
   currentCategories: CategoriesRef
   rootCategories: CategoriesRef
   allCategories: CategoriesRef
-} {
+}
+
+const rootCategories = ref(_rootCategories)
+
+export const categoriesSymbol: InjectionKey<CategoriesResult> = Symbol(
+  "@celesta/categories"
+)
+
+export function resolveCategories(): CategoriesResult {
   const rootCategories = useRootCategories()
   const allCategories = useAllCategories(rootCategories)
   const currentCategories = useCurrentCategories(allCategories)
@@ -32,6 +37,14 @@ export function useCategories(): {
     allCategories: readonly(allCategories),
     currentCategories: readonly(currentCategories),
   }
+}
+
+export function useCategories(): CategoriesResult {
+  const categories = inject(categoriesSymbol)
+  if (!categories) {
+    throw new Error("useCategories() is called without provider.")
+  }
+  return categories
 }
 
 function useRootCategories(): CategoriesMutableRef {
