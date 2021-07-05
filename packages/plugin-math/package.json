@@ -1,6 +1,6 @@
 {
   "name": "@celesta/vuepress-plugin-math",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "KaTex support for vuepress",
   "author": "Celeste <yuan.zx@outlook.com>",
   "homepage": "https://nsznsznjsz.github.io/tree/master/packages/vuepress-plugin-texmath#readme",
@@ -29,7 +29,7 @@
     "clean": "rimraf lib *.tsbuildinfo"
   },
   "dependencies": {
-    "@celesta/shared": "0.4.1",
+    "@celesta/shared": "0.5.0",
     "@vuepress/client": "^2.0.0-beta.21",
     "@vuepress/core": "^2.0.0-beta.21",
     "katex": "^0.13.0"

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/nsznsznjsz/blog/compare/v0.4.1...v0.5.0) (2021-07-05)
+
+
+### Bug Fixes
+
+* **theme-celesta/tag:** should use primary color as default color ([46e6632](https://github.com/nsznsznjsz/blog/commit/46e663242aae0441b0761eb2d0afc11884088239))
+
+
+### Features
+
+* **theme-celesta/category:** create category pages ([6df09bf](https://github.com/nsznsznjsz/blog/commit/6df09bf25643b479b73f28bf9639e86143c76720))
+* **theme-celesta:** img align center ([e342c05](https://github.com/nsznsznjsz/blog/commit/e342c058cb64ced4ebe2ae6ec8b5da55c262b7fd))
+
+
+
+
+
 ## [0.4.1](https://github.com/nsznsznjsz/blog/compare/v0.4.0...v0.4.1) (2021-06-15)
 
 **Note:** Version bump only for package @celesta/vuepress-theme-celesta

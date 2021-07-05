@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/nsznsznjsz/blog/compare/v0.4.1...v0.5.0) (2021-07-05)
+
+
+### Bug Fixes
+
+* **plugin-celesta:** should cache resolved data ([bd77a8c](https://github.com/nsznsznjsz/blog/commit/bd77a8c729002403d7670460d3fd1b375d78b98b))
+* **plugin-celesta:** should work on pages that are not posts ([3ac7357](https://github.com/nsznsznjsz/blog/commit/3ac735734d4c03a3b3e31df871850ee7ec44242e))
+* **plugin-post-filter:** fix test ([c55a9d5](https://github.com/nsznsznjsz/blog/commit/c55a9d5e0d6d64d0f6928e3d190e8c0d4a58065a))
+* **theme-celesta/tag:** should use primary color as default color ([46e6632](https://github.com/nsznsznjsz/blog/commit/46e663242aae0441b0761eb2d0afc11884088239))
+
+
+### Features
+
+* **theme-celesta/category:** create category pages ([6df09bf](https://github.com/nsznsznjsz/blog/commit/6df09bf25643b479b73f28bf9639e86143c76720))
+* **theme-celesta:** img align center ([e342c05](https://github.com/nsznsznjsz/blog/commit/e342c058cb64ced4ebe2ae6ec8b5da55c262b7fd))
+
+
+### Performance Improvements
+
+* **plugin-celesta/category:** avoid write client prop ([89d734f](https://github.com/nsznsznjsz/blog/commit/89d734f6ac1d9eeef6972a3d85496546a83289e9))
+* **plugin-celesta/tag:** avoid write empty name ([a2d97a6](https://github.com/nsznsznjsz/blog/commit/a2d97a633171820177d75ac920ad4f681c2c3695))
+
+
+
+
+
 ## [0.4.1](https://github.com/nsznsznjsz/blog/compare/v0.4.0...v0.4.1) (2021-06-15)
 
 **Note:** Version bump only for package blog
