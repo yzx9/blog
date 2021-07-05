@@ -28,9 +28,9 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "@vuedx/typescript-plugin-vue": "^0.6.3",
-    "@vuepress/bundler-vite": "^2.0.0-beta.18",
-    "@vuepress/cli": "^2.0.0-beta.18",
-    "@vuepress/theme-default": "^2.0.0-beta.18",
+    "@vuepress/bundler-vite": "^2.0.0-beta.21",
+    "@vuepress/cli": "^2.0.0-beta.21",
+    "@vuepress/theme-default": "^2.0.0-beta.21",
     "cpx2": "^3.0.0",
     "http-server": "^0.12.3",
     "jest": "^26.6.3",

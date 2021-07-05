@@ -12,9 +12,6 @@ export const VuepressPluginCelesta: Plugin<ThemeData> = (options, app) => {
 
     onPrepared: createPreparedHook(options),
 
-    clientAppSetupFiles: path.resolve(
-      __dirname,
-      "../client/clientAppEnhance.js"
-    ),
+    clientAppSetupFiles: path.resolve(__dirname, "../client/clientAppSetup.js"),
   }
 }

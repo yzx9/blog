@@ -33,17 +33,31 @@ Vite 快速的核心原因时改变了原有的 Bundler-Based Dev Server，而�
 
 ```ts
 return {
-	c() { /* create  */ },
-	m() { /* mount   */ },
-	p() { /* patch   */ },
-	d() { /* destory */ },
+  c() {
+    /* create  */
+  },
+  m() {
+    /* mount   */
+  },
+  p() {
+    /* patch   */
+  },
+  d() {
+    /* destory */
+  },
 }
 
 // @vue/reactive
 return {
-	c() { /* create  */ },
-	m() { /* mount   */ },
-	d() { /* destory */ },
+  c() {
+    /* create  */
+  },
+  m() {
+    /* mount   */
+  },
+  d() {
+    /* destory */
+  },
 }
 ```
 
@@ -87,9 +101,9 @@ Type First, 类型优先 -> Typescript
   - alias
   - import maps
 
-- `__filename` / `__dirname` / `require.resolve` => `import.meta.<wbr/>url`
+- `__filename` / `__dirname` / `require.resolve` => `import.meta.url`
 
-- `process.env` => `import.meta.<wbr/>env`
+- `process.env` => `import.meta.env`
 
   - 来自 Node.js，环境并不存在
   - 浏览器端的 `process.env` 并不是环境，而是配置

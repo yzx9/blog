@@ -28,10 +28,12 @@
   "bugs": {
     "url": "https://github.com/nsznsznjsz/blog/issues"
   },
+  "dependencies": {
+    "upath": "^2.0.1"
+  },
   "peerDependencies": {
-    "@vuepress/client": "^2.0.0-beta.18",
-    "@vuepress/core": "^2.0.0-beta.18",
-    "upath": "^2.0.1",
+    "@vuepress/client": "^2.0.0-beta.21",
+    "@vuepress/core": "^2.0.0-beta.21",
     "vue": "^3.1.1"
   }
 }
