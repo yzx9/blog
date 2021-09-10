@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-- 🌱 I’m currently learning on SHNU
+- 🌱 I’m currently learning on SHU
 - 🤔 I’m currently learning English...
 
 ![Celeste's github stats](https://github-readme-stats.vercel.app/api/?username=nsznsznjsz&show_icons=true&hide_title=true)
