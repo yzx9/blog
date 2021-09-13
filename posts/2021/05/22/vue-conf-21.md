@@ -19,7 +19,7 @@ categories:
 
 Vite 快速的核心原因时改变了原有的 Bundler-Based Dev Server，而采用 ESM-Based Dev Server 方案。Bundle-Base 的方案中，**Full Bundler** 决定了开发服务器的每次启动都十分低效，需要从入口文件解析整个依赖树并将其打包。而全新的 ESM-Based 开发服务器只需要做每个文件的 **Transform**，文件依赖解析则交由 ESM 完成，如此一来，开发服务器真的就只需要监听一个端口那么简单！
 
-> 其实可能还有依赖预编译，当然这也是为了更快
+> 其实可能还有依赖预构建，当然这也是为了更快
 
 ### SSR 目标
 
