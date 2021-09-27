@@ -4,7 +4,7 @@ on:
     branches:
       - main
 jobs:
-  # nsznsznjsz/nsznsznjsz
+  # yzx9/yzx9
   readme-copy:
     runs-on: ubuntu-latest
     steps:
@@ -16,18 +16,18 @@ jobs:
           mkdir .temp
           cp README.md .temp/README.md
 
-      - name: Push README to repository nsznsznjsz/nsznsznjsz
+      - name: Push README to repository yzx9/yzx9
         uses: cpina/github-action-push-to-another-repository@v1.2
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source-directory: .temp
-          destination-github-username: nsznsznjsz
-          destination-repository-name: nsznsznjsz
+          destination-github-username: yzx9
+          destination-repository-name: yzx9
           target-branch: main
           user-email: yuan.zx@outlook.com
           commit-message: |
             Deploy from blog repo, see it for detail
 
-            - repo: github.com/nsznsznjsz/blog
-            - commit: github.com/nsznsznjsz/blog/commit/${{ github.sha }}
+            - repo: github.com/yzx9/blog
+            - commit: github.com/yzx9/blog/commit/${{ github.sha }}
