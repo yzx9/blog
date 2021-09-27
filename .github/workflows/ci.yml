@@ -50,7 +50,7 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
-          repo: nsznsznjsz/nsznsznjsz.github.io
+          repo: yzx9/yzx9.github.io
           target_branch: main
           build_dir: posts/.vuepress/dist
         env:
