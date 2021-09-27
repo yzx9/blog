@@ -3,11 +3,11 @@
 - 🌱 I’m currently learning on SHU
 - 🤔 I’m currently learning English...
 
-![Celeste's github stats](https://github-readme-stats.vercel.app/api/?username=nsznsznjsz&show_icons=true&hide_title=true)
-![Celeste's most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username=nsznsznjsz&layout=compact&exclude_repo=nsznsznjsz.github.io)
+![Celeste's github stats](https://github-readme-stats.vercel.app/api/?username=yzx9&show_icons=true&hide_title=true)
+![Celeste's most used languages](https://github-readme-stats.vercel.app/api/top-langs/?username=yzx9&layout=compact&exclude_repo=yzx9.github.io)
 
 <!--
-**nsznsznjsz/nsznsznjsz** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**yzx9/yzx9** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
 
