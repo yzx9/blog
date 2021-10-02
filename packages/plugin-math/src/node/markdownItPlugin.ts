@@ -212,7 +212,7 @@ export function math_plugin(md, options) {
         console.log(error)
       }
       return `<span class='katex-error' title='${escapeHtml(
-        error.toString()
+        (error as any).toString()
       )}'>${escapeHtml(latex)}</span>`
     }
   }
@@ -234,7 +234,7 @@ export function math_plugin(md, options) {
         console.log(error)
       }
       return `<p class='katex-block katex-error' title='${escapeHtml(
-        error.toString()
+        (error as any).toString()
       )}'>${escapeHtml(latex)}</p>`
     }
   }
