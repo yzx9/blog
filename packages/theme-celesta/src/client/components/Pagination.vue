@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineEmit, defineProps } from "vue"
+import { computed } from "vue"
 
-const emit = defineEmit(["update:current", "update:size"])
+const emit = defineEmits(["update:current", "update:size"])
 
 const props = defineProps({
   current: { type: Number, required: true },

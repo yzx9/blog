@@ -7,13 +7,13 @@ let count = 0
 </script>
 
 <script setup lang="ts">
-import { defineEmit, defineProps, ref, onMounted, onUnmounted, watch } from "vue"
+import { ref, onMounted, onUnmounted, watch } from "vue"
 import { withBase } from "@vuepress/client"
 import { tsParticles } from "tsparticles"
 import type { PropType } from "vue"
 import type { Container, ISourceOptions } from "tsparticles"
 
-const emit = defineEmit(["change"])
+const emit = defineEmits(["change"])
 const props = defineProps({
   preset: {
     type: [String, Object, Array] as PropType<string | string[] | ISourceOptions | ISourceOptions[]>,

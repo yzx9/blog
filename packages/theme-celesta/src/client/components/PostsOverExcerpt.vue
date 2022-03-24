@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import Pagination from "./Pagination.vue"
-import { computed, defineProps, reactive } from "vue"
+import { computed, reactive } from "vue"
 import { usePagination } from "@celesta/vuepress-plugin-celesta/lib/client"
 import type { PaginationOptions } from "@celesta/vuepress-plugin-celesta"
 

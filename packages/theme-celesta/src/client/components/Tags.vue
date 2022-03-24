@@ -17,12 +17,12 @@
 <script setup lang="ts">
 import { useTags } from "@celesta/vuepress-plugin-celesta/lib/client"
 import { toReadableCase } from "@celesta/shared"
-import { computed, defineEmit, defineProps } from "vue"
+import { computed } from "vue"
 import { colors, getVisiableColorByHash } from "../utils"
 import type { PropType } from "vue"
 
 const inactiveColor = colors.Grey
-const emit = defineEmit(["update:actives"])
+const emit = defineEmits(["update:actives"])
 const props = defineProps({
   actives: { type: Array as PropType<string[]>, default: [] },
   singleChoice: { type: Boolean, default: false }
