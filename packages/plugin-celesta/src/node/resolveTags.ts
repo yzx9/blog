@@ -22,7 +22,7 @@ const _resolveTags = (app: App) => {
     pageToRawTagNameMap: {},
   }
 
-  const resolvePageTags = (page: Page & { frontmatter: ThemeFrontmatter }) => {
+  const resolvePageTags = (page: Page<ThemeFrontmatter>) => {
     const rawNameMap: Record<string, string> = {}
     const raw = page.frontmatter.tags || ["Default"]
     const arr = Array.isArray(raw) ? raw : [raw]

@@ -28,9 +28,7 @@ const _resolveCategories = (app: App) => {
     children: [],
   })
 
-  const resovePageCategories = (
-    page: Page & { frontmatter: ThemeFrontmatter }
-  ) => {
+  const resovePageCategories = (page: Page<ThemeFrontmatter>) => {
     const raw = page.frontmatter.categories || "Default"
     const categoriesRoutes = Array.isArray(raw)
       ? raw.some(Array.isArray)
