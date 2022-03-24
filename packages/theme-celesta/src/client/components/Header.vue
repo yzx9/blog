@@ -59,7 +59,7 @@ import type { ThemePageData } from "../../types"
 const pageData = usePageData<ThemePageData>()
 
 const { title, date, updated } = toRefs(pageData.value)
-const showUpdate = computed(() => date.value !== updated.value)
+const showUpdate = computed(() => date?.value !== updated?.value)
 
 const editLink = useEditLink()
 
