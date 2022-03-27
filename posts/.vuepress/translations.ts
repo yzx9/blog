@@ -1,10 +1,13 @@
 export const translations: Record<string, string> = {
   "Computer Science": "计科",
   "Computer Organization": "计组",
+  "Computer Graphics": "计算机图形学",
   "Data Structure": "数据结构",
   Tree: "树",
   Network: "计算机网络",
   Performance: "性能",
+
+  Go: "Go",
 
   Authorization: "身份认证",
   oauth2: "OAuth2",
