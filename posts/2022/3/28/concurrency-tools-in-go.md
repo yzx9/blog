@@ -1,18 +1,18 @@
 ---
-date: 2022-03-27
-updated: 2022-03-27
+date: 2022-03-28
+updated: 2022-03-29
 author: Celeste
 location: Shanghai University, Shanghai
 tags:
-  - Concurrency
   - Go
+  - Concurrency
 categories:
   - Computer Science
   - Language
   - Go
 ---
 
-# Go 语言并发组件
+# Go 语言并发工具
 
 > 使用通信来共享内存，而不是通过共享内存来通信
 
@@ -225,7 +225,9 @@ func (engine *Engine) ServeHTTP(w http.ResponseWriter, req *http.Request) {
 - 当你使用 Pool 中 Get 的实例时，不要对接受对象的状态做出任何假设
 - 用完 Pool 中 Get 的实例后，一定要 Put
 
-## goroutine
+## Communicating Sequential Processes
+
+### goroutine
 
 goroutine 是 Go 语言提供的协程，每个 Go 语言程序启动时都至少有一个 main goroutine。goroutine 的独特之处在于它与语言的深度集成，goroutine 没有定义自己的暂停点或再运行点，而是自动在运行时形成 fork-join 的并发模型。在函数调用前加上 `go` 命令，就会启动一个 goroutine 来执行函数，go 语言会自动的帮你调度 goroutine：
 
@@ -277,7 +279,7 @@ for _, salutation := range []string{"hello", "greeting", "good day"} {
 // good day
 ```
 
-## Channel
+### Channel
 
 Channel 是 Go 语言提供的强大的同步原语之一。就像河流一样，一个 Channel 充当着信息传送的管道，值可以沿着 Channel 传递，然后在下流读出。
 
@@ -287,7 +289,7 @@ close(stream)
 integer, ok := stream   // ok == false, channel has been closed
 ```
 
-Channel 默认是零缓存的，不过你也可以 `make(chan interface{}, 10)` 创建一个带缓存的 Channel。但是必须谨慎使用缓存，这常会是一个不完全的优化，将潜在的死锁偷渡到生产环境。
+Channel 默认是零缓存的，不过你也可以传入第二个参数 `make(chan interface{}, 10)` 创建一个带缓存的 Channel。但是必须谨慎使用缓存，这常会是一个不完全的优化，将潜在的死锁偷渡到生产环境。
 
 Channel 主要有 Read、Write、Close 三种操作：
 
@@ -315,9 +317,78 @@ Channel 主要有 Read、Write、Close 三种操作：
 | Close | closed             | panic    |
 | Close | read only          | 编译错误 |
 
-可以发现表中存在不少坑，尤其是还有三个 panic！因此强烈建议使用 Channel 过程中明确 Channel 所有权，并保持 Chennel 所有权范围很小。
+可以发现表中存在不少坑，尤其是还有三个 panic！因此强烈建议使用 Channel 过程中明确 Channel 所有权，尽可能缩小 Chennel 所有权范围。
+
+### select
+
+select 语句是 go 提供给 channel 的一种黏合剂：
+
+```go
+var c1, c2 <-chan interface{}
+var c3 chan<- interface{}
+
+select {
+case <- c1:
+    // do something
+case <- c2:
+    // do something
+case c3<- struct{}{}:
+    // do something
+}
+```
+
+有趣的是，即使 c1、c2 有源源不断的数据进入，c3 依然能够发送数据而不会饥饿。select 语句不保证测试顺序，go 语言使用伪随机测试每个分支减少饥饿。
+
+即使没有任何 Channel 可用，你可以使用`time`包中提供的优雅的超时方法：
+
+```go
+channel := make(chan string, 2)
+
+select {
+case output := <-channel:
+    fmt.Println(output)
+case <-time.After(5 * time.Second):
+    fmt.Println("Its timeout..")
+}
+```
 
 ### for-select
+
+for-select 是一个常见的模式：
+
+```go
+for {
+    select {
+        // cases
+    }
+}
+```
+
+发送迭代变量：
+
+```go
+for _, s := range []string{"a", "b", "c"} {
+    select {
+    case <-done:
+        return
+    case stringStream <- s:
+    }
+}
+```
+
+循环等待停止：
+
+```go
+for {
+    select {
+    case <-done:
+        return
+    default:
+    }
+
+    // execute non-preemptive tasks
+}
+```
 
 ## Reference
 
