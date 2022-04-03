@@ -29,3 +29,10 @@ func checkStatus(done <-chan interface{}, urls... string) <-chan Result {
 ```
 
 将错误视为一等公民有效的将错误处理从生产者 goroutine 中转移到了消费者甚至是 main goroutine，以便做出更明智的决定。
+
+## Read More
+
+- [Cleaner, more elegant, and wrong](https://devblogs.microsoft.com/oldnewthing/20040422-00/?p=39683)
+- [Cleaner, more elegant, and harder to recognize](https://devblogs.microsoft.com/oldnewthing/20050114-00/?p=36693)
+
+## References
