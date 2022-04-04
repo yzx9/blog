@@ -1,6 +1,6 @@
 ---
 date: 2022-04-02
-updated: 2022-04-02
+updated: 2022-04-04
 author: Celeste
 location: Shanghai University, Shanghai
 tags:
@@ -75,7 +75,7 @@ for v := range pipeline {
 }
 ```
 
-_done channel 是一种推荐的 channel 控制方法，详见[如何取消 goroutine](../../03/30/cancel-goroutine.md)_
+_done channel 是一种推荐的 channel 控制方法，详见[如何取消 goroutine](../04/cancel-goroutine.md)_
 
 ## Repeat Generator
 

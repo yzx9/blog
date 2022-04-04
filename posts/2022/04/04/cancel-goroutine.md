@@ -1,6 +1,6 @@
 ---
-date: 2022-03-30
-updated: 2022-03-30
+date: 2022-04-04
+updated: 2022-04-04
 author: Celeste
 location: Shanghai University, Shanghai
 tags:
@@ -180,7 +180,7 @@ type Context {
     // 如果 done channel 已经关闭，返回 non-nil，解释为什么关闭
     Err() error
 
-    // 添加 request-scoped 信息，不要用于添加可选的函数变量
+    // 添加 request-scoped 信息
     Value(key interface{}) interface{}
 }
 ```
@@ -197,7 +197,58 @@ func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 func WithValue(parent Context, key, val interface{}) (Context, CancelFunc)
 ```
 
-如果你的函数需要以某种方式取消下游函数，那么它可以调用其中一个函数，并传递给它的子元素。而如果你的函数不需要修改取消动作，那么函数只需要传递给定上下文。
+如果你的函数需要以某种方式取消下游函数，那么它可以调用其中一个函数，并传递给它的子元素。而如果你的函数不需要修改取消动作，那么函数只需要传递给定上下文。如果不知道传递什么 Context 时候，使用`TODO`来创建一个占位符，而不是传递 nil。
+
+除了超时和取消，Context 还提供了一种传递信息的方法`WithValue`，只有很少的限制：
+
+- 键值（Key）必须具有可比性，也就是可以使用`==`比较；
+- 返回值必须是线程安全的。
+
+`WithValue` 用来传递一些线程或者请求相关的信息非常好用，但是不要用于添加可选的函数变量。另外，`WithValue`方法不具备类型安全，因此社区对于这个包一直存在争议。一个能够提供部分类型安全的方法是使用自定义类型：
+
+```go
+func main() {
+    ProcessRequest("jane", "abc123")
+}
+
+type ctxKey int
+
+const (
+    ctxUserID   ctxKey = iota
+    ctAuthToken
+)
+
+func UserID(c context.Context) string {
+    return c.Value(ctxUserID).(string)
+}
+
+func AuthToken(c context.Context) string {
+    return c.Value(ctxAuthToken).(string)
+}
+
+func ProcessRequest(userID, authToken string) {
+    ctx := context.Background()
+    ctx = context.WithValue(ctx, ctxUserID, userID)
+    ctx = context.WithValue(ctx, ctxAuthToken, authToken)
+    HandleResponse(ctx)
+}
+
+func HandleResponse(ctx context.Context) {
+    fmt.Printf(
+        "handling response for %v (auth: %v)",
+        UserID(ctx),
+        AuthToken(ctx),
+    )
+}
+```
+
+这种方法最大的问题在于别的包内的函数无法轻易访问 Context，因此使用 context 传递值之前需要谨慎思考，并参考以下意见：
+
+- 值应该位于进程或 API 边界内
+- 值应该是不可变的
+- 值应该趋于简单类型
+- 值应该是数据，而不是方法或类型
+- 值应该用于修饰操作，而不是驱动操作
 
 ## Reference
 
