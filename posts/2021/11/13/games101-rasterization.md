@@ -202,7 +202,7 @@ $$
 
 ### Model/View transformation（模型视图变换）
 
-一个相机(Camera)的位置由三个向量决定：Position $\vec e$，Look-at $\vec e$, Up direction $\vec t$，标准相机位：The origin, up at Y, look at -Z，通常我们将一个相机移动至标准位：
+一个相机(Camera)的位置由三个向量决定：Position $\vec e$，Look-at $\vec g$, Up direction $\vec t$，标准相机位：The origin, up at Y, look at -Z，通常我们将一个相机移动至标准位：
 
 $$
 \begin{aligned}
