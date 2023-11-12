@@ -1,15 +1,24 @@
 ---
 date: 2023-11-08
-updated: 2023-11-11
+updated: 2023-11-12
 author: Yuan Zexin
 location: GDIIST, Zhuhai, Guangdong
 tags:
   - Course
+  - Neuron Science 2023
 categories:
   - Neuron Science
 ---
 
 # 神经系统组成和神经元结构
+
+课程：神经科学
+
+主持人：朱筱娟教授（东北师范大学）
+
+讲者：李云庆教授（空军军医大学）、鲍岚研究员（中科院分子细胞科学卓越创新中心）
+
+---
 
 神经组织分为神经细胞和神经胶质细胞，神经的基本活动由反射组成。神经系统可以分为中枢神经系统和周围神经系统。
 
@@ -257,6 +266,10 @@ mindmap
 ### 不同神经元的结构和功能
 
 在神经系统中，各类神经元和环路都具有较大的差距。以牵张放射环路为例。
+
+![Sensory Neuron in Stretch Reflex Pathway](./assets/stretch-reflex-pathway-sensory-neuron.png)
+
+![Motor Neuron in Stretch Reflex Pathway](./assets/stretch-reflex-pathway-motor-neuron.png)
 
 ### 小结
 
