@@ -48,7 +48,7 @@ tags:
 
 ## 计算文法符号的 FIRST 集
 
-在[自顶向下的语法分析](./08/top-down-grammar-parsing.md)中，我们已经介绍过通过定义求 FIRST 集，但是描述较乱，我们对齐重新整理。
+在[自顶向下的语法分析](../08/top-down-grammar-parsing.md)中，我们已经介绍过通过定义求 FIRST 集，但是描述较乱，我们对齐重新整理。
 
 ### 定义法求 FIRST 集
 

@@ -317,7 +317,7 @@ Channel 主要有 Read、Write、Close 三种操作：
 | Close | closed             | panic    |
 | Close | read only          | 编译错误 |
 
-可以发现表中存在不少坑，尤其是还有三个 panic！因此强烈建议使用 Channel 过程中明确 Channel 所有权，尽可能缩小 Chennel 所有权范围。通常我们会在生产者中创建 channel，然后以只读形式传出 Channel ，同时配合 `defer close(stream)`，可以有效避免 panic。一个行之有效的模式是 [Pipeline](../30/pipeline-in-go.md)。
+可以发现表中存在不少坑，尤其是还有三个 panic！因此强烈建议使用 Channel 过程中明确 Channel 所有权，尽可能缩小 Chennel 所有权范围。通常我们会在生产者中创建 channel，然后以只读形式传出 Channel ，同时配合 `defer close(stream)`，可以有效避免 panic。一个行之有效的模式是 [Pipeline](../../04/02/pipeline-in-go)。
 
 ### select
 

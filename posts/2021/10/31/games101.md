@@ -3,7 +3,7 @@ title: GAMES101
 author: Celeste
 location: Shanghai University, Shanghai
 date: 2021-10-31
-updated: 2021-03-24
+updated: 2022-03-24
 tags:
   - CG
   - GAMES
