@@ -1,10 +1,9 @@
 # Node modules
 node_modules
 
-# VuePress files
+# VitePress files
 dist/
-.cache/
-.temp/
+cache/
 
 # MacOS Desktop Services Store
 .DS_Store
