@@ -3,7 +3,8 @@ date: 2021-6-29
 update: 2021-6-29
 categories:
   - Computer Science
-  - Datebase
+  - Language
+  - SQL
 tags:
   - SQL
 ---

@@ -4,7 +4,6 @@ updated: 2021-3-11
 categories:
   - Computer Science
   - Coding Style
-  - Clean Code
 tags:
   - Clean Code
 ---

@@ -7,7 +7,6 @@ categories:
   - discrete mathematical
 tags:
   - discrete mathematical
-draft: true
 ---
 
 ## 命题
@@ -30,12 +29,12 @@ draft: true
 
 常用联结词有否定 $\lnot$、合取 $\land$、析取 $\lor$、蕴涵 $\rightarrow$ 和等价 $\leftrightarrow$ 联结词，其他联结词还有与非 $\uparrow$、或非 $\downarrow$ 和异或 $\oplus$。上述联结词真值表如下：
 
-| $p$ | $q$ | $\lnot p$ | $p\land q$ | $p\lor q$ | $p\rightarrow q$ | $p\leftrightarrow q$ | $p \uparrow q$ | $p \downarrow q$ | $q \oplus q$ |
-| :-: | :-: | :-------: | :--------: | :-------: | :--------------: | :------------------: | :------------: | :--------------: | :----------: |
-|  T  |  T  |     F     |     T      |     T     |        T         |          T           |       F        |        F         |      F       |
-|  T  |  F  |     F     |     F      |     T     |        F         |          F           |       T        |        F         |      T       |
-|  F  |  T  |     T     |     F      |     T     |        T         |          F           |       T        |        F         |      T       |
-|  F  |  F  |     T     |     F      |     F     |        T         |          T           |       T        |        T         |      F       |
+|  $p$  |  $q$  | $\lnot p$ | $p\land q$ | $p\lor q$ | $p\rightarrow q$ | $p\leftrightarrow q$ | $p \uparrow q$ | $p \downarrow q$ | $q \oplus q$ |
+| :---: | :---: | :-------: | :--------: | :-------: | :--------------: | :------------------: | :------------: | :--------------: | :----------: |
+|   T   |   T   |     F     |     T      |     T     |        T         |          T           |       F        |        F         |      F       |
+|   T   |   F   |     F     |     F      |     T     |        F         |          F           |       T        |        F         |      T       |
+|   F   |   T   |     T     |     F      |     T     |        T         |          F           |       T        |        F         |      T       |
+|   F   |   F   |     T     |     F      |     F     |        T         |          T           |       T        |        T         |      F       |
 
 设 $S$ 是一个联结词集合，如果任何 $n(n>1)$ 元真值函数都可以由仅含 $S$ 的联结词构成的公式表示，则称 $S$ 是联结词的**完备集**。
 
@@ -236,16 +235,16 @@ $$
 
 1. 写出真值表
 
-   |  p  |  q  |  r  | $p \land q \lor r$ |
-   | :-: | :-: | :-: | :----------------: |
-   |  0  |  0  |  0  |         0          |
-   |  0  |  0  |  1  |         1          |
-   |  0  |  1  |  0  |         0          |
-   |  0  |  1  |  1  |         1          |
-   |  1  |  0  |  0  |         0          |
-   |  1  |  0  |  1  |         1          |
-   |  1  |  1  |  0  |         1          |
-   |  1  |  1  |  1  |         1          |
+   |   p   |   q   |   r   | $p \land q \lor r$ |
+   | :---: | :---: | :---: | :----------------: |
+   |   0   |   0   |   0   |         0          |
+   |   0   |   0   |   1   |         1          |
+   |   0   |   1   |   0   |         0          |
+   |   0   |   1   |   1   |         1          |
+   |   1   |   0   |   0   |         0          |
+   |   1   |   0   |   1   |         1          |
+   |   1   |   1   |   0   |         1          |
+   |   1   |   1   |   1   |         1          |
 
 2. 得出极小项： $p \land q \lor r \Leftrightarrow m_1, m_3, m_5, m_6, m_7 \Leftrightarrow \sum \left(1, 3, 5, 6, 7 \right)$
 

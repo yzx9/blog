@@ -1,6 +1,11 @@
 ---
 date: 2021-3-13
 updated: 2021-3-13
+categories:
+  - Computer Science
+  - Compiler
+tags:
+  - Grammar
 ---
 
 # SDD 与 SDT

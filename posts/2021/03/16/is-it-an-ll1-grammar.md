@@ -3,10 +3,10 @@ date: 2021-3-16 14:07:03
 update: 2021-3-16 15:00:16
 categories:
   - Computer Science
-  - Principle of Compiler
+  - Compiler
 tags:
   - Grammar
-  - Principle of Compiler
+  - Compiler
 ---
 
 # LL(1)文法判别

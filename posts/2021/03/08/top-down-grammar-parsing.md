@@ -4,10 +4,9 @@ updated: 2021-3-22 16:55:24
 location: Guang Ze, Fu Jian
 categories:
   - Computer Science
-  - Principle of Compiler
+  - Compiler
 tags:
   - Grammar
-  - Principle of Compiler
 ---
 
 # 自顶向下的语法分析

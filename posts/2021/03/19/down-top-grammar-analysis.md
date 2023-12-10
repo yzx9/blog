@@ -5,10 +5,10 @@ author: Celeste
 location: Shanghai Normal University
 categories: 
   - Computer Science
-  - Principle of Compiler
+  - Compiler
 tags:
-  - Principle of Compiler
-  - Grammar Analysis
+  - Compiler
+  - Grammar
 ---
 
 # 自底向上的语法分析

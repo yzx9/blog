@@ -3,6 +3,8 @@ date: 2021-6-19
 updated: 2021-6-19
 categories:
   - Computer Science
+  - Language
+  - Rust
 tags:
   - Rust
 ---

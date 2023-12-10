@@ -74,7 +74,7 @@ return {
 
 ### Type First
 
-Type First, 类型优先 -> Typescript
+Type First, 类型优先 -> TypeScript
 
 - 类型提示
 - 智能补全
@@ -83,7 +83,7 @@ Type First, 类型优先 -> Typescript
 
 ### 将类型检查放到编译外
 
-- esbuild: 单纯的 Typescript 词法扩展并不会让编译变慢
+- esbuild: 单纯的 TypeScript 词法扩展并不会让编译变慢
 - 把 tsc 作为 lint 的一部分
 
 ### Be Explicit

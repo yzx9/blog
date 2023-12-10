@@ -4,10 +4,10 @@ updated: 2021-09-07
 author: Celeste
 location: Shanghai University, Shanghai
 tags:
-- Matrix Theory
+  - Matrix Theory
 categories:
-- Math
-- Algebra
+  - Math
+  - Algebra
 ---
 
 # 高等代数基础

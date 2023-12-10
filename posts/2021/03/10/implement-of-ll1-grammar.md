@@ -1,6 +1,11 @@
 ---
 date: 2021-3-10
 updated: 2021-3-10
+categories:
+  - Computer Science
+  - Compiler
+tags:
+  - Grammar
 ---
 
 # LL(1) 文法的实现

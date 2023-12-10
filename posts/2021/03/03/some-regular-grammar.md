@@ -4,7 +4,7 @@ updated: 2021-3-8
 location: Guang Ze, Fu Jian
 categories: 
   - Computer Science
-  - Principle of Compiler
+  - Compiler
 todos:
   - DFA
 ---

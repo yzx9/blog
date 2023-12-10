@@ -5,11 +5,10 @@ date: 2021-2-26
 updated: 2021-2-26
 tags:
   - Automata
-  - Principle of Compiler
-  - Reg
+  - Compiler
 catagories:
   - Computer Science
-  - Principle of Compiler
+  - Compiler
 ---
 
 正规文法（Regular Grammar）指的是一种特殊的文法，其对上下文无关文法加以限制，由于限制较多，很难用于表示现有语法，但其常常被用于构建正则表达式（Regular Expression），用来匹配检索和替换某个模式的文本。

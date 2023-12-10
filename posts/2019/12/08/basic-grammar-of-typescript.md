@@ -5,10 +5,10 @@ categories:
   - Computer Science
   - Front End
 tags:
-  - Typescript
+  - TypeScript
 ---
 
-# Typescript 基本语法
+# TypeScript 基本语法
 
 [TypeScript Language Specification](https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md)
 
