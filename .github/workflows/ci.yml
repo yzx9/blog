@@ -10,48 +10,26 @@ jobs:
     env:
       NODE_VERSION: "14"
     steps:
-      - name: Checkout
-        uses: actions/checkout@main
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
         with:
-          fetch-depth: 0
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+          version: 8
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Handle yarn cache
-        uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-yarn-
-            ${{ runner.os }}-node-
-
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
       - name: Install dependencies
-        run: yarn --frozen-lockfile
-
-      - name: Build packages
-        run: |
-          yarn copy
-          yarn build
-
-      - name: Build blog site
+        run: pnpm install
+      - name: Build site
         env:
           BASE_PATH: /
-        run: yarn blog:build
-
+        run: pnpm run build
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
           repo: yzx9/yzx9.github.io
           target_branch: main
-          build_dir: posts/.vuepress/dist
+          build_dir: .vitepress/dist
         env:
           GH_PAT: ${{ secrets.API_TOKEN_GITHUB }}
