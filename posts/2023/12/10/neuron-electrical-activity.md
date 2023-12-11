@@ -18,7 +18,7 @@ categories:
 
 <!-- end -->
 
-上一讲: [神经元活动的基本原理](../../11/13/neuron-activity-principle.md)
+上一讲: [神经元活动的基本原理](../../11/13/neuron-activity-principle.md)，下一讲：[神经递质及受体](../11/neurotransmitters-receptors.md)
 
 ## 神经元的被动电学特性
 

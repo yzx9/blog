@@ -22,7 +22,9 @@ const translations: Record<string, string> = {
 
   Life: "日常",
   Coffee: "咖啡",
+  Course: "课程",
 
+  Math: "数学",
   "Discrete Mathematical": "离散数学",
 }
 
