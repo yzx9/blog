@@ -18,8 +18,8 @@ devDependencies:
     specifier: ^2.0.16
     version: 2.0.16(mermaid@10.6.1)(vitepress@1.0.0-rc.31)
   vitepress-theme-celesta:
-    specifier: ^0.0.1
-    version: 0.0.1(vitepress@1.0.0-rc.31)(vue@3.3.10)
+    specifier: ^0.0.2
+    version: 0.0.2(vitepress@1.0.0-rc.31)(vue@3.3.10)
 
 packages:
 
@@ -2285,8 +2285,8 @@ packages:
       '@mermaid-js/mermaid-mindmap': 9.3.0
     dev: true
 
-  /vitepress-theme-celesta@0.0.1(vitepress@1.0.0-rc.31)(vue@3.3.10):
-    resolution: {integrity: sha512-QU3cwoRYuRqRkVCfkq6Pmof4KH/FKHCXZJTEbE2A3JprAtYrOaKagOmZpNjoYhR6cpRODudShlp0tPGsOz532g==}
+  /vitepress-theme-celesta@0.0.2(vitepress@1.0.0-rc.31)(vue@3.3.10):
+    resolution: {integrity: sha512-Sfr7T30EoOT+Xgi+6MKcOnIlJ61cOfFtTF7MTFv2pWFnF5LkFSxfv7Glp1d1KWD0etrjY4Gwo6Qe/ZPIpAWuIQ==}
     peerDependencies:
       vitepress: 1.0.0-rc.31
       vue: ^3.3.9

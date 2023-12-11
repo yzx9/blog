@@ -7,6 +7,8 @@ const translations: Record<string, string> = {
   "Computer Organization": "计算机组成",
   "Computer Graphics": "计算机图形学",
   "Data Structure": "数据结构",
+  "Software Engineering": "软件工程",
+  Architecture: "架构",
   Tree: "树",
   Network: "计算机网络",
   Performance: "性能",
@@ -26,7 +28,7 @@ const translations: Record<string, string> = {
 
 export default withMermaid(
   defineConfigWithTheme<Config>({
-    head: [["link", { rel: "icon", href: "/logo.ico" }]],
+    head: [["link", { rel: "icon", href: "/icon.ico" }]],
     markdown: {
       math: true,
     },
