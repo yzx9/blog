@@ -33,6 +33,9 @@ export default withMermaid(
     head: [["link", { rel: "icon", href: "/icon.ico" }]],
     markdown: {
       math: true,
+      headers: {
+        level: [1, 2, 3, 4, 5, 6],
+      },
     },
     locales: {
       root: {
