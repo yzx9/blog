@@ -29,7 +29,7 @@ jobs:
         uses: crazy-max/ghaction-github-pages@v2.2.0
         with:
           repo: yzx9/yzx9.github.io
-          target_branch: main
+          target_branch: gh-pages
           build_dir: .vitepress/dist
         env:
           GH_PAT: ${{ secrets.API_TOKEN_GITHUB }}
