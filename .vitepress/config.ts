@@ -34,14 +34,14 @@ export default withMermaid(
     markdown: {
       math: true,
       headers: {
-        level: [1, 2, 3, 4, 5, 6],
+        level: [1, 2, 3],
       },
     },
     locales: {
       root: {
         label: "中文",
         lang: "zh",
-        title: "Zexin Yuan's blog",
+        title: "Zexin Yuan's Blog",
         description: "Technique && Life",
         themeConfig: {
           author: "Zexin Yuan",
