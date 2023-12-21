@@ -1,6 +1,6 @@
 ---
 date: 2023-12-11
-updated: 2023-12-11
+updated: 2023-12-18
 author: Yuan Zexin
 location: GDIIST, Zhuhai, Guangdong
 tags:
@@ -18,7 +18,7 @@ categories:
 
 <!-- end -->
 
-上一讲: [神经元的被动膜特性及动作电位的发生与传播](../10/neuron-electrical-activity.md)
+上一讲: [神经元的被动膜特性及动作电位的发生与传播](../10/neuron-electrical-activity.md)，下一讲：[神经递质及受体（二）](../21/neurotransmitters-receptors-2.md)
 
 ## 神经递质与受体的分类
 
