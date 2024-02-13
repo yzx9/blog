@@ -16,7 +16,7 @@ categories:
 
 <!-- end -->
 
-上一讲: [神经递质及受体](../11/neurotransmitters-receptors.md)，下一讲：[神经元的被动膜特性及动作电位的发生与传播](../../../2024/02/11/nervous-system-develop-1.md)
+上一讲: [神经递质及受体](../11/neurotransmitters-receptors.md)，下一讲：[神经系统的发生与分化](../../../2024/02/11/development-of-nerve-system.md.md)
 
 ## 乙酰胆碱
 
