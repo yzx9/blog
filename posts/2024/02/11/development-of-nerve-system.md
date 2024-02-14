@@ -2,7 +2,7 @@
 date: 2024-02-11
 updated: 2024-02-13
 author: Yuan Zexin
-location: GDIIST, Zhuhai, Guangdong
+location: Guan Ze, Fu Jian, China
 tags:
   - Course
   - Neuron Science 2023
@@ -20,7 +20,7 @@ categories:
 
 上一讲：[神经递质及受体（二）](../../../2023/12/21/neurotransmitters-receptors-2.md)
 
-下一讲：[神经系统的发生与分化（一）](../13/nervous-system-develop-2.md)
+下一讲：[神经元的生成与发育](../14/development-of-neuron.md)
 
 ## 神经系统的早期发育
 
