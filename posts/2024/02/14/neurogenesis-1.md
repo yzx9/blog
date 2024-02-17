@@ -9,6 +9,7 @@ tags:
 categories:
   - Neuron Science
 ---
+
 # 神经元的生成
 
 神经科学第五讲，讲者：禹永春（复旦大学），主持人：朱筱娟教授（东北师范大学）。
@@ -19,7 +20,7 @@ categories:
 
 ![脑早期发育到脑功能之间仍存在需要探索的鸿沟](./assets/gap-between-neuron-and-function.png)
 
-上一讲：[神经系统的发生与分化](../11/development-of-nerve-system.md)
+上一讲：[神经系统的发生与分化](../11/development-of-nerve-system.md)，下一讲：[神经元的发育](../17/neurogenesis-2.md)
 
 ## 大脑皮层发育是一个高度调控的过程
 
@@ -216,3 +217,18 @@ bRGCs 细胞将 SVZ 分为 OSVZ 和 ISVZ 两个区域。
 ![神经胶质细胞的分化比例](./assets/gliocyte-generation-ratio.png)
 
 少突胶质细胞（oligodendrocytes, OLs）呈现三波产生的时空特征，第一波从 MGE/PoA(E12.5)产生，第二波从 LGE/CGE(E15.5) 产生，第三波从背侧 RGCs(E16.5)产生。值得注意的是，第三波产生时第一波产生的OLs大量凋亡，因此在成年时的 OLs 主要来源于第二和第三波，并且保留大量具有分裂能力少突胶质细胞的前体细胞（OPCS）。
+
+## References
+
+1. 《神经科学》韩济生主编（第4版）
+2. "Principles of Neural Science", E.R. Kandel主编（第六版）
+3. «Principles of Neurobiology» ,Liqun Luo主编（第二版）
+4. 《现代医学神经生物学》，段树民/徐天乐主编
+5. Kohwi M, Doe CQ. Temporal fate specification and neural progenitor competence during development. Nat Rev Neurosci. 2013, 14(12): 823-38.
+6. Wurst W, Bally-Cuif L. Neural plate patterning: upstream and downstream of the isthmic organizer. Nat Rev Neurosci. 2001, 2(2): 99-108.
+7. Gao P, Postiglione MPet al. Deterministic progenitor behavior and unitary production of neurons in the neocortex. Cell. 2014, 159(4): 775-88.
+8. Wang X, Tsai JW, et al. Asymmetric centrosome inheritance maintains neural progenitors in the neocortex. Nature. 2009, 461(7266): 947-55.
+9. Shao W, Yang J, He M, et al. Centrosome anchoring regulates progenitor properties and cortical formation. Nature. 2020, 580(7801): 106-12.
+10. Shen Z, Lin Y, et al. Distinct progenitor behavior underlying neocortical gliogenesis related to tumorigenesis. Cell Rep. 2021, 34(11): 108853.
+11. Koo B, Lee KH, Ming GL, et al. Setting the clock of neural progenitor cells during mammalian corticogenesis. Semin Cell Dev Biol. 2023, 142: 43-53.
+12. Lui JH, Hansen DV, Kriegstein AR. Development and evolution of the human neocortex. Cell, 2011, 146: 18-36.
