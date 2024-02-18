@@ -1,7 +1,7 @@
 ---
 title: "GAMES101: Ray Tracing"
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 date: 2021-11-30
 updated: 2021-12-14
 tags:

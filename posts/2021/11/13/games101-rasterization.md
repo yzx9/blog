@@ -1,7 +1,7 @@
 ---
 title: "GAMES101: Rasterization"
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 date: 2021-11-13
 updated: 2021-12-31
 tags:

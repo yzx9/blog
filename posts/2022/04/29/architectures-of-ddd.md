@@ -2,7 +2,7 @@
 date: 2022-04-29
 updated: 2022-04-29
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 tags:
   - Architecture
   - Software Engineering

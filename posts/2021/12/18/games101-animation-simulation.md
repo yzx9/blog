@@ -1,7 +1,7 @@
 ---
 title: "GAMES101: Animation and Simulation"
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 date: 2021-12-18
 updated: 2022-03-24
 tags:

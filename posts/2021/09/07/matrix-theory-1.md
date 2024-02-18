@@ -2,7 +2,7 @@
 date: 2021-09-07
 updated: 2021-09-07
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 tags:
   - Matrix Theory
 categories:

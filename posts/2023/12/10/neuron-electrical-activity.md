@@ -1,8 +1,8 @@
 ---
 date: 2023-12-10
 updated: 2023-12-10
-author: Yuan Zexin
-location: GDIIST, Zhuhai, Guangdong
+author: Zexin Yuan
+location: GDIIST, Zhu Hai, Guang Dong, China
 tags:
   - Course
   - Neuron Science 2023

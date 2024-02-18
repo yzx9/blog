@@ -1,7 +1,7 @@
 ---
 date: 2024-02-17
 updated: 2024-02-17
-author: Yuan Zexin
+author: Zexin Yuan
 location: Guan Ze, Fu Jian, China
 tags:
   - Course

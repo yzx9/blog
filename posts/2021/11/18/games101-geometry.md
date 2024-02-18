@@ -1,7 +1,7 @@
 ---
 title: "GAMES101: Geometry"
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 date: 2021-11-18
 updated: 2021-12-17
 tags:

@@ -2,7 +2,7 @@
 date: 2022-04-04
 updated: 2022-04-04
 author: Celeste
-location: Shanghai University, Shanghai
+location: Shanghai University, Shanghai, China
 tags:
   - Go
   - Concurrency
