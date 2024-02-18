@@ -18,7 +18,7 @@ categories:
 
 <!-- end -->
 
-上一讲：[神经递质及受体（二）](../../../2023/12/21/neurotransmitters-receptors-2.md)，下一讲：[神经元的生成与发育](../14/development-of-neuron.md)
+上一讲：[神经递质及受体（二）](../../../2023/12/21/neurotransmitters-receptors-2.md)，下一讲：[神经元的生成与发育](../14/neurogenesis-1.md)
 
 ## 神经系统的早期发育
 
