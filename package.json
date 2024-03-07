@@ -17,8 +17,8 @@
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
     "mermaid": "^10.6.1",
-    "vitepress": "1.0.0-rc.43",
+    "vitepress": "1.0.0-rc.45",
     "vitepress-plugin-mermaid": "^2.0.16",
-    "vitepress-theme-celesta": "^0.0.7"
+    "vitepress-theme-celesta": "^0.0.8"
   }
 }
