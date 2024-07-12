@@ -1,5 +1,13 @@
 ---
 date: 2024-07-02
+updated: 2024-07-02
+author: Zexin Yuan
+location: GDIIST, Zhu Hai, Guang Dong, China
+tags:
+  - Paper
+  - Software
+categories:
+  - Biology
 ---
 
 # ilastik 论文分享
